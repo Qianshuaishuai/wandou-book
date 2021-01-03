@@ -1,0 +1,54 @@
+/* pages/fans/fans.wxss */
+
+.top-page {
+  display: flex;
+  background-color: #38b08f;
+  height: 300rpx;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.popup-class {
+  display: flex;
+  flex-direction: column;
+}
+
+.img-class {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20rpx
+}
+
+.fans-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  height: 100rpx;
+  align-items: center;
+  border-bottom: 2rpx solid #eeeeee;
+}
+
+.fans-item .left{
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
+.fans-item .left .icon{
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.fans-item .left .name{
+  font-size: 28rpx;
+  color: #333333;
+  margin-left: 24rpx;
+}
+
+.fans-item .count{
+  font-size: 28rpx;
+  color: #333333;
+}

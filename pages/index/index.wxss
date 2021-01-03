@@ -1,0 +1,64 @@
+/**index.wxss**/
+swiper{
+  height: 450rpx;
+  width: 100%;
+}
+swiper image{
+  width: 100%;
+  height: 100%;
+}
+.btns{
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  height: 0rpx;
+  margin-bottom: 0rpx;
+}
+.btn1{
+  width: 60%;
+  background-color: #04B486;
+  color: white;
+  border-radius: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+}
+.btn2{
+  width: 60%;
+  border-radius: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+}
+button::after{ 
+	border: none; 
+}
+
+.hover{
+  background-color: #088A68;
+}
+
+.imgs{
+  margin-top: 100rpx;
+  width: 100%
+}
+
+.hotbook{
+  width: 100%;
+  white-space: nowrap;
+  flex-direction: row;
+  margin: 20rpx
+}
+
+.image{
+  width: 230rpx;
+  height: 300rpx;
+  margin-right: 30rpx
+}
+

@@ -1,0 +1,2 @@
+<view class="content">
+<text>{{dataString}}</text></view>

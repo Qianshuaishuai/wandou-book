@@ -1,0 +1,15 @@
+<view class="main">
+  <view class="top">
+    <view class="tip1">*</view>
+    <view class="tip2">提现金额</view>
+  </view>
+
+  <!-- <textarea class="content" bindinput="contentInput" placeholder="请输入提现金额"></textarea> -->
+
+  <!-- <view class="phone-tip">联系方式</view> -->
+  <input class="phone" type="number" bindinput="countInput" placeholder="请输入提现金额"></input>
+  <view class="tip-tip">注：提交申请后，会有工作人员进行审核并进行打款至对应微信账户，请留意！</view>
+  <view class="submit-view">
+    <button class="submit"  bindtap="submit">提交</button>
+  </view>
+</view>

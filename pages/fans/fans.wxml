@@ -1,0 +1,43 @@
+<view class="top-page">
+  <view>
+    <view style="text-align: center;color: #F2F2F2">代理数量</view>
+    <view style="text-align: center;font-size: 150rpx;color: white">{{fansCount}}</view>
+  </view>
+</view>
+<van-tabs active="{{ active }}" sticky animated>
+  <van-tab title="专属代理">
+    <view wx:for="{{exclusiveFansArray}}" wx:key="name">
+      <!-- <van-cell title="{{item.rwxName}}" size="large" bind:click="showPopup" /> -->
+      <view class="fans-item">
+        <view class="left">
+          <image class="icon" src="/assets/images/fans-icon.png"></image>
+            <view class="name">{{item.rwxName}}</view>
+        </view>
+        <view class="count">已收入{{item.income}}元</view>
+      </view>
+    </view>
+  </van-tab>
+  <van-tab title="普通代理">
+    <view wx:for="{{normalFansArray}}" wx:key="name">
+      <view class="fans-item">
+        <view class="left">
+          <image class="icon" src="/assets/images/fans-icon.png"></image>
+            <view class="name">{{item.rwxName}}</view>
+        </view>
+        <view class="count">已收入{{item.income}}元</view>
+      </view>
+    </view>
+  </van-tab>
+</van-tabs>
+<van-popup show="{{ show }}" bind:close="onClose" round closeable custom-style="height: 550rpx;width: 500rpx">
+  <view class="popup-class">
+    <view style="height: 300rpx;background-color: #38b08f;">
+      <view class="img-class">
+        <van-image round width="130rpx" height="130rpx" src="" />
+      </view>
+      <view style="text-align: center;color: white">
+
+      </view>
+    </view>
+  </view>
+</van-popup>

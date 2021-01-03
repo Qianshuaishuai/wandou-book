@@ -1,0 +1,2 @@
+<view class="content">
+<text space="ensp">{{dataString}}</text></view>

@@ -1,0 +1,38 @@
+<!-- index.wxml -->
+<!-- <scroll-view>
+  <view>
+    <view>
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <swiper-item>
+          <image src='/assets/images/1.jpg'></image>
+        </swiper-item>
+        <swiper-item>
+          <image src='/assets/images/2.jpg'></image>
+        </swiper-item>
+        <swiper-item>
+          <image src='/assets/images/3.jpg'></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view>
+      <view class="btns">
+        <view>
+          <button style="width:38vw" class="btn1" hover-class="hover" bindtap="scanCode">扫码卖书</button>
+        </view>
+        <view>
+          <button style="width:38vw" class="btn2" bindtap="searchBook">搜索卖书</button>
+        </view>
+      </view>
+      <image src='/assets/images/tip.png' mode="widthFix" class="imgs" bindtap="joinPartner"></image>
+      <view bindtap="hotBook">
+        <view style="margin-top: 30rpx;font-weight: 400;font-size: 38rpx;margin: 20rpx">回收热门书籍</view>
+        <!--热门商品展示-->
+        <!-- <scroll-view class="hotbook" scroll-x="true">
+          <image wx:for="{{ hotBookList }}"
+    wx:key="index" mode="scaleToFill" class="image" src="{{item.pic}}"></image>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</scroll-view> --> 
+<image style="width:{{showWidth}}px;height:{{showHeight}}px" src='/assets/images/main-show.png' bindtap="joinPartner"></image>

@@ -1,0 +1,7 @@
+<!--pages/money/money.wxml-->
+
+<view class="top-page">
+  <view style="font-size: 30rpx;color: #088A68;text-align: center">----账户余额(元)----</view>
+  <view class="cash">{{userInfo.balance}}</view>
+  <button class="btn" bindtap="drawal">余额提现</button>
+</view>

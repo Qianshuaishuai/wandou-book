@@ -1,0 +1,214 @@
+.user-page {
+  flex-direction: column;
+}
+
+.top-page {
+  background-color: #38b08f;
+  height: 300rpx;
+}
+
+.user-image {
+  height: 100rpx;
+  width: 100rpx;
+}
+
+.user-imagesize {
+  display: flex;
+  height: 280rpx;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.grey-space {
+  background-color: #e6e6e6;
+  height: 15rpx;
+}
+
+.phone-class {
+  color: #848484;
+  text-align: center;
+  margin-top: 40rpx;
+  font-size: 25rpx;
+}
+
+.loginPopup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tips-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+}
+
+.tips-btn {
+  display: flex;
+  flex-direction: row;
+  padding: 0rpx 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.loginBtn1 {
+  width: 300rpx;
+  height: 125rpx;
+}
+
+.loginBtn2 {
+  width: 300rpx;
+  height: 125rpx;
+  color: #210b61;
+}
+
+.tips{
+  text-align: center;
+  margin-top: 40rpx
+}
+
+.top{
+  width: 100%;
+  height: 420rpx;
+  background: #38b08f;
+  padding: 0rpx 48rpx;
+}
+
+.top .title{
+  font-size: 36rpx;
+  color:#ffffff;
+}
+
+.top .info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 28rpx;
+}
+
+.top .info .head{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 75rpx;
+}
+
+.top .info .name{
+  margin-left: 46rpx;
+  color: #ffffff;
+  font-size: 32rpx;
+}
+
+page{
+  position: relative;
+  box-sizing: border-box;
+  background: #f6f6f4;
+}
+
+.order{
+  width: calc(100% - 96rpx);
+  height: 303rpx;
+  position: absolute;
+  top: 350rpx;
+  background: #ffffff;
+  border-radius: 18rpx;
+  margin:0rpx 48rpx;
+}
+
+.order .tool{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 36rpx 36rpx;
+}
+
+.order .diviler{
+  width: 100%;
+  height: 1rpx;
+  background: #d9d9d9;
+}
+
+.order .list{
+  margin-top: 48rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 36rpx;
+  margin-right: 36rpx;
+}
+
+.order .list .item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.order .list .item .icon{
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.order .list .item .tip{
+  color: #595959;
+  margin-top: 26rpx;
+  font-size: 26rpx;
+}
+
+.mache{
+  width: calc(100% - 96rpx);
+  height: 458rpx;
+  position: absolute;
+  top: 675rpx;
+  background: #ffffff;
+  border-radius: 18rpx;
+  margin: 0rpx 48rpx;
+}
+
+.mache .tool{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 36rpx 36rpx;
+}
+
+.mache .diviler{
+  width: 100%;
+  height: 1rpx;
+  background: #d9d9d9;
+}
+
+.mache .list{
+  margin-top: 48rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 36rpx;
+  margin-right: 36rpx;
+}
+
+.mache .list .item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mache .list .item .icon{
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.mache .list .item .tip{
+  color: #595959;
+  margin-top: 26rpx;
+  font-size: 26rpx;
+  min-width: 100rpx;
+  text-align: center;
+}

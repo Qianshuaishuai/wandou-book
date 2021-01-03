@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/poster/poster",
+    "pages/sellbook/sellbook",
+    "pages/users/users",
+    "pages/sellList/sellList",
+    "pages/search/search",
+    "pages/history/history",
+    "pages/money/money",
+    "pages/rule/rule",
+    "pages/fans/fans",
+    "pages/partner/partner",
+    "pages/hotBookRank/hotBookRank",
+    "pages/drawal/drawal",
+    "pages/order/order",
+    "pages/detail/detail",
+    "pages/question/question",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "豌豆书单",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#04B486",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "assets/images/show-icon1-normal.png",
+        "selectedIconPath": "assets/images/show-icon1-selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/sellbook/sellbook",
+        "iconPath": "assets/images/show-icon2-normal.png",
+        "selectedIconPath": "assets/images/show-icon2-selected.png",
+        "text": "卖书"
+      },
+      {
+        "pagePath": "pages/users/users",
+        "iconPath": "assets/images/show-icon3-normal.png",
+        "selectedIconPath": "assets/images/show-icon3-selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-notice-bar": "miniprogram_npm/@vant/weapp/notice-bar/index",
+    "van-divider": "miniprogram_npm/@vant/weapp/divider/index",
+    "van-collapse": "miniprogram_npm/@vant/weapp/collapse/index",
+    "van-collapse-item": "miniprogram_npm/@vant/weapp/collapse-item/index",
+    "van-icon": "miniprogram_npm/@vant/weapp/icon/index",
+    "van-image": "miniprogram_npm/@vant/weapp/image/index",
+    "van-cell": "miniprogram_npm/@vant/weapp/cell/index",
+    "van-cell-group": "miniprogram_npm/@vant/weapp/cell-group/index",
+    "van-search": "miniprogram_npm/@vant/weapp/search/index",
+    "van-popup": "miniprogram_npm/@vant/weapp/popup/index",
+    "van-submit-bar": "miniprogram_npm/@vant/weapp/submit-bar/index",
+    "van-tab": "miniprogram_npm/@vant/weapp/tab/index",
+    "van-tabs": "miniprogram_npm/@vant/weapp/tabs/index",
+    "van-card": "miniprogram_npm/@vant/weapp/card/index",
+    "van-swipe-cell": "miniprogram_npm/@vant/weapp/swipe-cell/index"
+  },
+  "sitemapLocation": "sitemap.json"
+}

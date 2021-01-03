@@ -1,0 +1,393 @@
+.scrolltxt {
+  padding: 0 20rpx;
+  background: #f8f8f8;
+}
+
+.marquee_box {
+  position: relative;
+  color: #333;
+  height: 90rpx;
+  display: block;
+  overflow: hidden;
+}
+
+.input-detail {
+  padding-left: 12rpx;
+  padding-right: 12rpx;
+  padding-top: 16rpx;
+  padding-bottom: 16rpx;
+}
+
+.marquee_text {
+  white-space: nowrap;
+  position: absolute;
+  top: 0;
+  font-size: 28rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.icon {
+  height: 70rpx;
+  width: 70rpx;
+}
+
+.tag-style {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-style {
+  flex-direction: column;
+  margin-top: 30rpx;
+  margin-left: 80rpx;
+  font-weight: bold;
+}
+
+.page {
+  flex-direction: column;
+}
+
+.imagess {
+  margin-top: 0rpx;
+  height: 160rpx;
+  width: 160rpx;
+  margin-right: 10rpx;
+}
+
+.btn-view {
+  width: 100%;
+  padding: 20rpx 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.btn::after {
+  border: none;
+}
+
+.btn {
+  width: 50%;
+  height: 90rpx;
+  margin-top: 20rpx;
+  background-color: #38b08f;
+  color: white;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.list {
+  margin-bottom: 150rpx;
+}
+
+.placeholder-view {
+  width: 100%;
+  height: 150rpx;
+}
+
+.ISBN {
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  text-align: center;
+  color: #848484;
+}
+
+.btnImg {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+
+.pop-class {
+  flex-direction: column;
+}
+
+.codeImg {
+  width: 300rpx;
+  height: 150rpx;
+  margin-left: 150rpx;
+  margin-top: 30rpx;
+}
+
+.input-class {
+  width: 450rpx;
+  border-radius: 10rpx;
+  margin-left: 75rpx;
+  margin-top: 20rpx;
+  background-color: #f2f2f2;
+}
+
+.btn2 {
+  background-color: #38b08f;
+  color: white;
+  width: 200rpx;
+  height: 70rpx;
+  margin-left: 200rpx;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.btn2::after {
+  border: none;
+}
+
+.page {
+  background: #f5f5f5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top {
+  position: fixed;
+  top: 0rpx;
+  width: 100%;
+  height: 290rpx;
+  background: #38b08f;
+  z-index: 1;
+}
+
+.top .title {
+  font-size: 36rpx;
+  margin-left: 30rpx;
+  padding-top: 60rpx;
+  color:#ffffff;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  z-index: 98;
+  margin-top: 150rpx;
+  margin-bottom: 0rpx;
+}
+
+.list .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 694rpx;
+  height: 233rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.list .item .number {
+  color: #dfdfdf;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-left: 14rpx;
+}
+
+.list .item .tip {
+  margin-left: 23rpx;
+  font-size: 26rpx;
+  color: #2d2d2d;
+}
+
+.list .item .icon {
+  margin-left: 60rpx;
+  width: 201rpx;
+  height: 162rpx;
+}
+
+.list .item .desc {
+  margin-left: 50rpx;
+  font-size: 30rpx;
+  color: #2d2d2d;
+  width: 130rpx;
+  text-align: center;
+}
+
+.button {
+  margin-top: 22rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 694rpx;
+  align-self: center;
+}
+
+.button .item {
+  width: 324rpx;
+  height: 66rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 33rpx;
+  background: #38b08f;
+}
+
+.button .item .icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.button .item .name {
+  font-size: 26rpx;
+  color: #2d2d2d;
+  margin-left: 20rpx;
+}
+
+.bottom {
+  width: 100%;
+  height: 388rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 99;
+}
+
+.bottom .tip {
+  margin-top: 31rpx;
+  margin-bottom: 31rpx;
+  font-size: 26rpx;
+  color: #2d2d2d;
+  margin-left: 68rpx;
+  align-self: start;
+}
+
+.bottom .rule {
+  width: 100%;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #ea7a72;
+  background: #feefec;
+}
+
+.bottom .buy-car {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 694rpx;
+  justify-content: space-between;
+  margin-top: 25rpx;
+  margin-bottom: 25rpx;
+  z-index: 99;
+}
+
+.bottom .buy-car .left {
+  display: flex;
+  flex-direction: column;
+}
+
+.bottom .buy-car .left .count {
+  font-size: 30rpx;
+  color: #2d2d2d;
+}
+
+.bottom .buy-car .left .price {
+  font-size: 20rpx;
+  color: #8c8c8c;
+  margin-top: 23rpx;
+}
+
+.bottom .buy-car .right .submit {
+  width: 138rpx;
+  height: 72rpx;
+  background: #eaeaea;
+  text-align: center;
+  line-height: 72rpx;
+  border-radius: 30rpx;
+  font-size: 26rpx;
+  color: #5b5b5b;
+}
+
+.bottom .diviler {
+  background: #f8f8f8;
+  height: 4rpx;
+  width: 100%;
+}
+
+/* ____ */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  z-index: 98;
+  margin-top: 150rpx;
+  margin-bottom: 450rpx;
+}
+
+.list .book-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 694rpx;
+  height: 233rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-bottom: 30rpx;
+  position: relative;
+}
+
+.list .book-item .cover {
+  width: 185rpx;
+  height: 218rpx;
+  margin-left: 18rpx;
+  margin-right: 12rpx;
+}
+
+.list .book-item .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.list .book-item .content .name {
+  font-size: 28rpx;
+  color: #1c1c1c;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: 68rpx;
+  max-width: 400rpx;
+}
+
+.list .book-item .content .tip {
+  font-size: 22rpx;
+  color: #6d6d6d;
+  margin-top: 74rpx;
+}
+
+.list .book-item .content .price {
+  margin-top: 6rpx;
+  color: #38b08f;
+  font-size: 28rpx;
+}
+
+.list .book-item  .count {
+  position: absolute;
+  bottom: 18rpx;
+  right: 24rpx;
+}
+
+.list .book-item .icon {
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  top: 18rpx;
+  right: 18rpx;
+}

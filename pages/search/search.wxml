@@ -1,0 +1,10 @@
+<view class="search-page">
+  <view class="search-page">
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" background="#04B486" show-action bind:search="onSearch" bind:cancel="onCancel" bind:change="onChange" clearable shape="round" cancel-class="cancel-class" />
+  </view>
+</view>
+<scroll-view>
+  <view wx:for="{{bookList}}" wx:key="name" wx:index="index">
+    <van-card price="{{item.price}}" desc="回收价" title="{{item.name}}" thumb="{{item.pic}}" bindtap="addCar" data-index="{{index}}" />
+  </view>
+</scroll-view>

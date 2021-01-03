@@ -1,0 +1,29 @@
+/* pages/money/money.wxss */
+
+.top-page {
+  display: flex;
+  background-color: #38b08f;
+  height: 400rpx;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.cash {
+  color: white;
+  font-size: 60rpx;
+  text-align: center;
+  font-weight: bold;
+}
+
+.btn {
+  background-color: #088a68;
+  color: white;
+  width: 50%;
+  height: 90rpx;
+  margin-top: 20rpx;
+  border-radius: 98rpx;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}

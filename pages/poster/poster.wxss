@@ -1,0 +1,35 @@
+/* pages/poster/poster.wxss */
+.img{
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+}
+
+.content{
+  z-index: 2;
+  position: fixed;
+  width: 564rpx;
+  height: 504rpx;
+  bottom: 48rpx;
+  left: 50%;
+  margin-left: -282rpx;
+}
+
+.code{
+  z-index: 999;
+  position: fixed;
+  width: 250rpx;
+  height: 250rpx;
+  left: 55%;
+  top: 90rpx;
+}
+
+.icon{
+  position: fixed;
+  left: 63.5%;
+  z-index: 9999;
+  top: 156rpx;
+}

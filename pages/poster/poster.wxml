@@ -1,0 +1,6 @@
+<!--pages/poster/poster.wxml-->
+<!-- <image class="content" src="/assets/images/new-share-content.jpeg"></image> -->
+<image class="img" src="/assets/images/share-bg.jpeg"></image>
+<image class="code" src="{{userInfo.code}}"></image>
+
+<van-image class="icon" round width="124rpx" height="124rpx" src="{{userWxInfo.avatarUrl}}" />

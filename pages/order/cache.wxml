@@ -1,0 +1,55 @@
+<view class="background">
+  <view class="tab">
+    <view class="block" bindtap="changeStatus" data-index="1" wx:if="{{currentStatus != 1}}">
+      <view class="item">待取件</view>
+      <view class="item-div"></view>
+    </view>
+    <view class="block-select" wx:if="{{currentStatus == 1}}">
+      <view class="item">待取件</view>
+      <view class="item-div"></view>
+    </view>
+    <view class="block" bindtap="changeStatus" data-index="2" wx:if="{{currentStatus != 2}}">
+      <view class="item">待审核</view>
+      <view class="item-div"></view>
+    </view>
+    <view class="block-select" wx:if="{{currentStatus == 2}}">
+      <view class="item">待审核</view>
+      <view class="item-div"></view>
+    </view>
+    <view class="block" bindtap="changeStatus" data-index="3" wx:if="{{currentStatus != 3}}">
+      <view class="item">审核完毕</view>
+      <view class="item-div"></view>
+    </view>
+    <view class="block-select" wx:if="{{currentStatus == 3}}">
+      <view class="item">审核完毕</view>
+      <view class="item-div"></view>
+    </view>
+  </view>
+  <view class="list">
+    <view class="item" wx:for="{{ currentOrder }}" wx:for-item="order">
+      <view class="top">
+      订单编号:{{order.orderNumber}}
+      </view>
+      <view class="top">
+        <view class="status">状态:{{statuses[order.status]}}</view>
+        <view class="time">{{order.createTime}}</view>
+      </view>
+      <view class="divler"></view>
+      <view class="book-item" wx:for="{{ order.orderBooks }}" wx:for-item="book">
+        <view class="name">{{book.book.name}}</view>
+        <view class="name">*{{book.count}}</view>
+        <view class="price" wx:if="{{order.ontTimePrice != 1 && currentStatus == 3 && book.isRefund == 0}}">实际价:{{book.realPrice}}元</view>
+        <view class="price" wx:if="{{order.ontTimePrice != 1 && currentStatus == 3 && book.isRefund == 1}}">已拒收</view>
+        <!-- <view wx:if="currentStatus == 2" class="name">  {{book.realPrice}}</view> -->
+      </view>
+      <view class="divler"></view>
+      <view class="address">联系人:{{order.contractName}}</view>
+      <view class="address">联系方式:{{order.contractPhone}}</view>
+      <view class="address">回收地址:{{order.address.address}}</view>
+      <view class="divler"></view>
+      <view class="price" wx:if="{{currentStatus != 3}}">预估价格:{{order.price}}元</view>
+      <view class="price" wx:if="{{currentStatus == 3}}">实际价格:{{order.finalPrice}}元</view>
+      <view></view>
+    </view>
+  </view>
+</view>

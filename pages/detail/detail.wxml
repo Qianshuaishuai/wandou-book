@@ -1,0 +1,115 @@
+<view class="main">
+  <view class="top">
+    <view class="status">{{currentStatus}}</view>
+    <view class="number">订单号：{{orderData.orderNumber}}</view>
+  </view>
+
+  <view class="address">
+    <image class="icon" src="/assets/images/address.png"></image>
+
+    <view class="right">
+      <view class="first">
+        <view class="name">{{orderData.contractName}}</view>
+        <view class="phone">{{orderData.contractPhone}}</view>
+      </view>
+      <view class="detail" wx:if="{{orderData.contractAddress == ''}}">暂无地址信息</view>
+      <view class="detail" wx:if="{{orderData.contractAddress != ''}}"><p style="color:#38b08f">({{currentCity}})</p>{{orderData.contractAddress}}</view>
+    </view>
+  </view>
+
+  <view class="simple" wx:if="{{orderData.wlNumber != ''}}">
+    <view class="item">
+      <view class="tip">取件时间</view>
+      <view class="data">{{orderData.wlTime}}</view>
+    </view>
+    <view class="item" style="margin-top:43rpx;">
+      <view class="tip">快递公司</view>
+      <view class="data">京东物流</view>
+    </view>
+    <view class="item" style="margin-top:43rpx;">
+      <view class="tip">快递单号</view>
+      <view class="data">{{orderData.wllNumber}}</view>
+    </view>
+  </view>
+
+  <view class="list">
+    <view class="item" wx:for="{{ orderData.orderBooks }}" wx:for-item="data" wx:key="index">
+      <image class="icon" wx:if="{{data.book.pic==''}}" src="/assets/images/default_book.png"></image>
+      <image class="icon" wx:if="{{data.book.pic!=''}}" src="{{data.book.pic}}"></image>
+      <view class="right">
+        <view class="name">
+          {{data.book.name}}
+        </view>
+        <view class="middle">
+          <view class="detail" wx:if="{{data.book.isRefund == 0&&(data.quality=='0'||data.quality=='')}}">
+            暂无审核消息
+          </view>
+          <view style="color:#ff0000;font-size:28rpx" class="detail" wx:if="{{data.book.isRefund == 0&&(data.quality!='0'&&data.quality!='')}}">
+            品相:{{data.quality}}
+          </view>
+          <view style="color:#ff0000;font-size:28rpx" class="detail" wx:if="{{data.book.isRefund == 1}}">
+            此书已拒收
+          </view>
+          <view class="count">x{{data.count}}</view>
+        </view>
+        <view class="bottom">
+          <view class="price">
+            <view class="tip">预估价:
+            </view>
+            <view class="data">¥ {{data.book.price}}
+            </view>
+          </view>
+          <view class="real-price" wx:if="{{orderData.ontTimePrice == 0}}">
+            <view class="tip">审核价:
+            </view>
+            <view class="data" wx:if="{{data.isRefund == 0 && orderData.status==4}}">¥ {{data.realPrice}}
+            </view>
+            <view class="data" wx:if="{{data.isRefund == 1 && orderData.status==4}}">被拒收
+            </view>
+            <view class="data" wx:if="{{orderData.status<4}}">待审核
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="box1">
+    <view class="item">
+      <view class="tip">商品数量</view>
+      <view class="data">{{orderData.count}}本</view>
+    </view>
+    <view class="item" style="margin-top:46rpx;">
+      <view class="tip">预估价格</view>
+      <view class="data" style="color:#c19e68">¥{{orderData.price}}</view>
+    </view>
+  </view>
+  <view class="box2">
+    <view class="item">
+      <view class="tip">实际收入</view>
+      <view class="data" wx:if="{{orderData.finalPrice == 0}}">待审核</view>
+      <view class="data" wx:if="{{orderData.finalPrice != 0}}">¥{{orderData.finalPrice}}</view>
+    </view>
+  </view>
+
+  <view class="box3">
+    <view class="item" style="margin-top:0rpx;">
+      <view class="tip">订单编号：</view>
+      <view class="data">{{orderData.orderNumber}}</view>
+    </view>
+    <view class="item" wx:if="{{orderData.wlNumber!=''}}">
+      <view class="tip">京东物流初审通过：</view>
+      <view class="data">{{orderData.wlTime}}</view>
+    </view>
+    <view class="item">
+      <view class="tip">创建订单：</view>
+      <view class="data" wx:if="{{orderData.createTime == '' || orderData.createTime == '0001-01-01 00:00:00'}}">暂无信息</view>
+      <view class="data" wx:if="{{orderData.createTime != '' && orderData.createTime != '0001-01-01 00:00:00'}}">{{orderData.createTime}}</view>
+    </view>
+    <view class="item">
+      <view class="tip">审核时间：</view>
+      <view class="data" wx:if="{{orderData.completeTime == '' || orderData.completeTime == '0001-01-01 00:00:00'}}">暂未审核完毕</view>
+      <view class="data" wx:if="{{orderData.completeTime != '' && orderData.completeTime != '0001-01-01 00:00:00'}}">{{orderData.completeTime}}</view>
+    </view>
+  </view>
+</view>

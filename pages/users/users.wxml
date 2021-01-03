@@ -1,0 +1,76 @@
+<view class="top">
+  <view class="title" style="padding-top:{{statusBarHeight+8}}px">我的</view>
+  <view class="info">
+    <image src="{{userInfo.avatarUrl}}" class="head"></image>
+    <view class="name">{{userInfo.nickName}}</view>
+  </view>
+</view>
+
+<view class="order">
+  <view class="tool">
+    <view class="tip" style="color:#262626;font-size:26rpx;">我的卖书订单</view>
+    <view class="all" style="color:#8c8c8c;font-size:26rpx;" bindtap="goToOrder" data-index="0">查看全部></view>
+  </view>
+  <view class="diviler"></view>
+  <view class="list">
+    <view class="item" bindtap="goToOrder" data-index="1">
+      <image src="/assets/images/my-icon6.png" class="icon"></image>
+      <view class="tip">待确认</view>
+    </view>
+    <view class="item" bindtap="goToOrder" data-index="2">
+    <image src="/assets/images/my-icon7.png" class="icon"></image>
+    <view class="tip">待取件</view>
+  </view>
+  <view class="item" bindtap="goToOrder" data-index="3">
+    <image src="/assets/images/my-icon5.png" class="icon"></image>
+    <view class="tip">待审核</view>
+  </view>
+  <view class="item" bindtap="goToOrder" data-index="4">
+    <image src="/assets/images/my-icon10.png" class="icon"></image>
+    <view class="tip">审核完毕</view>
+  </view>
+  </view>
+</view>
+
+<view class="mache">
+  <view class="tool">
+    <view class="tip" style="color:#262626;font-size:26rpx;">我的工具</view>
+  </view>
+  <view class="diviler"></view>
+  <view class="list">
+    <view class="item" bindtap="phone">
+      <image src="/assets/images/my-icon4.png" class="icon"></image>
+      <view class="tip">联系客服</view>
+    </view>
+    <view class="item" bindtap="goToQuestion">
+    <image src="/assets/images/my-icon1.png" class="icon"></image>
+    <view class="tip">常见问题</view>
+  </view>
+  <view class="item" bindtap="goToFans">
+    <image src="/assets/images/my-icon9.png" class="icon"></image>
+    <view class="tip">我的代理</view>
+  </view>
+  <view class="item" bindtap="goToBalance">
+    <image src="/assets/images/my-icon3.png" class="icon"></image>
+    <view class="tip">我的余额</view>
+  </view>
+  </view>
+  <view class="list">
+    <view class="item" bindtap="goToPartner">
+      <image src="/assets/images/my-icon8.png" class="icon"></image>
+      <view class="tip">合伙人</view>
+    </view>
+     <view class="item" bindtap="goToAbout">
+      <image style="width:21rpx;height:48rpx;" src="/assets/images/my-icon2.png" class="icon"></image>
+      <view class="tip">关于我们</view>
+    </view>
+    <view class="item" bindtap="goToRule">
+      <image src="/assets/images/rule.png" class="icon"></image>
+      <view class="tip">回收规则</view>
+    </view>
+    <view class="item">
+      <image src="/assets/images/notice.png" class="icon"></image>
+      <view class="tip">消息通知</view>
+    </view>
+  </view>
+</view>

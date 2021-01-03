@@ -1,0 +1,44 @@
+<!-- <scroll-view>
+  <view style="text-align: center; font-size: 40rpx; font-weight: bold;margin-top: 20rpx">欢迎成为豌豆书单的合伙人</view>
+  <view style="margin-top: 20rpx;margin-left: 40rpx">校园环保大使推广活动推广员开始招募啦！</view>
+  <view style="margin-top: 10rpx;line-height: 60rpx;margin-left: 40rpx;margin-right: 40rpx">
+    <text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您可以通过生成朋友圈海报等方式推广小程序，您的朋友在卖书给豌豆书单后您可以得到相应的佣金。</text>
+  </view>
+  <view style="margin-top: 10rpx;margin-left: 40rpx">一、图片关系图：</view>
+  <view class="img-class">
+    <image src="/assets/images/processImg.png" style="width: 400rpx;height: 400rpx"></image>
+  </view>
+  <view style="margin-top: 20rpx;margin-left: 40rpx">
+    二、您可获得的收益为：
+  </view> 
+  <view style="margin-top: 20rpx;margin-left: 40rpx">
+    B，C卖书收益的5%
+  </view>
+  <view style="margin-top: 20rpx;margin-left: 40rpx">
+    B1，C1卖书收益的3%
+  </view>
+  <view style="margin-top: 20rpx;margin-left: 40rpx">
+    A = ( B + C ) * 5% + ( B1 + C1 ) * 3%
+  </view>
+  <view style="margin-top: 50rpx;margin-left: 40rpx">
+    该合伙人关系永久存在
+  </view>
+  <view style="margin-top: 10rpx;margin-left: 40rpx;line-height: 60rpx;margin-right: 40rpx">
+    每一次您的朋友卖书或您朋友的朋友卖书您都可以获得相应佣金
+  </view>
+  <van-divider customStyle="border-color: #04b486;font-size: 18px;margin-left: 40rpx;margin-right: 40rpx" />
+  <view style="margin-left: 40rpx;margin-right: 40rpx;font-weight: bold">
+    规则声明：
+  </view>
+  <view style="margin-top: 10rpx;margin-left: 40rpx;line-height: 60rpx;margin-right: 40rpx">
+    推广佣金需在书籍审核订单完成后发放至账户余额 
+  </view>
+  <button class='btn' style="text-align:center" bindtap="yeildImg">
+    生成朋友圈海报
+  </button>
+  <view style="height: 200rpx"></view>
+</scroll-view> -->
+<image style="width:{{showWidth}}px;height:{{showHeight}}px" src='/assets/images/detail-show.jpg'></image>
+<button class='btn-new' style="text-align:center" bindtap="yeildImg">
+  生成朋友圈海报
+</button>

@@ -1,0 +1,36 @@
+<scroll-view>
+  <van-cell is-link title="了解更多回收规则" link-type="navigateTo" url="/pages/rule/rule" />
+  <view wx:if="{{!showModal}}" wx:for="{{carBookList}}" wx:key="name" wx:index="index">
+    <van-swipe-cell right-width="{{ 65 }}">
+      <van-card num="{{item.num}}" price="{{item.price}}" desc="回收价" title="{{item.name}}" thumb="{{item.pic}}" />
+      <view slot="right" bindtap="deleteItem" data-index="{{index}}" style="background-color: red;color: white" class="right-class">删除</view>
+    </van-swipe-cell>
+  </view>
+  <view class="mask" wx:if="{{showModal}}">
+    <view class="modal" wx:if="{{showModal}}">
+      <view class="tip">请选择你所在区域，并完成详细地址填写</view>
+      <view class="diviler"></view>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <radio class="radio" wx:for-items="{{citys}}" wx:for-index="index" value="{{item.id}}" wx:key="name" checked="{{currentAddress === index }}">
+          <view class="content">
+            <text class="address">{{item.name}}</text>
+          </view>
+        </radio>
+      </radio-group>
+      <view class="tip" style="margin-top:24rpx;">详细地址</view>
+      <input class="name" bindinput="changeAddress" style="text-align:center;margin:0rpx 30rpx;border-bottom: 1px solid #8c8c8c;"></input>
+      <view class="tip" style="margin-top:24rpx;">姓名</view>
+      <input class="name" bindinput="changeName" style="text-align:center;margin:0rpx 30rpx;border-bottom: 1px solid #8c8c8c;"></input>
+      <view class="tip" style="margin-top:24rpx;">联系方式</view>
+      <input class="phone" bindinput="changePhone" style="text-align:center;margin:0rpx 30rpx;border-bottom: 1px solid #8c8c8c;"></input>
+
+      <button class="button" bindtap="commit">完成</button>
+    </view>
+  </view>
+</scroll-view>
+<view class='list'>
+  <view class='li' wx:for='{{list}}' wx:key=''>{{item}}</view>
+</view>
+<view class='placeholder-view'></view>
+<van-submit-bar style="background:#123456" price="{{ allPrice * 100 }}" button-text="提交订单" bindtap="submit" />
+<view class="count">总共:{{currentBookCount}}本书</view>
