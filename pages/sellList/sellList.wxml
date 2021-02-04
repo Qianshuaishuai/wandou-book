@@ -8,24 +8,74 @@
   </view>
   <view class="mask" wx:if="{{showModal}}">
     <view class="modal" wx:if="{{showModal}}">
-      <view class="tip">请选择你所在区域，并完成详细地址填写</view>
+      <view class="tip">请点击选择你所在区域，并完成详细地址填写</view>
       <view class="diviler"></view>
-      <radio-group class="radio-group" bindchange="radioChange">
-        <radio class="radio" wx:for-items="{{citys}}" wx:for-index="index" value="{{item.id}}" wx:key="name" checked="{{currentAddress === index }}">
-          <view class="content">
-            <text class="address">{{item.name}}</text>
+       <view class="section" style="margin-left:30rpx">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker" wx:if="{{province == ''}}">
+            请先选择你当前的区域
           </view>
-        </radio>
-      </radio-group>
-      <view class="tip" style="margin-top:24rpx;">详细地址</view>
+          <view class="picker" wx:if = "{{province != ''}}">
+            你的区域为: {{province}} {{city}} {{district}}
+          </view>
+        </picker>
+      </view>
+      <view class="tip" style="margin-top:24rpx;">详细地址(地址务必填写完整省市区+详细地址否则将导致无法取件)</view>
       <input class="name" bindinput="changeAddress" style="text-align:center;margin:0rpx 30rpx;border-bottom: 1px solid #8c8c8c;"></input>
       <view class="tip" style="margin-top:24rpx;">姓名</view>
       <input class="name" bindinput="changeName" style="text-align:center;margin:0rpx 30rpx;border-bottom: 1px solid #8c8c8c;"></input>
       <view class="tip" style="margin-top:24rpx;">联系方式</view>
       <input class="phone" bindinput="changePhone" style="text-align:center;margin:0rpx 30rpx;border-bottom: 1px solid #8c8c8c;"></input>
+      <view class="tip" style="margin-top:24rpx;">请选择收货起始时间</view>
+      <view class="time-select">
+        <view class="section">
+          <picker mode="date" value="{{date}}" start="2020-09-01" end="2023-09-01" bindchange="bindDateChangeForStart">
+            <view class="picker" wx:if="{{startDate == '' }}">
+              请点击选择日期: {{startDate}}
+            </view>
+            <view class="picker" wx:if="{{startDate != '' }}">
+              {{startDate}}
+            </view>
+          </picker>
+        </view>
 
-      <button class="button" bindtap="commit">完成</button>
+        <view class="section" style="margin-left:30px">
+          <picker mode="time" value="{{time}}" start="09:00" end="19:00" bindchange="bindTimeChangeForStart">
+            <view class="picker" wx:if="{{startTime == '' }}">
+              请点击选择时间: {{startTime}}
+            </view>
+            <view class="picker" wx:if="{{startTime != '' }}">
+              {{startTime}}
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="tip" style="margin-top:24rpx;">请选择收货结束时间</view>
+      <view class="time-select" style="margin-bottom:48rpx;">
+        <view class="section">
+          <picker mode="date" value="{{date}}" start="2020-09-01" end="2023-09-01" bindchange="bindDateChangeForEnd">
+            <view class="picker" wx:if="{{endDate == '' }}">
+              请点击选择日期: {{endDate}}
+            </view>
+            <view class="picker" wx:if="{{endDate != '' }}">
+              {{endDate}}
+            </view>
+          </picker>
+        </view>
+
+        <view class="section" style="margin-left:30px">
+          <picker mode="time" value="{{time}}" start="09:00"   end="19:00"  bindchange="bindTimeChangeForEnd">
+            <view class="picker" wx:if="{{endTime == '' }}">
+              请点击选择时间: {{endTime}}
+            </view>
+            <view class="picker" wx:if="{{endTime != '' }}">
+              {{endTime}}
+            </view>
+          </picker>
+        </view>
+      </view>
     </view>
+    <view class="button" bindtap="commit">完成</view>
   </view>
 </scroll-view>
 <view class='list'>

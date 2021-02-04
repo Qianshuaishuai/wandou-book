@@ -16,7 +16,8 @@
     "pages/order/order",
     "pages/detail/detail",
     "pages/question/question",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/track/track"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -8,13 +8,30 @@ Page({
     showModal: false,
     carBookList: [],
     addresses: [],
-    citys: [{ id: 1, name: "浙江" }, { id: 2, name: "安徽" }, { id: 3, name: "江苏" }],
+    citys: [{
+      id: 1,
+      name: "浙江"
+    }, {
+      id: 2,
+      name: "安徽"
+    }, {
+      id: 3,
+      name: "江苏"
+    }],
     currentAddress: 0,
     currentAddressId: 1,
-    currentBookCount:0,
+    currentBookCount: 0,
     phoneStr: "",
     nameStr: "",
     addressStr: "",
+    startTime: "",
+    startDate: "",
+    endTime: "",
+    endDate: "",
+    region:[],
+    province:"",
+    city:"",
+    district:"",
     allPrice: 0.0, //总价，单位：分
     // bookInfo: [{ 
     //   name: "算计",
@@ -60,6 +77,40 @@ Page({
     // }]
   },
 
+  bindRegionChange(event){
+      var values = event.detail.value
+
+      this.setData({
+        province: values[0],
+        city: values[1],
+        district: values[2]
+      })
+  },
+
+  bindTimeChangeForStart(event) {
+    this.setData({
+      startTime: event.detail.value
+    })
+  },
+
+  bindTimeChangeForEnd(event) {
+    this.setData({
+      endTime: event.detail.value
+    })
+  },
+
+  bindDateChangeForStart(event) {
+    this.setData({
+      startDate: event.detail.value
+    })
+  },
+
+  bindDateChangeForEnd(event) {
+    this.setData({
+      endDate: event.detail.value
+    })
+  },
+
   changePhone(e) {
     this.setData({
       phoneStr: e.detail.value
@@ -72,7 +123,7 @@ Page({
     })
   },
 
-  changeAddress(e){
+  changeAddress(e) {
     this.setData({
       addressStr: e.detail.value
     })
@@ -101,6 +152,58 @@ Page({
     var nameStr = this.data.nameStr
     var addressStr = this.data.addressStr
 
+    var startDate = this.data.startDate
+    var startTime = this.data.startTime
+    var endDate = this.data.endDate
+    var endTime = this.data.endTime
+
+    var province  = this.data.province
+
+    if (province == "") {
+      wx.showToast({
+        title: '请先选择你的区域信息',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
+    if (startDate == "") {
+      wx.showToast({
+        title: '请先选择收货起始日期',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
+    if (startTime == "") {
+      wx.showToast({
+        title: '请先选择收货起始时间',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
+    if (endDate == "") {
+      wx.showToast({
+        title: '请先选择收货结束日期',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
+    if (endTime == "") {
+      wx.showToast({
+        title: '请先选择收货结束时间',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
     if (addressStr == "") {
       wx.showToast({
         title: '详细地址不能为空',
@@ -122,6 +225,33 @@ Page({
     if (nameStr == "") {
       wx.showToast({
         title: '姓名不能为空',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
+    var startTimeStr = this.data.startDate + " " + this.data.startTime + ":00"
+    var endTimeStr = this.data.endDate + " " + this.data.endTime + ":00"
+
+    var startTimeStr = startTimeStr.replace(/\-/g, "/");
+    var startDate = new Date(startTimeStr);
+
+    var endTimeStr = endTimeStr.replace(/\-/g, "/");
+    var endDate = new Date(endTimeStr);
+
+    var currentDate = new Date();
+    if (parseInt(currentDate - startDate) > 0 || parseInt(currentDate - endDate)>0){
+      wx.showToast({
+        title: '收货起始时间或结束时间不能早于当前时间',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+    if (parseInt(endDate - startDate)<=0){
+      wx.showToast({
+        title: '收货结束时间不能早于起始时间',
         icon: 'none',
         duration: 2000
       })
@@ -294,7 +424,12 @@ Page({
         price: this.data.allPrice,
         name: this.data.nameStr,
         phone: this.data.phoneStr,
-        detail: this.data.addressStr
+        detail: this.data.addressStr,
+        wlStartTime: this.data.startDate + " "+ this.data.startTime + ":00",
+        wlEndTime: this.data.endDate + " " + this.data.endTime + ":00",
+        province: this.data.province,
+        city: this.data.city,
+        district: this.data.district
       },
       method: 'POST',
       header: {

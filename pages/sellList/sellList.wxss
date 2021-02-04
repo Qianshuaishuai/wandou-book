@@ -22,6 +22,9 @@
   background: #f6f6f4;
   display: flex;
   flex-direction: column;
+  overflow: auto;
+  height: 80vh;
+  padding-bottom: 200rpx;
 }
 
 .modal {
@@ -34,6 +37,7 @@
   border-radius: 8px;
   font-size: 26rpx;
   line-height: 46rpx;
+  overflow: auto;
 }
 
 .modal .tip{
@@ -48,15 +52,16 @@
   background: #d9d9d9;
 }
 
-.modal .button {
+.mask .button {
   width: 235rpx;
   height: 75rpx;
   color: #ffffff;
   background: #38b08f;
-  margin-top: 68rpx;
-  margin-bottom: 48rpx;
+  margin-top: 24rpx;
   border-radius: 45rpx;
   line-height: 75rpx;
+  text-align: center;
+  align-self: center;
 }
 
 .radio-group {
@@ -88,4 +93,11 @@
   bottom: 12px;
   left: 48rpx;
   z-index: 99999;
+}
+
+.time-select{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px 30px;
 }

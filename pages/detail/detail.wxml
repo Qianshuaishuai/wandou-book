@@ -17,14 +17,14 @@
     </view>
   </view>
 
-  <view class="simple" wx:if="{{orderData.wlNumber != ''}}">
+  <view class="simple" wx:if="{{orderData.wlNumber != ''}}" bindtap="goToTrack" data-orderNo="{{orderData.orderNumber}}">
     <view class="item">
       <view class="tip">取件时间</view>
       <view class="data">{{orderData.wlTime}}</view>
     </view>
     <view class="item" style="margin-top:43rpx;">
       <view class="tip">快递公司</view>
-      <view class="data">京东物流</view>
+      <view class="data">京东物流(点击可查看物流详情)</view>
     </view>
     <view class="item" style="margin-top:43rpx;">
       <view class="tip">快递单号</view>

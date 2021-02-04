@@ -33,6 +33,7 @@ Page({
     wx.scanCode({
       success: res => {
         //对扫码获得信息的识别操作
+        console.log(res)
         var isbn = res.result
         this.searchBookIsbn(isbn)
       },
@@ -141,10 +142,7 @@ Page({
       },
       success: res => {
         if (res.data.F_responseNo == 10000) {
-          wx.setStorage({
-            key: 'book',
-            data: res.data.F_data,
-          })
+          wx.setStorageSync('book',res.data.F_data)
           // wx.navigateTo({
           //   url: '/pages/sellList/sellList?mode=' + 999
           // })

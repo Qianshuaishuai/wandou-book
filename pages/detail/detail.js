@@ -99,6 +99,13 @@ Page({
     })
   },
 
+  goToTrack(event){
+    var orderNo = event.currentTarget.dataset.orderno;
+     wx.navigateTo({
+       url: '/pages/track/track?orderNo='+orderNo,
+     })
+  },
+
   /**
    * Lifecycle function--Called when page is initially rendered
    */

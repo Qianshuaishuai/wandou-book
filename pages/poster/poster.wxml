@@ -3,4 +3,4 @@
 <image class="img" src="/assets/images/share-bg.jpeg"></image>
 <image class="code" src="{{userInfo.code}}"></image>
 
-<van-image class="icon" round width="124rpx" height="124rpx" src="{{userWxInfo.avatarUrl}}" />
+<van-image class="icon" round width="100rpx" height="100rpx" src="{{userWxInfo.avatarUrl}}" />

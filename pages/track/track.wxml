@@ -1,0 +1,7 @@
+<view class="none" wx:if="{{tracks.length == 0}}">暂无物流信息</view>
+<view class="list" wx:if="{{tracks.length > 0}}">
+  <view class="item" wx:for="{{tracks}}" wx:for-item= "item" wx:for-index="index">
+    <view class="time">{{item.opeTime}}</view>
+    <view class="remark">{{item.opeRemark}}</view>
+  </view>
+</view>

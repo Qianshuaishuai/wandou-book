@@ -1,0 +1,30 @@
+.none {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  top: 48%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 18rpx 32rpx;
+}
+
+.list .item .time {
+  min-width: 250rpx;
+  font-size: 26rpx;
+  color: #9a9a9a;
+}
+
+.list .item .remark {
+  margin-left: 36rpx;
+  font-size: 26rpx;
+  color: #2e2e2e;
+}

@@ -11,7 +11,7 @@ Page({
         wx.getClipboardData({
           success: function (res) {
             wx.showToast({
-              title: '复制成功'
+              title: '客服微信复制成功'
             })
           }
         })
@@ -23,6 +23,17 @@ Page({
     const index = e.currentTarget.dataset.index
     wx.navigateTo({
       url: '/pages/order/order?index='+index,
+    })
+  },
+
+  showNotice(){
+    wx.showModal({
+      title: '消息通知',
+      content: '因寒假高峰期订单激增，审核速度有所变缓，我们在加班加点审核图书，请您耐心等待，感谢您的理解与支持',
+      showCancel: false,
+      success: res => {
+   
+      }
     })
   },
 

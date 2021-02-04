@@ -68,7 +68,7 @@
       <image src="/assets/images/rule.png" class="icon"></image>
       <view class="tip">回收规则</view>
     </view>
-    <view class="item">
+    <view class="item" bindtap="showNotice">
       <image src="/assets/images/notice.png" class="icon"></image>
       <view class="tip">消息通知</view>
     </view>

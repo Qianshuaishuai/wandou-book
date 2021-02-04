@@ -29,7 +29,7 @@
 
 .icon{
   position: fixed;
-  left: 63.5%;
+  left: 65%;
   z-index: 9999;
-  top: 156rpx;
+  top: 164rpx;
 }
