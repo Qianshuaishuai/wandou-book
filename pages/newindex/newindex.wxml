@@ -1,0 +1,6 @@
+<view class="main">
+  <view class="top">
+    <view class="title">豌豆书单</view>
+    <view class="search"></view>
+  </view>
+</view>

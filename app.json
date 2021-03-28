@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/newindex/newindex",
     "pages/index/index",
     "pages/poster/poster",
     "pages/sellbook/sellbook",

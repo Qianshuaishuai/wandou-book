@@ -1,0 +1,21 @@
+/* pages/newindex/newindex.wxss */
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.main .top {
+  display: flex;
+  flex-direction: row;
+  background: #42a4ff;
+  height: 144rpx;
+  width: 100%;
+}
+
+.main .top .title {
+  font-size: 36rpx;
+  font-family: BDZongYi-A001;
+  color: #fff;
+  font-weight: bold;
+}
