@@ -1,0 +1,128 @@
+<view class="info">
+  <image src="{{userInfo.avatarUrl}}" class="head"></image>
+  <view class="name">{{userInfo.nickName}}</view>
+</view>
+
+<view class="card">
+  <image src="../../assets/new-images/person/card.png" class="card-bg"></image>
+  <view class="coupon" bindtap="goToCoupon">
+    <view class="tip1">优惠券:</view>
+    <view class="count1">{{couponCount}}</view>
+  </view>
+  <view class="balance" bindtap="goToBalance">
+    <view class="tip2">账户余额</view>
+    <view class="count2">￥{{userBalance.balance}}</view>
+  </view>
+  <view class="draw" bindtap="goToDrawal">
+    <view class="tip3">提现</view>
+    <image src="../../assets/new-images/person/right1.png" class="right"></image>
+  </view>
+</view>
+
+<view class="tip4">买书</view>
+
+<view class="buy">
+  <view class="buy-box" bindtap="goToBuyOrderList" data-index="0">
+    <image src="../../assets/new-images/person/buy1.png" class="buy-icon"></image>
+    <view class="buy-tip">买书订单</view>
+  </view>
+
+  <view class="buy-box" bindtap="goToBuyOrderList" data-index="1">
+    <image src="../../assets/new-images/person/buy2.png" class="buy-icon"></image>
+    <view class="buy-tip">待付款</view>
+  </view>
+
+  <view class="buy-box" bindtap="goToBuyOrderList" data-index="2">
+    <image src="../../assets/new-images/person/buy3.png" class="buy-icon"></image>
+    <view class="buy-tip">待发货</view>
+  </view>
+
+  <view class="buy-box" bindtap="goToBuyOrderList" data-index="3">
+    <image src="../../assets/new-images/person/buy4.png" class="buy-icon"></image>
+    <view class="buy-tip">待收货</view>
+  </view>
+
+  <view class="buy-box" bindtap="goToBuyOrderList" data-index="4">
+    <image src="../../assets/new-images/person/buy5.png" class="buy-icon"></image>
+    <view class="buy-tip">退款/售后</view>
+  </view>
+</view>
+
+<view class="tip4" style="margin-top:58rpx;">卖书</view>
+
+<view class="sell">
+  <view class="sell-box" bindtap="goToOrder" data-index="0">
+    <image src="../../assets/new-images/person/sell1.png" class="sell-icon"></image>
+    <view class="sell-tip">卖书订单</view>
+  </view>
+
+  <view class="sell-box" bindtap="goToOrder" data-index="1">
+    <image src="../../assets/new-images/person/sell2.png" class="sell-icon"></image>
+    <view class="sell-tip">待取件</view>
+  </view>
+
+  <view class="sell-box" bindtap="goToOrder" data-index="2">
+    <image src="../../assets/new-images/person/sell3.png" class="sell-icon"></image>
+    <view class="sell-tip">待收货</view>
+  </view>
+
+  <view class="sell-box" bindtap="goToOrder" data-index="3">
+    <image src="../../assets/new-images/person/sell4.png" class="sell-icon"></image>
+    <view class="sell-tip">待收款</view>
+  </view>
+
+  <view class="sell-box" bindtap="goToOrder" data-index="4">
+    <image src="../../assets/new-images/person/sell5.png" class="sell-icon"></image>
+    <view class="sell-tip">已完成</view>
+  </view>
+</view>
+
+<view class="common">
+  <view class="common-box" bindtap="goToQuestion">
+    <view class="left">
+      <image src="../../assets/new-images/person/common1.png" class="common-icon"></image>
+      <view class="common-tip">常见问题</view>
+    </view>
+    <image src="../../assets/new-images/person/right2.png" class="common-right"></image>
+  </view>
+
+    <view class="common-box" style="display:none">
+    <view class="left">
+      <image src="../../assets/new-images/person/common2.png" class="common-icon"></image>
+      <view class="common-tip">地址管理</view>
+    </view>
+    <image src="../../assets/new-images/person/right2.png" class="common-right"></image>
+  </view>
+
+    <view class="common-box"  bindtap="goToFans">
+    <view class="left">
+      <image src="../../assets/new-images/person/common3.png" class="common-icon"></image>
+      <view class="common-tip">我的代理</view>
+    </view>
+    <image src="../../assets/new-images/person/right2.png" class="common-right"></image>
+  </view>
+
+    <view class="common-box"  bindtap="goToPartner">
+    <view class="left">
+      <image src="../../assets/new-images/person/common4.png" class="common-icon"></image>
+      <view class="common-tip">合伙人计划</view>
+    </view>
+    <image src="../../assets/new-images/person/right2.png" class="common-right"></image>
+  </view>
+
+    <view class="common-box" bindtap="goToRule">
+    <view class="left">
+      <image src="../../assets/new-images/person/common5.png" class="common-icon"></image>
+      <view class="common-tip">买卖答疑</view>
+    </view>
+    <image src="../../assets/new-images/person/right2.png" class="common-right"></image>
+  </view>
+
+    <view class="common-box" bindtap="goToAbout">
+    <view class="left">
+      <image src="../../assets/new-images/person/common6.png" class="common-icon"></image>
+      <view class="common-tip">关于我们</view>
+    </view>
+    <image src="../../assets/new-images/person/right2.png" class="common-right"></image>
+  </view>
+</view>

@@ -1,103 +1,391 @@
-.right-class {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 150rpx;
-  height: 100%;
+page {
+  background: #eff5fa;
 }
 
-.list {
-  margin-bottom: 150rpx;
-}
-
-.placeholder-view {
-  width: 100%;
-  height: 150rpx;
-}
-
-.mask {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: #f6f6f4;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-  height: 80vh;
-  padding-bottom: 200rpx;
-}
-
-.modal {
-  display: flex;
-  flex-direction: column;
+.top {
   position: relative;
-  margin: 0 30rpx;
-  margin-top: 30rpx;
-  background: white;
-  border-radius: 8px;
-  font-size: 26rpx;
-  line-height: 46rpx;
-  overflow: auto;
-}
-
-.modal .tip{
-  font-size: 30rpx;
-  color: #262626;
-  margin: 30rpx 30rpx 30rpx 30rpx;
-}
-
-.modal .diviler{
   width: 100%;
-  height: 1px;
-  background: #d9d9d9;
+  height: 536rpx;
 }
 
-.mask .button {
-  width: 235rpx;
-  height: 75rpx;
-  color: #ffffff;
-  background: #38b08f;
-  margin-top: 24rpx;
-  border-radius: 45rpx;
-  line-height: 75rpx;
-  text-align: center;
-  align-self: center;
+.top .bg {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
 }
 
-.radio-group {
+.top .tip {
+  z-index: 2;
+  width: 250rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  top: 68rpx;
+  left: 50%;
+  margin-left: -125rpx;
+}
+
+.top .back {
+  z-index: 2;
+  width: 36rpx;
+  height: 36rpx;
+  position: absolute;
+  left: 30rpx;
+}
+
+.address {
+  position: absolute;
+  top: 150rpx;
+  display: flex;
+  flex-direction: column;
+  width: 94%;
+  height: 280rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  z-index: 2;
+  margin-left: 3%;
+}
+
+.address .box1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  margin-top: 22rpx;
+}
+
+.address .box1 .icon1 {
+  width: 32rpx;
+  height: 40rpx;
+  margin-left: 32rpx;
+  margin-right: 38rpx;
+}
+
+.address .box1 .address-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.address .box1 .address-content .address-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.address .box1 .address-content .address-box .address-name {
+  font-size: 34rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+}
+
+.address .box1 .address-content .address-box .address-phone {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #969696;
+  margin-left: 18rpx;
+}
+
+.address .box1 .address-content .address-data {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #969696;
+  margin-top: 12rpx;
+}
+
+.address .box1 .right {
+  width: 14rpx;
+  height: 25rpx;
+  position: absolute;
+  right: 31rpx;
+  top: 64rpx;
+}
+
+.address .box2 {
+  display: flex;
+  flex-direction: row;
+  width: 576rpx;
+  height: 72rpx;
+  background: #e7f3ff;
+  border-radius: 10rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-left: 100rpx;
+  margin-top: 26rpx;
+}
+
+.address .box2 .icon2 {
+  width: 22rpx;
+  height: 22rpx;
+  margin-left: 16rpx;
+  margin-right: 16rpx;
+  margin-top: 7rpx;
+}
+
+.address .box2 .tip1 {
+  width: 500rpx;
+  margin-right: 23rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #42a4ff;
+}
+
+.icon4 {
+  position: absolute;
+  top: 430rpx;
+  width: 94%;
+  height: 6rpx;
+  z-index: 2;
+  margin-left: 3%;
+}
+
+.box4 {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-left: 3%;
+  width: 94%;
+  height: 84rpx;
+  background: #fff;
+  border-radius: 10rpx;
 }
 
-.radio {
-  margin: 0rpx 30rpx;
-  margin-top: 24rpx;
-  display: block;
-  padding: 5px;
+.box4 .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 26rpx;
 }
 
-.radio .content {
+.box4 .left .icon5 {
+  width: 34rpx;
+  height: 32rpx;
+}
+
+.box4 .left .picker{
   display: flex;
   flex-direction: column;
 }
 
-.radio .content .timedesc {
-  font-size: 22rpx;
-  color: #999;
-}
-
-.count {
-  position: fixed;
-  bottom: 12px;
-  left: 48rpx;
-  z-index: 99999;
-}
-
-.time-select{
+.box4 .left .data {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-left: 28rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0px 30px;
+}
+
+.box4 .right {
+  width: 14rpx;
+  height: 24rpx;
+  margin-right: 26rpx;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  width: 94%;
+  margin-left: 3%;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  margin-bottom: 200rpx;
+}
+
+.list .box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+
+.list .box .pic-box {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 10rpx;
+  background: #f3f3f3;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12rpx;
+  margin-top: 25rpx;
+  margin-bottom: 25rpx;
+  margin-left: 25rpx;
+}
+
+.list .box .pic-box  .pic {
+  width: 167rpx;
+  height: 167rpx;
+}
+
+.list .box .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 180rpx;
+}
+
+.list .box .content .name {
+  width: 450rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+}
+
+.list .box .content .price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list .box .content .price .tip2 {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #b3b3b3;
+}
+
+.list .box .content .price .value {
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #ea4242;
+  margin-left: 12rpx;
+}
+
+.list .box .count {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  position: absolute;
+  right: 28rpx;
+  bottom: 25rpx;
+}
+
+.bottom {
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  height: 185rpx;
+  background: #fff;
+  box-shadow: 0rpx -6rpx 14rpx 0rpx rgba(153, 153, 153, 0.18);
+  border-radius: 40rpx 40rpx 0rpx 0rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bottom .left {
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 26rpx;
+}
+
+.bottom .left .box3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.bottom .left .box3 .tip3 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+}
+
+.bottom .left .box3 .tip4 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #42a4ff;
+}
+
+.bottom .left .count-box {
+  margin-top: 12rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.bottom .left .count-box .tip5 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+}
+
+.bottom .left .count-box .tip6 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+}
+
+.bottom .left .count-box .count {
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #42a4ff;
+  margin-left: 6rpx;
+  margin-right: 6rpx;
+}
+
+.bottom .left .price-box {
+  margin-top: 8rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.bottom .left .price-box .tip7 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #999;
+}
+
+.bottom .left .price-box .count {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #ea4242;
+}
+
+.bottom .left .price-box .icon6 {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 12rpx;
+  margin-bottom: 6rpx;
+}
+
+.bottom .submit {
+  width: 208rpx;
+  height: 74rpx;
+  background: #42a4ff;
+  border-radius: 37rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  line-height: 74rpx;
+  text-align: center;
+  margin-right: 30rpx;
+  margin-top: 78rpx;
 }

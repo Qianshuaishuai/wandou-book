@@ -1,0 +1,121 @@
+page {
+  background: #eff5fa;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 20rpx;
+  justify-content: space-between;
+  margin-left: 20rpx;
+}
+
+.list .box {
+  width: 300rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10rpx;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
+}
+
+.list .box .pic {
+  width: 248rpx;
+  height: 248rpx;
+  margin-top: 30rpx;
+  align-self: center;
+}
+
+.list .box .box1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 28rpx;
+}
+
+.list .box .box1 .tag {
+  min-width: 63rpx;
+  height: 36rpx;
+  background: #ff9642;
+  border-radius: 5rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  line-height: 36rpx;
+  text-align: center;
+}
+
+.list .box .box1 .name {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list .box .price {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-top: 24rpx;
+}
+
+.list .box .price .new {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.list .box .price .new .value {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #ea4242;
+}
+
+.list .box .price .new .tag {
+  font-size: 20rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #ea4242;
+  margin-bottom: 4.5rpx;
+}
+
+.list .box .price .old {
+  margin-left: 8rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  text-decoration: line-through;
+  color: #b3b3b3;
+}
+
+.list .box .box2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 28rpx;
+  margin-bottom: 28rpx;
+}
+
+.list .box .box2 .tip1 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #42a4ff;
+}
+
+.list .box .box2 .tip2 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #9d9d9d;
+}

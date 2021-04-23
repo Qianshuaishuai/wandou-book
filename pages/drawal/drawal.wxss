@@ -74,7 +74,7 @@
   margin-left: 45rpx;
   margin-right: 45rpx;
   height: 80rpx;
-  background: #38b08f;
+  background: #42A4FF;
   border-radius: 22rpx;
   line-height: 80rpx;
   color: #fff;

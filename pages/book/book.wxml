@@ -1,0 +1,197 @@
+<view class="top">
+  <image src="{{showData.book.pic}}" class="pic" wx:if="{{showType==1}}"></image>
+  <image src="{{showData.pic}}" class="pic" wx:if="{{showType==2}}"></image>
+  <view class="author" wx:if="{{showType==1}}">
+    <view class="author-left">作者</view>
+    <view class="author-right">{{showData.book.author}}</view>
+  </view>
+</view>
+
+<view class="box1">
+  <view class="name" wx:if="{{showType==1}}">{{showData.book.name}}</view>
+  <view class="name" wx:if="{{showType==2}}">{{showData.name}}</view>
+  <view class="price" wx:if="{{showType==1}}">
+    <view class="new">
+      <view class="tag">￥</view>
+      <view class="value">{{showData.sellBooks[0].sellPrice}}</view>
+    </view>
+    <view class="old">
+      原价：￥{{showData.book.real_price}}
+    </view>
+  </view>
+
+  <view class="price" wx:if="{{showType==2}}">
+    <view class="new">
+      <view class="tag">￥</view>
+      <view class="value">{{showData.sellPrice}}</view>
+    </view>
+    <view class="old">
+      原价：￥{{showData.price}}
+    </view>
+  </view>
+  <view class="share" bindtap="share">
+    <image src="../../assets/new-images/book/share.png" class="icon1"></image>
+    <button class="tip1" open-type="share">分享</button>
+  </view>
+</view>
+
+<view class="box2">
+  <view class="left">
+    <view class="tag1">优惠</view>
+    <view class="tag2">全场满18元包邮</view>
+    <view class="tag3">（偏远地区除外）</view>
+  </view>
+  <view class="button1" bindtap="goToCoupon">领券＞</view>
+</view>
+
+<image src="../../assets/new-images/book/icon2.png" class="icon2" bindtap="goToPartner"></image>
+
+<view class="tip2" wx:if="{{showType==1}}">
+  书籍详情
+</view>
+
+<view class="tip2" wx:if="{{showType==2}}">
+  好物详情
+</view>
+
+<view class="box3" style="margin-bottom:{{showType == 1?'0rpx':'200rpx'}}">
+  <view class="tip3">
+    分类
+  </view>
+  <view class="data3">
+    {{showType == 1 ? '书本':'宿舍好物'}}
+  </view>
+</view>
+
+<view class="box4" wx:if="{{showType==1}}">
+  <view class="tip4">
+    ISBN
+  </view>
+  <view class="data4">
+    {{showData.book.isbn}}
+  </view>
+</view>
+
+<view class="bottom">
+  <view class="left">
+    <view class="bottom1" bindtap="goToBack">
+      <image src="../../assets/new-images/book/icon5.png" class="icon4"></image>
+      <view class="tip5">首页</view>
+    </view>
+
+    <view class="bottom1" style="margin-left:60rpx;display:none">
+      <image src="../../assets/new-images/book/icon4.png" class="icon4"></image>
+      <view class="tip5">收藏</view>
+    </view>
+
+    <view class="bottom1" style="margin-left:60rpx" bindtap="goToBuycar">
+      <image src="../../assets/new-images/book/icon3.png" class="icon4"></image>
+      <view class="tip5">购物车</view>
+    </view>
+  </view>
+
+  <view class="buy" bindtap="buy">立即购买</view>
+</view>
+
+<image src="../../assets/new-images/book/icon7.png" class="contract"></image>
+
+<view class="detail" wx:if="{{showStatus==1}}" bindtap="closeShow">
+
+</view>
+
+<view class="detail-box" wx:if="{{showStatus==1}}" style="height:{{showType == 1?'865rpx':'330rpx'}}">
+  <view class="top2" wx:if="{{showType==1}}">
+    <view class="tip6">选择书籍品相</view>
+    <image src="../../assets/new-images/book/close.png" class="icon6" bindtap="close"></image>
+  </view>
+  <view class="tip7" wx:if="{{showType==1}}">不同品相有什么区别＞</view>
+  <!-- 品相1 -->
+  <view class="content-normal" wx:if="{{showType==1&&chooseIndex != 0}}" bindtap="changeChooseIndex" data-index="0">
+    <view class="left">
+      <view class="tip8">一般</view>
+      <view class="tip9">有轻度污渍或标记</view>
+    </view>
+    <view class="right">
+      <view class="price">
+        ￥{{showData.sellBooks[1].sellPrice}}
+      </view>
+      <view class="coupon">{{showData.sellBooks[1].discount}}折</view>
+    </view>
+  </view>
+  <view class="content-select" wx:if="{{showType==1&&chooseIndex == 0}}">
+    <view class="left">
+      <view class="tip8">一般</view>
+      <view class="tip9">有轻度污渍或标记</view>
+    </view>
+    <view class="right">
+      <view class="price">
+        ￥{{showData.sellBooks[1].sellPrice}}
+      </view>
+      <view class="coupon">{{showData.sellBooks[1].discount}}折</view>
+    </view>
+  </view>
+
+  <!-- 品相2 -->
+  <view class="content-normal" wx:if="{{showType==1&&chooseIndex != 1}}" bindtap="changeChooseIndex" data-index="1">
+    <view class="left">
+      <view class="tip8">全新</view>
+      <view class="tip9">全新品相</view>
+    </view>
+    <view class="right">
+      <view class="price">
+        ￥{{showData.sellBooks[0].sellPrice}}
+      </view>
+      <view class="coupon">{{showData.sellBooks[0].discount}}折</view>
+    </view>
+  </view>
+  <view class="content-select" wx:if="{{showType==1&&chooseIndex == 1}}">
+    <view class="left">
+      <view class="tip8">全新</view>
+      <view class="tip9">全新品相</view>
+    </view>
+    <view class="right">
+      <view class="price">
+        ￥{{showData.sellBooks[0].sellPrice}}
+      </view>
+      <view class="coupon">{{showData.sellBooks[0].discount}}折</view>
+    </view>
+  </view>
+
+  <!-- 品相3 -->
+  <view class="content-normal" wx:if="{{showType==1&&chooseIndex != 2}}" bindtap="changeChooseIndex" data-index="2">
+    <view class="left">
+      <view class="tip8">良好</view>
+      <view class="tip9">笔记良好且无污渍未破损</view>
+    </view>
+    <view class="right">
+      <view class="price">
+        ￥{{showData.sellBooks[2].sellPrice}}
+      </view>
+      <view class="coupon">{{showData.sellBooks[2].discount}}折</view>
+    </view>
+  </view>
+  <view class="content-select" wx:if="{{showType==1&&chooseIndex == 2}}">
+    <view class="left">
+      <view class="tip8">良好</view>
+      <view class="tip9">笔记良好且无污渍未破损</view>
+    </view>
+    <view class="right">
+      <view class="price">
+        ￥{{showData.sellBooks[2].sellPrice}}
+      </view>
+      <view class="coupon">{{showData.sellBooks[2].discount}}折</view>
+    </view>
+  </view>
+
+
+  <view class="buy-box">
+    <view class="tip9">购买数量</view>
+    <view class="right">
+      <view class="reduce" bindtap="reduce">-</view>
+      <view class="count">{{buyCount}}</view>
+      <view class="add" bindtap="add">+</view>
+    </view>
+  </view>
+
+  <view class="confirm" bindtap="confirm">确定</view>
+</view>

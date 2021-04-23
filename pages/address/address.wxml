@@ -1,0 +1,38 @@
+<view class="box" style="margin-top:20rpx;">
+  <image src="../../assets/new-images/address/icon1.png" class="icon1"></image>
+  <view class="tip">收货人</view>
+
+  <input class="input" bindinput="changeName" placeholder="请输入联系姓名" value="{{name}}"></input>
+</view>
+
+<view class="box">
+  <image src="../../assets/new-images/address/icon2.png" class="icon1"></image>
+  <view class="tip">手机号码</view>
+
+  <input class="input" bindinput="changePhone" placeholder="请输入联系电话" value="{{phone}}"></input>
+  <view class="tip1">+86</view>
+</view>
+
+
+<view class="box">
+  <image src="../../assets/new-images/address/icon3.png" class="icon1"></image>
+  <view class="tip">选择地区</view>
+
+  <picker class="picker" mode="region" bindchange="bindPickerChange" value="{{address}}">
+    <input class="input" bindtap="pickerAddress" placeholder="省、市、区、街道" disabled="true" value="{{province+city+district}}"></input>
+  </picker>
+  <image src="../../assets/new-images/address/icon5.png" class="icon2"></image>
+</view>
+
+<view class="box1">
+  <image src="../../assets/new-images/address/icon4.png" class="icon4"></image>
+  <view class="tip2">详细地址</view>
+
+  <textarea class="input2" bindinput="changeDetail" placeholder="小区楼栋/乡村名称" value="{{detail}}"></textarea>
+</view>
+
+<view class="tip4">
+  *目前仅回收浙江、江苏、安徽、上海四个地区，其余地 区暂不开放
+</view>
+
+<view class="save" bindtap="save">保存</view>

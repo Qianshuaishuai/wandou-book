@@ -1,0 +1,229 @@
+page {
+  background: #eff5fa;
+}
+
+.info {
+  margin-top: 48rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 30rpx;
+}
+
+.info .head {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+}
+
+.info .name {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-left: 32rpx;
+}
+
+.card {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 308rpx;
+  margin-top: 36rpx;
+  position: relative;
+}
+
+.card .card-bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 1;
+}
+
+.card .coupon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 2;
+  position: absolute;
+  top: 48rpx;
+  left: 56rpx;
+}
+
+.card .coupon .tip1 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+}
+
+.card .coupon .count1 {
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #42a4ff;
+  margin-left: 4rpx;
+}
+
+.card .balance {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  position: absolute;
+  top: 140rpx;
+  left: 44rpx;
+}
+
+.card .balance .tip2 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  margin-left: 10rpx;
+}
+
+.card .balance .count2 {
+  font-size: 54rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 10rpx;
+}
+
+.card .draw {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 2;
+  position: absolute;
+  top: 170rpx;
+  right: 68rpx;
+}
+
+.card .draw .tip3 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+}
+
+.card .draw .right {
+  width: 14rpx;
+  height: 24rpx;
+  margin-left: 14rpx;
+}
+
+.tip4 {
+  margin-top: 34rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 1000;
+  color: #333;
+  margin-left: 38rpx;
+}
+
+.buy {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  margin-top: 48rpx;
+}
+
+.buy .buy-box {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buy .buy-box .buy-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.buy .buy-box .buy-tip {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-top: 18rpx;
+}
+
+.sell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  margin-top: 48rpx;
+}
+
+.sell .sell-box {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sell .sell-box .sell-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.sell .sell-box .sell-tip {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-top: 18rpx;
+}
+
+.common {
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 48rpx;
+  height: 500rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  margin-bottom: 160rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.common .common-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100rpx;
+  width: 100%;
+}
+
+.common .common-box .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.common .common-box .left .common-icon {
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 32rpx;
+  margin-right: 24rpx;
+}
+
+.common .common-box .left .common-tip {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #444749;
+}
+
+.common .common-box .common-right {
+  width: 14rpx;
+  height: 24rpx;
+  margin-right: 36rpx;
+}

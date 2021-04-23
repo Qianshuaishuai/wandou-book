@@ -1,0 +1,118 @@
+<view class="type">
+  <view class="left" bindtap="changeType" data-index="0">
+    <view class="select" wx:if="{{currentType == 0}}">
+      分享领券
+    </view>
+    <view class="normal" wx:if="{{currentType == 1}}">
+      分享领券
+    </view>
+    <view class="diviler" wx:if="{{currentType == 0}}"></view>
+  </view>
+  <view class="right" bindtap="changeType" data-index="1">
+    <view class="select" wx:if="{{currentType == 1}}">
+      大额券砍价
+    </view>
+    <view class="normal" wx:if="{{currentType == 0}}">
+      大额券砍价
+    </view>
+    <view class="diviler" wx:if="{{currentType == 1}}"></view>
+  </view>
+</view>
+
+<view class="list">
+  <view class="box" wx:for="{{couponData}}" wx:for-item="data" wx:key="index" bindtap="useCoupon" data-index="{{index}}">
+    <image wx:if="{{data.status==-1}}" src="../../assets/new-images/coupon/normal.png" class="bg"></image>
+    <image wx:if="{{data.status!=-1}}" src="../../assets/new-images/coupon/select.png" class="bg"></image>
+
+    <view class="content">
+      <view class="left">
+        <view class="price">
+          <view class="tag">￥</view>
+          <view class="value">{{data.coupon.disCount}}</view>
+        </view>
+        <view class="say">满{{data.coupon.fullAmount}}元可用</view>
+      </view>
+
+      <view class="right">
+        <view class="tip1">{{data.coupon.title}}</view>
+        <view class="tip2">{{data.coupon.tag}}</view>
+        <view class="tip3">{{data.coupon.startTime}}至{{data.coupon.endTime}}</view>
+      </view>
+    </view>
+
+    <view class="status1" wx:if="{{data.status==-1}}" bindtap="pickerCoupon" data-index="{{index}}">
+      分享领券
+    </view>
+    <view class="status2" wx:if="{{data.status==1}}">
+      已领取
+    </view>
+    <view class="status2" wx:if="{{data.status==999}}">
+      已使用
+    </view>
+    <view class="status2" wx:if="{{data.status==-2}}">
+      已过期
+    </view>
+  </view>
+</view>
+
+
+<view class="get-bg" wx:if="{{showGetDetail}}">
+
+</view>
+
+<view class="get" wx:if="{{showGetDetail}}">
+  <image src="../../assets/new-images/coupon/coupon-dialog-bg.png" class="bg3"></image>
+  <view class="get-content">
+    <view class="get-top">
+      <view class="get-box1">
+        <view class="get-box2">
+          <view class="get-tip1">
+            ￥
+          </view>
+          <view class="get-tip2">
+            {{pickerCoupon.coupon.disCount}}
+          </view>
+        </view>
+
+
+        <view class="get-box3">
+          <view class="get-tip3">
+            满 {{pickerCoupon.coupon.fullAmount}}元可用
+          </view>
+          <view class="get-tip4">
+            {{pickerCoupon.coupon.title}}
+          </view>
+        </view>
+
+
+      </view>
+
+      <view class="get-tip5">{{pickerCoupon.coupon.startTime}}至{{pickerCoupon.coupon.endTime}}</view>
+    </view>
+
+    <!-- 中间 -->
+    <view class="get-tip6">分享好友同享优惠</view>
+    <view class="get-tip7">已成功邀请{{pickerSelectCount}}位好友</view>
+    <view class="get-middle">
+      <view class="get-middle-box" wx:for="{{couponPickerDatas}}" wx:for-item="data" wx-key="index">
+        <image wx:if="{{data != ''}}" src="{{data}}" class="head"></image>
+        <button wx:if="{{data == ''}}" class="share" open-type="share">
+          <image src="../../assets/new-images/coupon/add.png" class="head"></image>
+        </button>
+        <view class="get-middle-box-tip">{{data == '' ? '未邀请':'已邀请'}}</view>
+      </view>
+    </view>
+
+    <!-- 底部 -->
+    <view class="get-bottom">
+      <view class="progress">
+      </view>
+      <view class="progress-tip">
+        已完成{{pickerSelectCount}}/{{pickerAllCount}}
+      </view>
+    </view>
+
+    <view class="get-tip10" bindtap="goToRule">查看规则</view>
+  </view>
+</view>
+<image src="../../assets/new-images/coupon/delete.png" class="get-delete" wx:if="{{showGetDetail}}" bindtap="closeGetDetail"></image>

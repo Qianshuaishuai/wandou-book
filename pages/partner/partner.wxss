@@ -1,6 +1,6 @@
 /* pages/partner/partner.wxss */
 
-page{
+page {
   position: relative;
 }
 
@@ -22,11 +22,10 @@ page{
   border: none;
 }
 
-.img-class{
+.img-class {
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
-
 
 .btn-new {
   width: 50%;
@@ -47,4 +46,26 @@ page{
 
 .btn-new::after {
   border: none;
+}
+
+.button-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 33rpx;
+  margin-right: 33rpx;
+  margin-bottom: 48rpx;
+}
+
+.button-box .button {
+  width: 330rpx;
+  height: 90rpx;
+  background: #55adff;
+  border-radius: 45rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  line-height: 90rpx;
+  text-align: center;
 }

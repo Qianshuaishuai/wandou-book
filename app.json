@@ -1,11 +1,21 @@
 {
   "pages": [
     "pages/newindex/newindex",
+    "pages/income/income",
+    "pages/buyorderlist/buyorderlist",
+    "pages/buyorderdetail/buyorderdetail",
+    "pages/buyorder/buyorder",
+    "pages/coupon/coupon",
+    "pages/sellList/sellList",
+    "pages/person/person",
+    "pages/book/book",
+    "pages/school/school",
+    "pages/4.9special/4.9special",
+    "pages/goodthings/goodthings",
     "pages/index/index",
     "pages/poster/poster",
     "pages/sellbook/sellbook",
     "pages/users/users",
-    "pages/sellList/sellList",
     "pages/search/search",
     "pages/history/history",
     "pages/money/money",
@@ -18,7 +28,12 @@
     "pages/detail/detail",
     "pages/question/question",
     "pages/about/about",
-    "pages/track/track"
+    "pages/track/track",
+    "pages/english/english",
+    "pages/common/common",
+    "pages/buycar/buycar",
+    "pages/address/address",
+    "pages/orderdetail/orderdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -28,24 +43,30 @@
   },
   "tabBar": {
     "color": "#707070",
-    "selectedColor": "#04B486",
+    "selectedColor": "#42A4FF",
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "iconPath": "assets/images/show-icon1-normal.png",
-        "selectedIconPath": "assets/images/show-icon1-selected.png",
+        "pagePath": "pages/newindex/newindex",
+        "iconPath": "assets/new-images/first/index1.png",
+        "selectedIconPath": "assets/new-images/first/index-select1.png",
         "text": "首页"
       },
       {
         "pagePath": "pages/sellbook/sellbook",
-        "iconPath": "assets/images/show-icon2-normal.png",
-        "selectedIconPath": "assets/images/show-icon2-selected.png",
+        "iconPath": "assets/new-images/first/index2.png",
+        "selectedIconPath": "assets/new-images/first/index-select2.png",
         "text": "卖书"
       },
       {
-        "pagePath": "pages/users/users",
-        "iconPath": "assets/images/show-icon3-normal.png",
-        "selectedIconPath": "assets/images/show-icon3-selected.png",
+        "pagePath": "pages/buycar/buycar",
+        "iconPath": "assets/new-images/first/index3.png",
+        "selectedIconPath": "assets/new-images/first/index-select3.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "iconPath": "assets/new-images/first/index4.png",
+        "selectedIconPath": "assets/new-images/first/index-select4.png",
         "text": "我的"
       }
     ]

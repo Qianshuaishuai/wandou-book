@@ -1,6 +1,24 @@
 <!--pages/poster/poster.wxml-->
 <!-- <image class="content" src="/assets/images/new-share-content.jpeg"></image> -->
-<image class="img" src="/assets/images/share-bg.jpeg"></image>
+<image class="img" src="/assets/new-images/share//share-bg.png"></image>
 <image class="code" src="{{userInfo.code}}"></image>
-
 <van-image class="icon" round width="100rpx" height="100rpx" src="{{userWxInfo.avatarUrl}}" />
+
+<view class="content">
+  <view class="left">
+    <view class="tip1">扫描右侧二维码</view>
+    <view class="tip2">旧书轻松变现 领大额购书券</view>
+    <view class="tip-box">
+      <view class="tag"></view>
+      <view class="tip3">扫码轻松下单，书本按本回收</view>
+    </view>
+    <view class="tip-box">
+      <view class="tag"></view>
+      <view class="tip3">快递免费上门取件</view>
+    </view>
+    <view class="tip-box">
+      <view class="tag"></view>
+      <view class="tip3">审核完成轻松提现</view>
+    </view>
+  </view>
+</view>

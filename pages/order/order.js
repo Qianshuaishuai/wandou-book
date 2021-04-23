@@ -64,7 +64,7 @@ Page({
   goToDetail(e){
     var id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/detail/detail?id=' + id
+      url: '/pages/orderdetail/orderdetail?id=' + id
     })
   },
 

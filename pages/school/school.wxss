@@ -1,0 +1,196 @@
+page {
+  background: #eff5fa;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.top {
+  margin-top: 20rpx;
+  height: 280rpx;
+  width: 100%;
+}
+
+.middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 38rpx;
+}
+
+.middle .left {
+  display: flex;
+  flex-direction: column;
+}
+
+.middle .left .tip1 {
+  font-size: 3r4px;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+}
+
+.middle .left .tip2 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #909090;
+  margin-top: 23rpx;
+}
+
+.search-box {
+  position: relative;
+  width: 364rpx;
+  height: 60rpx;
+  background: #fff;
+  border-radius: 30rpx;
+}
+
+.search-box .icon2 {
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+  left: 30rpx;
+  top: 18rpx;
+}
+
+.search-box .search-input {
+  width: 100%;
+  height: 100%;
+  line-height: 60rpx;
+  padding-left: 70rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #afafaf;
+}
+
+.middle .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.middle .right .icon1 {
+  width: 55rpx;
+  height: 55rpx;
+  border-radius: 50%;
+}
+
+.middle .right .tip3 {
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-top: 12rpx;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+  margin-bottom: 60rpx;
+}
+
+.list .box {
+  margin-top: 20rpx;
+  height: 366rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  justify-content: center;
+}
+
+.list .box .name {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+}
+
+.list .box .pic {
+  display: flex;
+  flex-direction: row;
+  margin-top: 28rpx;
+  overflow: auto;
+  width: 100%;
+}
+
+.list .box .pic .pic-box {
+  min-width: 120rpx;
+  height: 160rpx;
+  background: #efefef;
+  border-radius: 10rpx;
+  margin-right: 12rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.list .box .pic .pic-box .pic-content {
+  width: 85rpx;
+  height: 124rpx;
+}
+
+.list .box .bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 30rpx;
+}
+
+.list .box .bottom .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list .box .bottom .left .icon1 {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.list .box .bottom .left .time {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #909090;
+  margin-left: 13rpx;
+}
+
+.list .box .bottom .right {
+  width: 135rpx;
+  height: 37rpx;
+  position: relative;
+}
+
+.list .box .bottom .right .icon2 {
+  width: 135rpx;
+  height: 37rpx;
+  z-index: 1;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.list .box .bottom .right .count {
+  width: 120rpx;
+  height: 37rpx;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  line-height: 37rpx;
+  z-index: 2;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 15rpx;
+}

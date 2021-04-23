@@ -1,0 +1,37 @@
+<image src="../../assets/new-images/school/top.png" class="top"></image>
+<view class="middle">
+  <view class="left">
+    <view class="tip1">热门高效书单</view>
+    <view class="tip2">共享全国大学生教材清单</view>
+  </view>
+  <view class="right" style="display:none">
+    <image src="../../assets/new-images/school/search.png" class="icon1"></image>
+    <view class="tip3">搜索书单</view>
+  </view>
+
+  <view class="search-box">
+    <image src="../../assets/new-images/school/search-new.png" class="icon2"></image>
+    <input class="search-input" bindinput="changeInput" placeholder="书单名称"></input>
+  </view>
+</view>
+
+<view class="list">
+  <view class="box" wx:for="{{schoolList}}" wx:for-item="data" wx:for-index="idx">
+    <view class="name">{{data.name}}</view>
+    <view class="pic">
+      <view class="pic-box" wx:for="{{data.schoolBooks}}" wx:for-item="schoolBook" wx:for-index="jdx" bindtap="goToDetail" data-schoolindex="{{idx}}" data-bookindex="{{jdx}}">
+        <image src="{{schoolBook.book.pic}}" class="pic-content"></image>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="left">
+        <image src="../../assets/new-images/school/icon1.png" class="icon1"></image>
+        <view class="time">{{data.time}}</view>
+      </view>
+      <view class="right">
+        <image src="../../assets/new-images/school/icon2.png" class="icon2"></image>
+        <view class="count">已购{{data.sellCount}}人</view>
+      </view>
+    </view>
+  </view>
+</view>

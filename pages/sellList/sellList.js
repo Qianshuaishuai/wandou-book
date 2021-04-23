@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    statusBarHeight: app.globalData.statusBarHeight,
     showModal: false,
     carBookList: [],
     addresses: [],
@@ -32,6 +33,7 @@ Page({
     province:"",
     city:"",
     district:"",
+    addressObj: {},
     allPrice: 0.0, //总价，单位：分
     // bookInfo: [{ 
     //   name: "算计",
@@ -77,6 +79,18 @@ Page({
     // }]
   },
 
+  goToAddress(e) {
+    wx.navigateTo({
+      url: "/pages/address/address"
+    })
+  },
+
+  back(e) {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+
   bindRegionChange(event){
       var values = event.detail.value
 
@@ -117,6 +131,12 @@ Page({
     })
   },
 
+  goToRule() {
+    wx.navigateTo({
+      url: '/pages/rule/rule',
+    })
+  },
+
   changeName(e) {
     this.setData({
       nameStr: e.detail.value
@@ -148,16 +168,16 @@ Page({
     var currentBookCount = 0
     var allPrice = this.data.allPrice
     var bookData = []
-    var phoneStr = this.data.phoneStr
-    var nameStr = this.data.nameStr
-    var addressStr = this.data.addressStr
+    var phoneStr = this.data.addressObj.phone
+    var nameStr = this.data.addressObj.name
+    var addressStr = this.data.addressObj.detail
 
     var startDate = this.data.startDate
     var startTime = this.data.startTime
     var endDate = this.data.endDate
     var endTime = this.data.endTime
 
-    var province  = this.data.province
+    var province  = this.data.addressObj.province
 
     if (province == "") {
       wx.showToast({
@@ -422,14 +442,14 @@ Page({
         addressId: this.data.currentAddressId,
         bookDatas: bookData,
         price: this.data.allPrice,
-        name: this.data.nameStr,
-        phone: this.data.phoneStr,
-        detail: this.data.addressStr,
+        name: this.data.addressObj.name,
+        phone: this.data.addressObj.phone,
+        detail: this.data.addressObj.detail,
         wlStartTime: this.data.startDate + " "+ this.data.startTime + ":00",
         wlEndTime: this.data.endDate + " " + this.data.endTime + ":00",
-        province: this.data.province,
-        city: this.data.city,
-        district: this.data.district
+        province: this.data.addressObj.province,
+        city: this.data.addressObj.city,
+        district: this.data.addressObj.district
       },
       method: 'POST',
       header: {
@@ -498,7 +518,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    var address = wx.getStorageSync('address')
+    this.setData({
+      addressObj: address
+    })
   },
 
   /**

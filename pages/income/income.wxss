@@ -1,0 +1,150 @@
+/* pages/income/income.wxss */
+
+page {
+  background: #eff5fa;
+}
+
+.top {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 20rpx;
+  height: 180rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.top .box1 {
+  width: 49.5%;
+  height: 180rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.top .box1 .icon {
+  width: 94rpx;
+  height: 94rpx;
+}
+
+.top .box1 .tip1 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-left: 26rpx;
+}
+
+.top  .diviler {
+  width: 1rpx;
+  height: 80rpx;
+  border: 1rpx dashed #000;
+}
+
+.tag {
+  margin-top: 36rpx;
+  position: relative;
+  margin-left: 22rpx;
+  width: 150rpx;
+  height: 48rpx;
+}
+
+.tag .icon2 {
+  width: 95rpx;
+  height: 18rpx;
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+}
+
+.tag .tag-tip {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+}
+
+.content {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 32rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.content .tab-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 28rpx;
+}
+
+.content .tab-box .tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content .tab-box .tab .tip2 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #828282;
+}
+
+.content .tab-box .tab .diviler2 {
+  width: 94rpx;
+  height: 6rpx;
+  background: #42a4ff;
+  margin-top: 24rpx;
+}
+
+.content .list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+
+.content .list .box2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40rpx;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+}
+
+.content .list .box2 .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.content .list .box2 .left .icon2 {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.content .list .box2 .left .name {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-left: 34rpx;
+}
+
+.content .list .box2 .count {
+  font-size: 28prx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #f32424;
+}

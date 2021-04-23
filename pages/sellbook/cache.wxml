@@ -1,0 +1,155 @@
+<!-- <view class="page">
+  <scroll-view>
+    <van-notice-bar left-icon="volume" text="如有疑问联系客服微信:yuxiukeji 图片遇到空白 服务器缓存中 书本名称对即可" color="#04B486" backgroundColor="#fff" speed="30" />
+    <van-divider />
+    <view class="tag-style">
+      <view class="text-style">
+        <view>1.手机扫码</view>
+        <view style="margin-top: 30rpx">看价收购</view>
+      </view>
+      <image src="/assets/images/sb1.png" class="imagess"></image>
+    </view>
+
+    <view class="tag-style" style="margin-top: 40rpx">
+      <view class="text-style">
+        <view>2.工作人员</view>
+        <view style="margin-top: 30rpx">上门取书</view>
+      </view>
+      <image src="/assets/images/sb2.png" class="imagess"></image>
+    </view>
+    <view style="margin-left: 40rpx">
+
+    </view>
+    <view class="tag-style" style="margin-top: 40rpx">
+      <view class="text-style">
+        <view>3.审核通过</view>
+        <view style="margin-top: 30rpx">书款到账</view>
+      </view>
+      <image src="/assets/images/sb3.png" class="imagess"></image>
+    </view>
+    <view style="margin-top: 20rpx">
+      <van-cell is-link title="了解更多回收规则" link-type="navigateTo" url="/pages/rule/rule" />
+    </view>
+  </scroll-view>
+  <view class='list'>
+    <view class='li' wx:for='{{list}}' wx:key=''>{{item}}</view>
+  </view>
+  <view class='placeholder-view'></view>
+  <view class='btn-view'>
+    <button class='btn' style="text-align:center" bindtap="scanCode">
+      <image src="/assets/images/saoma.png" class="btnImg"></image>
+      扫码卖书
+    </button>
+    <view class="ISBN" bindtap="showPopup">手动输入ISBN</view>
+    <van-popup show="{{ show }}" bind:close="onClose" round custom-style="width: 600rpx;height: 600rpx;">
+      <view class="pop-class">
+        <view style="text-align: center;font-size: 35rpx;margin-top: 15rpx">手动输入ISBN</view>
+        <van-divider />
+        <view style="text-align: center;font-size: 25rpx">13位或10位ISBN码</view>
+        <image src="/assets/images/code.jpg" class="codeImg"></image>
+        <view class="input-class">
+          <input class="input-detail" bindinput="bindinput" placeholder="在这里输入..." value="{{ISBNCode}}" type="number"></input>
+        </view>
+        <view>
+          <button class="btn2" bindtap="upISBN">确认</button>
+        </view>
+      </view>
+    </van-popup>
+  </view>
+</view> -->
+
+<view class="page">
+  <view class="top">
+    <view wx:if="{{carBookList.length==0}}" class="title" style="padding-top:{{statusBarHeight+8}}px">卖书仅需三步</view>
+    <view wx:if="{{carBookList.length>0}}" class="title" style="padding-top:{{statusBarHeight+8}}px">回收车列表</view>
+  </view>
+
+  <view wx:if="{{carBookList.length==0}}" class="list" style="margin-top:{{statusBarHeight+56}}px">
+    <view class="item">
+      <view class="number">
+        ①
+      </view>
+      <view class="tip">
+        第一步
+      </view>
+      <image class="icon" src="/assets/images/first.png"></image>
+      <view class="desc">扫描条码查收购价</view>
+    </view>
+
+    <view class="item">
+      <view class="number">
+        ②
+      </view>
+      <view class="tip">
+        第二步
+      </view>
+      <image style="width:201rpx;height:224rpx" class="icon" src="/assets/images/second.png"></image>
+      <view class="desc">提交订单快递免费上门取件</view>
+    </view>
+
+    <view class="item">
+      <view class="number">
+        ③
+      </view>
+      <view class="tip">
+        第三步
+      </view>
+      <image style="width:201rpx;height:183rpx" class="icon" src="/assets/images/third.png"></image>
+      <view class="desc">完成审核微信提现</view>
+    </view>
+  </view>
+
+  <view wx:if="{{carBookList.length>0}}" class="list" style="margin-top:{{statusBarHeight+56}}px">
+    <view class="book-item" wx:for="{{carBookList}}" wx:for-item="item" wx:for-key="index">
+      <image class="cover" src="{{item.pic}}"></image>
+      <view class="content">
+        <view class="name">{{item.name}}</view>
+        <view class="tip">最高可卖：</view>
+        <view class="price">¥{{item.price}}</view>
+      </view>
+      <view class="count">{{item.num}}</view>
+      <image class="icon" src="/assets/images/close.png" bindtap="deleteBook" data-index="{{index}}"></image>
+    </view>
+  </view>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose" round custom-style="width: 600rpx;height: 600rpx;">
+  <view class="pop-class">
+    <view style="text-align: center;font-size: 35rpx;margin-top: 15rpx">手动输入ISBN</view>
+    <van-divider />
+    <view style="text-align: center;font-size: 25rpx">13位或10位ISBN码</view>
+    <image src="/assets/images/code.jpg" class="codeImg"></image>
+    <view class="input-class">
+      <input class="input-detail" bindinput="bindinput" placeholder="在这里输入..." value="{{ISBNCode}}" type="number"></input>
+    </view>
+    <view>
+      <button class="btn2" bindtap="upISBN">确认</button>
+    </view>
+  </view>
+</van-popup>
+
+<view class="bottom">
+  <view class="tip" bindtap="goRule">了解更多卖书答疑</view>
+  <view class="rule">回收书籍最低提交38本即可回收</view>
+  <view class="buy-car">
+    <view class="left">
+      <view class="count">共计 {{currentBookCount}} 本</view>
+      <view class="price">预估价格为¥ {{allPrice}} 元</view>
+    </view>
+    <view class="right">
+      <view class="submit" wx:if="{{!isCanCommit}}">提交</view>
+      <view class="submit" wx:if="{{isCanCommit}}" style="background:#38b08f" bindtap="commit">提交</view>
+    </view>
+  </view>
+  <view class="diviler"></view>
+  <!-- button区域 -->
+  <view class="button">
+    <view class="item" bindtap="scanCode">
+      <image class="icon" src="/assets/images/scaning.png"></image>
+      <view class="name">扫码卖书</view>
+    </view>
+    <view class="item" bindtap="showPopup">
+      <image class="icon" src="/assets/images/isbn.png"></image>
+      <view class="name">输入ISBN</view>
+    </view>
+  </view>
+</view>

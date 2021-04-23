@@ -38,7 +38,12 @@
   </button>
   <view style="height: 200rpx"></view>
 </scroll-view> -->
-<image style="width:{{showWidth}}px;height:{{showHeight}}px" src='/assets/images/detail-show.jpg'></image>
-<button class='btn-new' style="text-align:center" bindtap="yeildImg">
+<image style="width:{{showWidth}}px;height:{{showHeight}}px" src='/assets/new-images/partner/partner-bg.png'></image>
+<!-- <button class='btn-new' style="text-align:center" bindtap="yeildImg">
   生成朋友圈海报
-</button>
+</button> -->
+
+<view class="button-box">
+  <view class="button" bindtap="yeildImg">生成朋友圈海报</view>
+  <view class="button" style="background:#FFC155" bindtap="goToFans">我的收益</view>
+  </view>

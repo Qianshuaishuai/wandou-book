@@ -1,0 +1,46 @@
+<view class="top">
+  <image src="/assets/new-images/special/special-bg.png" class="image"></image>
+  <view class="search">
+    <image src="../../assets/new-images/index/search-icon-white.png" class="icon"></image>
+    <input class="input" placeholder="按书名/作者/ISBN搜索" bindinput="inputsearch" placeholder-class="placeholder-input"></input>
+  </view>
+</view>
+
+<view class="util">
+  <view class="box" style="color:{{currentMode == 0 ? '#42A4FF' : '#707070' }}" bindtap="changeMode" data-index="0">综合</view>
+  <view class="box1" style="color:{{currentMode == 2 ? '#42A4FF' : '#707070' }}" bindtap="changeMode" data-index="1">
+    <view class="tip" style="color:{{currentMode == 1 ? '#42A4FF' : '#707070' }}">价格</view>
+    <view class="tag-box">
+      <image src="{{currentSort == 1 && currentMode == 1  ? '../../assets/new-images/special/tag4.png' :'../../assets/new-images/special/tag1.png'}}" class="tag1"></image>
+      <image src="{{currentSort == 0  && currentMode == 1 ? '../../assets/new-images/special/tag5.png' :'../../assets/new-images/special/tag2.png'}}" class="tag2"></image>
+    </view>
+  </view>
+  <view class="box" style="color:{{currentMode == 2 ? '#42A4FF' : '#707070' }}" bindtap="changeMode" data-index="2">销量</view>
+  <view class="box" style="color:{{currentMode == 3 ? '#42A4FF' : '#707070' }}" bindtap="changeMode" data-index="3">最新上架</view>
+  <view class="diviler" style="display:none"></view>
+  <view class="box2" style="display:none">
+    <image src="../../assets/new-images/special/tag3.png" class="tag6"></image>
+    <view class="tip3">筛选</view>
+  </view>
+</view>
+
+<view class="list">
+  <view class="box" wx:for="{{showDatas}}" wx:for-item="data" wx-key="index">
+    <image class="pic" src="{{data.book.pic}}"></image>
+    <view class="content">
+      <view class="name">{{data.book.name}}</view>
+      <view class="author">{{data.book.author}}</view>
+      <view class="price">
+        <view class="new">
+          <view class="tag">￥</view>
+          <view class="value">4.9</view>
+        </view>
+        <view class="old">
+          {{data.book.real_price}}
+        </view>
+      </view>
+    </view>
+
+     <image src="../../assets/new-images/special/icon1.png" class="go" bindtap="goToDetail" data-index="{{index}}"></image>
+  </view>
+</view>

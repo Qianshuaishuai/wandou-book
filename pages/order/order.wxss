@@ -31,11 +31,11 @@
   height: 6rpx;
   /* margin-left: 88rpx;
   margin-right: 88rpx; */
-  background: #38b08f;
+  background: #42A4FF;
 }
 
 .tab .block-select .item {
-  color: #38b08f;
+  color: #42A4FF;
 }
 
 .tab .block {
@@ -104,7 +104,7 @@
 
 .list .item .box1 .status {
   font-size: 26rpx;
-  color: #649a88;
+  color: #42A4FF;
 }
 
 .list .item .diviler {

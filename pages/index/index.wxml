@@ -35,4 +35,4 @@
     </view>
   </view>
 </scroll-view> --> 
-<image style="width:{{showWidth}}px;height:{{showHeight}}px" src='/assets/images/main-show.png' bindtap="joinPartner"></image>
+<!-- <image style="width:{{showWidth}}px;height:{{showHeight}}px" src='/assets/images/main-show.png' bindtap="joinPartner"></image> -->

@@ -2,7 +2,7 @@
 
 .top-page {
   display: flex;
-  background-color: #38b08f;
+  background-color: #42A4FF;
   height: 400rpx;
   flex-direction: column;
   justify-content: space-evenly;
@@ -16,7 +16,7 @@
 }
 
 .btn {
-  background-color: #088a68;
+  background-color: #2586FF;
   color: white;
   width: 50%;
   height: 90rpx;

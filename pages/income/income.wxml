@@ -1,0 +1,68 @@
+<view class="top">
+  <view class="box1" bindtap="changeStatus" data-index="0">
+    <image class="icon" src="/assets/new-images/income/icon1.png"></image>
+    <view class="tip1">
+      卖书收益
+    </view>
+  </view>
+  <view class="diviler"></view>
+  <view class="box1" bindtap="changeStatus" data-index="1">
+    <image class="icon" src="/assets/new-images/income/icon2.png"></image>
+    <view class="tip1">
+      买书收益
+    </view>
+  </view>
+</view>
+
+<view class="tag">
+  <image class="icon2" src="/assets/new-images/income/icon3.png"></image>
+  <view class="tag-tip">
+    我的粉丝
+  </view>
+</view>
+
+<view class="content">
+  <view class="tab-box">
+    <view class="tab" bindtap="changeTab" data-index="0">
+      <view class="tip2" style=" color:{{currentTab == 0 ? '#42a4ff':'#828282'}}">
+        专属粉丝
+      </view>
+      <view class="diviler2" wx:if="{{currentTab == 0}}">
+      </view>
+    </view>
+    <view class="tab" style="margin-left:250rpx;" bindtap="changeTab" data-index="1">
+      <view class="tip2" style=" color:{{currentTab == 1 ? '#42a4ff':'#828282'}}">
+        普通粉丝
+      </view>
+      <view class="diviler2" wx:if="{{currentTab == 1}}">
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表 -->
+  <view class="list" wx:if="{{currentTab == 1}}">
+    <view class="box2" wx:for="{{normalFansArray}}" wx:for-item="data">
+      <view class="left">
+        <image class="icon2" src="/assets/images/fans-icon.png"></image>
+        <view class="name">
+          {{data.rwxName}}
+        </view>
+      </view>
+
+      <view class="count">+{{data.income}}元</view>
+    </view>
+  </view>
+
+  <view class="list" wx:if="{{currentTab == 0}}">
+    <view class="box2" wx:for="{{exclusiveFansArray}}" wx:for-item="data">
+      <view class="left">
+        <image class="icon2" src="/assets/images/fans-icon.png"></image>
+        <view class="name">
+          {{data.rwxName}}
+        </view>
+      </view>
+
+      <view class="count">+{{data.income}}元</view>
+    </view>
+  </view>
+</view>

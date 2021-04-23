@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "navigationBarTitleText": "卖书给我们"
+  "navigationBarTitleText": "卖书给我们",
+  "navigationStyle": "custom"
 }

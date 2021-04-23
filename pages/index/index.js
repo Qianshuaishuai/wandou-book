@@ -64,7 +64,6 @@ Page({
   },
 
   onLoad: function(options) {
-    this.getHotBook()
     if (options.scene) {
       var rwxid = wx.getStorageSync("userId")
 

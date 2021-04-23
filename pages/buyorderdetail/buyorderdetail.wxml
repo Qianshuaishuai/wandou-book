@@ -1,0 +1,106 @@
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
+<image src="../../assets/new-images/buyorderdetail/top.png" class="top-bg"></image>
+
+<image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
+</image>
+<view class="tip" style="top:{{statusBarHeight+8}}px">
+  买书订单详情
+</view>
+
+<view class="box1">
+  <image src="../../assets/new-images/buyorderdetail/icon1.png" class="icon1"></image>
+  <view class="box2">
+    <view class="tip1">{{orderStatus[orderDetail.status-1]}}</view>
+    <view class="tip2">订单编号：{{orderDetail.orderNumber}}</view>
+  </view>
+</view>
+
+<view class="address-box" bindtap="goToAddress">
+  <view class="address">
+    <image src="../../assets/new-images/buyorder/address.png" class="icon">
+    </image>
+    <view class="content">
+      <view class="address-box1">
+        <view class="name" wx:if="{{orderDetail.contractName == undefined}}">未填写</view>
+        <view class="phone" wx:if="{{orderDetail.contractPhone == undefined}}">未填写</view>
+        <view class="name" wx:if="{{orderDetail.contractName != undefined}}">{{orderDetail.contractName}}</view>
+        <view class="phone" wx:if="{{orderDetail.contractPhone != undefined}}">{{orderDetail.contractPhone}}</view>
+      </view>
+      <view class="data" wx:if="{{orderDetail.province == undefined}}">暂无填写地址信息</view>
+      <view class="data" wx:if="{{orderDetail.province != undefined}}">{{orderDetail.province+orderDetail.city+orderDetail.district+orderDetail.contractAddress}}</view>
+    </view>
+    <image src="../../assets/new-images/buyorder/right.png" class="right">
+    </image>
+  </view>
+  <image src="../../assets/new-images/buyorder/address-bottom.png" class="address-bg">
+  </image>
+</view>
+
+
+<view class="note-box">
+  <view class="note-tip">订单备注</view>
+  <view class="note-content" wx:if="{{orderDetail.note == ''}}">暂无备注</view>
+  <view class="note-content" wx:if="{{orderDetail.note != ''}}">{{orderDetail.note}}</view>
+</view>
+
+<view class="main">
+  <view class="list">
+    <view class="content" wx:for="{{orderDetail.buyOrderGoods}}" wx:for-item="good">
+      <view class="pic-box">
+        <image src="{{good.book.book.pic}}" class="pic" wx:if="{{good.type == 1}}"></image>
+        <image src="{{good.good.pic}}" class="pic" wx:if="{{good.type == 2}}"></image>
+      </view>
+
+      <view class="box2">
+        <view class="tip2" wx:if="{{good.type == 1}}">{{good.book.book.name}}</view>
+        <view class="tip2" wx:if="{{good.type == 2}}">{{good.good.name}}</view>
+        <view class="tip3-box" wx:if="{{good.type == 1}}">
+          <view class="tip3">品相：</view>
+          <view class="tip4">{{quality[good.quality]}}</view>
+        </view>
+        <view class="tip5">￥{{good.finalPrice}}</view>
+      </view>
+
+      <view class="count">
+        x{{good.count}}
+      </view>
+    </view>
+  </view>
+
+  <view class="detail">
+    <view class="box3" style="padding-top:28rpx">
+      <view class="tip6">优惠</view>
+      <view class="tip7">￥{{filters.toFix(orderDetail.oldPrice - orderDetail.finalPrice)}}</view>
+    </view>
+    <view class="box3" style="margin-top:28rpx">
+      <view class="tip6">运费</view>
+      <view class="tip7">￥{{orderDetail.postage}}</view>
+    </view>
+    <view class="box3" style="margin-top:36rpx;margin-bottom:24rpx">
+      <view class="left">
+        <image src="../../assets/new-images/buyorderdetail/icon2.png" class="icon3"></image>
+        <view class="tip6">实付款</view>
+      </view>
+
+      <view class="tip8">￥{{orderDetail.finalPrice}}</view>
+    </view>
+  </view>
+
+  <view class="tip-box">
+    <view class="tag-box">
+      <view class="tag1"></view>
+      <view class="tag2"></view>
+      <view class="tag3"></view>
+    </view>
+    <view class="tip-content">
+      <view class="tip10">订单编号：{{orderDetail.orderNumber}}</view>
+      <view class="tip10" wx:if="{{orderDetail.showCreate}}">创建订单：{{orderDetail.createTime}}</view>
+      <view class="tip10"  wx:if="{{orderDetail.showPay}}">支付时间：{{orderDetail.payTime}}</view>
+      <view class="tip10"  wx:if="{{orderDetail.showSend}}">送货时间：{{orderDetail.sendTime}}</view>
+      <view class="tip10"  wx:if="{{orderDetail.showComplete }}">完成时间：{{orderDetail.completeTime}}</view>
+      <view class="tip10"  wx:if="{{orderDetail.showCancel}}">取消时间：{{orderDetail.cancelTime}}</view>
+    </view>
+  </view>
+
+  <image src="../../assets/new-images/buyorderdetail/icon3.png" class="icon4"></image>
+</view>

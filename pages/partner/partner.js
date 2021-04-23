@@ -3,7 +3,7 @@ Page({
 
   yeildImg: function() {
     //生成海报点击事件
-    if (this.data.userInfo.code == undefined || this.data.userInfo.code == ""){
+    if (this.data.userInfo.code == undefined || this.data.userInfo.code == "") {
       wx.showToast({
         title: '当前后台未生成你的推广码',
         icon: 'none',
@@ -16,11 +16,17 @@ Page({
     })
   },
 
+  goToFans() {
+    wx.navigateTo({
+      url: '/pages/income/income',
+    })
+  },
+
   /**
    * 页面的初始数据
    */
   data: {
-    userInfo:{},
+    userInfo: {},
     imgWidth: 1080,
     imgHeight: 1920,
     showWidth: 0,

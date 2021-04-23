@@ -1,5 +1,6 @@
 /* pages/poster/poster.wxss */
-.img{
+
+.img {
   width: 100vw;
   height: 100vh;
   text-align: center;
@@ -8,7 +9,7 @@
   bottom: 0;
 }
 
-.content{
+.content {
   z-index: 2;
   position: fixed;
   width: 564rpx;
@@ -18,18 +19,68 @@
   margin-left: -282rpx;
 }
 
-.code{
+.code {
   z-index: 999;
   position: fixed;
-  width: 250rpx;
-  height: 250rpx;
-  left: 55%;
-  top: 90rpx;
+  width: 220rpx;
+  height: 220rpx;
+  left: 62%;
+  top: 76vh;
 }
 
-.icon{
+.icon {
   position: fixed;
-  left: 65%;
+  left: 70%;
   z-index: 9999;
-  top: 164rpx;
+  top: 81.2vh;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  top: 77vh;
+  position: fixed;
+}
+
+.content .left {
+  display: flex;
+  flex-direction: column;
+}
+
+.content .left .tip1 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+}
+
+.content .left .tip2 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #55adff;
+  margin-bottom:12rpx;
+  margin-top: 4rpx;
+}
+
+.content .left .tip-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 4rpx;
+}
+
+.content .left .tip-box .tag {
+  width: 10rpx;
+  height: 10rpx;
+  background: #55adff;
+  border-radius: 50%;
+}
+
+.content .left .tip-box .tip3 {
+  margin-left: 12rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
 }

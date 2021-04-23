@@ -1,6 +1,101 @@
 <view class="main">
   <view class="top">
     <view class="title">豌豆书单</view>
-    <view class="search"></view>
+    <view class="search">
+      <image src="../../assets/new-images/index/searchicon.png" class="icon"></image>
+      <input class="input" placeholder="按书名/作者/ISBN搜索" bindtap="goToCommon" bindinput="inputsearch"></input>
+    </view>
+  </view>
+  <view class="top2">
+    <image src="../../assets/new-images/index/ad.png" class="ad" bindtap="goToPartner"></image>
+    <view class="hot">
+      <view class="tip">热搜：</view>
+      <view class="content" wx:for="{{hotWords}}" wx:for-item="word" wx:key="index" bindtap="goToHotWord" data-content="{{word}}">
+        {{word}}
+      </view>
+    </view>
+  </view>
+  <!-- 书单列表 -->
+  <view class="type">
+    <view class="box" wx:for="{{typeDatas}}" wx:for-item="type" wx:key="index" bindtap="goToType" data-index="{{index}}">
+      <image src="{{type.icon}}" class="icon"></image>
+      <view class="title">{{type.title}}</view>
+    </view>
+  </view>
+  <!-- 4.9元专区 -->
+  <view class="special1">
+    <view class="top3">
+      <image src="../../assets/new-images/index/special-bg1.png" class="bg"></image>
+      <view class="title">4.9元专区</view>
+      <view class="more" bindtap="goToSpecial">更多 ></view>
+    </view>
+    <view class="data">
+
+      <view class="box" wx:for="{{indexData.specialBooks}}" wx:for-item="data" wx:key="index" bindtap="goToDetail" data-index="{{index}}" data-type="1">
+        <image class="pic" src="{{data.book.pic}}"></image>
+        <view class="name">{{data.book.name}}</view>
+        <view class="price">
+          <view class="new">
+            <view class="tag">￥</view>
+            <view class="value">4.9</view>
+          </view>
+          <view class="old">
+            {{data.book.real_price}}
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 宿舍好物 -->
+  <view class="special2">
+    <view class="top3">
+      <image src="../../assets/new-images/index/special-bg2.png" class="bg"></image>
+      <view class="title">宿舍好物</view>
+      <view class="more" bindtap="goToGoodThings">更多 ></view>
+    </view>
+    <view class="data">
+
+      <view class="box" wx:for="{{indexData.goods}}" wx:for-item="data" wx:key="index" bindtap="goToGoodThing" data-index="{{index}}">
+        <image class="pic" src="{{data.pic}}"></image>
+        <view class="name">{{data.name}}</view>
+        <view class="price">
+          <view class="new">
+            <view class="tag">￥</view>
+            <view class="value">{{data.sellPrice}}</view>
+          </view>
+          <view class="old">
+            {{data.price}}
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 英语公开课 -->
+  <view class="special3">
+    <view class="top4">
+      <view class="title">英语公开课</view>
+      <view class="more" bindtap="goToSpecailMore3">更多 ></view>
+    </view>
+    <view class="box" wx:for="{{indexData.englishBooks}}" wx:for-item="data" wx:key="index">
+      <image class="pic" src="{{data.book.pic}}"></image>
+      <view class="content">
+        <view class="name">{{data.book.name}}</view>
+        <view class="author">{{data.book.author}}</view>
+        <view class="price">
+          <view class="new">
+            <view class="tag">￥</view>
+            <view class="value">{{data.sellBooks[0].sellPrice}}</view>
+          </view>
+          <view class="old">
+            {{data.book.real_price}}
+          </view>
+        </view>
+      </view>
+      <view class="button" bindtap="goToDetail" data-index="{{index}}" data-type="3">马上抢</view>
+    </view>
   </view>
 </view>

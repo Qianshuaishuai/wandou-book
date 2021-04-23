@@ -96,7 +96,7 @@ Page({
           }
 
           wx.reLaunch({
-            url: '/pages/index/index',
+            url: '/pages/newindex/newindex',
           })
         }
       })
