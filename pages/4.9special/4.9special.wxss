@@ -176,6 +176,9 @@ page {
   font-family: PingFang SC;
   font-weight: 500;
   color: #9e9e9e;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .list .box .content .price {

@@ -106,59 +106,59 @@
   </view>
   <view class="tip7" wx:if="{{showType==1}}">不同品相有什么区别＞</view>
   <!-- 品相1 -->
-  <view class="content-normal" wx:if="{{showType==1&&chooseIndex != 0}}" bindtap="changeChooseIndex" data-index="0">
+  <view class="content-normal" wx:if="{{showType==1&&chooseIndex != 0&& showData.sellBooks[0].nventory != 0}}" bindtap="changeChooseIndex" data-index="0">
     <view class="left">
       <view class="tip8">一般</view>
       <view class="tip9">有轻度污渍或标记</view>
     </view>
     <view class="right">
       <view class="price">
-        ￥{{showData.sellBooks[1].sellPrice}}
+        ￥{{showData.sellBooks[0].sellPrice}}
       </view>
-      <view class="coupon">{{showData.sellBooks[1].discount}}折</view>
+      <view class="coupon">{{showData.sellBooks[0].discount}}折</view>
     </view>
   </view>
-  <view class="content-select" wx:if="{{showType==1&&chooseIndex == 0}}">
+  <view class="content-select" wx:if="{{showType==1&&chooseIndex == 0  && showData.sellBooks[0].nventory != 0}}">
     <view class="left">
       <view class="tip8">一般</view>
       <view class="tip9">有轻度污渍或标记</view>
     </view>
     <view class="right">
       <view class="price">
-        ￥{{showData.sellBooks[1].sellPrice}}
+        ￥{{showData.sellBooks[0].sellPrice}}
       </view>
-      <view class="coupon">{{showData.sellBooks[1].discount}}折</view>
+      <view class="coupon">{{showData.sellBooks[0].discount}}折</view>
     </view>
   </view>
 
   <!-- 品相2 -->
-  <view class="content-normal" wx:if="{{showType==1&&chooseIndex != 1}}" bindtap="changeChooseIndex" data-index="1">
+  <view class="content-normal" wx:if="{{showType==1&&chooseIndex != 1 && showData.sellBooks[1].nventory != 0}}" bindtap="changeChooseIndex" data-index="1">
     <view class="left">
       <view class="tip8">全新</view>
       <view class="tip9">全新品相</view>
     </view>
     <view class="right">
       <view class="price">
-        ￥{{showData.sellBooks[0].sellPrice}}
+        ￥{{showData.sellBooks[1].sellPrice}}
       </view>
-      <view class="coupon">{{showData.sellBooks[0].discount}}折</view>
+      <view class="coupon">{{showData.sellBooks[1].discount}}折</view>
     </view>
   </view>
-  <view class="content-select" wx:if="{{showType==1&&chooseIndex == 1}}">
+  <view class="content-select" wx:if="{{showType==1&&chooseIndex == 1 && showData.sellBooks[1].nventory != 0}}">
     <view class="left">
       <view class="tip8">全新</view>
       <view class="tip9">全新品相</view>
     </view>
     <view class="right">
       <view class="price">
-        ￥{{showData.sellBooks[0].sellPrice}}
+        ￥{{showData.sellBooks[1].sellPrice}}
       </view>
-      <view class="coupon">{{showData.sellBooks[0].discount}}折</view>
+      <view class="coupon">{{showData.sellBooks[1].discount}}折</view>
     </view>
   </view>
 
   <!-- 品相3 -->
-  <view class="content-normal" wx:if="{{showType==1&&chooseIndex != 2}}" bindtap="changeChooseIndex" data-index="2">
+  <view class="content-normal" wx:if="{{showType==1&&chooseIndex != 2 && showData.sellBooks[2].nventory != 0}}" bindtap="changeChooseIndex" data-index="2">
     <view class="left">
       <view class="tip8">良好</view>
       <view class="tip9">笔记良好且无污渍未破损</view>
@@ -170,7 +170,7 @@
       <view class="coupon">{{showData.sellBooks[2].discount}}折</view>
     </view>
   </view>
-  <view class="content-select" wx:if="{{showType==1&&chooseIndex == 2}}">
+  <view class="content-select" wx:if="{{showType==1&&chooseIndex == 2 && showData.sellBooks[2].nventory != 0}}">
     <view class="left">
       <view class="tip8">良好</view>
       <view class="tip9">笔记良好且无污渍未破损</view>

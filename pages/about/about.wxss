@@ -3,4 +3,5 @@
   padding-left: 28rpx;
   padding-right: 28rpx;
   padding-bottom: 18rpx;
+  white-space: pre-wrap;
 }

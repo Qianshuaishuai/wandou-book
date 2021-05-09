@@ -1,5 +1,18 @@
 /* ～～～～～～～～～～～～～～～～～～～～～ */
 
+page{
+
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+}
+
+.main  .top-top{
+  position: relative;
+}
+
 .list {
   display: flex;
   flex-direction: column;
@@ -11,7 +24,7 @@
   border-radius: 20rpx;
   overflow: auto;
   margin-bottom: 300rpx;
-  margin-top: -150rpx;
+  margin-top: 370rpx;
 }
 
 .list .book-item {
@@ -116,16 +129,16 @@ page {
 }
 
 .top {
-  position: relative;
+  position: fixed;
   width: 100%;
   height: 536rpx;
 }
 
 .top .bg {
   width: 100%;
-  height: 100%;
+  height: 536rpx;
   z-index: 1;
-  position: absolute;
+  position: fixed;
   top: 0rpx;
   left: 0rpx;
 }
@@ -136,23 +149,23 @@ page {
   font-family: PingFang SC;
   font-weight: bold;
   color: #fff;
-  position: absolute;
+  position: fixed;
   top: 58rpx;
   left: 50%;
   margin-left: -43rpx;
   z-index: 2;
 }
 
-.top .icon1 {
+.main .top-top  .icon1 {
+  position: absolute;
   width: 184rpx;
   height: 251rpx;
-  position: absolute;
   top: 136rpx;
   right: 72rpx;
   z-index: 2;
 }
 
-.top .tip-box {
+.main .top-top .tip-box {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -161,14 +174,14 @@ page {
   z-index: 2;
 }
 
-.top .tip-box .tip1 {
+.main .top-top .tip-box .tip1 {
   font-size: 36rpx;
   font-family: PingFang SC;
   font-weight: bold;
   color: #fff;
 }
 
-.top .tip-box .tip2 {
+.main .top-top .tip-box .tip2 {
   font-size: 24rpx;
   font-family: PingFang SC;
   font-weight: 500;
@@ -346,7 +359,7 @@ page {
   left: 3%;
   background: #fff;
   border-radius: 40rpx 40rpx 0rpx 0rpx;
-  z-index: 101;
+  z-index: 99;
 }
 
 .bottom .left {

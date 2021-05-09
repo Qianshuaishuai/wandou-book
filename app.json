@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/newindex/newindex",
+    "pages/lcoupon/lcoupon",
     "pages/income/income",
     "pages/buyorderlist/buyorderlist",
     "pages/buyorderdetail/buyorderdetail",

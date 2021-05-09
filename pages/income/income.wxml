@@ -7,7 +7,8 @@
   </view>
   <view class="diviler"></view>
   <view class="box1" bindtap="changeStatus" data-index="1">
-    <image class="icon" src="/assets/new-images/income/icon2.png"></image>
+    <image wx:if="{{currentStatus == 0}}" class="icon" src="/assets/new-images/income/icon4.png"></image>
+    <image wx:if="{{currentStatus == 1}}" class="icon" src="/assets/new-images/income/icon2.png"></image>
     <view class="tip1">
       买书收益
     </view>

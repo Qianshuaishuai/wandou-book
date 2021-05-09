@@ -19,7 +19,7 @@ Page({
       "title": "宿舍好物",
       "icon": "../../assets/new-images/index/type3.png"
     }, {
-      "title": "优教材",
+      "title": "大学教材",
       "icon": "../../assets/new-images/index/type4.png"
     }, {
       "title": "高校书单",
@@ -120,7 +120,7 @@ Page({
     } else if (index == 2) {
       this.goToGoodThings()
     } else if (index == 3) {
-
+      this.goToSpecailMore3()
     } else if (index == 4) {
       this.goToSchool()
     }

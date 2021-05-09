@@ -1,58 +1,62 @@
 <view class="top">
   <image src="../../assets/new-images/sellbook/top.png" class="bg"></image>
   <view class="title" style="top:{{statusBarHeight+8}}px">卖书</view>
-  <image src="../../assets/new-images/sellbook/icon1.png" class="icon1"></image>
-  <view class="tip-box">
-    <view class="tip1">卖书仅需三步</view>
-    <view class="tip2">温馨提示：回收书籍最低提交38本即可回收</view>
-  </view>
 </view>
 
-<view class="content" wx:if="{{carBookList.length==0}}">
-  <view class="box" style="margin-top:36rpx;">
-    <view class="box1">
-      <image src="../../assets/new-images/sellbook/icon2.png" class="icon2"></image>
-      <view class="box2">
-        <view class="tip3">卖家第一步</view>
-        <view class="tip4">扫描条码 查收购价</view>
-      </view>
-    </view>
-
-    <view class="diviler"></view>
-  </view>
-
-  <view class="box">
-    <view class="box1">
-      <image src="../../assets/new-images/sellbook/icon3.png" class="icon2"></image>
-      <view class="box2">
-        <view class="tip3">卖家第二步</view>
-        <view class="tip4">提交订单 快递免费 上门取件</view>
-      </view>
-    </view>
-
-    <view class="diviler"></view>
-  </view>
-  <view class="box">
-    <view class="box1">
-      <image src="../../assets/new-images/sellbook/icon4.png" class="icon2"></image>
-      <view class="box2">
-        <view class="tip3">卖家第三步</view>
-        <view class="tip4">完成审核 微信提现</view>
-      </view>
+<view class="main">
+  <view class="top-top">
+    <image src="../../assets/new-images/sellbook/icon1.png" class="icon1"></image>
+    <view class="tip-box">
+      <view class="tip1">卖书仅需三步</view>
+      <view class="tip2">温馨提示：回收书籍最低提交8本即可回收</view>
     </view>
   </view>
-</view>
+  <view class="content" wx:if="{{carBookList.length==0}}">
+    <view class="box" style="margin-top:36rpx;">
+      <view class="box1">
+        <image src="../../assets/new-images/sellbook/icon2.png" class="icon2"></image>
+        <view class="box2">
+          <view class="tip3">卖家第一步</view>
+          <view class="tip4">扫描条码 查收购价</view>
+        </view>
+      </view>
 
-<view wx:if="{{carBookList.length>0}}" class="list">
-  <view class="book-item" wx:for="{{carBookList}}" wx:for-item="item" wx:for-key="index">
-    <image class="cover" src="{{item.pic}}"></image>
-    <view class="content1">
-      <view class="name">{{item.name}}</view>
-      <view class="tip">最高可卖：</view>
-      <view class="price">¥{{item.price}}</view>
+      <view class="diviler"></view>
     </view>
-    <view class="count">{{item.num}}</view>
-    <image class="icon" src="/assets/images/close.png" bindtap="deleteBook" data-index="{{index}}"></image>
+
+    <view class="box">
+      <view class="box1">
+        <image src="../../assets/new-images/sellbook/icon3.png" class="icon2"></image>
+        <view class="box2">
+          <view class="tip3">卖家第二步</view>
+          <view class="tip4">提交订单 快递免费 上门取件</view>
+        </view>
+      </view>
+
+      <view class="diviler"></view>
+    </view>
+    <view class="box">
+      <view class="box1">
+        <image src="../../assets/new-images/sellbook/icon4.png" class="icon2"></image>
+        <view class="box2">
+          <view class="tip3">卖家第三步</view>
+          <view class="tip4">完成审核 微信提现</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{carBookList.length>0}}" class="list">
+    <view class="book-item" wx:for="{{carBookList}}" wx:for-item="item" wx:for-key="index">
+      <image class="cover" src="{{item.pic}}"></image>
+      <view class="content1">
+        <view class="name">{{item.name}}</view>
+        <view class="tip">最高可卖：</view>
+        <view class="price">¥{{item.price}}</view>
+      </view>
+      <view class="count">{{item.num}}</view>
+      <image class="icon" src="/assets/images/close.png" bindtap="deleteBook" data-index="{{index}}"></image>
+    </view>
   </view>
 </view>
 

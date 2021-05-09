@@ -129,7 +129,7 @@
 
 <view class="bottom">
   <view class="tip" bindtap="goRule">了解更多卖书答疑</view>
-  <view class="rule">回收书籍最低提交38本即可回收</view>
+  <view class="rule">回收书籍最低提交8本即可回收</view>
   <view class="buy-car">
     <view class="left">
       <view class="count">共计 {{currentBookCount}} 本</view>

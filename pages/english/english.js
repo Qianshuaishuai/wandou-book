@@ -9,7 +9,7 @@ Page({
     currentMode: 0,
     currentSort: 0,
     showDatas: [],
-    menuId: 2
+    menuId: 3
   },
 
   changeMode(e) {

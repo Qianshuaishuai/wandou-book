@@ -1,11 +1,12 @@
-// pages/about/about.js
+// pages/lcoupon/lcoupon.js
+const app = getApp()
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    dataString:`我们是一家从事互联网图书回收的公司 我们励志于书籍再循环利用\n如果您有大批量的书籍需要处理或者您想成为我们校园的独家代理\n请添加客服微信wandoubook。`
+    statusBarHeight: app.globalData.statusBarHeight,
   },
 
   /**
@@ -13,6 +14,13 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+
+  back() {
+    wx.navigateBack({
+      delta: 1
+    })
   },
 
   /**

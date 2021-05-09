@@ -69,3 +69,8 @@ page {
   line-height: 90rpx;
   text-align: center;
 }
+
+.main{
+  width: 100%;
+  height: 125vh;
+}

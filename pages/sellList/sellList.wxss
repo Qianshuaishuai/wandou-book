@@ -44,7 +44,7 @@ page {
   display: flex;
   flex-direction: column;
   width: 94%;
-  height: 280rpx;
+  height: 310rpx;
   background: #fff;
   border-radius: 10rpx;
   z-index: 2;
@@ -112,7 +112,7 @@ page {
   display: flex;
   flex-direction: row;
   width: 576rpx;
-  height: 72rpx;
+  height: 100rpx;
   background: #e7f3ff;
   border-radius: 10rpx;
   padding-top: 20rpx;
@@ -140,7 +140,7 @@ page {
 
 .icon4 {
   position: absolute;
-  top: 430rpx;
+  top: 460rpx;
   width: 94%;
   height: 6rpx;
   z-index: 2;

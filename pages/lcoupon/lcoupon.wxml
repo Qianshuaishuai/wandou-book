@@ -1,0 +1,58 @@
+<view class="top">
+  <image src="../../assets/new-images/lcoupon/top.png" class="bg"></image>
+</view>
+
+<image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
+</image>
+<view class="tip" style="top:{{statusBarHeight+8}}px">
+  大额砍价优惠券
+</view>
+
+<image src="../../assets/new-images/lcoupon/main.png" class="main-bg">
+</image>
+
+<view class="box1">
+  <view class="tip1">仅剩:</view>
+  <view class="data1">13</view>
+  <view class="tip2">天</view>
+  <view class="data1">18</view>
+  <view class="tip2">时</view>
+  <view class="data1">59</view>
+  <view class="tip2">分</view>
+  <view class="data1">23</view>
+  <view class="tip2">秒</view>
+</view>
+
+<view class="main2">
+  <image src="../../assets/new-images/lcoupon/main2.png" class="main2-bg">
+  </image>
+  <view class="box2">
+    <view class="tag">￥</view>
+    <view class="value">50</view>
+  </view>
+  <view class="tip3">满26元可使用</view>
+  <view class="tip4">大额砍价优惠券</view>
+</view>
+
+<view class="box4">
+  <view class="progress">
+  </view>
+
+  <view class="box5">
+    <view class="tip5">
+      砍价进度
+    </view>
+
+    <view class="box6">
+      <view class="tip6">
+        已砍掉
+      </view>
+      <view class="tag1">￥</view>
+      <view class="value1">13.62</view>
+    </view>
+  </view>
+</view>
+
+<view class="button">
+  喊好友来砍价，很快砍一刀
+</view>

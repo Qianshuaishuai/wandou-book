@@ -1,5 +1,5 @@
 <view class="top">
-  <image src="/assets/new-images/special/special-bg.png" class="image"></image>
+  <image src="/assets/new-images/special/english.png" class="image"></image>
   <view class="search">
     <image src="../../assets/new-images/index/search-icon-white.png" class="icon"></image>
     <input class="input" placeholder="按书名/作者/ISBN搜索" bindinput="inputsearch" placeholder-class="placeholder-input"></input>

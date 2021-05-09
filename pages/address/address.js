@@ -11,7 +11,8 @@ Page({
     address: ['北京市', '北京市', '东城区'],
     province: "",
     city: "",
-    district: ""
+    district: "",
+    type: 1,
   },
 
   bindPickerChange(e) {
@@ -88,6 +89,18 @@ Page({
       return
     }
 
+    if (this.data.type == 2) {
+      console.log(province)
+      console.log(province.indexOf("上海") )
+      if (province.indexOf("浙江") == -1 && province.indexOf("江苏") == -1 && province.indexOf("安徽") == -1 && province.indexOf("上海") == -1) {
+        wx.showToast({
+          title: '目前仅回收浙江、江苏、安徽、上海四个地区，其余地 区暂不开放',
+          icon: 'none',
+        })
+        return
+      }
+    }
+
     addressObj.province = province
     addressObj.city = city
     addressObj.district = district
@@ -121,6 +134,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
+    var type = options.type
     var address = wx.getStorageSync('address')
 
     if (address.name != undefined) {
@@ -131,6 +145,7 @@ Page({
         city: address.city,
         district: address.district,
         detail: address.detail,
+        type: type,
       })
     }
 

@@ -7,73 +7,72 @@
   卖书订单详情
 </view>
 
-<view class="box1">
-  <image src="../../assets/new-images/buyorderdetail/icon1.png" class="icon1"></image>
-  <view class="box2">
-    <view class="tip1">{{currentStatus}}</view>
-    <view class="tip2">订单编号：{{orderDetail.orderNumber}}</view>
-  </view>
-</view>
+<view class="main">
 
-<view class="time-content">
-  <view class="time-box">
-    <view class="time-tag" wx:for="{{showTime}}" wx:for-item="item">
-      {{item.name}}
+  <view class="box1">
+    <image src="../../assets/new-images/buyorderdetail/icon1.png" class="icon1"></image>
+    <view class="box2">
+      <view class="tip1">{{currentStatus}}</view>
+      <view class="tip2">订单编号：{{orderDetail.orderNumber}}</view>
     </view>
   </view>
 
-  <view class="diviler-box">
+  <view class="time-content">
+    <view class="time-box">
+      <view class="time-tag" wx:for="{{showTime}}" wx:for-item="item">
+        {{item.name}}
+      </view>
+    </view>
 
-    <!-- <view class="roal"></view>
+    <view class="diviler-box">
+
+      <!-- <view class="roal"></view>
     <view class="time-diviler"></view>
     <view class="roal"></view>
     <view class="time-diviler"></view>
     <view class="roal"></view>
     <view class="time-diviler"></view>
     <view class="roal"></view> -->
-    <view class="diviler-box2" wx:for="{{showTime}}" wx:for-item="item">
-      <view class="roal"></view>
-      <view class="time-diviler" wx:if="{{index != (showTime.length-1)}}"></view>
-    </view>
-  </view>
-
-  <view class="time-box">
-    <view class="time" wx:for="{{showTime}}" wx:for-item="item">
-      {{item.time}}
-    </view>
-  </view>
-</view>
-
-<view class="address-box" bindtap="goToAddress">
-  <view class="address">
-    <image src="../../assets/new-images/buyorder/address.png" class="icon">
-    </image>
-    <view class="content">
-      <view class="address-box1">
-        <view class="name" wx:if="{{orderDetail.contractName == undefined}}">未填写</view>
-        <view class="phone" wx:if="{{orderDetail.contractPhone == undefined}}">未填写</view>
-        <view class="name" wx:if="{{orderDetail.contractName != undefined}}">{{orderDetail.contractName}}</view>
-        <view class="phone" wx:if="{{orderDetail.contractPhone != undefined}}">{{orderDetail.contractPhone}}</view>
+      <view class="diviler-box2" wx:for="{{showTime}}" wx:for-item="item">
+        <view class="roal"></view>
+        <view class="time-diviler" wx:if="{{index != (showTime.length-1)}}"></view>
       </view>
-      <view class="data" wx:if="{{orderDetail.province == undefined}}">暂无填写地址信息</view>
-      <view class="data" wx:if="{{orderDetail.province != undefined}}">{{orderDetail.province+orderDetail.city+orderDetail.district+orderDetail.contractAddress}}</view>
     </view>
-    <image src="../../assets/new-images/buyorder/right.png" class="right">
+
+    <view class="time-box">
+      <view class="time" wx:for="{{showTime}}" wx:for-item="item">
+        {{item.time}}
+      </view>
+    </view>
+  </view>
+
+  <view class="address-box" bindtap="goToAddress">
+    <view class="address">
+      <image src="../../assets/new-images/buyorder/address.png" class="icon">
+      </image>
+      <view class="content">
+        <view class="address-box1">
+          <view class="name" wx:if="{{orderDetail.contractName == undefined}}">未填写</view>
+          <view class="phone" wx:if="{{orderDetail.contractPhone == undefined}}">未填写</view>
+          <view class="name" wx:if="{{orderDetail.contractName != undefined}}">{{orderDetail.contractName}}</view>
+          <view class="phone" wx:if="{{orderDetail.contractPhone != undefined}}">{{orderDetail.contractPhone}}</view>
+        </view>
+        <view class="data" wx:if="{{orderDetail.province == undefined}}">暂无填写地址信息</view>
+        <view class="data" wx:if="{{orderDetail.province != undefined}}">{{orderDetail.province+orderDetail.city+orderDetail.district+orderDetail.contractAddress}}</view>
+      </view>
+      <image src="../../assets/new-images/buyorder/right.png" class="right">
+      </image>
+    </view>
+    <image src="../../assets/new-images/buyorder/address-bottom.png" class="address-bg">
     </image>
   </view>
-  <image src="../../assets/new-images/buyorder/address-bottom.png" class="address-bg">
-  </image>
-</view>
 
 
-<!-- <view class="note-box">
+  <!-- <view class="note-box">
   <view class="note-tip">订单备注</view>
   <view class="note-content" wx:if="{{orderDetail.note == ''}}">暂无备注</view>
   <view class="note-content" wx:if="{{orderDetail.note != ''}}">{{orderDetail.note}}</view>
 </view> -->
-
-<view class="main">
-
   <view class="wl-box">
     <view class="wl-box-content">
       <image src="../../assets/new-images/orderdetail/icon11.png" class="icon11">

@@ -20,7 +20,7 @@ Page({
     this.setData({
       currentStatus: Number(index)
     })
-
+    this.getFansList()
   },
 
   changeTab(e) {
@@ -32,10 +32,12 @@ Page({
   },
 
   getFansList() {
+    console.log(wx.getStorageSync('userId'))
     wx.request({
       url: app.globalData.baseUrl + '/v1/recommend/list',
       data: {
         wx_id: wx.getStorageSync('userId'),
+        type: this.data.currentStatus + 1
       },
       method: 'GET',
       header: {

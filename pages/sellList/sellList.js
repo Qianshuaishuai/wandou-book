@@ -81,7 +81,7 @@ Page({
 
   goToAddress(e) {
     wx.navigateTo({
-      url: "/pages/address/address"
+      url: "/pages/address/address?type=2"
     })
   },
 
@@ -184,6 +184,14 @@ Page({
         title: '请先选择你的区域信息',
         icon: 'none',
         duration: 2000
+      })
+      return
+    }
+
+    if (province.indexOf("浙江") == -1 && province.indexOf("江苏") == -1 && province.indexOf("安徽") == -1 && province.indexOf("上海") == -1) {
+      wx.showToast({
+        title: '目前仅回收浙江、江苏、安徽、上海四个地区，其余地 区暂不开放',
+        icon: 'none',
       })
       return
     }
@@ -406,10 +414,10 @@ Page({
       bookData.push(book)
     }
 
-    if (currentBookCount < 38) {
+    if (currentBookCount < 8) {
       wx.showModal({
         title: '友情提示',
-        content: '回收书籍最低提交38本',
+        content: '回收书籍最低提交8本',
         showCancel: false
       })
       return
@@ -459,7 +467,7 @@ Page({
         if (res.data.F_responseNo == 10000) {
           wx.showModal({
             title: '提示',
-            content: '已提交成功，请等待工作人员上门回收',
+            content: '你已成功提交,毕业季末高峰期为加快审核速度，请将书籍打包后写上姓名电话订单编号（DY+数字）交给京东快递员',
             showCancel: false,
             success: res => {
               this.setData({

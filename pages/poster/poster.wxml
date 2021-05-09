@@ -1,8 +1,10 @@
 <!--pages/poster/poster.wxml-->
 <!-- <image class="content" src="/assets/images/new-share-content.jpeg"></image> -->
-<image class="img" src="/assets/new-images/share//share-bg.png"></image>
-<image class="code" src="{{userInfo.code}}"></image>
-<van-image class="icon" round width="100rpx" height="100rpx" src="{{userWxInfo.avatarUrl}}" />
+<!-- <image class="img" src="http://resource.qimsj.com/wandou/share-png.png"></image>
+<image class="code" src="{{userInfo.code}}">
+  <van-image class="icon" round width="100rpx" height="100rpx" src="{{userWxInfo.avatarUrl}}" />
+</image>
+
 
 <view class="content">
   <view class="left">
@@ -21,4 +23,10 @@
       <view class="tip3">审核完成轻松提现</view>
     </view>
   </view>
-</view>
+</view> -->
+
+<canvas class="post-cv" canvas-id="post-cv">
+
+</canvas>
+
+<view class="button" bindtap="save">保存到相册，分享给好友</view>

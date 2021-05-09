@@ -1,3 +1,4 @@
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
 <view class="top">
   <image src="../../assets/new-images/selllist/top.png" class="bg"></image>
   <image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+13}}px" bindtap="back">
@@ -23,7 +24,7 @@
     </view>
     <view class="box2">
       <image src="../../assets/new-images/selllist/icon2.png" class="icon2"></image>
-      <view class="tip1">豌豆书单将预约指定快递上门取件，邮费由豌豆 书单承担，请填写准确地址</view>
+      <view class="tip1">豌豆书单将在预约时间内安排京东快递上门取件，运费由豌豆承担，您只需要把书籍打包好并写上订单号姓名电话等信息交给快递小哥</view>
     </view>
   </view>
 </view>
@@ -34,7 +35,7 @@
   <view class="left">
     <image src="../../assets/new-images/selllist/icon5.png" class="icon5"></image>
     <view class="data">取件开始时间
-      <view class="data-picker"  style="width:200rpx">
+      <view class="data-picker"  style="width:210rpx">
         <picker mode="date" value="{{date}}" start="2020-09-01" end="2023-09-01" bindchange="bindDateChangeForStart" style="padding-left:20rpx;padding-right:20rpx">
           <view class="data" wx:if="{{startDate == '' }}">
             选择日期
@@ -45,7 +46,7 @@
         </picker>
       </view>
 
-      <view class="data-picker" style="width:200rpx">
+      <view class="data-picker" style="width:210rpx">
         <picker mode="time" value="{{time}}" start="09:00" end="19:00" bindchange="bindTimeChangeForStart">
           <view class="picker" wx:if="{{startTime == '' }}">
             选择时间
@@ -65,7 +66,7 @@
   <view class="left">
     <image src="../../assets/new-images/selllist/icon5.png" class="icon5"></image>
     <view class="data">取件结束时间
-      <view class="data-picker" style="width:200rpx">
+      <view class="data-picker" style="width:210rpx">
         <picker mode="date" value="{{date}}" start="2020-09-01" end="2023-09-01" bindchange="bindDateChangeForEnd" style="margin-left:20rpx">
           <view class="data" wx:if="{{endDate == '' }}">
             选择日期
@@ -76,7 +77,7 @@
         </picker>
       </view>
 
-      <view class="data-picker" style="width:200rpx">
+      <view class="data-picker" style="width:210rpx">
         <picker mode="time" value="{{time}}" start="09:00" end="19:00" bindchange="bindTimeChangeForEnd">
           <view class="picker" wx:if="{{endTime == '' }}">
             选择时间
@@ -125,7 +126,7 @@
     </view>
     <view class="price-box">
       <view class="tip7">预估回收价格</view>
-      <view class="count">￥{{allPrice}}</view>
+      <view class="count">￥{{filters.toFix(allPrice)}}</view>
       <image src="../../assets/new-images/selllist/icon6.png" class="icon6"></image>
     </view>
   </view>

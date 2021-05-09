@@ -12,7 +12,8 @@ Page({
     quality: ["一般", "全新", "良好"],
     currentStatus: "",
     tracks: [],
-    showTime:[],
+    showTime: [],
+    mainHeight: 0,
   },
 
   back(e) {
@@ -61,6 +62,22 @@ Page({
 
     this.getOrderDatail(options.id)
     // this.getOrderDatail(2293284240057646)
+
+    var windowHeight = wx.getSystemInfoSync().windowHeight
+    var mainHeight = (windowHeight * this.getRpx() - 330 * this.getRpx()) / this.getRpx()
+    console.log(windowHeight)
+    console.log(mainHeight)
+    console.log(this.getRpx())
+    this.setData({
+      mainHeight: mainHeight
+    })
+  },
+
+  /* utils/util.js */
+  //获取px与rpx之间的比列 
+  getRpx() {
+    var winWidth = wx.getSystemInfoSync().windowWidth
+    return 750 / winWidth
   },
 
   getOrderDatail(id) {
@@ -139,14 +156,39 @@ Page({
           timeSimple.name = "提交订单"
           timeSimple.time = orderDetail.createTime
           showTime.push(timeSimple)
+        } else {
+          var timeSimple = new Object
+          timeSimple.name = "提交订单"
+          timeSimple.time = ""
+          showTime.push(timeSimple)
         }
+
+        if (orderDetail.inquiryTime.indexOf("00:00:00") == -1) {
+          orderDetail.showCreate = true
+
+          var timeSimple = new Object
+          timeSimple.name = "初审通过"
+          timeSimple.time = orderDetail.inquiryTime
+          showTime.push(timeSimple)
+        } else {
+          var timeSimple = new Object
+          timeSimple.name = "初审通过"
+          timeSimple.time = ""
+          showTime.push(timeSimple)
+        }
+
 
         if (orderDetail.wlTime.indexOf("00:00:00") == -1) {
           orderDetail.showWl = true
 
           var timeSimple = new Object
-          timeSimple.name = "物流接收"
+          timeSimple.name = "物流收件"
           timeSimple.time = orderDetail.wlTime
+          showTime.push(timeSimple)
+        } else {
+          var timeSimple = new Object
+          timeSimple.name = "物流收件"
+          timeSimple.time = ""
           showTime.push(timeSimple)
         }
 
@@ -154,22 +196,18 @@ Page({
           orderDetail.showReceipt = true
 
           var timeSimple = new Object
-          timeSimple.name = "上门取件"
+          timeSimple.name = "物流签收"
           timeSimple.time = orderDetail.receiptTime
+          showTime.push(timeSimple)
+        } else {
+          var timeSimple = new Object
+          timeSimple.name = "物流签收"
+          timeSimple.time = ""
           showTime.push(timeSimple)
         }
 
         if (orderDetail.payTime.indexOf("00:00:00") == -1) {
           orderDetail.showPay = true
-        }
-
-        if (orderDetail.completeTime.indexOf("00:00:00") == -1) {
-          orderDetail.showComplete = true
-
-          var timeSimple = new Object
-          timeSimple.name = "审核完毕"
-          timeSimple.time = orderDetail.completeTime
-          showTime.push(timeSimple)
         }
 
         if (orderDetail.cancelTime.indexOf("00:00:00") == -1 && orderDetail.cancelTime != "") {
@@ -179,6 +217,20 @@ Page({
           timeSimple.name = "取消订单"
           timeSimple.time = orderDetail.cancelTime
           showTime.push(timeSimple)
+        } else {
+          if (orderDetail.completeTime.indexOf("00:00:00") == -1) {
+            orderDetail.showComplete = true
+
+            var timeSimple = new Object
+            timeSimple.name = "审核完毕"
+            timeSimple.time = orderDetail.completeTime
+            showTime.push(timeSimple)
+          } else {
+            var timeSimple = new Object
+            timeSimple.name = "审核完毕"
+            timeSimple.time = ""
+            showTime.push(timeSimple)
+          }
         }
 
         this.setData({

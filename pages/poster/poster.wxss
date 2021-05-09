@@ -1,12 +1,16 @@
 /* pages/poster/poster.wxss */
 
+page {
+  overflow: hidden;
+}
+
 .img {
   width: 100vw;
-  height: 100vh;
+  height: 90vh;
   text-align: center;
   z-index: 1;
   position: fixed;
-  bottom: 0;
+  top: 0;
 }
 
 .content {
@@ -21,25 +25,28 @@
 
 .code {
   z-index: 999;
-  position: fixed;
+  margin-top: 68vh;
   width: 220rpx;
   height: 220rpx;
-  left: 62%;
-  top: 76vh;
+  margin-left: 62%;
+  display: flex;
+  flex-direction: row;
+  position: relative;
 }
 
-.icon {
-  position: fixed;
-  left: 70%;
+.code .icon {
+  position: absolute;
   z-index: 9999;
-  top: 81.2vh;
+  top: 59.5rpx;
+  left: 59.5rpx;
 }
 
 .content {
   display: flex;
   flex-direction: row;
-  top: 77vh;
+  top: 68vh;
   position: fixed;
+  z-index: 2;
 }
 
 .content .left {
@@ -59,7 +66,6 @@
   font-family: PingFang SC;
   font-weight: bold;
   color: #55adff;
-  margin-bottom:12rpx;
   margin-top: 4rpx;
 }
 
@@ -83,4 +89,30 @@
   font-family: PingFang SC;
   font-weight: 500;
   color: #333;
+}
+
+.button {
+  width: 548rpx;
+  height: 80rpx;
+  background: #55adff;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  line-height: 80rpx;
+  text-align: center;
+  position: fixed;
+  bottom: 24rpx;
+  left: 50%;
+  margin-left: -274rpx;
+  z-index: 999;
+}
+
+.post-cv {
+  width: 100vw;
+  height: 90vh;
+  z-index: 1;
+  position: fixed;
+  top: 0;
 }

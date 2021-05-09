@@ -94,7 +94,7 @@ Page({
 
   goToAddress(e) {
     wx.navigateTo({
-      url: "/pages/address/address"
+      url: "/pages/address/address?type=1"
     })
   },
 

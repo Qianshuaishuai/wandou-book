@@ -1,0 +1,250 @@
+/* pages/lcoupon/lcoupon.wxss */
+
+page {
+  background: #eff5fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  position: fixed;
+  width: 100%;
+  height: 420rpx;
+  z-index: 1;
+}
+
+.top .bg {
+  width: 100%;
+  height: 420rpx;
+  z-index: 1;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.back {
+  width: 34rpx;
+  height: 34rpx;
+  position: fixed;
+  left: 30rpx;
+  z-index: 2;
+}
+
+.tip {
+  width: 270rpx;
+  height: 34rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  position: fixed;
+  left: 50%;
+  margin-left: -135rpx;
+  z-index: 2;
+}
+
+.main-bg {
+  position: fixed;
+  width: 100%;
+  height: 641rpx;
+  top: 153rpx;
+  z-index: 3;
+}
+
+.box1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  top: 220rpx;
+  position: fixed;
+  z-index: 5;
+  align-content: flex-end;
+  align-items: flex-end;
+}
+
+.box1 .tip1 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+}
+
+.box1 .tip2 {
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-left: 6rpx;
+}
+
+.box1 .data1 {
+  padding-left: 8rpx;
+  padding-right: 8rpx;
+  height: 42rpx;
+  background: #43a5ff;
+  border-radius: 5rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  line-height: 42rpx;
+  text-align: center;
+  margin-left: 6rpx;
+}
+
+/* .main2 {
+  position: fixed;
+  top: 306rpx;
+  z-index: 6;
+  width: 100%;
+  justify-content: center;
+} */
+
+.main2 .main2-bg {
+  width: 356rpx;
+  height: 425rpx;
+  position: fixed;
+  top: 306rpx;
+  z-index: 6;
+  left: 50%;
+  margin-left: -178rpx;
+}
+
+.main2 .box2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  position: fixed;
+  width: 200rpx;
+  left: 50%;
+  margin-left: -100rpx;
+  z-index: 9;
+  top: 380rpx;
+}
+
+.main2 .box2 .tag {
+  font-size: 51rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #ff4848;
+  margin-bottom: 4rpx;
+}
+
+.main2 .box2 .value {
+  font-size: 80rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #ff4848;
+  margin-left: 22rpx;
+  top: 402rpx;
+}
+
+.main2 .tip3 {
+  position: fixed;
+  z-index: 9;
+  top: 488rpx;
+  width: 181rpx;
+  height: 29rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #333;
+  left: 50%;
+  margin-left: -90.5rpx;
+}
+
+.main2 .tip4 {
+  position: fixed;
+  z-index: 9;
+  top: 605rpx;
+  width: 210rpx;
+  height: 29rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #43a4ff;
+  left: 50%;
+  margin-left: -105rpx;
+}
+
+.box4 {
+  width: 94%;
+  height: 240rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-left: 3%;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 820rpx;
+  align-items: center;
+}
+
+.box4 .progress {
+  width: 600rpx;
+  height: 26rpx;
+  background: #eee;
+  border-radius: 13rpx;
+  margin-top: 60rpx;
+}
+
+.box4 .box5 {
+  width: 600rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin-top: 24rpx;
+  justify-content: space-between;
+}
+
+.box4 .box5 .tip5 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #939393;
+}
+
+.box4 .box5 .box6 {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+}
+
+.box4 .box5 .box6 .tip6 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+}
+
+.box4 .box5 .box6 .tag1 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #ff4848;
+  margin-left: 10rpx;
+}
+
+.box4 .box5 .box6 .value1 {
+  font-size: 40rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #ff4848;
+  margin-left: 6rpx;
+}
+
+.button {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  width: 94%;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  background: #42a4ff;
+  border-radius: 12rpx;
+  margin-left: 3%;
+  margin-top: 48rpx;
+}

@@ -102,7 +102,7 @@ Page({
       bookData.push(book)
     }
 
-    if (currentBookCount < 38) {
+    if (currentBookCount < 8) {
       // wx.showModal({
       //   title: '友情提示',
       //   content: '回收书籍最低提交8本或满38元即可回收',
@@ -114,7 +114,7 @@ Page({
       return
     }
 
-    if (currentBookCount > 160) {
+    if (currentBookCount > 50) {
       // wx.showModal({
       //   title: '友情提示',
       //   content: '一次订单最多只能提交50本旧书籍',
@@ -188,9 +188,9 @@ Page({
     if (currentIndex !== -1) {
       
       var oldList = this.data.carBookList
-      if (oldList[currentIndex].num >= 10){
+      if (oldList[currentIndex].num >= 1){
         wx.showToast({
-          title: '一个订单最多提交10本相同的书籍',
+          title: '一个订单最多提交1本相同的书籍',
           icon: 'none',
           duration: 2000
         })
