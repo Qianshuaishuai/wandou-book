@@ -1,6 +1,7 @@
 <view class="info">
   <image src="{{userInfo.avatarUrl}}" class="head"></image>
-  <view class="name">{{userInfo.nickName}}</view>
+  <view class="name" wx:if="{{userInfo.nickName==''||userInfo.nickName=='微信用户'}}" bindtap="getUserProfile">请点击获取你个人信息</view>
+  <view class="name" wx:if="{{userInfo.nickName!=''&&userInfo.nickName!='微信用户'}}">{{userInfo.nickName}}</view>
 </view>
 
 <view class="card">

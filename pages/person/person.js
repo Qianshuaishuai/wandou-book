@@ -174,8 +174,24 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
 
+   getUserProfile(){
+    wx.getUserProfile({
+      desc: '用于完善用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        var avatarUrl = 'userInfo.avatarUrl';
+              var nickName = 'userInfo.nickName';
+              this.setData({
+                [avatarUrl]: res.userInfo.avatarUrl,
+                [nickName]: res.userInfo.nickName,
+              })
+      },fail:(res)=>{
+        
+      }
+    })
+   },
+
+  onLoad: function(options) {
     wx.getSetting({
       success: (res) => {
         if (res.authSetting['scope.userInfo']) {

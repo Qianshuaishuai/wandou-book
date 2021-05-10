@@ -2,7 +2,13 @@
 Page({
 
   yeildImg: function() {
-    //生成海报点击事件
+      // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
+      // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+      wx.getUserProfile({
+        desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          var avatarUrl = res.userInfo.avatarUrl
+             //生成海报点击事件
     if (this.data.userInfo.code == undefined || this.data.userInfo.code == "") {
       wx.showToast({
         title: '当前后台未生成你的推广码',
@@ -12,8 +18,10 @@ Page({
       return
     }
     wx.navigateTo({
-      url: '/pages/poster/poster',
+      url: '/pages/poster/poster?avatarUrl='+avatarUrl,
     })
+        }
+      })
   },
 
   goToFans() {

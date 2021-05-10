@@ -163,6 +163,7 @@ Page({
     app.getWxUserInfo().then(res => {
       wx.getUserInfo({
         success: res => {
+          console.log(res)
           var nickName = res.userInfo.nickName
           var wxid = wx.getStorageSync("userId")
 

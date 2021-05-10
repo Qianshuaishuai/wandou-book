@@ -75,34 +75,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var avatarUrl = options.avatarUrl
     initQiniu();
     var userInfo = wx.getStorageSync('userInfo')
+    userInfo.avatarUrl = avatarUrl
     this.setData({
       userInfo: userInfo
     })
 
-    wx.getSetting({
-      success: (res) => {
-        if (res.authSetting['scope.userInfo']) {
-          this.setData({
-            loginShow: false
-          })
-          wx.getUserInfo({
-            success: (res) => {
-              console.log(res.userInfo);
-              var avatarUrl = 'userWxInfo.avatarUrl';
-              var nickName = 'userWxInfo.nickName';
-              this.setData({
-                [avatarUrl]: res.userInfo.avatarUrl,
-                [nickName]: res.userInfo.nickName,
-              })
-
-              this.uploadCanvas()
-            }
-          })
-        }
-      }
-    })
+    this.uploadCanvas()
   },
 
   // 圆形图片
@@ -127,12 +108,10 @@ Page({
     const info = wx.getSystemInfoSync();
     const windowWidth = info.windowWidth;
     const windowHeight = info.windowHeight;
-
     wx.getImageInfo({
       src: "https://ebag-exam.oss-cn-shenzhen.aliyuncs.com/show/share.png",
       success: function(res) {
         var path = res.path;
-
         context.drawImage(path, 0, 0, windowWidth, windowHeight * 0.9)
         var codePath = that.data.userInfo.code.replace("http", "https")
         wx.getImageInfo({
@@ -141,7 +120,7 @@ Page({
             var path1 = res1.path;
             context.drawImage(path1, windowWidth * 0.62, windowHeight * 0.68, 110, 110);
             wx.getImageInfo({
-              src: that.data.userWxInfo.avatarUrl,
+              src: that.data.userInfo.avatarUrl,
               success: function(res2) {
                 var path2 = res2.path;
 
@@ -240,6 +219,8 @@ Page({
                     }
                   })
                 }, 50)
+              },fail :(res)=>{
+                console.log(res)
               }
             })
           }
