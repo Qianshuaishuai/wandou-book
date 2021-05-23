@@ -26,14 +26,14 @@
   <view class="tab-box">
     <view class="tab" bindtap="changeTab" data-index="0">
       <view class="tip2" style=" color:{{currentTab == 0 ? '#42a4ff':'#828282'}}">
-        专属粉丝
+        专属粉丝({{exclusiveFansArray.length}})
       </view>
       <view class="diviler2" wx:if="{{currentTab == 0}}">
       </view>
     </view>
     <view class="tab" style="margin-left:250rpx;" bindtap="changeTab" data-index="1">
       <view class="tip2" style=" color:{{currentTab == 1 ? '#42a4ff':'#828282'}}">
-        普通粉丝
+        普通粉丝({{normalFansArray.length}})
       </view>
       <view class="diviler2" wx:if="{{currentTab == 1}}">
       </view>

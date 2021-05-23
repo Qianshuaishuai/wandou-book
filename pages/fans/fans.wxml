@@ -5,7 +5,7 @@
   </view>
 </view>
 <van-tabs active="{{ active }}" sticky animated>
-  <van-tab title="专属代理">
+  <van-tab title="专属代理({{exclusiveFansArray.length}})">
     <view wx:for="{{exclusiveFansArray}}" wx:key="name">
       <!-- <van-cell title="{{item.rwxName}}" size="large" bind:click="showPopup" /> -->
       <view class="fans-item">

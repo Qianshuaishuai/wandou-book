@@ -34,9 +34,10 @@
 <view class="box4">
   <view class="left">
     <image src="../../assets/new-images/selllist/icon5.png" class="icon5"></image>
-    <view class="data">取件开始时间
-      <view class="data-picker"  style="width:210rpx">
-        <picker mode="date" value="{{date}}" start="2020-09-01" end="2023-09-01" bindchange="bindDateChangeForStart" style="padding-left:20rpx;padding-right:20rpx">
+    <view class="data">
+      <view class="tipp" style="width:180rpx">取件开始时间</view>
+      <view class="data-picker" style="width:210rpx">
+        <picker mode="date" value="{{date}}" start="2020-09-01" end="2023-09-01" bindchange="bindDateChangeForStart" style="margin-left:12rpx">
           <view class="data" wx:if="{{startDate == '' }}">
             选择日期
           </view>
@@ -65,9 +66,10 @@
 <view class="box4" style="margin-top:20rpx;">
   <view class="left">
     <image src="../../assets/new-images/selllist/icon5.png" class="icon5"></image>
-    <view class="data">取件结束时间
+    <view class="data">
+      <view class="tipp" style="width:180rpx">取件结束时间</view>
       <view class="data-picker" style="width:210rpx">
-        <picker mode="date" value="{{date}}" start="2020-09-01" end="2023-09-01" bindchange="bindDateChangeForEnd" style="margin-left:20rpx">
+        <picker mode="date" value="{{date}}" start="2020-09-01" end="2023-09-01" bindchange="bindDateChangeForEnd" style="margin-left:12rpx">
           <view class="data" wx:if="{{endDate == '' }}">
             选择日期
           </view>

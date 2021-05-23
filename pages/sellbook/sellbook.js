@@ -13,7 +13,7 @@ Page({
     carBookList: [],
     allPrice: 0.0,
     statusBarHeight: app.globalData.statusBarHeight,
-    isCanCommit:false,
+    isCanCommit: false,
     currentBookCount: 0
   },
 
@@ -87,7 +87,7 @@ Page({
     })
   },
 
-  updateCommitStatus(){
+  updateCommitStatus() {
     var bookList = this.data.carBookList
     var currentBookCount = 0
     var allPrice = this.data.allPrice
@@ -102,14 +102,14 @@ Page({
       bookData.push(book)
     }
 
-    if (currentBookCount < 8) {
+    if (currentBookCount < 8 && allPrice < 15) {
       // wx.showModal({
       //   title: '友情提示',
       //   content: '回收书籍最低提交8本或满38元即可回收',
       //   showCancel: false
       // })
       this.setData({
-        isCanCommit:false
+        isCanCommit: false
       })
       return
     }
@@ -143,7 +143,7 @@ Page({
       },
       success: res => {
         if (res.data.F_responseNo == 10000) {
-          wx.setStorageSync('book',res.data.F_data)
+          wx.setStorageSync('book', res.data.F_data)
           // wx.navigateTo({
           //   url: '/pages/sellList/sellList?mode=' + 999
           // })
@@ -186,9 +186,9 @@ Page({
 
     var currentIndex = this.jdugeIsInCarList(isbnBook)
     if (currentIndex !== -1) {
-      
+
       var oldList = this.data.carBookList
-      if (oldList[currentIndex].num >= 1){
+      if (oldList[currentIndex].num >= 1) {
         wx.showToast({
           title: '一个订单最多提交1本相同的书籍',
           icon: 'none',
@@ -200,7 +200,7 @@ Page({
       this.setData({
         carBookList: oldList
       })
-      
+
     } else {
       var oldList = this.data.carBookList
       isbnBook.num = 1
@@ -236,7 +236,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    
+
   },
 
   /**
@@ -255,7 +255,7 @@ Page({
       this.setData({
         carBookList: currentCarList
       })
-    }else{
+    } else {
       this.setData({
         carBookList: []
       })
@@ -265,7 +265,7 @@ Page({
     console.log(currentCarList)
   },
 
-  deleteBook(e){
+  deleteBook(e) {
     var index = e.currentTarget.dataset.index
     var items = this.data.carBookList
     items.splice(index, 1);

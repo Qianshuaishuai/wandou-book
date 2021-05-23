@@ -102,11 +102,11 @@
     </view>
   </view>
 
-  <view class="wl-detail">
+  <view class="wl-detail" wx:if="{{orderDetail.status != -1}}" >
     <image src="../../assets/new-images/orderdetail/icon22.png" class="icon13"></image>
     <view class="wl-content">
       <view class="tip13">物流信息</view>
-      <view class="tip14" wx:if="{{orderDetail.wlNumber != ''}}" bindtap="goToTrack" data-orderNo="{{orderDetail.orderNumber}}">{{tracks[tracks.length-1].opeRemark}}</view>
+      <view class="tip14" wx:if="{{orderDetail.wlNumber != ''}}" bindtap="goToTrack" data-orderNo="{{orderDetail.orderNumber}}" data-wlnumber="{{orderDetail.wlNumber}}"  data-wllnumber="{{orderDetail.wllNumber}}">{{tracks[tracks.length-1].opeRemark}}</view>
       <view class="tip14" wx:if="{{orderDetail.wlNumber == ''}}">暂无物流信息</view>
       <view class="tip15" wx:if="{{orderDetail.wlNumber != ''}}">{{tracks[tracks.length-1].opeTime}}</view>
     </view>

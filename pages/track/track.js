@@ -6,21 +6,43 @@ Page({
    * Page initial data
    */
   data: {
-      tracks:[],
+    tracks: [],
   },
 
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function (options) {
-    console.log(options)
+  onLoad: function(options) {
 
-    if(options.orderNo){
-      this.getTrackDatail(options.orderNo)
+    var orderNo = options.orderno;
+    var wllnumber = options.wllnumber;
+    var wlnumber = options.wlnumber;
+
+    if (wlnumber.indexOf("JDV") != -1) {
+      this.getTrackDatail2(wlnumber)
+    }else{
+      if (options.orderNo) {
+        this.getTrackDatail(options.orderNo)
+      }
     }
   },
 
-  
+  getTrackDatail2(wlNumber) {
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/order/track2',
+      data: {
+        wlNumber: wlNumber,
+      },
+      method: 'GET',
+      success: res => {
+        this.setData({
+          tracks: res.data.F_data.jingdong_trace_dynamicQueryService_queryDynamicTraceInfo_responce.response.data
+        })
+      },
+    })
+  },
+
+
   getTrackDatail(orderNo) {
     wx.request({
       url: app.globalData.baseUrl + '/v1/order/track',
@@ -38,49 +60,49 @@ Page({
   /**
    * Lifecycle function--Called when page is initially rendered
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page show
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page hide
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page unload
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * Page event handler function--Called when user drop down
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * Called when page reach bottom
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * Called when user click on the top right corner to share
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

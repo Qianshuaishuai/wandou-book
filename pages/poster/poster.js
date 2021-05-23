@@ -126,22 +126,32 @@ Page({
 
                 // context.drawImage(path2, windowWidth * 0.70, windowHeight * 0.72, 50, 50);
 
-                var width = 50
-                var height = 50
-                var x = windowWidth * 0.62 + 28
-                var y = windowHeight * 0.68 + 28
+                var width = 42
+                var height = 42
+                var x = windowWidth * 0.62 + 34
+                var y = windowHeight * 0.68 + 34
                 var radio = 1
 
                 context.save();
-                context.arc(width / 2 + x, height / 2 + y, width / 2 + 5 * radio, 0, Math.PI * 2, false);
-                context.setFillStyle('#fff')
-                context.fill()
-                context.clip();
-                context.beginPath();
+                // context.arc(width / 2 + x, height / 2 + y, width / 2 + 5 * radio, 0, Math.PI * 2, false);
+                // context.setFillStyle('#fff')
+                // context.fill()
+                // context.clip();
+                // context.beginPath();
+                // context.arc(width / 2 + x, height / 2 + y, width / 2, 0, Math.PI * 2, false);
+                // context.clip();
+                // context.drawImage(path2, x, y, width, height);
+                // context.restore()
+
+                context.beginPath(); //开始绘制
+                //先画个圆   前两个参数确定了圆心 （x,y） 坐标  第三个参数是圆的半径  四参数是绘图方向  默认是false，即顺时针
                 context.arc(width / 2 + x, height / 2 + y, width / 2, 0, Math.PI * 2, false);
-                context.clip();
-                context.drawImage(path2, x, y, width, height);
-                context.restore()
+
+                context.clip(); //画好了圆 剪切  原始画布中剪切任意形状和尺寸。一旦剪切了某个区域，则所有之后的绘图都会被限制在被剪切的区域内 这也是我们要save上下文的原因
+
+                context.drawImage(path2, x, y, width, height); // 推进去图片，必须是https图片
+
+                context.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 还可以继续绘制
 
                 context.font = 'normal 11px sans-serif';
                 context.setFontSize(14);
@@ -204,8 +214,8 @@ Page({
                     canvasId: 'post-cv',
                     fileType: 'jpg',
                     quality: 1,
-                    destWidth: windowWidth,
-                    destHeight: windowHeight * 0.9,
+                    destWidth: windowWidth * 2,
+                    destHeight: windowHeight * 0.9 * 2,
                     success: function(res) {
                       console.log(res)
                       wx.hideLoading()
@@ -219,7 +229,8 @@ Page({
                     }
                   })
                 }, 50)
-              },fail :(res)=>{
+              },
+              fail: (res) => {
                 console.log(res)
               }
             })
@@ -254,13 +265,12 @@ Page({
               success() {
                 wx.downloadFile({
                   url: qiniuUrl,
-                  success: function (res) {
+                  success: function(res) {
                     console.log(res)
                     wx.saveImageToPhotosAlbum({
                       filePath: res.tempFilePath,
                       success(res) {
                         console.log(res);
-                        wx.hideLoading()
                         wx.showToast({
                           title: "保存成功",
                           duration: 2000
@@ -271,6 +281,7 @@ Page({
                       },
                       complete(res) {
                         console.log(res);
+                        wx.hideLoading()
                       }
                     })
                   }

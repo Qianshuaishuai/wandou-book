@@ -42,23 +42,28 @@
     </view>
   </view>
   <view class="list">
-    <view class="item" wx:for="{{ currentOrder }}" wx:for-item="order" bindtap="goToDetail" wx:key="index" data-id="{{order.id}}">
-      <view class="box1">
+    <view class="item" wx:for="{{ currentOrder }}" wx:for-item="order" wx:key="index" >
+      <view class="box1" bindtap="goToDetail" data-id="{{order.id}}">
         <view class="left">
           <view class="tip">订单号：</view>
           <view class="number">{{order.orderNumber}}</view>
         </view>
-        <view class="status">{{statuses[order.status]}}</view>
+        <view class="status" wx:if="{{order.status==-1}}">已取消</view>
+        <view class="status" wx:if="{{order.status!=-1}}">{{statuses[order.status]}}</view>
       </view>
       <view class="diviler"></view>
-      <view class="box2">
+      <view class="box2" bindtap="goToDetail" data-id="{{order.id}}">
         <view class="book-item" wx:for="{{ order.orderBooks }}" wx:for-item="book">
           <image class="image" src="{{book.book.pic}}"></image>
         </view>
       </view>
-      <view class="box3">
+      <view class="box3" bindtap="goToDetail" data-id="{{order.id}}">
         <view class="time">{{order.createTime}}</view>
         <view class="count">共{{order.count}}本</view>
+      </view>
+
+      <view class="box4" wx:if="{{order.status!=-1&&order.status!=4&&order.status!=3}}">
+        <view class="cancel" bindtap="cancelOrder" data-id="{{order.id}}">取消订单</view>
       </view>
     </view>
   </view>

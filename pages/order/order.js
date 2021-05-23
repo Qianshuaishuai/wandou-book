@@ -11,6 +11,46 @@ Page({
     statuses: ["全部订单", "待确认", "待取件", "待审核", "审核完毕"],
   },
 
+  cancelOrder(e){
+    var orderId = e.currentTarget.dataset.id
+    wx.showModal({
+      title: '提示',
+      content: '订单一旦取消不能再更改，请确认',
+      success: res => {
+        if (res.cancel) {
+          return
+        }
+
+        wx.request({
+          url: app.globalData.baseUrl + '/v1/order/cancel',
+          data: {
+            id: orderId,
+          },
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          success: res => {
+            if (res.data.F_responseNo == 10000) {
+              wx.showToast({
+                title: '取消成功',
+                icon: 'none'
+              })
+
+              this.getOrder(this.data.currentStatus)
+            } else {
+              wx.showToast({
+                title: '取消失败，请联系管理员',
+                icon: 'none'
+              })
+            }
+
+          },
+        })
+      }
+    })
+  },
+
   changeStatus(e){
     this.setData({
       currentStatus:e.currentTarget.dataset.index

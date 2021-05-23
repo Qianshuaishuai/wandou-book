@@ -65,9 +65,6 @@ Page({
 
     var windowHeight = wx.getSystemInfoSync().windowHeight
     var mainHeight = (windowHeight * this.getRpx() - 330 * this.getRpx()) / this.getRpx()
-    console.log(windowHeight)
-    console.log(mainHeight)
-    console.log(this.getRpx())
     this.setData({
       mainHeight: mainHeight
     })
@@ -238,7 +235,30 @@ Page({
           showTime: showTime
         })
 
-        this.getTrackDatail(this.data.orderDetail.orderNumber)
+
+        var wlnumber = orderDetail.wlnumber
+        if (wlnumber !=undefined && wlnumber.indexOf("JDV") != -1) {
+          this.getTrackDatail2(wlnumber)
+        } else {
+          if (orderDetail.orderNo) {
+            this.getTrackDatail(this.data.orderDetail.orderNumber)
+          }
+        }
+      },
+    })
+  },
+
+  getTrackDatail2(wlNumber) {
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/order/track2',
+      data: {
+        wlNumber: wlNumber,
+      },
+      method: 'GET',
+      success: res => {
+        this.setData({
+          tracks: res.data.F_data.jingdong_trace_dynamicQueryService_queryDynamicTraceInfo_responce.response.data
+        })
       },
     })
   },
@@ -260,8 +280,10 @@ Page({
 
   goToTrack(event) {
     var orderNo = event.currentTarget.dataset.orderno;
+    var wllnumber = event.currentTarget.dataset.wllnumber;
+    var wlnumber = event.currentTarget.dataset.wlnumber;
     wx.navigateTo({
-      url: '/pages/track/track?orderNo=' + orderNo,
+      url: '/pages/track/track?orderNo=' + orderNo + "&wlnumber=" + wlnumber + "&wllnumber=" + wllnumber,
     })
   },
 

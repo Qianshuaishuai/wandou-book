@@ -30,6 +30,10 @@ App({
                 key: 'userId',
                 data: res.data.F_data.openid,
               })
+              wx.setStorage({
+                key: 'sessionKey',
+                data: res.data.F_data.session_key,
+              })
             },
           })
         } else {

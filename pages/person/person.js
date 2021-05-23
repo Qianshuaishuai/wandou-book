@@ -136,7 +136,7 @@ Page({
     frontCash: '', //小数点前面的金额 
     behindCash: '', //小数点后面的金额
     userBalance: {},
-    couponCount:0
+    couponCount: 0
   },
 
   showPopup: function() {
@@ -175,42 +175,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
 
-   getUserProfile(){
+  getUserProfile() {
     wx.getUserProfile({
       desc: '用于完善用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         var avatarUrl = 'userInfo.avatarUrl';
-              var nickName = 'userInfo.nickName';
-              this.setData({
-                [avatarUrl]: res.userInfo.avatarUrl,
-                [nickName]: res.userInfo.nickName,
-              })
-      },fail:(res)=>{
-        
+        var nickName = 'userInfo.nickName';
+        this.setData({
+          [avatarUrl]: res.userInfo.avatarUrl,
+          [nickName]: res.userInfo.nickName,
+        })
+        wx.setStorageSync('wxInfo', res.userInfo)
+      },
+      fail: (res) => {
+
       }
     })
-   },
+  },
 
   onLoad: function(options) {
-    wx.getSetting({
-      success: (res) => {
-        if (res.authSetting['scope.userInfo']) {
-          this.setData({
-            loginShow: false
-          })
-          wx.getUserInfo({
-            success: (res) => {
-              console.log(res.userInfo);
-              var avatarUrl = 'userInfo.avatarUrl';
-              var nickName = 'userInfo.nickName';
-              this.setData({
-                [avatarUrl]: res.userInfo.avatarUrl,
-                [nickName]: res.userInfo.nickName,
-              })
-            }
-          })
-        }
-      }
+
+    var userInfo = wx.getStorageSync('wxInfo')
+
+    var avatarUrl = 'userInfo.avatarUrl';
+    var nickName = 'userInfo.nickName';
+    this.setData({
+      [avatarUrl]: userInfo.avatarUrl,
+      [nickName]: userInfo.nickName,
     })
 
     var cash = this.data.cash;
@@ -241,30 +232,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    wx.getSetting({
-      success: (res) => {
-        if (res.authSetting['scope.userInfo']) {
-          this.setData({
-            loginShow: false
-          })
-          wx.getUserInfo({
-            success: (res) => {
-              console.log(res.userInfo);
-              var avatarUrl = 'userInfo.avatarUrl';
-              var nickName = 'userInfo.nickName';
-              this.setData({
-                [avatarUrl]: res.userInfo.avatarUrl,
-                [nickName]: res.userInfo.nickName,
-              })
-            }
-          })
-        } else {
-          this.setData({
-            loginShow: true
-          })
-        }
-      }
-    })
+    // wx.getSetting({
+    //   success: (res) => {
+    //     if (res.authSetting['scope.userInfo']) {
+    //       this.setData({
+    //         loginShow: false
+    //       })
+    //       wx.getUserInfo({
+    //         success: (res) => {
+    //           console.log(res.userInfo);
+    //           var avatarUrl = 'userInfo.avatarUrl';
+    //           var nickName = 'userInfo.nickName';
+    //           this.setData({
+    //             [avatarUrl]: res.userInfo.avatarUrl,
+    //             [nickName]: res.userInfo.nickName,
+    //           })
+    //         }
+    //       })
+    //     } else {
+    //       this.setData({
+    //         loginShow: true
+    //       })
+    //     }
+    //   }
+    // })
 
     this.getCouponCount()
   },

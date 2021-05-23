@@ -157,6 +157,7 @@ page {
   height: 84rpx;
   background: #fff;
   border-radius: 10rpx;
+  position: relative;
 }
 
 .box4 .left {
@@ -190,7 +191,9 @@ page {
 .box4 .right {
   width: 14rpx;
   height: 24rpx;
-  margin-right: 26rpx;
+  top: 30rpx;
+  right: 28rpx;
+  position: absolute;
 }
 
 .list {

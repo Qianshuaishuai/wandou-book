@@ -176,7 +176,7 @@ Page({
 
   goToCommon() {
     wx.navigateTo({
-      url: "/pages/common/common"
+      url: "/pages/english/english"
     })
   },
 
@@ -262,32 +262,37 @@ Page({
       }
     }
 
-    app.getWxUserInfo().then(res => {
-      wx.getUserInfo({
+    var userInfo = wx.getStorageSync('wxInfo')
+    if (userInfo.nickName == undefined || userInfo.nickName == '' || userInfo.nickName == '微信用户') {
+      wx.showModal({
+        title: '温馨提示',
+        content: '为了方便记录你的个人信息，我们需要您授权用户信息给予我们！',
         success: res => {
-          var nickName = res.userInfo.nickName
-          var wxid = wx.getStorageSync("userId")
-
-          wx.request({
-            url: app.globalData.baseUrl + '/v1/wx/name',
-            data: {
-              wx_id: wxid,
-              name: nickName,
-            },
-            method: 'POST',
-            header: {
-              'content-type': 'application/x-www-form-urlencoded'
-            },
-            success: res => {
-              console.log(res)
-            },
-          })
-        }
+          if (res.cancel) {
+            return
+          }
+          this.getUserProfile()
+        },
+        confirmText: '确定授权'
       })
-    }).catch(e => {
-      // 打印一下错误
-      console.log(JSON.stringify(e) + "+++++++")
-    })
+    } else {
+      var wxid = wx.getStorageSync("userId")
+      var nickName = userInfo.nickName
+      wx.request({
+        url: app.globalData.baseUrl + '/v1/wx/name',
+        data: {
+          wx_id: wxid,
+          name: nickName,
+        },
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: res => {
+          console.log(res)
+        },
+      })
+    }
 
     var maxWidth = this.data.imgWidth
     var maxHeight = this.data.imgHeight
@@ -298,6 +303,55 @@ Page({
     this.setData({
       showWidth: currentWidth,
       showHeight: currentHeight
+    })
+  },
+
+  getUserProfile() {
+    wx.getUserProfile({
+      desc: '用于完善用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        console.log(res)
+        var avatarUrl = 'userInfo.avatarUrl';
+        var nickName = 'userInfo.nickName';
+        this.setData({
+          [avatarUrl]: res.userInfo.avatarUrl,
+          [nickName]: res.userInfo.nickName,
+        })
+        wx.setStorageSync('wxInfo', res.userInfo)
+
+        var wxid = wx.getStorageSync("userId")
+        var sessionKey = wx.getStorageSync("sessionKey")
+        var nickName = res.userInfo.nickName
+        wx.request({
+          url: app.globalData.baseUrl + '/v1/wx/dcrypt',
+          data: {
+            encrypted_data: res.encryptedData,
+            iv: res.iv,
+            session_key: sessionKey
+          },
+          success: res => {
+            console.log(res)
+          },
+        })
+
+        wx.request({
+          url: app.globalData.baseUrl + '/v1/wx/name',
+          data: {
+            wx_id: wxid,
+            name: nickName,
+          },
+          method: 'POST',
+          header: {
+            'content-type': 'application/x-www-form-urlencoded'
+          },
+          success: res => {
+            console.log(res)
+          },
+        })
+      },
+      fail: (res) => {
+
+      }
     })
   },
 
