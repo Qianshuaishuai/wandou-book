@@ -111,12 +111,14 @@ App({
       url: this.globalData.baseUrl + '/v1/wx/login',
       data: {
         wx_id: wxid,
+        user_type: 1
       },
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: res => {
+        console.log(res)
         wx.setStorage({
           key: 'userInfo',
           data: res.data.F_data,

@@ -198,7 +198,7 @@ Page({
 
     if (startDate == "") {
       wx.showToast({
-        title: '请先选择收货起始日期',
+        title: '请先选择发件起始日期',
         icon: 'none',
         duration: 2000
       })
@@ -207,7 +207,7 @@ Page({
 
     if (startTime == "") {
       wx.showToast({
-        title: '请先选择收货起始时间',
+        title: '请先选择发件起始时间',
         icon: 'none',
         duration: 2000
       })
@@ -216,7 +216,7 @@ Page({
 
     if (endDate == "") {
       wx.showToast({
-        title: '请先选择收货结束日期',
+        title: '请先选择发件结束日期',
         icon: 'none',
         duration: 2000
       })
@@ -225,7 +225,7 @@ Page({
 
     if (endTime == "") {
       wx.showToast({
-        title: '请先选择收货结束时间',
+        title: '请先选择发件结束时间',
         icon: 'none',
         duration: 2000
       })

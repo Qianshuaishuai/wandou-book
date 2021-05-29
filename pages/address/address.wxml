@@ -1,6 +1,7 @@
 <view class="box" style="margin-top:20rpx;">
   <image src="../../assets/new-images/address/icon1.png" class="icon1"></image>
-  <view class="tip">收货人</view>
+  <view class="tip" wx:if="{{type==2}}">发件人</view>
+  <view class="tip" wx:if="{{type==1}}">收货人</view>
 
   <input class="input" bindinput="changeName" placeholder="请输入联系姓名" value="{{name}}"></input>
 </view>

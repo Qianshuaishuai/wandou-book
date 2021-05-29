@@ -59,7 +59,7 @@ Page({
 
     if (name == "") {
       wx.showToast({
-        title: '请先填写收货人',
+        title: '请先填写发件人',
         icon: 'none',
       })
       return
@@ -135,6 +135,7 @@ Page({
    */
   onLoad: function(options) {
     var type = options.type
+    console.log(type)
     var address = wx.getStorageSync('address')
 
     if (address.name != undefined) {
@@ -145,10 +146,11 @@ Page({
         city: address.city,
         district: address.district,
         detail: address.detail,
-        type: type,
       })
     }
-
+    this.setData({
+      type: type,
+    })
   },
 
   /**

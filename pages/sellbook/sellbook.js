@@ -114,17 +114,17 @@ Page({
       return
     }
 
-    if (currentBookCount > 50) {
-      // wx.showModal({
-      //   title: '友情提示',
-      //   content: '一次订单最多只能提交50本旧书籍',
-      //   showCancel: false
-      // })
-      this.setData({
-        isCanCommit: false
-      })
-      return
-    }
+    // if (currentBookCount > 50) {
+    //   // wx.showModal({
+    //   //   title: '友情提示',
+    //   //   content: '一次订单最多只能提交50本旧书籍',
+    //   //   showCancel: false
+    //   // })
+    //   this.setData({
+    //     isCanCommit: false
+    //   })
+    //   return
+    // }
 
     this.setData({
       isCanCommit: true
@@ -154,11 +154,21 @@ Page({
           })
           this.addNewBook()
         } else {
-          wx.showModal({
-            title: '温馨提示',
-            content: '数据库读取数据中，请稍后重试！',
-            showCancel: false
-          })
+          console.log(res)
+          if (res.data.F_responseMsg == "此书已拒收"){
+            wx.showModal({
+              title: '温馨提示',
+              content: '抱歉，此书豌豆暂不回收',
+              showCancel: false
+            })
+          }else{
+            wx.showModal({
+              title: '温馨提示',
+              content: '数据库读取数据中，请稍后重试！',
+              showCancel: false
+            })
+          }
+    
 
           wx.showToast({
             title: '继续扫描下一本',

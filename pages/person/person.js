@@ -214,9 +214,29 @@ Page({
       behindCash: behindCash
     });
 
-    var userBalance = wx.getStorageSync('userInfo')
-    this.setData({
-      userBalance: userBalance
+    // var userBalance = wx.getStorageSync('userInfo')
+    // this.setData({
+    //   userBalance: userBalance
+    // })
+  },
+
+  getUserInfo(wxid) {
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/wx/login',
+      data: {
+        wx_id: wxid,
+        user_type: 1
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: res => {
+        console.log(res)
+        this.setData({
+          userBalance: res.data.F_data
+        })
+      },
     })
   },
 
@@ -256,7 +276,7 @@ Page({
     //     }
     //   }
     // })
-
+    this.getUserInfo(wx.getStorageSync("userId"))
     this.getCouponCount()
   },
 

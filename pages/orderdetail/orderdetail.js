@@ -61,7 +61,7 @@ Page({
     // })
 
     this.getOrderDatail(options.id)
-    // this.getOrderDatail(2293284240057646)
+    // this.getOrderDatail(2411585580120769)
 
     var windowHeight = wx.getSystemInfoSync().windowHeight
     var mainHeight = (windowHeight * this.getRpx() - 330 * this.getRpx()) / this.getRpx()
@@ -236,7 +236,8 @@ Page({
         })
 
 
-        var wlnumber = orderDetail.wlnumber
+        var wlnumber = orderDetail.wlNumber
+        console.log(orderDetail)
         if (wlnumber !=undefined && wlnumber.indexOf("JDV") != -1) {
           this.getTrackDatail2(wlnumber)
         } else {
@@ -249,6 +250,7 @@ Page({
   },
 
   getTrackDatail2(wlNumber) {
+    console.log(wlNumber)
     wx.request({
       url: app.globalData.baseUrl + '/v1/order/track2',
       data: {
@@ -256,6 +258,7 @@ Page({
       },
       method: 'GET',
       success: res => {
+        console.log(res)
         this.setData({
           tracks: res.data.F_data.jingdong_trace_dynamicQueryService_queryDynamicTraceInfo_responce.response.data
         })
