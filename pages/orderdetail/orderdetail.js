@@ -238,7 +238,7 @@ Page({
 
         var wlnumber = orderDetail.wlNumber
         console.log(orderDetail)
-        if (wlnumber !=undefined && wlnumber.indexOf("JDV") != -1) {
+        if (wlnumber !=undefined && (wlnumber.indexOf("JDV") != -1 || wlnumber.indexOf("QWD") != -1)) {
           this.getTrackDatail2(wlnumber)
         } else {
           if (orderDetail.orderNo) {

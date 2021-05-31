@@ -241,8 +241,22 @@ Page({
       })
 
     }
+
     if (options.scene) {
       var rwxid = wx.getStorageSync("userId")
+
+      // if (rwxid == ""){
+      //   setTimeout(function () {
+     
+      //    }, 1000) 
+      // }
+
+      // switch(rwxid)
+
+      if(rwxid == "" && options.scene != ""){
+        wx.setStorageSync("isRecommend",0)
+        wx.setStorageSync("isRecommendId",options.scene)
+      }
 
       if (rwxid && rwxid != "" && rwxid != options.scene) {
         wx.request({
