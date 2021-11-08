@@ -1,0 +1,79 @@
+<view class="type">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      类别
+    </view>
+  </view>
+
+  <view class="type-box">
+    <view class="type-block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index" bindtap="changeType" data-index="{{index}}">
+      <image class="bg" src="/assets/image-v2/errands/button2.png" wx:if="{{index === currentTypeindex}}"></image>
+      <view class="{{index === currentTypeindex ? 'tip3':'tip2'}}">
+        外卖
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="content">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      金额
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeCount" type="number" placeholder="请输入金额"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      跑腿需求
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeNeed" placeholder="请输入跑腿需求"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      代拿地点
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeTakeAddress" placeholder="请输入代拿地点"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      日期
+    </view>
+  </view>
+
+  <view class="input-box">
+    <input class="input2" placeholder="请选择日期" disabled></input>
+    <picker bindchange="bindPickerDateChange" mode="date" value="{{date}}" start="2021-09-01" end="2023-09-01">
+      <image class="date" src="/assets/image-v2/errands/date.png"></image>
+    </picker>
+  </view>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      送货位置
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeSendAddress" placeholder="请输入送货位置" style="margin-bottom:60rpx;"></input>
+</view>
+
+<view class="release">
+  <image class="bg" src="/assets/image-v2/errands/button1.png"></image>
+  <view class="button">
+    <image class="icon" src="/assets/image-v2/errands/release.png"></image>
+    <view class="tip">
+      发布
+    </view>
+  </view>
+</view>

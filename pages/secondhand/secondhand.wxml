@@ -1,0 +1,36 @@
+<view class="show-list">
+  <view class="show-block" wx:for="{{showList}}" wx:for-item="item" wx:for-index="index">
+    <view class="title">
+      全新iPhone 12 ProMax 256G绿色 国行
+    </view>
+
+    <view class="price-box">
+      <view class="tip">到手价 ￥</view>
+      <view class="price">4488</view>
+      <view class="old-price">￥6500</view>
+    </view>
+
+    <view class="photo-list">
+      <view class="photo-block" wx:for="{{showList}}" wx:for-item="pitem" wx:for-index="pindex">
+        <image src="/assets/new-images/index/ad.png" class="photo"></image>
+      </view>
+    </view>
+
+    <view class="note">
+      转让原因：买了苹果13手里的12不香了就出手要不 然也不想热痛割爱~
+    </view>
+
+    <view class="bottom">
+      <view class="left">
+        <image class="icon1" src="/assets/image-v2/secondhand/address.png"></image>
+        <view class="address">
+          面交地点：学生街门口
+        </view>
+      </view>
+      <view class="button">
+        <image class="bg" src="/assets/image-v2/secondhand/button.png"></image>
+        <view class="tip2">我要了</view>
+      </view>
+    </view>
+  </view>
+</view>

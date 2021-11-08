@@ -1,5 +1,8 @@
 {
   "pages": [
+        "pages/secondhand/secondhand",
+    "pages/express/express",
+    "pages/newerrand/newerrand",
     "pages/newindex/newindex",
     "pages/lcoupon/lcoupon",
     "pages/income/income",
