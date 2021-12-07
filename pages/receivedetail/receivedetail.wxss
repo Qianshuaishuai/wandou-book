@@ -1,0 +1,190 @@
+page {
+  background: #f4f4f9;
+  padding: 24rpx;
+  padding-bottom: 168rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.bg {
+  width: 100%;
+  height: 308rpx;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 1;
+}
+
+.top {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* .top .title {
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  height: 34rpx;
+} */
+
+.back {
+  width: 34rpx;
+  height: 34rpx;
+  position: fixed;
+  left: 30rpx;
+  z-index: 2;
+}
+
+.tip {
+  width: 100%;
+  height: 34rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  position: fixed;
+  text-align: center;
+  z-index: 2;
+  margin-left: -22rpx;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 999;
+  margin-top: 180rpx;
+}
+
+.content .bg1 {
+  width: 100%;
+  height: 20rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.content .bg2 {
+  width: 100%;
+  height: 1120rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.content .title {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #020615;
+  margin-left: 62rpx;
+  margin-top: 36rpx;
+  z-index: 1000;
+}
+
+.content .address-box {
+  width: 600rpx;
+  height: 160rpx;
+  background: #f4f5f9;
+  border-radius: 12rpx;
+  margin-top: 36rpx;
+  align-self: center;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.content .address-box .address-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 26rpx;
+}
+
+.content .address-box .address-block .icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 25rpx;
+}
+
+.content .address-box .address-block .address {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-left: 27rpx;
+}
+
+.content .address-box .middle {
+  width: 3rpx;
+  height: 32rpx;
+}
+
+.content .express {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #6d6d6d;
+  margin-top: 24rpx;
+  z-index: 1002;
+  margin-left: 62rpx;
+}
+
+.button-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2222;
+  margin-top: 268rpx;
+  align-self: center;
+}
+
+.button-box .button {
+  width: 337rpx;
+  height: 109rpx;
+  position: relative;
+}
+
+.button-box .button .bg {
+  width: 337rpx;
+  height: 109rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 2223;
+}
+
+.button-box .button .box {
+  width: 337rpx;
+  height: 109rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  display: flex;
+  flex-direction: row;
+  padding-top: 20rpx;
+  justify-content: center;
+  z-index: 2224;
+}
+
+.button-box .button .box .icon {
+  margin-top: 5rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.button-box .button .box .tip5 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  margin-left: 16rpx;
+}

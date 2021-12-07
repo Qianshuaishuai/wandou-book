@@ -1,0 +1,22 @@
+<view class="search-box">
+  <image src="../../assets/image-v2/pickschool/search.png" class="search"></image>
+  <input class="input" bindinput="changeSearch" placeholder="请输入学校名称" value="{{currentSearch}}"></input>
+  <image src="../../assets/image-v2/pickschool/clear.png" class="clear" bindtap="clear"></image>
+
+
+  <view class="button" bindtap="search">
+    <image src="../../assets/image-v2/pickschool/button.png" class="bg"></image>
+    <view class="tip">搜索</view>
+  </view>
+</view>
+
+<view class="list">
+  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+    <view class="left">
+      <image src="../../assets/image-v2/pickschool/icon_selected.png" class="icon"></image>
+      <view class="name">东南大学</view>
+      <view class="tip">未入驻</view>
+    </view>
+    <view class="apply" bindtap="applymaster">申请校园站长</view>
+  </view>
+</view>

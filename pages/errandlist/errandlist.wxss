@@ -1,0 +1,183 @@
+page {
+  background: #f4f4f9;
+  padding-bottom: 168rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 24rpx;
+}
+
+.tab-list .tab-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+}
+
+.tab-list .tab-box .tab-tip {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #6f6f77;
+}
+
+.tab-list .tab-box .diviler {
+  width: 100rpx;
+  height: 4rpx;
+  background: #0687f7;
+  margin-top: 16rpx;
+}
+
+.tab-list .tab-box .tab-tip2 {
+  font-size: 34rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #0687f7;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list .block {
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  padding-left: 28rpx;
+  padding-right: 28rpx;
+  margin-top: 20rpx;
+}
+
+.list .block .top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28rpx;
+}
+
+.list .block .top .type {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+}
+
+.list .block .top .status {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #22bf86;
+}
+
+.list .block .price-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-top: 18rpx;
+}
+
+.list .block .price-box .tag {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #f02c2c;
+}
+
+.list .block .price-box .price {
+  font-size: 34rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #f02c2c;
+}
+
+.list .block .time-box {
+  display: flex;
+  flex-direction: row;
+  margin-top: 12rpx;
+  align-items: center;
+}
+
+.list .block .time-box .tag {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.list .block .time-box .time {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #a3a3a3;
+  margin-left: 15rpx;
+}
+
+.list .block .address-box {
+  height: 160rpx;
+  background: #f4f5f9;
+  border-radius: 12rpx;
+  margin-top: 24rpx;
+  align-self: center;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.list .block .address-box .address-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 26rpx;
+}
+
+.list .block .address-box .address-block .icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 25rpx;
+}
+
+.list .block .address-box .address-block .address {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-left: 27rpx;
+}
+
+.list .block .address-box .middle {
+  width: 3rpx;
+  height: 32rpx;
+}
+
+.list .block .button-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 20rpx;
+  margin-bottom: 24rpx;
+  width: 100%;
+}
+
+.list .block .button-box .button {
+  width: 180rpx;
+  height: 60rpx;
+  background: rgba(37, 134, 255, 0);
+  border: 1px solid #b7b7b7;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #a3a3a3;
+  line-height: 60rpx;
+  text-align: center;
+}

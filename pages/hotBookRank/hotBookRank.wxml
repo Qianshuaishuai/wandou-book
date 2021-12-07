@@ -1,7 +1,0 @@
-<!--pages/hotBookRank/hotBookRank.wxml-->
-
-<scroll-view>
-  <view wx:for="{{hotBookList}}" wx:key="name" wx:index="index">
-    <van-card price="{{item.price}}" desc="回收价" title="{{item.name}}" thumb="{{item.pic}}" bindtap="addCar" data-index="{{index}}" />
-  </view>
-</scroll-view>

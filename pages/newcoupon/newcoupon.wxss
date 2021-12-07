@@ -1,0 +1,203 @@
+/* pages/newcoupon/newcoupon.wxss */
+
+page {
+  background: #eff5fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  position: relative;
+}
+
+.bg {
+  width: 100%;
+  height: 217vw;
+  z-index: 1;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.back {
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  left: 30rpx;
+  z-index: 8;
+}
+
+.tip {
+  width: 100%;
+  height: 34rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  z-index: 6;
+  text-align: center;
+}
+
+.tip-box {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 6;
+  position: absolute;
+  top: 980rpx;
+  left: 0rpx;
+}
+
+.tip-box .tip1 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+}
+
+.tip-box .tip2 {
+  font-size: 40rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #ffe119;
+}
+
+.tip-box .tip3 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+}
+
+.balance {
+  position: absolute;
+  align-self: center;
+  margin-top: 28rpx;
+  width: 198rpx;
+  height: 46rpx;
+  background: #eb493c;
+  border-radius: 23rpx;
+  text-align: center;
+  line-height: 48rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  z-index: 6;
+  left: 50%;
+  margin-left: -99rpx;
+  top: 1024rpx;
+}
+
+.content {
+  display: flex;
+  position: relative;
+  height: 250rpx;
+  margin-left: 35rpx;
+  margin-top: 14rpx;
+  margin-right: 35rpx;
+  z-index: 2;
+}
+
+.content .bg1 {
+  position: absolute;
+  top: 1100rpx;
+  left: 0rpx;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.get-middle {
+  position: absolute;
+  top: 1100rpx;
+  left: 4%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10rpx;
+  justify-content: space-between;
+  width: 92%;
+  height: 100%;
+  z-index: 4;
+}
+
+.get-middle .get-middle-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.get-middle .get-middle-box .head {
+  width: 126rpx;
+  height: 126rpx;
+  border-radius: 50%;
+}
+
+.get-middle .get-middle-box .share {
+  width: 126rpx;
+  height: 126rpx;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background: none;
+  position: relative;
+}
+
+button::after {
+  border: none;
+}
+
+.get-middle .get-middle-box .share .head {
+  width: 126rpx;
+  height: 126rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.get-middle .get-middle-box .get-middle-box-tip {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 12rpx;
+}
+
+.button {
+  z-index: 4;
+  align-self: center;
+  position: relative;
+  height: 110rpx;
+  margin-top: 50rpx;
+  margin-left: 66rpx;
+  margin-right: 66rpx;
+}
+
+.button .bg3 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 1100rpx;
+  left: 0rpx;
+  z-index: 5;
+}
+
+.button .tip4 {
+  z-index: 6;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #ff5f5f;
+  width: 100%;
+  text-align: center;
+  height: 100%;
+  position: absolute;
+  top: 1100rpx;
+  left: 0rpx;
+  padding-top: 22rpx;
+}

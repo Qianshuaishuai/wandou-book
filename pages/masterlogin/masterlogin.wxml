@@ -1,0 +1,39 @@
+<view class="top">
+  <view class="left">
+    <view class="tip">你好！ </view>
+    <view class="box">
+      <view class="tip2">欢迎来到 </view>
+      <view class="tip3">校园喵 </view>
+    </view>
+  </view>
+
+  <image class="bg2" src="/assets/image-v2/masterlogin/bg2.png"></image>
+</view>
+
+<view class="input-box" style="margin-top: 38rpx;">
+  <image class="icon" src="/assets/image-v2/masterlogin/icon2.png"></image>
+  <view class="tip4">账户</view>
+  <input class="input" bindinput="changeAccount" placeholder="请输入账号"></input>
+</view>
+
+<view class="diviler"></view>
+
+<view class="input-box" style="margin-top: 68rpx;">
+  <image class="icon" src="/assets/image-v2/masterlogin/icon1.png"></image>
+  <view class="tip4">密码</view>
+  <input class="input" bindinput="changePassword" placeholder="请输入密码"></input>
+</view>
+
+<view class="diviler"></view>
+
+<view class="forget" bindtap="forget">忘记密码？</view>
+
+<view class="button" bindtap="login">
+  <image class="bg1" src="/assets/image-v2/masterlogin/bg1.png"></image>
+  <view class="login">登录</view>
+</view>
+
+<view class="box3">
+  <view class="tip6">没有账号？</view>
+  <view class="tip7" bindtap="create">申请账号</view>
+</view>

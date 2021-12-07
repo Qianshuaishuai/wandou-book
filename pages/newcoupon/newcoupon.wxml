@@ -1,0 +1,37 @@
+<view class="main">
+  <image src="https://resource.qimsj.com/wandou/bg2.png" class="bg"></image>
+
+  <image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
+  </image>
+  <view class="tip" style="top:{{statusBarHeight+8}}px">
+    跑腿优惠券
+  </view>
+
+  <view class="tip-box">
+    <view class="tip1">我已成功邀请</view>
+    <view class="tip2">1</view>
+    <view class="tip3">名新用户，还剩2人</view>
+  </view>
+
+  <view class="balance">
+    仅剩100份
+  </view>
+
+  <view class="content">
+    <image src="/assets/image-v2/newcoupon/bg1.png" class="bg1"></image>
+    <view class="get-middle">
+      <view class="get-middle-box" wx:for="{{couponPickerDatas}}" wx:for-item="data" wx-key="index">
+        <image wx:if="{{data != ''}}" src="{{data}}" class="head"></image>
+        <button wx:if="{{data == ''}}" class="share" open-type="share">
+          <image src="../../assets/image-v2/newcoupon/add.png" class="head"></image>
+        </button>
+        <view class="get-middle-box-tip">{{data == '' ? '未邀请':'已邀请'}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="button">
+    <image src="/assets/image-v2/newcoupon/bg3.png" class="bg3"></image>
+    <view class="tip4">立即邀请新用户</view>
+  </view>
+</view>

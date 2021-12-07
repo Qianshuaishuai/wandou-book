@@ -1,0 +1,73 @@
+<view class="main">
+  <image src="../../assets/image-v2/discount/bg.png" class="bg"></image>
+  <view class="title">回收车</view>
+
+  <view class="notice">
+    <image src="../../assets/image-v2/receivecar/icon5.png" class="icon5"></image>
+    <view class="tip12">用户会飞的鱼成功卖出38本书</view>
+  </view>
+
+  <view class="content">
+    <image src="../../assets/image-v2/receivecar/bg1.png" class="bg1"></image>
+    <view class="top">
+      <view class="left">
+        <view class="tip1">总数量:</view>
+        <view class="tip2">3</view>
+        <view class="tip3">本</view>
+      </view>
+
+      <view class="right">
+        <image src="../../assets/image-v2/receivecar/clear.png" class="clear"></image>
+        <view class="tip4">清空回收车</view>
+      </view>
+    </view>
+
+    <view class="list">
+      <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+        <image src="../../assets/image-v2/receivecar/test.png" class="pic"></image>
+        <view class="middle">
+          <view class="title1">
+            正版 创新有道职业生涯
+          </view>
+
+          <view class="isbn">
+            9787117271837
+          </view>
+
+          <view class="price-box">
+            <view class="tip5">回收价 ￥</view>
+            <view class="price">4.96</view>
+          </view>
+        </view>
+
+        <view class="delete">删除</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="util">
+    <view class="left">
+      <view class="tip6">
+        过滤低价书
+      </view>
+      <image src="../../assets/image-v2/receivecar/question.png" class="question"></image>
+    </view>
+
+    <image src="{{currentFilterStatus?'../../assets/image-v2/receivecar/filter_pressed.png':'../../assets/image-v2/receivecar/filter_normal.png'}}" class="filter" bindtap="changeFilterStatus"></image>
+  </view>
+
+  <view class="button-box">
+    <view class="button">
+      <image src="../../assets/image-v2/receivecar/icon2.png" class="icon1"></image>
+      <view class="tip7">车扫码</view>
+    </view>
+    <view class="button">
+      <image src="../../assets/image-v2/receivecar/icon3.png" class="icon2"></image>
+      <view class="tip7">连扫模式</view>
+    </view>
+    <view class="button" bindtap="next">
+      <image src="../../assets/image-v2/receivecar/icon1.png" class="icon3"></image>
+      <view class="tip7">下一步</view>
+    </view>
+  </view>
+</view>

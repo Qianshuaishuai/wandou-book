@@ -1,0 +1,119 @@
+<view class="top">
+  <image src="../../assets/image-v2/discount/bg.png" class="bg"></image>
+  <view class="school-box" bindtap="goToSchool">
+    <image src="../../assets/image-v2/newindex2/school.png" class="school"></image>
+    <view class="tip">
+      景德镇陶瓷学院
+    </view>
+    <image src="../../assets/image-v2/newindex2/down.png" class="down"></image>
+  </view>
+
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="ad-bg" 	indicator-color="rgba(29, 162, 252, 0.3)" 	indicator-active-color="rgba(20, 150, 249, 1)">
+    <block wx:for="{{background}}" wx:key="*this" wx:for-index="index">
+      <swiper-item>
+        <image src="{{item}}" class="ad" bindtap="swiperClick" data-index="{{index}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- <image src="../../assets/image-v2/newindex2/ad1.png" class="ad"></image> -->
+</view>
+
+<view class="box">
+  <view class="block" bindtap="goToSecondIndex">
+    <image src="../../assets/image-v2/newindex2/icon1.png" class="icon1"></image>
+    <view class="tip1">
+      闲置
+    </view>
+  </view>
+
+  <view class="block" bindtap="goToDiscount">
+    <image src="../../assets/image-v2/newindex2/icon2.png" class="icon1"></image>
+    <view class="tip1">
+      外卖券/生活优惠
+    </view>
+  </view>
+
+  <view class="block" bindtap="goTolease">
+    <image src="../../assets/image-v2/newindex2/icon3.png" class="icon1"></image>
+    <view class="tip1">
+      租赁/陪玩
+    </view>
+  </view>
+
+  <view class="block">
+    <image src="../../assets/image-v2/newindex2/icon4.png" class="icon1"></image>
+    <view class="tip1">
+      学驾照
+    </view>
+  </view>
+</view>
+
+<view class="button">
+  <view class="button-box" bindtap="goToSellbook">
+    <view class="box2">
+      <view class="tip2">
+        卖书
+      </view>
+      <view class="tip3">
+        高价回收书籍
+      </view>
+    </view>
+
+    <image src="../../assets/image-v2/newindex2/bt1.png" class="bt" style="width:210rpx; height:117rpx;"></image>
+  </view>
+
+  <view class="button-box" bindtap="goToErrand">
+    <view class="box2">
+      <view class="tip2" style="color:#ED9F10">
+        跑腿
+      </view>
+      <view class="tip3" style="width:156rpx;">
+        拿快递、取外卖 一应俱全
+      </view>
+    </view>
+
+    <image src="../../assets/image-v2/newindex2/bt2.png" class="bt" style="width:165rpx; height:139rpx;"></image>
+  </view>
+</view>
+
+<view class="tweet">
+  <view class="left">
+    <image src="../../assets/image-v2/newindex2/tweet.png" class="icon2"></image>
+
+    <view class="box3">
+      <view class="tag"></view>
+      <view class="tip4">推文资讯</view>
+    </view>
+  </view>
+
+  <view class="more">
+    <view class="tip4">更多</view>
+    <image src="../../assets/image-v2/newindex2/right.png" class="right"></image>
+  </view>
+</view>
+
+<view class="list">
+  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+    <image src="../../assets/image-v2/newindex2/test1.png" class="pic"></image>
+    <view class="box5">
+      <view class="content">
+        大学期间想去周边玩，各位同仁 有什么好地方推荐,大学期间想去周边玩，各位同仁 有什么好地方推荐
+      </view>
+
+      <view class="data">
+        <view class="left">
+          <image src="../../assets/image-v2/newindex2/time.png" class="time"></image>
+          <view class="tip6">
+            2021-10-06 14:23:55
+          </view>
+        </view>
+        <view class="right">
+          <image src="../../assets/image-v2/newindex2/look.png" class="look"></image>
+          <view class="tip7">
+            1534
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

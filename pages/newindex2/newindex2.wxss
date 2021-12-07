@@ -1,0 +1,311 @@
+/* pages/newindex2/newindex2.wxss */
+
+page {
+  background: #f4f4f9;
+  padding-bottom: 168rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  position: relative;
+  box-sizing: border-box;
+  height: 586rpx;
+}
+
+.top .bg {
+  width: 100%;
+  height: 390rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 1;
+}
+
+.top .school-box {
+  position: absolute;
+  top: 100rpx;
+  left: 28rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 5;
+}
+
+.top .school-box .school {
+  width: 32rpx;
+  height: 29rpx;
+}
+
+.top .school-box .tip {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  margin-left: 14rpx;
+}
+
+.top .school-box .down {
+  width: 20rpx;
+  height: 11rpx;
+  margin-left: 16rpx;
+}
+
+.top .ad-bg {
+  width: 96%;
+  height: 316rpx;
+  position: absolute;
+  top: 186rpx;
+  left: 2%;
+  z-index: 8;
+}
+
+.top .ad {
+  width: 96%;
+  height: 316rpx;
+  /* position: absolute;
+  top: 170rpx;
+  left: 2%; */
+  margin-left: 2%;
+  z-index: 8;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 52rpx;
+  margin-right: 52rpx;
+}
+
+.box .block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box .block .icon1 {
+  width: 94rpx;
+  height: 94rpx;
+}
+
+.box .block .tip1 {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-top: 16rpx;
+}
+
+.button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 36rpx;
+}
+
+.button .button-box {
+  position: relative;
+  width: 330rpx;
+  height: 180rpx;
+  background: #fff;
+  box-shadow: 0px 10rpx 40rpx 0px rgba(131, 163, 191, 0.16);
+  border-radius: 12rpx;
+}
+
+.button .button-box .box2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.button .button-box .box2 .tip2 {
+  font-size: 32rpx;
+  font-family: BDZongYi-A001;
+  font-weight: bold;
+  color: #3f7dec;
+  margin-top: 30rpx;
+  margin-left: 32rpx;
+}
+
+.button .button-box .box2 .tip3 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #b4b4b4;
+  margin-top: 8rpx;
+  margin-left: 30rpx;
+}
+
+.button .button-box .bt {
+  position: absolute;
+  bottom: 0rpx;
+  right: 0rpx;
+}
+
+.tweet {
+  margin-top: 42rpx;
+  padding-left: 24rpx;
+  padding-right: 32rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tweet .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tweet .left .icon2 {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.tweet .left .box3 {
+  margin-left: 12rpx;
+  position: relative;
+  width: 166rpx;
+  height: 48rpx;
+}
+
+.tweet .left .box3 .tip4 {
+  width: 150rpx;
+  height: 34rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  z-index: 102;
+}
+
+.tweet .left .box3 .tag {
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 118rpx;
+  height: 20rpx;
+  background: #179bfb;
+  opacity: 0.5;
+  z-index: 101;
+}
+
+.tweet .more {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tweet .more .tip4 {
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #8c8c91;
+}
+
+.tweet .more .right {
+  width: 10rpx;
+  height: 17rpx;
+  margin-left: 11rpx;
+}
+
+/* list */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.list .block {
+  margin-top: 36rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list .block .pic {
+  width: 240rpx;
+  height: 160rpx;
+  border-radius: 12rpx;
+}
+
+.list .block .box5 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 34rpx;
+  justify-content: space-between;
+  height: 160rpx;
+}
+
+.list .block .box5 .content {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #1a1a1a;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  width: 400rpx;
+}
+
+.list .block .box5 .data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list .block .box5 .data .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list .block .box5 .data .left .time {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.list .block .box5 .data .left .tip6 {
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #a3a3a3;
+  margin-left: 5rpx;
+}
+
+.list .block .box5 .data .right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list .block .box5 .data .right .look {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.list .block .box5 .data .right .tip7 {
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #a3a3a3;
+  margin-left: 8rpx;
+}

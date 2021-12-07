@@ -1,0 +1,64 @@
+<image src="https://resource.qimsj.com/wandou/banner.png" class="bg">
+</image>
+<!-- <view class="top">
+
+ 
+</view> -->
+
+<image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
+</image>
+<view class="tip" style="top:{{statusBarHeight+8}}px">二手</view>
+
+<view class="search-box">
+  <image src="../../assets/image-v2/secondhandindex/search.png" class="search"></image>
+  <input class="input" placeholder="输入关键词进行搜索" bindinput="changeSearch" value="{{currentSearch}}">
+  </input>
+  <image src="../../assets/image-v2/secondhandindex/delete.png" class="delete" bindtap="deleteSearch">
+  </image>
+</view>
+
+<view class="middle-bg"></view>
+
+<view class="tip-title">
+  二手分类
+</view>
+
+<view class="type-list">
+  <view class="type-block" wx:for="{{typeList}}" wx:for-item="item" wx:for-index="index">
+    {{item}}
+  </view>
+</view>
+
+<view class="button-box">
+  <view class="button" style="background: linear-gradient(90deg, #1A91FF, #2CB7FF);" bindtap="release">
+    <view class="left">
+      <view class="tip5">我要发布</view>
+      <view class="tip6">发布闲置二手</view>
+    </view>
+    <image src="../../assets/image-v2/secondhandindex/release.png" class="icon"></image>
+  </view>
+
+  <view class="button" style="background: linear-gradient(265deg, #00D2A3, #01C2AF);margin-left:20rpx;" bindtap="buy">
+    <view class="left">
+      <view class="tip5">我要购买</view>
+      <view class="tip6">二手物美价廉</view>
+    </view>
+    <image src="../../assets/image-v2/secondhandindex/car.png" class="icon"></image>
+  </view>
+</view>
+
+<view class="tip-title2">
+  交易流程
+</view>
+
+<view class="tip7">
+  1、卖家发布个人闲置物品等待买家购买；
+</view>
+
+<view class="tip7">
+  2、买家浏览卖家发布物品确认购买获取联系方式交易方式；
+</view>
+
+<view class="tip7">
+  3、闲置交易“校园喵”不收取任何费用，买卖双方自行交易若 途中产生任何问题请私下协商解决。
+</view>

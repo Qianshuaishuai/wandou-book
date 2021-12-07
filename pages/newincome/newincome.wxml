@@ -1,0 +1,70 @@
+<view class="top">
+  <view class="left">
+    <image src="../../assets/image-v2/newincome/home.png" class="home"></image>
+    <view class="school">东南大学</view>
+    <image src="../../assets/image-v2/newincome/down.png" class="down"></image>
+  </view>
+
+  <image src="../../assets/image-v2/newincome/question.png" class="question"></image>
+</view>
+
+<view class="middle">
+  <image src="../../assets/image-v2/newincome/bg.png" class="bg"></image>
+  <image src="../../assets/image-v2/newincome/logo.png" class="logo"></image>
+  <view class="box">
+    <view class="data">20000.00</view>
+    <view class="tip3">当月预估总收益(元)</view>
+  </view>
+</view>
+
+<view class="box2">
+  <view class="left">
+    <image src="../../assets/image-v2/newincome/icon1.png" class="icon"></image>
+    <view class="tip4">
+      小程序注册人数
+    </view>
+  </view>
+
+  <view class="count" style="color:#0889F8">
+    6546人
+  </view>
+</view>
+
+<view class="box2">
+  <view class="left">
+    <image src="../../assets/image-v2/newincome/icon2.png" class="icon"></image>
+    <view class="tip4">
+      跑腿本月总流水
+    </view>
+  </view>
+
+  <view class="count" style="color:#F43F3F">
+    36445元
+  </view>
+</view>
+
+<view class="box2">
+  <view class="left">
+    <image src="../../assets/image-v2/newincome/icon3.png" class="icon"></image>
+    <view class="tip4">
+      二手发布总贴书
+    </view>
+  </view>
+
+  <view class="count"  style="color:#FF8A1E">
+    6546人
+  </view>
+</view>
+
+<view class="box2">
+  <view class="left">
+    <image src="../../assets/image-v2/newincome/icon4.png" class="icon"></image>
+    <view class="tip4">
+      卖书本月总流水
+    </view>
+  </view>
+
+  <view class="count"  style="color:#F43F3F">
+    36445元
+  </view>
+</view>

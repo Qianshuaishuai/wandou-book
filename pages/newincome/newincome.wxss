@@ -1,0 +1,139 @@
+/* pages/newincome/newincome.wxss */
+
+page {
+  background: #f4f4f9;
+  padding: 24rpx;
+  padding-bottom: 168rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24rpx;
+}
+
+.top .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.top .left .home {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.top .left .school {
+  margin-left: 23rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+}
+
+.top .left .down {
+  width: 23rpx;
+  height: 12rpx;
+  margin-left: 27rpx;
+}
+
+.top .question {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.middle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 44rpx;
+  height: 278rpx;
+  position: relative;
+}
+
+.middle .bg {
+  width: 100%;
+  height: 278rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 2;
+}
+
+.middle .logo {
+  width: 141rpx;
+  height: 157rpx;
+  z-index: 3;
+  margin-left: 36rpx;
+}
+
+.middle .box {
+  display: flex;
+  flex-direction: column;
+  margin-left: 32rpx;
+  z-index: 3;
+}
+
+.middle .box .data {
+  font-size: 46rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  z-index: 3;
+}
+
+.middle .box .tip3 {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 28rpx;
+  z-index: 3;
+}
+
+.box2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  margin-top: 20rpx;
+}
+
+.box2 .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.box2 .left .icon {
+  margin-left: 24rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.box2 .left  .tip4 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-left: 22rpx;
+}
+
+.box2  .count {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #0889f8;
+  margin-right: 24rpx;
+}

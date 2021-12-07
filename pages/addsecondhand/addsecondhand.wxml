@@ -1,0 +1,80 @@
+<view class="type">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      二手类别
+    </view>
+  </view>
+
+  <view class="type-box">
+    <view class="type-block" wx:for="{{typeList}}" wx:for-item="item" wx:for-index="index" bindtap="changeType" data-index="{{index}}">
+      <image class="bg" src="/assets/image-v2/errands/button2.png" wx:if="{{index === currentTypeindex}}"></image>
+      <view class="{{index === currentTypeindex ? 'tip3':'tip2'}}">
+        {{item}}
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="content">
+  <textarea placeholder="请描述一下转让原因~" class="reason" bindinput="changeReason"></textarea>
+  <view class="photo-box">
+    <view class="photo-block" wx:for="{{currentPhotos}}" wx:for-item="{{item}}" wx:for-index="{{index}}">
+      <view class="show">
+        <image class="pic" src="/assets/new-images/index/ad.png"></image>
+        <image class="delete" src="/assets/image-v2/express/delete.png" bindtap="deletePhoto" data-index="{{index}}"></image>
+      </view>
+    </view>
+    <view class="photo-block">
+      <view class="add">
+        <image class="icon" src="/assets/image-v2/express/add.png"></image>
+        <view class="tip5">
+          上传照片
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="content">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      面交地点
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAddress" placeholder="请输入地点"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      金额（￥）
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAmount" placeholder="请输入金额" type="number"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      预留微信联系方式
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeWechat" placeholder="请输入微信"></input>
+
+  <view class="tip4">
+    *不会公布在展示中，仅在买家确认购买后提供联系方式
+  </view>
+</view>
+
+<view class="release">
+  <image class="bg" src="/assets/image-v2/errands/button1.png"></image>
+  <view class="button">
+    <image class="icon" src="/assets/image-v2/errands/release.png"></image>
+    <view class="tip">
+      发布
+    </view>
+  </view>
+</view>

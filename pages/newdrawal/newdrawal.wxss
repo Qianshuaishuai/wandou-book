@@ -1,0 +1,281 @@
+/* pages/newdrawal/newdrawal.wxss */
+
+page {
+  background: #f4f4f9;
+  padding-bottom: 168rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main .top {
+  width: 100%;
+  height: 643rpx;
+  z-index: 1;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.back {
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  left: 30rpx;
+  z-index: 8;
+}
+
+.tip {
+  width: 100%;
+  height: 34rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  position: absolute;
+  z-index: 6;
+  text-align: center;
+}
+
+.main .tip1 {
+  align-self: center;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 225rpx;
+  z-index: 7;
+}
+
+.main .count {
+  margin-top: 30rpx;
+  font-size: 56rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  align-self: center;
+  z-index: 7;
+}
+
+.main .tip2-box {
+  align-self: center;
+  width: 218rpx;
+  height: 70rpx;
+  margin-top: 24rpx;
+  position: relative;
+  z-index: 7;
+}
+
+.main .tip2-box .icon1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.main .tip2-box .tip2 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  padding-top: 24rpx;
+}
+
+.main .content1 {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 313rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-top: 68rpx;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 40rpx;
+  padding-top: 40rpx;
+  z-index: 8;
+}
+
+.main .content1 .tip3-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.main .content1 .tip3-box .tip3 {
+  width: 12rpx;
+  height: 12rpx;
+  background: #0586f7;
+  border-radius: 6rpx;
+}
+
+.main .content1 .tip3-box .tip33 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-left: 14rpx;
+}
+
+.main .content1 .count1-box {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-left: 27rpx;
+  margin-top: 28rpx;
+}
+
+.main .content1 .count1-box .count1 {
+  font-size: 46rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #0586f7;
+}
+
+.main .content1 .count1-box .count11 {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #0586f7;
+  margin-bottom: 6rpx;
+}
+
+.main .content1 .icon2 {
+  width: 154rpx;
+  height: 142rpx;
+  position: absolute;
+  bottom: 28rpx;
+  right: 15rpx;
+}
+
+.main .content2 {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 20rpx;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 40rpx;
+  padding-top: 40rpx;
+  padding-right: 40rpx;
+  z-index: 8;
+  height: 519rpx;
+}
+
+.main .content2 .tip5 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+}
+
+.main .content2 .box1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 64rpx;
+  align-items: center;
+}
+
+.main .content2 .box1 .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.main .content2 .box1 .left .icon3 {
+  width: 36rpx;
+  height: 43rpx;
+}
+
+.main .content2 .box1 .left .input {
+  width: 300rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #bbb;
+  margin-left: 35rpx;
+}
+
+.main .content2 .box1 .tip6 {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #0687f7;
+}
+
+.main .content2 .diviler {
+  width: 100%;
+  height: 1px;
+  background: #d9d9d9;
+  margin-top: 24rpx;
+}
+
+.main .content2 .button {
+  margin-top: 82rpx;
+  position: relative;
+  height: 110rpx;
+  width: 100%;
+}
+
+.main .content2 .button .bg3 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 9;
+}
+
+.main .content2 .button .tip7 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 10;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  padding-top: 20rpx;
+}
+
+.main .content2 .tip-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 48rpx;
+}
+
+.main .content2 .tip-box .tip8 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #959595;
+}
+
+.main .content2 .tip-box .tip9 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #0586f7;
+}

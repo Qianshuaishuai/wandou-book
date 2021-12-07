@@ -1,0 +1,75 @@
+<view class="content">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      申请学校全称
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeSchoolName" placeholder="请输入学校全称"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      所在年级
+    </view>
+  </view>
+
+  <view class="type-box">
+    <view class="type-block" wx:for="{{gradeList}}" wx:for-item="item" wx:for-index="index" bindtap="changeGrade" data-index="{{index}}">
+      <image class="bg" src="/assets/image-v2/errands/button2.png" wx:if="{{index === currentGradeindex}}"></image>
+      <view class="{{index === currentGradeindex ? 'tip3':'tip2'}}">
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      团队人数
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeCount" type="number" placeholder="请输入团队人数" style="margin-bottom: 48rpx;"></input>
+</view>
+<view class="content">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      学生证照片
+    </view>
+  </view>
+
+  <view class="photo-box">
+    <image class="bg" src="/assets/image-v2/certrider/photo-bg.png"></image>
+    <image class="add" src="/assets/image-v2/certrider/photo-add.png"></image>
+  </view>
+</view>
+
+<view class="content">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      微信
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeWechat" placeholder="请输入微信号"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      手机
+    </view>
+  </view>
+
+  <input class="input" bindinput="changePhone" placeholder="请输入手机号码" style="margin-bottom: 48rpx;"></input>
+</view>
+
+<view class="apply" bindtap="apply">
+  <image class="bg" src="/assets/image-v2/errands/button1.png"></image>
+  <view class="text">
+    立即申请
+  </view>
+</view>

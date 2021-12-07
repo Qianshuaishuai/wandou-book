@@ -1,0 +1,162 @@
+/* pages/masterlogin/masterlogin.wxss */
+
+page {
+  background: #fff;
+  padding: 24rpx;
+  padding-bottom: 168rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: space-between;
+  margin-top: 24rpx;
+}
+
+.top .left {
+  display: flex;
+  flex-direction: column;
+  margin-left: 36rpx;
+  justify-content: center;
+}
+
+.top .left .box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.top .left .tip {
+  font-size: 46rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+}
+
+.top .left .box .tip2 {
+  font-size: 46rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+}
+
+.top .left .box .tip3 {
+  font-size: 46rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #0b8df8;
+}
+
+.top .bg2 {
+  width: 297rpx;
+  height: 311rpx;
+  margin-right: 4rpx;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 58rpx;
+}
+
+.input-box .icon {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.input-box .tip4 {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10rpx;
+}
+
+.input-box .input {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #c6c6c6;
+  margin-left: 58rpx;
+  margin-top: 8rpx;
+}
+
+.diviler {
+  margin-left: 36rpx;
+  margin-right: 36rpx;
+  height: 1rpx;
+  background: #d8d8d8;
+  margin-top: 39rpx;
+}
+
+.forget {
+  margin-top: 26rpx;
+  align-self: flex-end;
+  margin-right: 36rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #8a8a8a;
+}
+
+.button {
+  width: 94%;
+  margin-top: 48rpx;
+  height: 110rpx;
+  position: relative;
+  align-self: center;
+}
+
+.button .bg1 {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.button .login {
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  line-height: 98rpx;
+  text-align: center;
+}
+
+.box3 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 36rpx;
+  align-self: center;
+}
+
+.box3 .tip6 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #8c8c8c;
+}
+
+.box3 .tip7 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #0485f7;
+  margin-left: 12rpx;
+}

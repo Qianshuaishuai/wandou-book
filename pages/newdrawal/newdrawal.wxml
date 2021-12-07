@@ -1,0 +1,65 @@
+<view class="main">
+  <image class="top" src="/assets/image-v2/newdrawal/top.png"></image>
+  <image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
+  </image>
+  <view class="tip" style="top:{{statusBarHeight+8}}px">
+    提现
+  </view>
+
+  <view class="tip1">余额</view>
+  <view class="count">6556.00元</view>
+  <view class="tip2-box">
+    <image class="icon1" src="/assets/image-v2/newdrawal/bg2.png"></image>
+    <view class="tip2">可全部提现</view>
+  </view>
+
+  <view class="content1">
+    <view class="tip3-box">
+      <view class="tip3"></view>
+      <view class="tip33">骑手/跑腿/租赁/陪玩/悬赏收益</view>
+    </view>
+
+    <view class="count1-box">
+      <view class="count1">3500</view>
+      <view class="count11">元</view>
+    </view>
+
+    <view class="tip3-box" style="margin-top:51rpx;">
+      <view class="tip3"></view>
+      <view class="tip33">卖书推广收益</view>
+    </view>
+
+    <view class="count1-box">
+      <view class="count1">860</view>
+      <view class="count11">元</view>
+    </view>
+
+    <image class="icon2" src="/assets/image-v2/newdrawal/icon1.png"></image>
+  </view>
+
+  <view class="content2">
+    <view class="tip5">
+      提现金额
+    </view>
+    <view class="box1">
+      <view class="left">
+        <image class="icon3" src="/assets/image-v2/newdrawal/icon2.png"></image>
+        <input class="input" placeholder="请输入提现金额" bindinput="changeAmount"></input>
+      </view>
+      <view class="tip6">全部提现</view>
+    </view>
+
+    <view class="diviler"></view>
+
+    <view class="tip-box">
+      <view class="tip8">仅该两部分收取</view>
+      <view class="tip9">10%</view>
+      <view class="tip8">的技术服务费</view>
+    </view>
+
+    <view class="button">
+       <image class="bg3" src="/assets/image-v2/newdrawal/bg1.png"></image>
+       <view class="tip7">提现</view>
+    </view>
+  </view>
+</view>

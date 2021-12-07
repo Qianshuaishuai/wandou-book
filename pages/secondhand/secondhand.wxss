@@ -162,3 +162,106 @@ page {
   color: #fff;
   padding-top: 6rpx;
 }
+
+.search-box {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-top: 25rpx;
+  height: 70rpx;
+  background: #fff;
+  border-radius: 35rpx;
+}
+
+.search-box .icon1 {
+  width: 28rpx;
+  height: 28rpx;
+  left: 36rpx;
+  top: 21rpx;
+  position: absolute;
+}
+
+.search-box .search {
+  width: 206rpx;
+  height: 70rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #b7b7b7;
+  line-height: 70rpx;
+  padding-left: 78rpx;
+}
+
+.search-box .button2 {
+  width: 150rpx;
+  height: 44rpx;
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  z-index: 11;
+}
+
+.search-box .button2 .bg2 {
+  width: 150rpx;
+  height: 70rpx;
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  z-index: 12;
+}
+
+.search-box .button2 .tip12 {
+  width: 150rpx;
+  height: 70rpx;
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  z-index: 13;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  line-height: 70rpx;
+  text-align: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 32rpx;
+  margin-top: 36rpx;
+  display: -webkit-box;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.box .block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 140rpx;
+  height: 80rpx;
+  justify-content: center;
+}
+
+.box .block .tip10 {
+  font-size: 34rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #0687f7;
+}
+
+.box .block .diviler {
+  width: 100rpx;
+  height: 4rpx;
+  margin-top: 20rpx;
+  background: #0687f7;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}

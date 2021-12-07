@@ -1,0 +1,88 @@
+<view class="tab-list">
+  <view class="tab-box" bindtap="changeSelectStatus" data-index="0">
+    <view class="tab-tip" wx:if="{{selectStatus != 0}}">发布中</view>
+    <view class="tab-tip2" wx:if="{{selectStatus == 0}}">发布中</view>
+    <view class="diviler" wx:if="{{selectStatus == 0}}"></view>
+  </view>
+
+  <view class="tab-box" bindtap="changeSelectStatus" data-index="1">
+    <view class="tab-tip" wx:if="{{selectStatus != 1}}">进行中</view>
+    <view class="tab-tip2" wx:if="{{selectStatus == 1}}">进行中</view>
+    <view class="diviler" wx:if="{{selectStatus == 1}}"></view>
+  </view>
+
+  <view class="tab-box" bindtap="changeSelectStatus" data-index="2">
+    <view class="tab-tip" wx:if="{{selectStatus != 2}}">待确认</view>
+    <view class="tab-tip2" wx:if="{{selectStatus == 2}}">待确认</view>
+    <view class="diviler" wx:if="{{selectStatus == 2}}"></view>
+  </view>
+
+  <view class="tab-box" bindtap="changeSelectStatus" data-index="3">
+    <view class="tab-tip" wx:if="{{selectStatus != 3}}">已完成</view>
+    <view class="tab-tip2" wx:if="{{selectStatus == 3}}">已完成</view>
+    <view class="diviler" wx:if="{{selectStatus == 3}}"></view>
+  </view>
+</view>
+
+<view class="list">
+  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+    <view class="top">
+      <view class="type">类别：快递</view>
+      <view class="status">发布中</view>
+    </view>
+    <view class="price-box">
+      <view class="tag">
+        ￥
+      </view>
+      <view class="price">
+        5.00
+      </view>
+    </view>
+
+    <view class="time-box">
+      <image class="tag" src="/assets/image-v2/errandlist/time.png"></image>
+      <view class="time">
+        送货时间：2021-10-13 21:00~21:30
+      </view>
+    </view>
+
+    <view class="time-box">
+      <image class="tag" src="/assets/image-v2/errandlist/box.png"></image>
+      <view class="time">
+        快递数量：大件1个、中件2个、小件5个
+      </view>
+    </view>
+
+    <view class="time-box">
+      <image class="tag" src="/assets/image-v2/errandlist/phone.png"></image>
+      <view class="time">
+        联系方式：138123465
+      </view>
+    </view>
+
+    <view class="address-box">
+      <view class="address-block">
+        <image src="../../assets/image-v2/receivedetail/address1.png" class="icon">
+        </image>
+        <view class="address">
+          取件地址：男生宿舍13栋606
+        </view>
+      </view>
+
+      <image src="../../assets/image-v2/receivedetail/address3.png" class="middle">
+      </image>
+
+      <view class="address-block" style="margin-bottom:23rpx;">
+        <image src="../../assets/image-v2/receivedetail/address2.png" class="icon">
+        </image>
+        <view class="address">
+          收货地址：女生宿舍3栋花园门口
+        </view>
+      </view>
+    </view>
+
+    <view class="button-box">
+      <view class="button">取消</view>
+    </view>
+  </view>
+</view>

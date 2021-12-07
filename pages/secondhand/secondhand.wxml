@@ -1,3 +1,19 @@
+<view class="search-box">
+  <input class="search" bindinput="changeInput" placeholder="请输入搜索的内容"></input>
+  <image src="/assets/image-v2/secondhand/search.png" class="icon1"></image>
+  <view class="button2">
+    <image src="/assets/image-v2/secondhand/button.png" class="bg2"></image>
+    <view class="tip12">搜索</view>
+  </view>
+</view>
+
+<view class="box">
+  <view class="block" wx:for="{{typeList}}" wx:for-item="item" wx:for-index="index" bindtap="changeIndex" data-index="{{index}}">
+    <view class="tip10" style="{{currentTypeIndex == index ? 'color:#0687F7;font-size:34rpx' : 'color:#6F6F77;font-size:30rpx'}}">{{item}}</view>
+    <view class="diviler" wx:if="{{currentTypeIndex == index}}"></view>
+  </view>
+</view>
+
 <view class="show-list">
   <view class="show-block" wx:for="{{showList}}" wx:for-item="item" wx:for-index="index">
     <view class="title">
@@ -12,7 +28,7 @@
 
     <view class="photo-list">
       <view class="photo-block" wx:for="{{showList}}" wx:for-item="pitem" wx:for-index="pindex">
-        <image src="/assets/new-images/index/ad.png" class="photo"></image>
+        <image src="/assets/image-v2/newindex2/test1.png" class="photo"></image>
       </view>
     </view>
 

@@ -1,0 +1,147 @@
+page {
+  background: #f4f4f9;
+  padding: 24rpx;
+  padding-bottom: 168rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #85858d;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 480rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  margin-top: 35rpx;
+}
+
+.content .box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 30rpx;
+}
+
+.content .box .tag {
+  width: 8.5rpx;
+  height: 36rpx;
+}
+
+.content .box .tip {
+  width: 160rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-left: 30rpx;
+  margin-right: 25rpx;
+}
+
+.content .box .input {
+  width: 490rpx;
+  height: 80rpx;
+  background: #f4f4f9;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  line-height: 80rpx;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  margin-right: 30rpx;
+}
+
+.content .box1 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 30rpx;
+}
+
+.content .box1 .tag {
+  width: 8.5rpx;
+  height: 36rpx;
+    margin-top: 14rpx;
+}
+
+.content .box1 .tip {
+  width: 160rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-left: 30rpx;
+  margin-right: 25rpx;
+  margin-top: 8rpx;
+}
+
+.content .box1 .input {
+  width: 490rpx;
+  height: 160rpx;
+  background: #f4f4f9;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  line-height: 80rpx;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  margin-right: 30rpx;
+  text-align: start;
+  padding-top: 24rpx;
+  padding-bottom: 24rpx;
+}
+
+.add {
+  position: relative;
+  width: 620rpx;
+  height: 109rpx;
+  align-self: center;
+  margin-top: 62rpx;
+}
+
+.add .bg {
+  position: absolute;
+  width: 620rpx;
+  height: 109rpx;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.add .button {
+  position: absolute;
+  width: 620rpx;
+  height: 109rpx;
+  top: 0rpx;
+  left: 0rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.add .button .icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 26rpx;
+}
+
+.add .button .tip {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  margin-left: 19rpx;
+  margin-top: 23rpx;
+}

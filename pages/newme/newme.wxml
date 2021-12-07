@@ -1,0 +1,161 @@
+<view class="top">
+  <image src="../../assets/image-v2/newme/bg.png" class="bg">
+  </image>
+
+  <view class="box">
+    <view class="left">
+      <image src="../../assets/image-v2/newme/head.png" class="head">
+      </image>
+      <view class="name">花木兰</view>
+    </view>
+    <view class="login" bindtap="masterlogin">站长登录</view>
+  </view>
+
+  <image src="../../assets/image-v2/newme/bg3.png" class="bg3">
+  </image>
+
+  <view class="box2">
+    <image src="../../assets/image-v2/newme/icon1.png" class="icon1">
+    </image>
+    <view class="box3">
+      <view class="tip3">我的收益</view>
+      <view class="amount">￥6556.69</view>
+    </view>
+  </view>
+
+  <view class="drawal-box" bindtap="drawal">
+    <view class="drawal">提现</view>
+    <image src="../../assets/image-v2/newme/right.png" class="right"></image>
+  </view>
+</view>
+
+<view class="title">卖书</view>
+
+<view class="util-bg">
+  <view class="util-box">
+    <view class="util-block" bindtap="goToOrder" data-index="1">
+      <image src="../../assets/new-images/person/sell22.png" class="icon4"></image>
+      <view class="tip7">待取件</view>
+    </view>
+    <view class="util-block" bindtap="goToOrder" data-index="2">
+      <image src="../../assets/new-images/person/sell33.png" class="icon4"></image>
+      <view class="tip7">待收货</view>
+    </view>
+    <view class="util-block" bindtap="goToOrder" data-index="3">
+      <image src="../../assets/new-images/person/sell44.png" class="icon4"></image>
+      <view class="tip7">待收款</view>
+    </view>
+    <view class="util-block" bindtap="goToOrder" data-index="4">
+      <image src="../../assets/new-images/person/sell55.png" class="icon4"></image>
+      <view class="tip7">已完成</view>
+    </view>
+  </view>
+</view>
+
+<view class="title">跑腿/租赁/陪玩/悬赏</view>
+
+<view class="errand-box">
+  <view class="errand-block" style="background: linear-gradient(90deg, #1A91FF, #2CB7FF);border-radius: 20rpx;" bindtap="releaseErrand">
+    <view class="box4">
+      <view class="tip5">我要发单</view>
+      <view class="tip6">发布跑腿订单</view>
+    </view>
+    <image src="../../assets/image-v2/newme/errand-icon1.png" class="icon3"></image>
+  </view>
+
+  <view class="errand-block" style="background: linear-gradient(90deg, #FF812D, #FFA32C);border-radius: 20rpx;margin-left:20rpx;" bindtap="takeErrand">
+    <view class="box4">
+      <view class="tip5">我要接单</view>
+      <view class="tip6">接单赚点外快</view>
+    </view>
+    <image src="../../assets/image-v2/newme/errand-icon2.png" class="icon3"></image>
+  </view>
+</view>
+
+<view class="title">闲置</view>
+
+<view class="leave-box">
+  <view class="leave-block" style="margin-left: 58rpx;" bindtap="goToBuy">
+    <image src="../../assets/image-v2/newme/leave1.png" class="icon4"></image>
+    <view class="tip7">我要发布</view>
+  </view>
+  <view class="leave-block" style="margin-left: 124rpx;" bindtap="goToSell">
+    <image src="../../assets/image-v2/newme/leave2.png" class="icon4"></image>
+    <view class="tip7">购买商品</view>
+  </view>
+</view>
+
+<view class="title">推荐工具</view>
+
+<view class="util-bg">
+  <view class="util-box">
+    <view class="util-block" bindtap="goToPartner">
+      <image src="../../assets/image-v2/newme/util1.png" class="icon4"></image>
+      <view class="tip7">我的推广</view>
+    </view>
+    <view class="util-block" bindtap="goToBindPhone">
+      <image src="../../assets/image-v2/newme/util2.png" class="icon4"></image>
+      <view class="tip7">绑定手机</view>
+    </view>
+    <view class="util-block" bindtap="goToQuestion">
+      <image src="../../assets/image-v2/newme/util3.png" class="icon4"></image>
+      <view class="tip7">常见问题</view>
+    </view>
+    <view class="util-block" bindtap="goToNewIncome">
+      <image src="../../assets/image-v2/newme/util4.png" class="icon4"></image>
+      <view class="tip7">目前收益</view>
+    </view>
+  </view>
+
+  <view class="util-box">
+    <view class="util-block">
+      <image src="../../assets/image-v2/newme/util5.png" class="icon4" bindtap="goToAddress"></image>
+      <view class="tip7">我的地址</view>
+    </view>
+
+    <view class="util-block"  bindtap="copyWechat">
+      <image src="../../assets/image-v2/newme/util6.png" class="icon4"></image>
+      <view class="tip7">客服微信</view>
+    </view>
+
+    <view class="util-block" style="visibility:hidden;">
+      <image src="../../assets/image-v2/newme/util6.png" class="icon4"></image>
+      <view class="tip7">客服微信</view>
+    </view>
+
+    <view class="util-block" style="visibility:hidden;">
+      <image src="../../assets/image-v2/newme/util6.png" class="icon4"></image>
+      <view class="tip7">客服微信</view>
+    </view>
+  </view>
+</view>
+
+<image src="https://resource.qimsj.com/wandou/apply.png" class="apply" bindtap="applyMaster"></image>
+<!-- <view class="util-box">
+  <view class="util-block">
+    <image src="../../assets/image-v2/newme/util1.png" class="icon4"></image>
+    <view class="tip7">我的推广</view>
+  </view>
+  <view class="util-block">
+    <image src="../../assets/image-v2/newme/util2.png" class="icon4"></image>
+    <view class="tip7">绑定手机</view>
+  </view>
+  <view class="util-block">
+    <image src="../../assets/image-v2/newme/util3.png" class="icon4"></image>
+    <view class="tip7">常见问题</view>
+  </view>
+  <view class="util-block">
+    <image src="../../assets/image-v2/newme/util4.png" class="icon4"></image>
+    <view class="tip7">目前收益</view>
+  </view>
+
+  <view class="util-block">
+    <image src="../../assets/image-v2/newme/util5.png" class="icon4"></image>
+    <view class="tip7">我的地址</view>
+  </view>
+
+  <view class="util-block">
+    <image src="../../assets/image-v2/newme/util6.png" class="icon4"></image>
+    <view class="tip7">客服微信</view>
+  </view>
+</view> -->

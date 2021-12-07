@@ -1,0 +1,43 @@
+<view class="box">
+  <view class="top">
+    <image class="icon" src="/assets/image-v2/promotion/coin.png"></image>
+    <view class="tip">
+      卖书推广收益：
+    </view>
+    <view class="data">
+      ￥15446.12
+    </view>
+  </view>
+  <view class="list">
+    <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+      <view class="left">
+        <image class="icon" src="/assets/image-v2/promotion/fans-icon.png"></image>
+        <view class="name">李小萌</view>
+      </view>
+      <view class="count">本数：265</view>
+      <view class="money">￥1265.35</view>
+    </view>
+  </view>
+</view>
+
+<view class="box" style="margin-top:0rpx;">
+  <view class="top" style="background: linear-gradient(-42deg, #00D2A3, #01C2AF);margin-top:0rpx;">
+    <image class="icon" src="/assets/image-v2/promotion/coin.png"></image>
+    <view class="tip">
+      跑腿推广收益：
+    </view>
+    <view class="data">
+      ￥15446.12
+    </view>
+  </view>
+  <view class="list">
+    <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+      <view class="left">
+        <image class="icon" src="/assets/image-v2/promotion/fans-icon.png"></image>
+        <view class="name">李小萌</view>
+      </view>
+      <view class="count">本数：265</view>
+      <view class="money">￥1265.35</view>
+    </view>
+  </view>
+</view>

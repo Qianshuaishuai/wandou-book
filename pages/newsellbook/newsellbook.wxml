@@ -1,0 +1,41 @@
+<view class="main">
+  <image src="../../assets/image-v2/discount/bg.png" class="bg"></image>
+  <view class="title">卖书</view>
+  <image src="../../assets/image-v2/newsellbook/bg1.png" class="bg1" bindtap="goToQuestion"></image>
+
+  <view class="comment-box">
+    <image src="../../assets/image-v2/newsellbook/comment.png" class="comment"></image>
+    <view class="tip1">收书喵问答</view>
+  </view>
+
+  <view class="list">
+    <view class="block" wx:for="{{questionList}}" wx:for-item="item" wx:for-index="index" bindtap="clickQuestion" data-index="{{index}}">
+      <view class="question-box">
+        <view class="left">
+          <image src="../../assets/image-v2/newsellbook/question.png" class="question"></image>
+          <view class="content">
+            {{item.question}}
+          </view>
+        </view>
+        <image src="{{item.isShow?'../../assets/image-v2/newsellbook/up.png':'../../assets/image-v2/newsellbook/down.png'}}" class="direct"></image>
+      </view>
+
+      <view class="answer-box" wx:if="{{item.isShow}}">
+        <image src="../../assets/image-v2/newsellbook/answer.png" class="icon"></image>
+        <view class="answer">{{item.answer}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="button-box">
+    <!-- <view class="button1">
+      <image src="../../assets/image-v2/newsellbook/input.png" class="pic"></image>
+      <view class="tip3">输入条码</view>
+    </view> -->
+
+    <view class="button2" bindtap="scan">
+      <image src="../../assets/image-v2/newsellbook/scan.png" class="pic"></image>
+      <view class="tip3">扫码卖书</view>
+    </view>
+  </view>
+</view>

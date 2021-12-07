@@ -1,0 +1,85 @@
+<view class="main">
+  <image class="top1" src="https://resource.qimsj.com/wandou/top.png"></image>
+  <image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
+  </image>
+  <view class="tip" style="top:{{statusBarHeight+8}}px">
+    跑腿
+  </view>
+
+  <!-- content -->
+  <view class="content1">
+    <view class="errand-box">
+      <view class="errand-block" style="background: linear-gradient(90deg, #1A91FF, #2CB7FF);border-radius: 20rpx;" bindtap="release">
+        <view class="box4">
+          <view class="tip5">我要发单</view>
+          <view class="tip6">发布跑腿订单</view>
+        </view>
+        <image src="../../assets/image-v2/newme/errand-icon1.png" class="icon3"></image>
+      </view>
+
+      <view class="errand-block" style="background: linear-gradient(90deg, #FF812D, #FFA32C);border-radius: 20rpx;margin-left:20rpx;" bindtap="take">
+        <view class="box4">
+          <view class="tip5">我要接单</view>
+          <view class="tip6">接单赚点外快</view>
+        </view>
+        <image src="../../assets/image-v2/newme/errand-icon2.png" class="icon3"></image>
+      </view>
+    </view>
+    <image class="icon-middle" src="https://resource.qimsj.com/wandou/middle.png"></image>
+  </view>
+
+  <view class="notice">
+    <image class="icon5" src="/assets/image-v2/errandindex/notice.png"></image>
+    <view class="diviler"></view>
+    <view class="tip14">
+      关注公众号获取最新跑腿信息
+    </view>
+  </view>
+
+  <view class="box2">
+    <view class="left">
+      <image class="icon4" src="/assets/image-v2/errandindex/icon4.png"></image>
+      <view class="box3">
+        <image class="bg2" src="/assets/image-v2/errandindex/bg2.png"></image>
+        <view class="tip6">最新任务</view>
+      </view>
+    </view>
+
+    <image class="icon3" src="/assets/image-v2/errandindex/icon3.png"></image>
+  </view>
+
+  <view class="list">
+    <view class="item" wx:for="{{testList}}" wx:for-index="index" wx:for-item="item">
+      <view class="top">
+        <view class="type">
+          类别：租赁
+        </view>
+        <view class="right">
+          <view class="tag">
+            ￥
+          </view>
+          <view class="money">
+            10.00
+          </view>
+        </view>
+      </view>
+      <view class="content">
+        <view class="title">电瓶车</view>
+        <view class="tip12">租赁时长：1天</view>
+      </view>
+
+      <view class="bottom">
+        <view class="note">
+          备注：用完后我充满电放回原处
+        </view>
+        <view class="button">
+          <image src="../../assets/image-v2/lease/bg.png" class="bg1"></image>
+          <image src="../../assets/image-v2/lease/right.png" class="right"></image>
+          <view class="tip13">
+            接单
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

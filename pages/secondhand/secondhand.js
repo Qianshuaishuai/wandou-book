@@ -5,7 +5,10 @@ Page({
    * Page initial data
    */
   data: {
-    showList:["","","",""]
+    showList:["","","",""],
+    currentSearch:"",
+    typeList: ["书籍", "日用品", "电子产品", "自行车", " 服饰鞋包", "书籍"],
+    currentTypeIndex: 0
   },
 
   /**
@@ -13,6 +16,20 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  changeIndex(event) {
+    var index = Number(event.currentTarget.dataset.index)
+    this.setData({
+      currentTypeIndex: index,
+    })
+  },
+
+  changeInput(event){
+    var value = event.detail.value
+    this.setData({
+      currentSearch: value
+    })
   },
 
   /**

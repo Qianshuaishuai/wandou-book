@@ -1,0 +1,79 @@
+<view class="title">
+  新建跑腿收货地址
+</view>
+
+<view class="content">
+  <view class="box" style="margin-top: 24rpx">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      姓名
+    </view>
+    <input class="input" bindinput="changeErrandName" placeholder="请输入姓名"></input>
+  </view>
+
+  <view class="box" style="margin-top: 30rpx">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      联系方式
+    </view>
+    <input class="input" bindinput="changeErrandPhone" placeholder="请输入号码"></input>
+  </view>
+
+  <view class="box1" style="margin-top: 30rpx">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      详细地址
+    </view>
+    <textarea class="input" bindinput="changeErrandAddress" placeholder="请输入详细地址"></textarea>
+  </view>
+</view>
+
+<view class="add" bindtap="addErrandAddress">
+  <image class="bg" src="/assets/image-v2/errands/button1.png"></image>
+  <view class="button">
+    <image class="icon" src="/assets/image-v2/addaddress/add.png"></image>
+    <view class="tip">
+      新建
+    </view>
+  </view>
+</view>
+
+<view class="title">
+  卖书快递上门取件地址
+</view>
+
+<view class="content">
+  <view class="box" style="margin-top: 24rpx">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      姓名
+    </view>
+    <input class="input" bindinput="changeSellName" placeholder="请输入姓名"></input>
+  </view>
+
+  <view class="box" style="margin-top: 30rpx">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      联系方式
+    </view>
+    <input class="input" bindinput="changeSellPhone" placeholder="请输入号码"></input>
+  </view>
+
+  <view class="box1" style="margin-top: 30rpx">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      详细地址
+    </view>
+    <textarea class="input" bindinput="changeSellAddress" placeholder="请输入详细地址"></textarea>
+  </view>
+</view>
+
+<view class="add" bindtap="addSellAddress">
+  <image class="bg" src="/assets/image-v2/errands/button1.png"></image>
+  <view class="button">
+    <image class="icon" src="/assets/image-v2/addaddress/add.png"></image>
+    <view class="tip">
+      新建
+    </view>
+  </view>
+</view>

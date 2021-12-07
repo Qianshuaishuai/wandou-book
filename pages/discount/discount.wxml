@@ -1,0 +1,40 @@
+<view class="main">
+  <image class="top" src="/assets/image-v2/discount/bg.png"></image>
+  <image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
+  </image>
+  <view class="tip" style="top:{{statusBarHeight+8}}px">
+    外卖券/生活优惠
+  </view>
+
+  <view class="tab-box">
+    <view class="{{currentIndex == 0 ? 'tab-select' : 'tab-normal'}}" bindtap="changeIndex" data-index="0">美团</view>
+    <view class="{{currentIndex == 1 ? 'tab-select' : 'tab-normal'}}" bindtap="changeIndex" data-index="1">饿了么</view>
+    <view class="{{currentIndex == 2 ? 'tab-select' : 'tab-normal'}}" bindtap="changeIndex" data-index="2">生活优惠</view>
+    <view class="{{currentIndex == 3 ? 'tab-select' : 'tab-normal'}}" bindtap="changeIndex" data-index="3">每日神车</view>
+  </view>
+
+  <view class="post" wx:if="{{currentIndex != 3}}">
+    <image class="post-pic" src="https://resource.qimsj.com/wandou/poster.png"></image>
+  </view>
+
+  <view class="list" wx:if="{{currentIndex == 3}}">
+    <view class="block"  wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+      <image class="pic" src="/assets/image-v2/newindex2/test1.png"></image>
+      <view class="right">
+        <view class="title">
+          口罩中国风国潮我爱你中国中国红男 潮款创意个性口耳罩
+        </view>
+        <view class="price">
+          9.9元
+        </view>
+        <view class="old">
+          原价39.9元
+        </view>
+      </view>
+
+      <view class="copy">
+        复制TaoBao口令
+      </view>
+    </view>
+  </view>
+</view>

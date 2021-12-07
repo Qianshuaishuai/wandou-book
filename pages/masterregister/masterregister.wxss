@@ -1,0 +1,288 @@
+/* pages/masterregister/masterregister.wxss */
+
+page {
+  background: #fff;
+  padding-bottom: 168rpx;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100rpx;
+  background: #e6f3ff;
+  padding-left: 30rpx;
+  padding-right: 38rpx;
+  box-sizing: border-box;
+}
+
+.top .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.top .left .icon4 {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.top .left .tip1 {
+  margin-left: 18rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #677a8b;
+}
+
+.top .unbind {
+  width: 140rpx;
+  height: 50rpx;
+  background: rgba(237, 237, 237, 0);
+  border: 1px solid #0282f6;
+  border-radius: 25rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #0383f7;
+}
+
+.title {
+  font-size: 46rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-left: 60rpx;
+  margin-top: 98rpx;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 58rpx;
+  position: relative;
+}
+
+.input-box .icon {
+  width: 34rpx;
+  height: 34rpx;
+}
+
+.input-box .tip4 {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-left: 10rpx;
+}
+
+.input-box .input {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #c6c6c6;
+  margin-left: 58rpx;
+  margin-top: 8rpx;
+}
+
+.diviler {
+  margin-left: 62rpx;
+  margin-right: 62rpx;
+  height: 1rpx;
+  background: #d8d8d8;
+  margin-top: 39rpx;
+}
+
+/* .input-box .verify-box{
+  width: 193rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 30rpx;
+  top: 0rpx;
+} */
+
+.input-box .verify-box .bg2 {
+  width: 193rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 64rpx;
+  top: 0rpx;
+}
+
+.input-box .verify-box .tip5 {
+  width: 193rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 64rpx;
+  top: 0rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+}
+
+.button {
+  width: 82%;
+  margin-top: 118rpx;
+  height: 110rpx;
+  position: relative;
+  align-self: center;
+}
+
+.button .bg1 {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.button .bind {
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  line-height: 98rpx;
+  text-align: center;
+}
+
+.box4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 42rpx;
+}
+
+.box4 .tag {
+  width: 12rpx;
+  height: 12rpx;
+  background: #0687f7;
+  border-radius: 50%;
+}
+
+.box4 .tip7 {
+  margin-left: 20rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #8c8c8c;
+}
+
+.box4 .icon3 {
+  width: 28rpx;
+  height: 28rpx;
+  margin-left: 19rpx;
+}
+
+.dialog-bg {
+  width: 100%;
+  height: 100vh;
+  opacity: 0.5;
+  background: #000;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 998;
+}
+
+.dialog1 {
+  width: 530rpx;
+  height: 450rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 128rpx;
+  left: 50%;
+  margin-left: -265rpx;
+  z-index: 999;
+}
+
+.dialog1 .pic1 {
+  margin-top: 48rpx;
+  width: 114rpx;
+  height: 114rpx;
+}
+
+.dialog1 .tip10 {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-top: 20rpx;
+}
+
+.dialog1 .phone {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #9b9b9b;
+  margin-top: 20rpx;
+}
+
+.dialog1 .unbind2 {
+  width: 240rpx;
+  height: 68rpx;
+  background: #ededed;
+  border-radius: 34rpx;
+  margin-top: 42rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #999;
+  text-align: center;
+  line-height: 76rpx;
+}
+
+.dialog2 {
+  width: 530rpx;
+  height: 324rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 690rpx;
+  left: 50%;
+  margin-left: -265rpx;
+  z-index: 999;
+}
+
+.dialog2 .pic2 {
+  width: 99rpx;
+  height: 80rpx;
+  margin-top: 58rpx;
+}
+
+.dialog2 .tip11 {
+  width: 304rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-top: 36rpx;
+  text-align: center;
+}

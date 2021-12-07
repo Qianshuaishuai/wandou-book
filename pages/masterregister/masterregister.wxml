@@ -1,0 +1,62 @@
+<view class="top">
+  <view class="left">
+    <image class="icon4" src="/assets/image-v2/masterregister/icon4.png"></image>
+    <view class="tip1">已绑定手机号</view>
+  </view>
+
+  <view class="unbind" bindtap="unbind">解绑</view>
+</view>
+
+<view class="title">
+  绑定手机号
+</view>
+
+<view class="input-box" style="margin-top: 125rpx;">
+  <image class="icon" src="/assets/image-v2/masterregister/icon1.png"></image>
+  <view class="tip4">手机号</view>
+  <input class="input" bindinput="changePhone" placeholder="请输入手机号"></input>
+</view>
+
+<view class="diviler"></view>
+
+<view class="input-box" style="margin-top: 68rpx;">
+  <image class="icon" src="/assets/image-v2/masterregister/icon2.png"></image>
+  <view class="tip4">验证码</view>
+  <input class="input" bindinput="changeVerify" placeholder="请输入验证码"></input>
+
+  <view class="verify-box">
+    <image class="bg2" src="/assets/image-v2/masterregister/bg2.png"></image>
+    <view class="tip5" bindtap="verify">发送验证码</view>
+  </view>
+</view>
+
+<view class="diviler"></view>
+
+<view class="button" bindtap="bind">
+  <image class="bg1" src="/assets/image-v2/masterregister/bg1.png"></image>
+  <view class="bind">立即绑定</view>
+</view>
+
+<view class="box4" style="margin-top: 64rpx;">
+  <view class="tag"></view>
+  <view class="tip7">绑定后方可下单操作</view>
+</view>
+
+<view class="box4">
+  <view class="tag"></view>
+  <view class="tip7">绑定后将与其他端数据互通</view>
+  <image class="icon3" src="/assets/image-v2/masterregister/icon3.png"></image>
+</view>
+
+<view class="dialog-bg" wx:if="{{showUnbindDialog}}" bindtap="closeDialog"></view>
+<view class="dialog1" wx:if="{{showUnbindDialog}}">
+  <image class="pic1" src="/assets/image-v2/masterregister/phone.png"></image>
+  <view class="tip10">已绑定</view>
+  <view class="phone">手机号：13812345678</view>
+  <view class="unbind2">解绑</view>
+</view>
+
+<view class="dialog2" wx:if="{{showUnbindDialog}}">
+  <image class="pic2" src="/assets/image-v2/masterregister/wechat.png"></image>
+  <view class="tip11">已复制客服微信，请联系 解绑换绑</view>
+</view>

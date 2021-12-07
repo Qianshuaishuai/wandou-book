@@ -1,0 +1,64 @@
+<view class="main">
+  <image src="https://resource.qimsj.com/wandou/bg-new.png" class="bg"></image>
+
+  <image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
+  </image>
+  <view class="tip" style="top:{{statusBarHeight+8}}px">
+    申请校园站长
+  </view>
+</view>
+
+<image src="/assets/image-v2/masterpost/bg4.png" class="bg4"></image>
+<view class="box">
+  <view class="tip2">平台费用</view>
+  <view class="price">998元/年</view>
+  <view class="tip3">限时可获增200元跑腿推广，达到考核指标全额返还</view>
+</view>
+
+<image src="/assets/image-v2/masterpost/bg5.png" class="bg5"></image>
+<view class="tip4">可获得收益</view>
+
+<view class="box2">
+  <view class="box3">
+    <view class="tag"></view>
+    <view class="tip5">全校跑腿/租赁/陪玩/悬赏总流水提成</view>
+    <view class="tip6">5%</view>
+  </view>
+
+  <view class="box3">
+    <view class="tag"></view>
+    <view class="tip5">全校卖书收益总流水</view>
+    <view class="tip6">2%</view>
+  </view>
+
+  <view class="box3">
+    <view class="tip7">（卖书/跑腿收益跟个人正常推广 收益不冲突）</view>
+  </view>
+
+  <view class="box3">
+    <view class="tag"></view>
+    <view class="tip5">可获得外卖平台推广及其它生活优惠推广收益</view>
+    <view class="tip6">3~10%</view>
+  </view>
+
+  <view class="box3">
+    <view class="tag"></view>
+    <view class="tip5">业内广告推广分成</view>
+  </view>
+
+  <view class="box3">
+    <view class="tag"></view>
+    <view class="tip5">本校驾校招生全部收益</view>
+  </view>
+
+  <view class="box3">
+    <view class="tag"></view>
+    <view class="tip5">校园流量资源整合共享收益</view>
+  </view>
+</view>
+
+<image src="/assets/image-v2/masterpost/bg3.png" class="bg3"></image>
+<view class="apply" bindtap="apply">点击申请校园站长</view>
+
+<image src="/assets/image-v2/masterpost/icon1.png" class="icon1"></image>
+<image src="/assets/image-v2/masterpost/icon1.png" class="icon2"></image>
