@@ -5,7 +5,28 @@ Page({
    * Page initial data
    */
   data: {
-    typeList: ["书籍", "日用品", "电子产品", "自行车", "美妆", "服饰鞋包", "电动车", "其他"],
+    typeList: [{
+      "id": 1,
+      "name": "书籍"
+    }, {
+      "id": 2,
+      "name": "日用品"
+    }, {
+      "id": 3,
+      "name": "电子产品"
+    }, {
+      "id": 4,
+      "name": "自行车"
+    }, {
+      "id": 5,
+      "name": "服饰鞋包"
+    }, {
+      "id": 6,
+      "name": "电动车"
+    }, {
+      "id": 7,
+      "name": "其他"
+    }],
     currentTypeindex: 0,
     currentWechat: "",
     currentAddress: "",
@@ -51,6 +72,49 @@ Page({
 
   //发布
   release() {
+    if (this.data.currentReason == '') {
+      wx.showToast({
+        title: '请填写理由',
+        icon: 'none'
+      })
+      return
+    }
+
+    if (this.data.currentAddress == '') {
+      wx.showToast({
+        title: '请填写地点',
+        icon: 'none'
+      })
+      return
+    }
+
+    if (this.data.currentWechat == '') {
+      wx.showToast({
+        title: '请填写联系方式',
+        icon: 'none'
+      })
+      return
+    }
+
+    if (this.data.currentReason == '') {
+      wx.showToast({
+        title: '请填写理由',
+        icon: 'none'
+      })
+      return
+    }
+
+
+    if (Number(this.data.currentAmount) > 0) {
+      wx.showToast({
+        title: '金额必须大于0',
+        icon: 'none'
+      })
+      return
+    }
+  },
+
+  create() {
 
   },
 

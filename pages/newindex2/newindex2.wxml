@@ -8,7 +8,7 @@
     <image src="../../assets/image-v2/newindex2/down.png" class="down"></image>
   </view>
 
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="ad-bg" 	indicator-color="rgba(29, 162, 252, 0.3)" 	indicator-active-color="rgba(20, 150, 249, 1)">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="ad-bg" indicator-color="rgba(29, 162, 252, 0.3)" indicator-active-color="rgba(20, 150, 249, 1)">
     <block wx:for="{{background}}" wx:key="*this" wx:for-index="index">
       <swiper-item>
         <image src="{{item}}" class="ad" bindtap="swiperClick" data-index="{{index}}"></image>
@@ -93,24 +93,24 @@
 </view>
 
 <view class="list">
-  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+  <view class="block" wx:for="{{tweetList}}" wx:for-item="item" wx:for-index="index">
     <image src="../../assets/image-v2/newindex2/test1.png" class="pic"></image>
     <view class="box5">
       <view class="content">
-        大学期间想去周边玩，各位同仁 有什么好地方推荐,大学期间想去周边玩，各位同仁 有什么好地方推荐
+        {{item.content}}
       </view>
 
       <view class="data">
         <view class="left">
           <image src="../../assets/image-v2/newindex2/time.png" class="time"></image>
           <view class="tip6">
-            2021-10-06 14:23:55
+            {{item.timeStr}}
           </view>
         </view>
         <view class="right">
           <image src="../../assets/image-v2/newindex2/look.png" class="look"></image>
           <view class="tip7">
-            1534
+            {{item.readCount}}
           </view>
         </view>
       </view>

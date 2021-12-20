@@ -18,22 +18,22 @@
   </view>
 
   <view class="list" wx:if="{{currentIndex == 3}}">
-    <view class="block"  wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+    <view class="block"  wx:for="{{couponList}}" wx:for-item="item" wx:for-index="index">
       <image class="pic" src="/assets/image-v2/newindex2/test1.png"></image>
       <view class="right">
         <view class="title">
-          口罩中国风国潮我爱你中国中国红男 潮款创意个性口耳罩
+          {{item.title}}
         </view>
         <view class="price">
-          9.9元
+           {{item.price}}元
         </view>
         <view class="old">
-          原价39.9元
+          原价 {{item.oldPrice}}元
         </view>
       </view>
 
       <view class="copy">
-        复制TaoBao口令
+        复制{{item.typeStr}}口令
       </view>
     </view>
   </view>

@@ -8,7 +8,8 @@ Page({
   data: {
     statusBarHeight: app.globalData.statusBarHeight,
     currentIndex:0,
-    testList:["","","","","",""]
+    testList:["","","","","",""],
+    couponList:[]
   },
 
   changeIndex(event) {
@@ -24,11 +25,38 @@ Page({
     })
   },
 
+  getTaobaoCouponoList() {
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/taobaocoupon/list',
+      success: res => {
+        var list = res.data.F_data
+        for (var l = 0;l<list.length;l++){
+          switch(list[l].type){
+            case 1:
+              list[l].typeStr = "Taobao" 
+            break
+
+            case 2:
+              list[l].typeStr = "Tianmao"
+              break
+
+            case 3:
+              list[l].typeStr = "Jingdong"
+              break
+          }
+        }
+        this.setData({
+          couponList: res.data.F_data
+        })
+      },
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    this.getTaobaoCouponoList()
   },
 
   /**

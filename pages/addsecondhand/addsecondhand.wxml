@@ -10,7 +10,7 @@
     <view class="type-block" wx:for="{{typeList}}" wx:for-item="item" wx:for-index="index" bindtap="changeType" data-index="{{index}}">
       <image class="bg" src="/assets/image-v2/errands/button2.png" wx:if="{{index === currentTypeindex}}"></image>
       <view class="{{index === currentTypeindex ? 'tip3':'tip2'}}">
-        {{item}}
+        {{item.name}}
       </view>
     </view>
   </view>
@@ -69,7 +69,7 @@
   </view>
 </view>
 
-<view class="release">
+<view class="release" bindtap="release">
   <image class="bg" src="/assets/image-v2/errands/button1.png"></image>
   <view class="button">
     <image class="icon" src="/assets/image-v2/errands/release.png"></image>

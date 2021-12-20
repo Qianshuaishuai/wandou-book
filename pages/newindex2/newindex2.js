@@ -1,4 +1,5 @@
 // pages/newindex2/newindex2.js
+const app = getApp()
 Page({
 
   /**
@@ -11,16 +12,17 @@ Page({
     vertical: false,
     autoplay: true,
     interval: 2500,
-    duration: 500
+    duration: 500,
+    tweetList: []
   },
 
-  swiperClick(event){
+  swiperClick(event) {
     var index = Number(event.currentTarget.dataset.index)
     var url = ""
-    switch(index){
+    switch (index) {
       case 0:
         url = '/pages/errandindex/errandindex'
-      break
+        break
       case 1:
         url = '/pages/certrider/certrider'
         break
@@ -34,7 +36,32 @@ Page({
     })
   },
 
-  goToSecondIndex(event){
+  getTweetList() {
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/tweet/list',
+      success: res => {
+        this.setData({
+          tweetList: res.data.F_data
+        })
+      },
+    })
+  },
+
+  readTweetList(id) {
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/tweet/read',
+      data: {
+        wxid: wx.getStorageSync("userId"),
+        id: id
+      },
+      method: 'POST',
+      success: res => {
+        console.log(res)
+      },
+    })
+  },
+
+  goToSecondIndex(event) {
     wx.navigateTo({
       url: '/pages/secondhandindex/secondhandindex',
     })
@@ -46,7 +73,7 @@ Page({
     })
   },
 
-  goToSchool(event){
+  goToSchool(event) {
     wx.navigateTo({
       url: '/pages/pickschool/pickschool',
     })
@@ -76,7 +103,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
-
+    this.getTweetList()
   },
 
   /**
