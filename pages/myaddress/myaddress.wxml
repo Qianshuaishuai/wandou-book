@@ -1,0 +1,59 @@
+<view class="tip">跑腿发货地址</view>
+
+<view class="list">
+  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+    <view class="content">
+      <image class="icon" src="/assets/image-v2/myaddress/icon1.png"></image>
+      <view class="box">
+        <view class="box1">
+          <view class="name">刘晓庆</view>
+          <view class="phone">13812345678</view>
+          <view class="tag">默认</view>
+        </view>
+        <view class="address">深圳大学男生宿舍13栋702</view>
+      </view>
+    </view>
+    <view class="diviler"></view>
+    <view class="button">
+      <view class="default">设为默认</view>
+      <view class="right">
+        <view class="delete">删除</view>
+        <view class="edit">编辑</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="tip" style="margin-top: 4rpx;">卖书快递上门取件地址</view>
+
+<view class="list">
+  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+    <view class="content">
+      <image class="icon" src="/assets/image-v2/myaddress/icon2.png"></image>
+      <view class="box">
+        <view class="box1">
+          <view class="name">刘晓庆</view>
+          <view class="phone">13812345678</view>
+          <view class="tag">默认</view>
+        </view>
+        <view class="address">深圳大学男生宿舍13栋702</view>
+      </view>
+    </view>
+    <view class="diviler"></view>
+    <view class="button">
+      <view class="default">设为默认</view>
+      <view class="right">
+        <view class="delete">删除</view>
+        <view class="edit">编辑</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="build" bindtap="build">
+  <image class="bg" src="/assets/image-v2/myaddress/bg1.png"></image>
+  <view class="box3">
+    <image class="add" src="/assets/image-v2/myaddress/icon3.png"></image>
+    <view class="tip3">新建</view>
+  </view>
+</view>
