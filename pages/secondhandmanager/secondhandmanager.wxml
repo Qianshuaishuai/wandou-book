@@ -1,0 +1,31 @@
+<view class="select">
+  <image src="/assets/image-v2/secondhandmanager/icon.png" class="icon"></image>
+  <view class="tip2">全部</view>
+  <image src="/assets/image-v2/secondhandmanager/down.png" class="down"></image>
+</view>
+
+<view class="list">
+  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+    <view class="top">
+      <view class="type">书籍</view>
+      <view class="status">发布中</view>
+    </view>
+    <view class="diviler"></view>
+    <view class="content">
+      <image src="/assets/image-v2/newindex2/test1.png" class="pic"></image>
+      <view class="box1">
+        <view class="name">iPhone12 256G国行</view>
+        <view class="note">9成新</view>
+        <view class="price-box">
+          <view class="tag">¥</view>
+          <view class="price">4488</view>
+        </view>
+      </view>
+    </view>
+    <view class="button">
+      <view class="delete">删除</view>
+      <view class="edit">下架</view>
+      <view class="up">上架</view>
+    </view>
+  </view>
+</view>

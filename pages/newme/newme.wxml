@@ -75,13 +75,18 @@
 <view class="title">闲置</view>
 
 <view class="leave-box">
-  <view class="leave-block" style="margin-left: 58rpx;" bindtap="goToBuy">
+  <view class="leave-block" bindtap="goToBuy">
     <image src="../../assets/image-v2/newme/leave1.png" class="icon4"></image>
     <view class="tip7">我要发布</view>
   </view>
-  <view class="leave-block" style="margin-left: 124rpx;" bindtap="goToSell">
+  <view class="leave-block" bindtap="goToSell">
     <image src="../../assets/image-v2/newme/leave2.png" class="icon4"></image>
     <view class="tip7">购买商品</view>
+  </view>
+
+  <view class="leave-block" bindtap="goToManager">
+    <image src="../../assets/image-v2/newme/manager.png" class="icon4"></image>
+    <view class="tip7">管理闲置</view>
   </view>
 </view>
 
@@ -118,14 +123,14 @@
       <view class="tip7">客服微信</view>
     </view>
 
-    <view class="util-block" style="visibility:hidden;">
-      <image src="../../assets/image-v2/newme/util6.png" class="icon4"></image>
-      <view class="tip7">客服微信</view>
+    <view class="util-block">
+      <image src="../../assets/image-v2/newme/message.png" class="icon4"></image>
+      <view class="tip7">我的私信</view>
     </view>
 
-    <view class="util-block" style="visibility:hidden;">
-      <image src="../../assets/image-v2/newme/util6.png" class="icon4"></image>
-      <view class="tip7">客服微信</view>
+    <view class="util-block" bindtap="applyMaster">
+      <image src="../../assets/image-v2/newme/apply.png" class="icon4"></image>
+      <view class="tip7">申请站长</view>
     </view>
   </view>
 </view>

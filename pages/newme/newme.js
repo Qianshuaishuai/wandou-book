@@ -73,7 +73,13 @@ Page({
 
   goToAddress() {
     wx.navigateTo({
-      url: '/pages/addaddress/addaddress',
+      url: '/pages/myaddress/myaddress',
+    })
+  },
+
+  goToManager(){
+    wx.navigateTo({
+      url: '/pages/secondhandmanager/secondhandmanager',
     })
   },
 

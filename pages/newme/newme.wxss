@@ -208,6 +208,9 @@ page {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
 }
 
 .leave-box .leave-block {

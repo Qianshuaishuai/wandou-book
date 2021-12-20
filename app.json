@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/newindex2/newindex2",
+    "pages/myaddress/myaddress",
+    "pages/secondhandmanager/secondhandmanager",
+
     "pages/errandindex/errandindex",
     "pages/errandlist/errandlist",
     "pages/lease/lease",
