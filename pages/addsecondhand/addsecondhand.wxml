@@ -19,14 +19,14 @@
 <view class="content">
   <textarea placeholder="请描述一下转让原因~" class="reason" bindinput="changeReason"></textarea>
   <view class="photo-box">
-    <view class="photo-block" wx:for="{{currentPhotos}}" wx:for-item="{{item}}" wx:for-index="{{index}}">
+    <view class="photo-block" wx:for="{{currentPhotos}}" wx:for-item="item" wx:for-index="index">
       <view class="show">
-        <image class="pic" src="/assets/new-images/index/ad.png"></image>
+        <image class="pic" src="{{item}}"></image>
         <image class="delete" src="/assets/image-v2/express/delete.png" bindtap="deletePhoto" data-index="{{index}}"></image>
       </view>
     </view>
     <view class="photo-block">
-      <view class="add">
+      <view class="add" bindtap="addPhoto">
         <image class="icon" src="/assets/image-v2/express/add.png"></image>
         <view class="tip5">
           上传照片
@@ -37,6 +37,15 @@
 </view>
 
 <view class="content">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      商品名称
+    </view>
+  </view>
+
+    <input class="input" bindinput="changeTitle" placeholder="请输入商品名称"></input>
+
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">

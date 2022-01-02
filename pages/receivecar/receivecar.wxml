@@ -12,35 +12,57 @@
     <view class="top">
       <view class="left">
         <view class="tip1">总数量:</view>
-        <view class="tip2">3</view>
+        <view class="tip2">{{carBookList.length}}</view>
         <view class="tip3">本</view>
       </view>
 
-      <view class="right">
+      <view class="right" bindtap="clear">
         <image src="../../assets/image-v2/receivecar/clear.png" class="clear"></image>
         <view class="tip4">清空回收车</view>
       </view>
     </view>
 
-    <view class="list">
-      <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
-        <image src="../../assets/image-v2/receivecar/test.png" class="pic"></image>
+    <view class="list" wx:if="{{!currentFilterStatus}}">
+      <view class="block" wx:for="{{carBookList}}" wx:for-item="item" wx:for-index="index">
+        <image src="{{item.pic}}" class="pic"></image>
         <view class="middle">
           <view class="title1">
-            正版 创新有道职业生涯
+            {{item.name}}
           </view>
 
           <view class="isbn">
-            9787117271837
+            {{item.isbn}}
           </view>
 
           <view class="price-box">
-            <view class="tip5">回收价 ￥</view>
-            <view class="price">4.96</view>
+            <view class="tip5"> 最高可卖￥</view>
+            <view class="price">{{item.price}}</view>
           </view>
         </view>
 
-        <view class="delete">删除</view>
+        <view class="delete" bindtap="deleteBook" data-index="{{index}}">删除</view>
+      </view>
+    </view>
+
+    <view class="list" wx:if="{{currentFilterStatus}}">
+      <view class="block" wx:for="{{filterCarBookList}}" wx:for-item="item" wx:for-index="index">
+        <image src="{{item.pic}}" class="pic"></image>
+        <view class="middle">
+          <view class="title1">
+            {{item.name}}
+          </view>
+
+          <view class="isbn">
+            {{item.isbn}}
+          </view>
+
+          <view class="price-box">
+            <view class="tip5"> 最高可卖￥</view>
+            <view class="price">{{item.price}}</view>
+          </view>
+        </view>
+
+        <view class="delete" bindtap="deleteBook" data-index="{{index}}">删除</view>
       </view>
     </view>
   </view>
@@ -57,11 +79,11 @@
   </view>
 
   <view class="button-box">
-    <view class="button">
+    <view class="button" bindtap="singleScanCode">
       <image src="../../assets/image-v2/receivecar/icon2.png" class="icon1"></image>
-      <view class="tip7">车扫码</view>
+      <view class="tip7">扫码</view>
     </view>
-    <view class="button">
+    <view class="button" bindtap="continueScanCode">
       <image src="../../assets/image-v2/receivecar/icon3.png" class="icon2"></image>
       <view class="tip7">连扫模式</view>
     </view>

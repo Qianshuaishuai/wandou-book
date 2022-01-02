@@ -7,7 +7,7 @@
     </view>
   </view>
 
-  <image class="bg2" src="/assets/image-v2/masterlogin/bg2.png"></image>
+  <image class="bg2" src="https://resource.qimsj.com/bg2.png"></image>
 </view>
 
 <view class="input-box" style="margin-top: 38rpx;">

@@ -25,47 +25,51 @@
 </view>
 
 <view class="list">
-  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+  <view class="block" wx:for="{{showData}}" wx:for-item="item" wx:for-index="index">
     <view class="top">
-      <view class="type">类别：快递</view>
-      <view class="status">发布中</view>
+      <view class="type">类别：{{item.typeStr}}</view>
+      <view class="status" wx:if="{{item.status == 1}}" style="color:#22BF86">发布中</view>
+      <view class="status" wx:if="{{item.status == 2}}" style="color:#FF4040">进行中</view>
+      <view class="status" wx:if="{{item.status == 3}}" style="color:#0687F7">待确认</view>
+      <view class="status" wx:if="{{item.status == 4}}" style="color:#8C8F8D">已完成</view>
     </view>
     <view class="price-box">
       <view class="tag">
         ￥
       </view>
       <view class="price">
-        5.00
+        {{item.showPrice}}
       </view>
     </view>
 
     <view class="time-box">
       <image class="tag" src="/assets/image-v2/errandlist/time.png"></image>
       <view class="time">
-        送货时间：2021-10-13 21:00~21:30
+        {{item.tip1}}
       </view>
     </view>
 
-    <view class="time-box">
+    <view class="time-box" wx:if="{{item.type<=3}}">
       <image class="tag" src="/assets/image-v2/errandlist/box.png"></image>
       <view class="time">
-        快递数量：大件1个、中件2个、小件5个
+        {{item.tip2}}
       </view>
     </view>
 
     <view class="time-box">
       <image class="tag" src="/assets/image-v2/errandlist/phone.png"></image>
       <view class="time">
-        联系方式：138123465
+        联系方式：{{item.showContract}}
       </view>
     </view>
 
     <view class="address-box">
       <view class="address-block">
-        <image src="../../assets/image-v2/receivedetail/address1.png" class="icon">
-        </image>
+        <view class="tag10" style="background:{{item.tagC1}}">
+          {{item.tag1}}
+        </view>
         <view class="address">
-          取件地址：男生宿舍13栋606
+          {{item.tag11}}
         </view>
       </view>
 
@@ -73,16 +77,33 @@
       </image>
 
       <view class="address-block" style="margin-bottom:23rpx;">
-        <image src="../../assets/image-v2/receivedetail/address2.png" class="icon">
-        </image>
+        <view class="tag10" style="background:{{item.tagC2}}">
+          {{item.tag2}}
+        </view>
         <view class="address">
-          收货地址：女生宿舍3栋花园门口
+          {{item.tag22}}
         </view>
       </view>
     </view>
 
     <view class="button-box">
-      <view class="button">取消</view>
+      <view class="button" wx:if="{{item.status == 1}}" bindtap="cancel" data-index="{{index}}">取消</view>
+    </view>
+
+    <view class="button-box" wx:if="{{item.status == 2}}">
+      <view class="button">私信骑手</view>
+      <view class="button2">拨打电话</view>
+    </view>
+
+    <view class="button-box" wx:if="{{item.status == 3}}">
+      <view class="button">投诉</view>
+      <view class="button3" bindtap="complete" data-index="{{index}}">确认完成</view>
     </view>
   </view>
+</view>
+
+<view class="build" bindtap="add">
+  <image src="../../assets/image-v2/errandlist/release.png" class="icon4">
+  </image>
+  <view class="tip14">新建</view>
 </view>

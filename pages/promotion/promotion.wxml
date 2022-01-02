@@ -1,3 +1,4 @@
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
 <view class="box">
   <view class="top">
     <image class="icon" src="/assets/image-v2/promotion/coin.png"></image>
@@ -5,17 +6,17 @@
       卖书推广收益：
     </view>
     <view class="data">
-      ￥15446.12
+      ￥{{filters.toFix(total1)}}
     </view>
   </view>
   <view class="list">
-    <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+    <view class="block" wx:for="{{promotion1}}" wx:for-item="item" wx:for-index="index">
       <view class="left">
         <image class="icon" src="/assets/image-v2/promotion/fans-icon.png"></image>
-        <view class="name">李小萌</view>
+        <view class="name">{{item.rName}}</view>
       </view>
-      <view class="count">本数：265</view>
-      <view class="money">￥1265.35</view>
+    <view class="count">本数：{{item.bookCount}}</view>
+      <view class="money">￥{{filters.toFix(item.income)}}</view>
     </view>
   </view>
 </view>
@@ -27,17 +28,22 @@
       跑腿推广收益：
     </view>
     <view class="data">
-      ￥15446.12
+      ￥{{filters.toFix(total2)}}
     </view>
   </view>
   <view class="list">
-    <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+    <view class="block" wx:for="{{promotion2}}" wx:for-item="item" wx:for-index="index">
       <view class="left">
         <image class="icon" src="/assets/image-v2/promotion/fans-icon.png"></image>
-        <view class="name">李小萌</view>
+        <view class="name">{{item.rName}}</view>
       </view>
-      <view class="count">本数：265</view>
-      <view class="money">￥1265.35</view>
+      <!-- <view class="count">本数：265</view> -->
+      <view class="money">￥{{filters.toFix(item.income)}}</view>
     </view>
   </view>
+</view>
+
+<view class="post" bindtap="yeildImg">
+  <image class="bg3" src="/assets/image-v2/promotion/promotion-bg.png"></image>
+  <view class="tip14">生成我的推广海报</view>
 </view>

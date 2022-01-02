@@ -1,4 +1,5 @@
 // pages/addsecondhand/addsecondhand.js
+const app = getApp()
 Page({
 
   /**
@@ -29,10 +30,13 @@ Page({
     }],
     currentTypeindex: 0,
     currentWechat: "",
+    currentTitle: "",
     currentAddress: "",
     currentAmount: 0,
     currentReason: "",
-    currentPhotos: ["", "", ""],
+    currentPhotos: [],
+    qiniuToken: "",
+    school: ""
   },
 
   changeType(event) {
@@ -46,6 +50,14 @@ Page({
     var value = event.detail.value
     this.setData({
       currentAddress: value
+    })
+  },
+
+
+  changeTitle(event) {
+    var value = event.detail.value
+    this.setData({
+      currentTitle: value
     })
   },
 
@@ -70,8 +82,82 @@ Page({
     })
   },
 
+  addPhoto() {
+    var token = this.data.qiniuToken
+    if (token == "") {
+      wx.showToast({
+        title: '获取上传图片资格失败，请联系管理员',
+        icon: 'none'
+      })
+      return
+    }
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: res => {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        var currentPhotos = this.data.currentPhotos
+        if (tempFilePaths.length > 0) {
+          // currentPhotos.push(tempFilePaths[0])
+          // this.setData({
+          //   currentPhotos: currentPhotos
+          // })
+          this.uploadPhoto(tempFilePaths[0], token)
+        }
+      }
+    })
+  },
+
+  uploadPhoto(img, token) {
+    var newFileName = "secondhand-photo-" + Date.parse(new Date()) + ".png"
+    wx.uploadFile({
+      url: 'https://up-z2.qiniup.com', //分华北区，华东区之类的，大家自己注意下
+      name: 'file',
+      filePath: img,
+      header: {
+        "Content-Type": "multipart/form-data"
+      },
+      formData: {
+        token: token,
+        key: newFileName
+      },
+      success: res => {
+        let data = JSON.parse(res.data);
+        var url = "https://resource.qimsj.com/" + data.key
+        var currentPhotos = this.data.currentPhotos
+        currentPhotos.push(url)
+        this.setData({
+          currentPhotos: currentPhotos
+        })
+      },
+
+      fail: res => {
+        wx.showToast({
+          title: '上传图片失败，联系管理员',
+          icon: 'none'
+        })
+      }
+    });
+  },
+
   //发布
   release() {
+    wx.showToast({
+      title: '当前学校没有站长入驻，暂不能发布',
+      icon: 'none'
+    })
+    return
+    if (this.data.currentTitle == '') {
+      wx.showToast({
+        title: '请填写商品名称',
+        icon: 'none'
+      })
+      return
+    }
+
+
     if (this.data.currentReason == '') {
       wx.showToast({
         title: '请填写理由',
@@ -104,18 +190,68 @@ Page({
       return
     }
 
-
-    if (Number(this.data.currentAmount) > 0) {
+    if (Number(this.data.currentAmount) <= 0) {
       wx.showToast({
         title: '金额必须大于0',
         icon: 'none'
       })
       return
     }
+
+    if (this.data.currentPhotos.length <= 0) {
+      wx.showToast({
+        title: '请上传图片',
+        icon: 'none'
+      })
+      return
+    }
+
+    this.create()
+  },
+
+  getQiniuToken() {
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/qiniu/token',
+      success: res => {
+        this.setData({
+          qiniuToken: res.data.F_data
+        })
+      },
+    })
   },
 
   create() {
-
+    wx.showLoading({
+      title: '正在发布中...',
+    })
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/secondhand/create',
+      data: {
+        phone: "15602335027",
+        title: this.data.currentTitle,
+        type: this.data.typeList[this.data.currentTypeindex].id,
+        pics: JSON.stringify(this.data.currentPhotos),
+        reason: this.data.currentReason,
+        address: this.data.currentAddress,
+        amount: this.data.currentAmount,
+        contract: this.data.currentWechat,
+        school_id: this.data.school.id
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: res => {
+        console.log(res)
+        wx.hideLoading()
+        wx.redirectTo({
+          url: '/pages/secondhandmanager/secondhandmanager',
+        })
+      },fail: res =>{
+        console.log(res)
+        wx.hideLoading()
+      }
+    })
   },
 
   deletePhoto(event) {
@@ -131,7 +267,24 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
+    this.getQiniuToken()
+    var school = wx.getStorageSync('school')
+    if (school == undefined || school.id == undefined || school.id == 0){
+      wx.showToast({
+        title: '请先选择学校',
+        icon: 'none'
+      })
+      setTimeout(function () {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 1000);
+      return
+    }
 
+    this.setData({
+      school: school
+    })
   },
 
   /**

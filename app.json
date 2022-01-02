@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/newindex2/newindex2",
+    "pages/newerrand/newerrand",
     "pages/myaddress/myaddress",
     "pages/secondhandmanager/secondhandmanager",
-
     "pages/errandindex/errandindex",
     "pages/errandlist/errandlist",
     "pages/lease/lease",
@@ -30,18 +30,15 @@
     "pages/addaddress/addaddress",
     "pages/secondhandindex/secondhandindex",
     "pages/addsecondhand/addsecondhand",
-    "pages/newerrand/newerrand",
     "pages/lcoupon/lcoupon",
     "pages/income/income",
     "pages/coupon/coupon",
-    "pages/sellList/sellList",
     "pages/person/person",
     "pages/book/book",
     "pages/school/school",
     "pages/goodthings/goodthings",
     "pages/index/index",
     "pages/poster/poster",
-    "pages/sellbook/sellbook",
     "pages/users/users",
     "pages/search/search",
     "pages/history/history",
@@ -56,13 +53,12 @@
     "pages/about/about",
     "pages/track/track",
     "pages/common/common",
-    "pages/address/address",
     "pages/orderdetail/orderdetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "豌豆书单",
+    "navigationBarTitleText": "校园喵",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

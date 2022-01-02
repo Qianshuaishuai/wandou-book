@@ -23,9 +23,18 @@
     </view>
   </view>
 
-  <view class="photo-box">
+  <!-- <view class="photo-box">
     <image class="bg" src="/assets/image-v2/certrider/photo-bg.png"></image>
     <image class="add" src="/assets/image-v2/certrider/photo-add.png"></image>
+  </view> -->
+
+  <view class="photo-box" bindtap="addPhoto" wx:if="{{currentPic == ''}}">
+    <image class="bg" src="/assets/image-v2/certrider/photo-bg.png"></image>
+    <image class="add" src="/assets/image-v2/certrider/photo-add.png"></image>
+  </view>
+
+  <view class="photo-box" bindtap="addPhoto" wx:if="{{currentPic != ''}}">
+    <image class="bg" src="{{currentPic}}"></image>
   </view>
 </view>
 

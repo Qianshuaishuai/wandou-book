@@ -1,6 +1,5 @@
 page {
   background: #f4f4f9;
-  padding: 24rpx;
   padding-bottom: 168rpx;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -9,16 +8,24 @@ page {
   flex-direction: column;
 }
 
-.bg {
+.main {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-bottom: 128rpx;
+  box-sizing: border-box;
+}
+
+.main .bg {
   width: 100%;
   height: 308rpx;
-  position: fixed;
+  position: absolute;
   top: 0rpx;
   left: 0rpx;
   z-index: 1;
 }
 
-.top {
+.main .top {
   width: 100%;
   position: relative;
   display: flex;
@@ -34,25 +41,24 @@ page {
   height: 34rpx;
 } */
 
-.back {
+.main .back {
   width: 34rpx;
   height: 34rpx;
-  position: fixed;
+  position: absolute;
   left: 30rpx;
-  z-index: 2;
+  z-index: 10;
 }
 
-.tip {
+.main .tip {
   width: 100%;
   height: 34rpx;
   font-size: 36rpx;
   font-family: PingFang SC;
   font-weight: bold;
   color: #fff;
-  position: fixed;
+  position: absolute;
   text-align: center;
   z-index: 2;
-  margin-left: -22rpx;
 }
 
 .content {
@@ -61,6 +67,9 @@ page {
   position: relative;
   z-index: 999;
   margin-top: 180rpx;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  box-sizing: border-box;
 }
 
 .content .bg1 {
@@ -145,6 +154,9 @@ page {
   z-index: 2222;
   margin-top: 268rpx;
   align-self: center;
+  margin-left: 24rpx;
+  margin-right: 24rpx;
+  box-sizing: border-box;
 }
 
 .button-box .button {

@@ -7,7 +7,8 @@ Page({
    */
   data: {
     statusBarHeight: app.globalData.statusBarHeight,
-    currentAmount:""
+    currentAmount:0,
+    userInfo: {}
   },
 
   back() {
@@ -36,11 +37,33 @@ Page({
     })
   },
 
+  allDrawal(event){
+    this.setData({
+      currentAmount: this.data.userInfo.sellBalance + this.data.userInfo.errandBalance
+    })
+  },
+
+  commit(event){
+    if(this.data.currentAmount<=0){
+      wx.showToast({
+        title: '提现金额需大于0',
+        icon: 'none'
+      })
+
+      return
+    }
+
+    
+  },
+
   /**
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-
+    var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo,
+    })
   },
 
   /**

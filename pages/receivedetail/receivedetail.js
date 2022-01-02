@@ -7,6 +7,13 @@ Page({
    */
   data: {
     statusBarHeight: app.globalData.statusBarHeight,
+    errand:{},
+  },
+
+  back() {
+    wx.navigateBack({
+      delta: 1
+    })
   },
 
   clickPhone(event){
@@ -21,7 +28,11 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    var errand = wx.getStorageSync('errand')
+    this.setData({
+      errand: errand
+    })
+    console.log(this.data.errand)
   },
 
   /**

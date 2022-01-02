@@ -34,29 +34,6 @@ App({
                 key: 'sessionKey',
                 data: res.data.F_data.session_key,
               })
-
-              var isRecommend = wx.getStorageSync("isRecommend")
-
-              if (isRecommend == 0){
-                var isRecommendId = wx.getStorageSync("isRecommendId")
-                if(res.data.F_data.openid != isRecommendId){
-                  wx.request({
-                    url: this.globalData.baseUrl + '/v1/recommend/do',
-                    data: {
-                      wx_id: isRecommendId,
-                      rwx_id: res.data.F_data.openid,
-                    },
-                    method: 'POST',
-                    header: {
-                      'content-type': 'application/x-www-form-urlencoded'
-                    },
-                    success: res => {
-                      console.log(res)
-                      wx.setStorageSync("isRecommend",1)
-                    },
-                  })
-                }
-              }
             },
           })
         } else {
@@ -152,7 +129,7 @@ App({
 
   globalData: {
     userInfo: null,
-    baseUrl: 'https://api.dyydyy.cn',
+    baseUrl: 'https://apidyy.xymyyds.com',
     statusBarHeight: wx.getSystemInfoSync()['statusBarHeight']
   }
 })

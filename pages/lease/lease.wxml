@@ -34,8 +34,8 @@
   </view>
 </view>
 
-<view class="list">
-  <view class="item" wx:for="{{testList}}" wx:for-index="index" wx:for-item="item">
+<view class="list" wx:if="{{currentTypeIndex == 0}}">
+  <view class="item" wx:for="{{showData}}" wx:for-index="index" wx:for-item="item">
     <view class="top">
       <view class="type">
         类别：租赁
@@ -45,20 +45,90 @@
           ￥
         </view>
         <view class="money">
-          10.00
+          {{item.leasePrice}}
         </view>
       </view>
     </view>
     <view class="content">
-      <view class="title">电瓶车</view>
-      <view class="tip12">租赁时长：1天</view>
+      <view class="title">{{item.leaseThing}}</view>
+      <view class="tip12">租赁时长：{{item.leaseTime}}</view>
     </view>
 
     <view class="bottom">
       <view class="note">
-        备注：用完后我充满电放回原处
+        备注：{{item.leaseNote}}
       </view>
-      <view class="button">
+      <view class="button" bindtap="takeClick" data-index="{{index}}">
+        <image src="../../assets/image-v2/lease/bg.png" class="bg1"></image>
+        <image src="../../assets/image-v2/lease/right.png" class="right"></image>
+        <view class="tip13">
+          接单
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="list" wx:if="{{currentTypeIndex == 1}}">
+  <view class="item" wx:for="{{showData}}" wx:for-index="index" wx:for-item="item">
+    <view class="top">
+      <view class="type">
+        类别：陪玩
+      </view>
+      <view class="right">
+        <view class="tag">
+          ￥
+        </view>
+        <view class="money">
+          {{item.playPrice}}
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="title">{{item.playGame}}</view>
+      <view class="tip12">游戏目标：{{item.playTarget}}</view>
+    </view>
+
+    <view class="bottom">
+      <view class="note">
+        备注：{{item.playNote}}
+      </view>
+      <view class="button" bindtap="takeClick" data-index="{{index}}">
+        <image src="../../assets/image-v2/lease/bg.png" class="bg1"></image>
+        <image src="../../assets/image-v2/lease/right.png" class="right"></image>
+        <view class="tip13">
+          接单
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="list" wx:if="{{currentTypeIndex == 2}}">
+  <view class="item" wx:for="{{showData}}" wx:for-index="index" wx:for-item="item">
+    <view class="top">
+      <view class="type">
+        类别：悬赏
+      </view>
+      <view class="right">
+        <view class="tag">
+          ￥
+        </view>
+        <view class="money">
+          {{item.rewardPrice}}
+        </view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="title">{{item.rewardTask}}</view>
+      <view class="tip12">任务刷量：{{item.rewardTaskCount}}</view>
+    </view>
+
+    <view class="bottom">
+      <view class="note">
+        备注：{{item.rewardNote}}
+      </view>
+      <view class="button" bindtap="takeClick" data-index="{{index}}">
         <image src="../../assets/image-v2/lease/bg.png" class="bg1"></image>
         <image src="../../assets/image-v2/lease/right.png" class="right"></image>
         <view class="tip13">

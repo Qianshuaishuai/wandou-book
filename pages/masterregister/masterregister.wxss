@@ -111,12 +111,27 @@ page {
   top: 0rpx;
 } */
 
+.input-box .tip6 {
+  width: 176rpx;
+  height: 60rpx;
+  position: absolute;
+  right: 64rpx;
+  top: 0rpx;
+  z-index: 99999;
+  color: #A3A3A3;
+  border: 1rpx solid #A3A3A3;
+  text-align: center;
+  line-height: 64rpx;
+  border-radius: 20rpx;
+}
+
 .input-box .verify-box .bg2 {
   width: 193rpx;
   height: 60rpx;
   position: absolute;
   right: 64rpx;
   top: 0rpx;
+  z-index: 99999;
 }
 
 .input-box .verify-box .tip5 {
@@ -131,6 +146,7 @@ page {
   font-family: PingFang SC;
   font-weight: bold;
   color: #fff;
+  z-index: 99999;
 }
 
 .button {
@@ -201,7 +217,7 @@ page {
   position: fixed;
   top: 0rpx;
   left: 0rpx;
-  z-index: 998;
+  z-index: 9999999;
 }
 
 .dialog1 {
@@ -216,7 +232,7 @@ page {
   top: 128rpx;
   left: 50%;
   margin-left: -265rpx;
-  z-index: 999;
+  z-index: 9999999;
 }
 
 .dialog1 .pic1 {
@@ -267,7 +283,7 @@ page {
   top: 690rpx;
   left: 50%;
   margin-left: -265rpx;
-  z-index: 999;
+  z-index: 9999999;
 }
 
 .dialog2 .pic2 {

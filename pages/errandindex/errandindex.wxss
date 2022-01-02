@@ -14,6 +14,7 @@ page {
   flex-direction: column;
   position: relative;
   padding-bottom: 128rpx;
+  box-sizing: border-box;
 }
 
 .main .top1 {
@@ -56,6 +57,7 @@ page {
   margin-top: 396rpx;
   padding-left: 25rpx;
   padding-right: 25rpx;
+  box-sizing: border-box;
 }
 
 .content1 .errand-box {
@@ -191,7 +193,7 @@ page {
   right: 0rpx;
 }
 
-.main .box2 .icon3{
+.main .box2 .icon3 {
   width: 32rpx;
   height: 32rpx;
 }
@@ -202,6 +204,7 @@ page {
   flex-direction: column;
   padding-left: 25rpx;
   padding-right: 25rpx;
+  box-sizing: border-box;
 }
 
 .main .list .item {

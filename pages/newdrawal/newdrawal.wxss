@@ -207,7 +207,7 @@ page {
 
 .main .content2 .box1 .left .input {
   width: 300rpx;
-  font-size: 32rpx;
+  font-size: 44rpx;
   font-family: PingFang SC;
   font-weight: 500;
   color: #bbb;

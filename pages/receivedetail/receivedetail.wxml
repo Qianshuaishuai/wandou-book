@@ -1,97 +1,99 @@
-<image src="../../assets/image-v2/receivedetail/bg.png" class="bg">
-</image>
-<!-- <view class="top">
+<view class="main">
+  <image src="../../assets/image-v2/receivedetail/bg.png" class="bg">
+  </image>
+  <!-- <view class="top">
 
  
 </view> -->
 
-<image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
-</image>
-<view class="tip" style="top:{{statusBarHeight+8}}px">接单详情</view>
-<view class="content">
-  <image src="../../assets/image-v2/receivedetail/bg1.png" class="bg1">
+  <image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
   </image>
-  <image src="../../assets/image-v2/receivedetail/bg2.png" class="bg2">
-  </image>
+  <view class="tip" style="top:{{statusBarHeight+8}}px">接单详情</view>
+  <view class="content">
+    <image src="../../assets/image-v2/receivedetail/bg1.png" class="bg1">
+    </image>
+    <image src="../../assets/image-v2/receivedetail/bg2.png" class="bg2">
+    </image>
 
-  <view class="title" style="margin-top: 66rpx;">
-    类别：快递
-  </view>
+    <view class="title" style="margin-top: 66rpx;">
+      类别：{{errand.typeStr}}
+    </view>
 
-  <view class="address-box">
-    <view class="address-block">
-      <image src="../../assets/image-v2/receivedetail/address1.png" class="icon">
+    <view class="address-box">
+      <view class="address-block">
+        <image src="../../assets/image-v2/receivedetail/address1.png" class="icon">
+        </image>
+        <view class="address">
+          {{errand.tip1}}
+        </view>
+      </view>
+
+      <image src="../../assets/image-v2/receivedetail/address3.png" class="middle">
       </image>
-      <view class="address">
-        取件地址：男生宿舍13栋606
+
+      <view class="address-block" style="margin-bottom:23rpx;">
+        <image src="../../assets/image-v2/receivedetail/address2.png" class="icon">
+        </image>
+        <view class="address">
+          {{errand.tip2}}
+        </view>
       </view>
     </view>
 
-    <image src="../../assets/image-v2/receivedetail/address3.png" class="middle">
-    </image>
+    <view class="title">
+      {{errand.tag1}}
+    </view>
 
-    <view class="address-block" style="margin-bottom:23rpx;">
-      <image src="../../assets/image-v2/receivedetail/address2.png" class="icon">
-      </image>
-      <view class="address">
-        收货地址：女生宿舍3栋花园门口
-      </view>
+    <view class="express">
+      {{errand.tag11}}
+    </view>
+
+    <view class="title">
+      {{errand.tag2}}
+    </view>
+
+    <view class="express">
+      {{errand.tag22}}
+    </view>
+
+    <view class="title">
+      联系方式
+    </view>
+
+    <view class="express">
+      {{errand.showContract}}
+    </view>
+
+    <view class="title">
+      备注
+    </view>
+
+    <view class="express">
+      {{errand.showNote}}
     </view>
   </view>
 
-  <view class="title">
-    快递单号
-  </view>
-
-  <view class="express">
-    HYJ256456578965113
-  </view>
-
-  <view class="title">
-    取件码
-  </view>
-
-  <view class="title">
-    收件人信息
-  </view>
-
-  <view class="express">
-    姓名：张三
-  </view>
-
-  <view class="express">
-    手机号码：13812345678
-  </view>
-
-  <view class="title">
-    备注
-  </view>
-
-  <view class="express">
-    必须由本人亲自接收，谢谢~
-  </view>
-</view>
-
-<view class="button-box">
-  <view class="button" bindtap="clickMessage">
-    <image src="../../assets/image-v2/receivedetail/button1.png" class="bg">
-    </image>
-    <view class="box">
-      <image src="../../assets/image-v2/receivedetail/icon1.png" class="icon"></image>
-      <view class="tip5">
-        私信
+  <view class="button-box">
+    <view class="button" bindtap="clickMessage">
+      <image src="../../assets/image-v2/receivedetail/button1.png" class="bg">
+      </image>
+      <view class="box">
+        <image src="../../assets/image-v2/receivedetail/icon1.png" class="icon"></image>
+        <view class="tip5">
+          私信
+        </view>
       </view>
     </view>
-  </view>
 
-  <view class="button" style="margin-left:16rpx;" bindtap="clickPhone">
-    <image src="../../assets/image-v2/receivedetail/button2.png" class="bg">
-    </image>
-    <view class="box">
-      <image src="../../assets/image-v2/receivedetail/icon2.png" class="icon">
+    <view class="button" style="margin-left:16rpx;" bindtap="clickPhone">
+      <image src="../../assets/image-v2/receivedetail/button2.png" class="bg">
       </image>
-      <view class="tip5">
-        手机
+      <view class="box">
+        <image src="../../assets/image-v2/receivedetail/icon2.png" class="icon">
+        </image>
+        <view class="tip5">
+          手机
+        </view>
       </view>
     </view>
   </view>

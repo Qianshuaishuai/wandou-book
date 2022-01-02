@@ -9,6 +9,7 @@ Page({
     currentStatus:0,
     currentOrder:[],
     statuses: ["全部订单", "待确认", "待取件", "待审核", "审核完毕"],
+    userInfo:{}
   },
 
   cancelOrder(e){
@@ -61,12 +62,11 @@ Page({
 
   getOrder(status){
     var orderStatus = 1
-    var wxid = wx.getStorageSync("userId")
     orderStatus = status
     wx.request({
       url: app.globalData.baseUrl + '/v1/order/list',
       data: {
-        wx_id: wxid,
+        phone: this.data.userInfo.phone,
         status: orderStatus,
       },
       method: 'GET',
@@ -113,8 +113,10 @@ Page({
    */
   onLoad: function (options) {
     const index = options.index
+    var userInfo = wx.getStorageSync('userInfo')
     this.setData({
-      currentStatus:Number(index)
+      currentStatus:Number(index),
+      userInfo: userInfo
     })
     this.getOrder(this.data.currentStatus)
   },

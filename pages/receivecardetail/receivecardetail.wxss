@@ -11,7 +11,7 @@ page {
 
 .top {
   position: relative;
-  height: 305rpx;
+  height: 258rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,7 +41,7 @@ page {
   align-items: center;
   position: absolute;
   width: 100%;
-  top: 48rpx;
+  top: 42rpx;
   left: 0rpx;
   z-index: 7;
 }
@@ -50,6 +50,7 @@ page {
   width: 70rpx;
   height: 70rpx;
   margin-left: 30rpx;
+  margin-top: 12rpx;
 }
 
 .top .address-box .middle {
@@ -84,14 +85,22 @@ page {
   font-family: PingFang SC;
   font-weight: 500;
   color: #fff;
-  margin-top: 18rpx;
+  margin-top: 8rpx;
+}
+
+.top .address-box .middle .area {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 8rpx;
 }
 
 .top .address-box .right {
   width: 14rpx;
   height: 25rpx;
   position: absolute;
-  top: 66rpx;
+  top: 64rpx;
   right: 31rpx;
 }
 
@@ -343,4 +352,53 @@ page {
   line-height: 92rpx;
   z-index: 3;
   color: #fff;
+}
+
+.box4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 3%;
+  width: 94%;
+  height: 84rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.box4 .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 26rpx;
+}
+
+.box4 .left .icon5 {
+  width: 34rpx;
+  height: 32rpx;
+}
+
+.box4 .left .picker{
+  display: flex;
+  flex-direction: column;
+}
+
+.box4 .left .data {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+  margin-left: 28rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.box4 .right {
+  width: 14rpx;
+  height: 24rpx;
+  top: 30rpx;
+  right: 28rpx;
+  position: absolute;
 }

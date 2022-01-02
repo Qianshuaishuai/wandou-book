@@ -1,7 +1,7 @@
 <view class="search-box">
   <input class="search" bindinput="changeInput" placeholder="请输入搜索的内容"></input>
   <image src="/assets/image-v2/secondhand/search.png" class="icon1"></image>
-  <view class="button2">
+  <view class="button2" bindtap="search">
     <image src="/assets/image-v2/secondhand/button.png" class="bg2"></image>
     <view class="tip12">搜索</view>
   </view>
@@ -9,41 +9,41 @@
 
 <view class="box">
   <view class="block" wx:for="{{typeList}}" wx:for-item="item" wx:for-index="index" bindtap="changeIndex" data-index="{{index}}">
-    <view class="tip10" style="{{currentTypeIndex == index ? 'color:#0687F7;font-size:34rpx' : 'color:#6F6F77;font-size:30rpx'}}">{{item}}</view>
+    <view class="tip10" style="{{currentTypeIndex == index ? 'color:#0687F7;font-size:34rpx' : 'color:#6F6F77;font-size:30rpx'}}">{{item.name}}</view>
     <view class="diviler" wx:if="{{currentTypeIndex == index}}"></view>
   </view>
 </view>
 
 <view class="show-list">
-  <view class="show-block" wx:for="{{showList}}" wx:for-item="item" wx:for-index="index">
+  <view class="show-block" wx:for="{{secondhandList}}" wx:for-item="item" wx:for-index="index">
     <view class="title">
-      全新iPhone 12 ProMax 256G绿色 国行
+      {{item.title}}
     </view>
 
     <view class="price-box">
       <view class="tip">到手价 ￥</view>
-      <view class="price">4488</view>
-      <view class="old-price">￥6500</view>
+      <view class="price"> {{item.amount}}</view>
+      <!-- <view class="old-price">￥6500</view> -->
     </view>
 
     <view class="photo-list">
-      <view class="photo-block" wx:for="{{showList}}" wx:for-item="pitem" wx:for-index="pindex">
-        <image src="/assets/image-v2/newindex2/test1.png" class="photo"></image>
+      <view class="photo-block" wx:for="{{item.picArray}}" wx:for-item="pitem" wx:for-index="pindex">
+        <image src="{{pitem}}" class="photo"></image>
       </view>
     </view>
 
     <view class="note">
-      转让原因：买了苹果13手里的12不香了就出手要不 然也不想热痛割爱~
+      转让原因：{{item.reason}}
     </view>
 
     <view class="bottom">
       <view class="left">
         <image class="icon1" src="/assets/image-v2/secondhand/address.png"></image>
         <view class="address">
-          面交地点：学生街门口
+          面交地点：{{item.address}}
         </view>
       </view>
-      <view class="button">
+      <view class="button" bindtap="buy">
         <image class="bg" src="/assets/image-v2/secondhand/button.png"></image>
         <view class="tip2">我要了</view>
       </view>

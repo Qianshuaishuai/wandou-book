@@ -1,5 +1,5 @@
 <view class="main">
-  <image class="top1" src="https://resource.qimsj.com/wandou/top.png"></image>
+  <image class="top1" src="https://resource.qimsj.com/top2.png"></image>
   <image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
   </image>
   <view class="tip" style="top:{{statusBarHeight+8}}px">
@@ -17,7 +17,7 @@
         <image src="../../assets/image-v2/newme/errand-icon1.png" class="icon3"></image>
       </view>
 
-      <view class="errand-block" style="background: linear-gradient(90deg, #FF812D, #FFA32C);border-radius: 20rpx;margin-left:20rpx;" bindtap="take">
+      <view class="errand-block" style="background: linear-gradient(90deg, #FF812D, #FFA32C);border-radius: 20rpx;margin-left:24rpx;" bindtap="take">
         <view class="box4">
           <view class="tip5">我要接单</view>
           <view class="tip6">接单赚点外快</view>
@@ -49,30 +49,30 @@
   </view>
 
   <view class="list">
-    <view class="item" wx:for="{{testList}}" wx:for-index="index" wx:for-item="item">
+    <view class="item" wx:for="{{showData}}" wx:for-index="index" wx:for-item="item">
       <view class="top">
         <view class="type">
-          类别：租赁
+          类别：{{item.typeStr}}
         </view>
         <view class="right">
           <view class="tag">
             ￥
           </view>
           <view class="money">
-            10.00
+           {{item.showPrice}}
           </view>
         </view>
       </view>
       <view class="content">
-        <view class="title">电瓶车</view>
-        <view class="tip12">租赁时长：1天</view>
+        <view class="title">{{item.tag11}}</view>
+        <view class="tip12">{{item.tag22}}</view>
       </view>
 
       <view class="bottom">
         <view class="note">
-          备注：用完后我充满电放回原处
+          备注：{{item.showNote}}
         </view>
-        <view class="button">
+        <view class="button" bindtap="doTake" data-index="{{index}}">
           <image src="../../assets/image-v2/lease/bg.png" class="bg1"></image>
           <image src="../../assets/image-v2/lease/right.png" class="right"></image>
           <view class="tip13">

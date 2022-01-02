@@ -1,31 +1,37 @@
 <view class="select">
-  <image src="/assets/image-v2/secondhandmanager/icon.png" class="icon"></image>
-  <view class="tip2">全部</view>
-  <image src="/assets/image-v2/secondhandmanager/down.png" class="down"></image>
+  <image src="/assets/image-v2/secondhandmanager/icon.png" class="icon" bindtap="doSelectDialog"></image>
+  <view class="tip2" bindtap="doSelectDialog">{{typeList[currentTypeIndex].name}}</view>
+  <image src="/assets/image-v2/secondhandmanager/down.png" class="down" bindtap="doSelectDialog"></image>
+
+  <view class="dialog" wx:if="{{showSelectDialog}}">
+    <view class="item" wx:for="{{typeList}}" wx:for-item="item" wx:for-index="index" bindtap="selectType" data-index="{{index}}">
+      {{item.name}}
+    </view>
+  </view>
 </view>
 
 <view class="list">
-  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+  <view class="block" wx:for="{{secondhandList}}" wx:for-item="item" wx:for-index="index">
     <view class="top">
-      <view class="type">书籍</view>
-      <view class="status">发布中</view>
+      <view class="type">{{item.typeStr}}</view>
+      <view class="status" style="color:{{item.status == -1 ? '#ff0000':'#189BFB'}}">{{item.statusStr}}</view>
     </view>
     <view class="diviler"></view>
     <view class="content">
-      <image src="/assets/image-v2/newindex2/test1.png" class="pic"></image>
+      <image src="{{item.picArray[0]}}" class="pic"></image>
       <view class="box1">
-        <view class="name">iPhone12 256G国行</view>
-        <view class="note">9成新</view>
+        <view class="name">{{item.name}}</view>
+        <view class="note">{{item.reason}}</view>
         <view class="price-box">
           <view class="tag">¥</view>
-          <view class="price">4488</view>
+          <view class="price">{{item.amount}}</view>
         </view>
       </view>
     </view>
     <view class="button">
-      <view class="delete">删除</view>
-      <view class="edit">下架</view>
-      <view class="up">上架</view>
+      <view class="delete" bindtap="deleteP" data-index="{{index}}">删除</view>
+      <view class="edit" bindtap="down" data-index="{{index}}">下架</view>
+      <view class="up"  bindtap="up" data-index="{{index}}">上架</view>
     </view>
   </view>
 </view>

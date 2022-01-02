@@ -8,7 +8,7 @@
     <view class="tip">
       姓名
     </view>
-    <input class="input" bindinput="changeErrandName" placeholder="请输入姓名"></input>
+    <input class="input" bindinput="changeErrandName" placeholder="请输入姓名" value="{{currentErrandName}}"></input>
   </view>
 
   <view class="box" style="margin-top: 30rpx">
@@ -16,7 +16,7 @@
     <view class="tip">
       联系方式
     </view>
-    <input class="input" bindinput="changeErrandPhone" placeholder="请输入号码"></input>
+    <input class="input" bindinput="changeErrandPhone" placeholder="请输入号码" value="{{currentErrandPhone}}"></input>
   </view>
 
   <view class="box1" style="margin-top: 30rpx">
@@ -24,7 +24,7 @@
     <view class="tip">
       详细地址
     </view>
-    <textarea class="input" bindinput="changeErrandAddress" placeholder="请输入详细地址"></textarea>
+    <textarea class="input" bindinput="changeErrandAddress" placeholder="请输入详细地址" value="{{currentErrandAddress}}"></textarea>
   </view>
 </view>
 
@@ -33,22 +33,23 @@
   <view class="button">
     <image class="icon" src="/assets/image-v2/addaddress/add.png"></image>
     <view class="tip">
-      新建
+      {{currentErrandOperate}}
     </view>
   </view>
 </view>
 
-<view class="title">
+<view class="title" style="margin-top:18rpx;">
   卖书快递上门取件地址
 </view>
 
-<view class="content">
+<view class="content" style="height:600rpx;">
+
   <view class="box" style="margin-top: 24rpx">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       姓名
     </view>
-    <input class="input" bindinput="changeSellName" placeholder="请输入姓名"></input>
+    <input class="input" bindinput="changeSellName" placeholder="请输入姓名" value="{{currentSellName}}"></input>
   </view>
 
   <view class="box" style="margin-top: 30rpx">
@@ -56,7 +57,15 @@
     <view class="tip">
       联系方式
     </view>
-    <input class="input" bindinput="changeSellPhone" placeholder="请输入号码"></input>
+    <input class="input" bindinput="changeSellPhone" placeholder="请输入号码" value="{{currentSellPhone}}"></input>
+  </view>
+
+  <view class="box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">选择地区</view>
+    <picker class="input" mode="region" bindchange="bindPickerChange" value="{{sellAddress}}">
+      <input class="input1" bindtap="pickerAddress" placeholder="省、市、区、街道" disabled="true" value="{{sellProvince+sellCity+sellDistrict}}"></input>
+    </picker>
   </view>
 
   <view class="box1" style="margin-top: 30rpx">
@@ -64,8 +73,9 @@
     <view class="tip">
       详细地址
     </view>
-    <textarea class="input" bindinput="changeSellAddress" placeholder="请输入详细地址"></textarea>
+    <textarea class="input" bindinput="changeSellAddress" placeholder="请输入详细地址" value="{{currentSellAddress}}"></textarea>
   </view>
+
 </view>
 
 <view class="add" bindtap="addSellAddress">
@@ -73,7 +83,7 @@
   <view class="button">
     <image class="icon" src="/assets/image-v2/addaddress/add.png"></image>
     <view class="tip">
-      新建
+      {{currentSellOperate}}
     </view>
   </view>
 </view>

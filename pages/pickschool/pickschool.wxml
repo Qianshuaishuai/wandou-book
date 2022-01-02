@@ -11,12 +11,12 @@
 </view>
 
 <view class="list">
-  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+  <view class="block" wx:for="{{schoolList}}" wx:for-item="item" wx:for-index="index">
     <view class="left">
       <image src="../../assets/image-v2/pickschool/icon_selected.png" class="icon"></image>
-      <view class="name">东南大学</view>
-      <view class="tip">未入驻</view>
+      <view class="name" bindtap="selectItem" data-index="{{index}}">{{item.name}}</view>
+      <view class="tip">{{item.isBind == 0 ? '未入驻':'已入驻'}}</view>
     </view>
-    <view class="apply" bindtap="applymaster">申请校园站长</view>
+    <view class="apply" bindtap="applymaster" wx:if="{{item.isBind == 0}}">申请校园站长</view>
   </view>
 </view>

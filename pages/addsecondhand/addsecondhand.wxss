@@ -362,8 +362,8 @@ page {
   -webkit-overflow-scrolling: touch;
   margin-right: 28rpx;
   overflow-y: hidden;
-  padding-bottom: 4rpx;
-  margin-left: 12rpx;
+  padding-bottom: 16rpx;
+  margin-left: 24rpx;
 }
 
 .content .photo-box .photo-block {

@@ -1,51 +1,133 @@
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
 <view class="top">
   <view class="bg"></view>
-  <view class="address-box">
+  <view class="address-box" wx:if="{{address.id == 0}}" bindtap="goToAddress">
     <image src="../../assets/image-v2/receivecardetail/address.png" class="icon"></image>
     <view class="middle">
       <view class="box">
-        <view class="name">张三</view>
-        <view class="phone">13312345678</view>
+        <view class="name">请先填写姓名</view>
+        <view class="phone">请先填写联系方式</view>
       </view>
+      <view class="area">请选择地区</view>
       <view class="address">
-        上海市海淀区是东方明珠路工业园区104
+        请先填写地址
       </view>
     </view>
 
     <image src="../../assets/image-v2/receivecardetail/right.png" class="right"></image>
   </view>
-  <image src="../../assets/image-v2/receivecardetail/bg1.png" class="bg1"></image>
-  <view class="time-box">
+
+  <view class="address-box" wx:if="{{address.id != 0}}" bindtap="goToAddress">
+    <image src="../../assets/image-v2/receivecardetail/address.png" class="icon"></image>
+    <view class="middle">
+      <view class="box">
+        <view class="name">{{address.name}}</view>
+        <view class="phone">{{address.contract}}</view>
+      </view>
+      <view class="area">{{address.province+address.city+address.district}}</view>
+      <view class="address">
+        {{address.address}}
+      </view>
+    </view>
+
+    <image src="../../assets/image-v2/receivecardetail/right.png" class="right"></image>
+  </view>
+  <image src="../../assets/image-v2/receivecardetail/bg1.png" class="bg1" style="display:none"></image>
+  <view class="time-box" style="display:none">
     <image src="../../assets/image-v2/receivecardetail/time.png" class="icon1"></image>
     <view class="time">取书时间:2021.10.10~2021.10.12</view>
   </view>
 </view>
 
-<view class="title">
+<view class="box4">
+  <view class="left">
+    <image src="../../assets/image-v2/receivecardetail/icon5.png" class="icon5"></image>
+    <view class="data">
+      <view class="tipp" style="width:180rpx">取件开始时间</view>
+      <view class="data-picker" style="width:210rpx">
+        <picker mode="date" value="{{date}}" start="2020-09-01" end="2023-09-01" bindchange="bindDateChangeForStart" style="margin-left:12rpx">
+          <view class="data" wx:if="{{startDate == '' }}">
+            选择日期
+          </view>
+          <view class="data" wx:if="{{startDate != '' }}" style="margin-top:6rpx;">
+            {{startDate}}
+          </view>
+        </picker>
+      </view>
+
+      <view class="data-picker" style="width:210rpx">
+        <picker mode="time" value="{{time}}" start="09:00" end="19:00" bindchange="bindTimeChangeForStart">
+          <view class="picker" wx:if="{{startTime == '' }}">
+            选择时间
+          </view>
+          <view class="picker" wx:if="{{startTime != '' }}" style="margin-top:6rpx;">
+            {{startTime}}
+          </view>
+        </picker>
+      </view>
+
+    </view>
+  </view>
+  <image src="../../assets/image-v2/receivecardetail/right1.png" class="right"></image>
+</view>
+
+<view class="box4" style="margin-top:20rpx;">
+  <view class="left">
+    <image src="../../assets/image-v2/receivecardetail/icon5.png" class="icon5"></image>
+    <view class="data">
+      <view class="tipp" style="width:180rpx">取件结束时间</view>
+      <view class="data-picker" style="width:210rpx">
+        <picker mode="date" value="{{date}}" start="2020-09-01" end="2023-09-01" bindchange="bindDateChangeForEnd" style="margin-left:12rpx">
+          <view class="data" wx:if="{{endDate == '' }}">
+            选择日期
+          </view>
+          <view class="data" wx:if="{{endDate != '' }}" style="margin-top:6rpx;">
+            {{endDate}}
+          </view>
+        </picker>
+      </view>
+
+      <view class="data-picker" style="width:210rpx">
+        <picker mode="time" value="{{time}}" start="09:00" end="19:00" bindchange="bindTimeChangeForEnd">
+          <view class="picker" wx:if="{{endTime == '' }}">
+            选择时间
+          </view>
+          <view class="picker" wx:if="{{endTime != '' }}" style="margin-top:6rpx;">
+            {{endTime}}
+          </view>
+        </picker>
+      </view>
+
+    </view>
+  </view>
+  <image src="../../assets/image-v2/receivecardetail/right1.png" class="right"></image>
+</view>
+
+<view class="title" style="margin-top: 24rpx">
   书籍列表
 </view>
 
 <view class="list">
-  <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
-    <image src="../../assets/image-v2/receivecar/test.png" class="pic"></image>
+  <view class="block" wx:for="{{carBookList}}" wx:for-item="item" wx:for-index="index">
+    <image src="{{item.pic}}" class="pic"></image>
     <view class="middle">
       <view class="title1">
-        正版 创新有道职业生涯
+        {{item.name}}
       </view>
 
       <view class="isbn">
-        9787117271837
+        {{item.isbn}}
       </view>
 
       <view class="price-box">
-        <view class="tip5">回收价 ￥</view>
-        <view class="price">4.96</view>
+        <view class="tip5">最高可卖￥</view>
+        <view class="price">{{item.price}}</view>
       </view>
     </view>
     <view class="box2">
-      <image src="../../assets/image-v2/receivecardetail/reduce.png" class="do"></image>
-      <view class="count">1</view>
-      <image src="../../assets/image-v2/receivecardetail/add.png" class="do"></image>
+      <image src="../../assets/image-v2/receivecardetail/reduce.png" class="do" bindtap="reduce" data-index="{{index}}"></image>
+      <view class="count">{{item.num}}</view>
+      <image src="../../assets/image-v2/receivecardetail/add.png" class="do" bindtap="add" data-index="{{index}}"></image>
     </view>
   </view>
 </view>
@@ -60,13 +142,13 @@
     <image src="../../assets/image-v2/receivecardetail/icon1.png" class="icon2"></image>
     <view class="box4">
       <view class="count">
-        数量：8本
+        数量：{{currentBookCount}}本
       </view>
       <view class="price">
-        总价：96元
+        总价：{{allPrice}}元
       </view>
       <view class="income">
-        收入：70~100元
+        收入：{{filters.toFix(allPrice*0.7)}}~{{allPrice}}元
       </view>
     </view>
   </view>
@@ -92,7 +174,7 @@
   <input class="input" placeholder="请输入微信号" bindinput="changeWechat"></input>
 </view>
 
-<view class="button">
+<view class="button" bindtap="commit">
   <image src="../../assets/image-v2/receivecardetail/bg2.png" class="bg3"></image>
   <view class="tip8">
     提交

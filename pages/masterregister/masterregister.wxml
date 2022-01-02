@@ -24,10 +24,12 @@
   <view class="tip4">验证码</view>
   <input class="input" bindinput="changeVerify" placeholder="请输入验证码"></input>
 
-  <view class="verify-box">
+  <view class="verify-box" bindtap="verify" wx:if="{{timeCountDown<=0}}">
     <image class="bg2" src="/assets/image-v2/masterregister/bg2.png"></image>
-    <view class="tip5" bindtap="verify">发送验证码</view>
+    <view class="tip5">发送验证码</view>
   </view>
+
+ <view class="tip6" style="color:#A3A3A3" wx:if="{{timeCountDown>0}}">{{timeCountDown}}S</view>
 </view>
 
 <view class="diviler"></view>
@@ -52,7 +54,8 @@
 <view class="dialog1" wx:if="{{showUnbindDialog}}">
   <image class="pic1" src="/assets/image-v2/masterregister/phone.png"></image>
   <view class="tip10">已绑定</view>
-  <view class="phone">手机号：13812345678</view>
+  <view class="phone" wx:if="{{userInfo.phone != ''}}">手机号：{{userInfo.phone}}</view>
+  <view class="phone" wx:if="{{userInfo.phone == ''}}">暂未绑定</view>
   <view class="unbind2">解绑</view>
 </view>
 

@@ -1,12 +1,16 @@
+<wxs module="filters" src="../../utils/filters.wxs"></wxs>
 <view class="top">
   <image src="../../assets/image-v2/newme/bg.png" class="bg">
   </image>
 
   <view class="box">
     <view class="left">
-      <image src="../../assets/image-v2/newme/head.png" class="head">
+      <image src="../../assets/image-v2/newme/head.png" class="head" wx:if="{{wxUserInfo.nickName == ''  || wxUserInfo.nickName== undefined}}" bindtap="getUserProfile">
       </image>
-      <view class="name">花木兰</view>
+      <image src="{{wxUserInfo.avatarUrl}}" class="head" wx:if="{{wxUserInfo.nickName != ''&& wxUserInfo.nickName!= undefined}}">
+      </image>
+      <view class="name" wx:if="{{wxUserInfo.nickName == '' || wxUserInfo.nickName== undefined}}" bindtap="getUserProfile">请点击获取信息</view>
+      <view class="name" wx:if="{{wxUserInfo.nickName != ''}}">{{wxUserInfo.nickName}}</view>
     </view>
     <view class="login" bindtap="masterlogin">站长登录</view>
   </view>
@@ -19,7 +23,7 @@
     </image>
     <view class="box3">
       <view class="tip3">我的收益</view>
-      <view class="amount">￥6556.69</view>
+      <view class="amount">￥{{filters.toFix(userInfo.sellBalance+userInfo.errandBalance)}}</view>
     </view>
   </view>
 
@@ -35,15 +39,15 @@
   <view class="util-box">
     <view class="util-block" bindtap="goToOrder" data-index="1">
       <image src="../../assets/new-images/person/sell22.png" class="icon4"></image>
-      <view class="tip7">待取件</view>
+      <view class="tip7">待确认</view>
     </view>
     <view class="util-block" bindtap="goToOrder" data-index="2">
       <image src="../../assets/new-images/person/sell33.png" class="icon4"></image>
-      <view class="tip7">待收货</view>
+      <view class="tip7">待取件</view>
     </view>
     <view class="util-block" bindtap="goToOrder" data-index="3">
       <image src="../../assets/new-images/person/sell44.png" class="icon4"></image>
-      <view class="tip7">待收款</view>
+      <view class="tip7">待审核</view>
     </view>
     <view class="util-block" bindtap="goToOrder" data-index="4">
       <image src="../../assets/new-images/person/sell55.png" class="icon4"></image>
@@ -75,11 +79,11 @@
 <view class="title">闲置</view>
 
 <view class="leave-box">
-  <view class="leave-block" bindtap="goToBuy">
+  <view class="leave-block" bindtap="goToSell">
     <image src="../../assets/image-v2/newme/leave1.png" class="icon4"></image>
     <view class="tip7">我要发布</view>
   </view>
-  <view class="leave-block" bindtap="goToSell">
+  <view class="leave-block" bindtap="goToBuy">
     <image src="../../assets/image-v2/newme/leave2.png" class="icon4"></image>
     <view class="tip7">购买商品</view>
   </view>
@@ -113,12 +117,12 @@
   </view>
 
   <view class="util-box">
-    <view class="util-block">
-      <image src="../../assets/image-v2/newme/util5.png" class="icon4" bindtap="goToAddress"></image>
+    <view class="util-block" bindtap="goToAddress">
+      <image src="../../assets/image-v2/newme/util5.png" class="icon4"></image>
       <view class="tip7">我的地址</view>
     </view>
 
-    <view class="util-block"  bindtap="copyWechat">
+    <view class="util-block" bindtap="copyWechat">
       <image src="../../assets/image-v2/newme/util6.png" class="icon4"></image>
       <view class="tip7">客服微信</view>
     </view>

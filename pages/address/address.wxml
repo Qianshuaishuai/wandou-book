@@ -19,10 +19,9 @@
   <image src="../../assets/new-images/address/icon3.png" class="icon1"></image>
   <view class="tip">选择地区</view>
 
-  <picker class="picker" mode="region" bindchange="bindPickerChange" value="{{address}}">
+  <picker class="picker" mode="region" bindchange="bindPickerChange" value="{{sellAddress}}">
     <input class="input" bindtap="pickerAddress" placeholder="省、市、区、街道" disabled="true" value="{{province+city+district}}"></input>
   </picker>
-  <image src="../../assets/new-images/address/icon5.png" class="icon2"></image>
 </view>
 
 <view class="box1">

@@ -2,8 +2,11 @@
   <image src="../../assets/image-v2/discount/bg.png" class="bg"></image>
   <view class="school-box" bindtap="goToSchool">
     <image src="../../assets/image-v2/newindex2/school.png" class="school"></image>
-    <view class="tip">
-      景德镇陶瓷学院
+    <view class="tip" wx:if="{{school.id == 0 || school == ''}}">
+      未选择学校
+    </view>
+    <view class="tip" wx:if="{{school.id != 0}}">
+      {{school.name}}
     </view>
     <image src="../../assets/image-v2/newindex2/down.png" class="down"></image>
   </view>

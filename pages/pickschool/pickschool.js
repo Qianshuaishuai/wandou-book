@@ -1,32 +1,49 @@
 // pages/pickschool/pickschool.js
+const app = getApp()
 Page({
 
   /**
    * Page initial data
    */
   data: {
-    currentSearch:"",
-    testList:["","","","",""]
+    currentSearch: "",
+    testList: ["", "", "", "", ""],
+    schoolList: []
   },
 
-  changeSearch(event){
+  changeSearch(event) {
     var value = event.detail.value
     this.setData({
-      value: value
+      currentSearch: value
     })
   },
 
-  clear(){
+  clear() {
     this.setData({
       currentSearch: ""
     })
   },
 
   search(event) {
+    if (this.data.currentSearch == "") {
+      wx.showToast({
+        title: '输入搜索内容',
+        icon: 'none'
+      })
 
+      return
+    }
+
+    this.getPickSchool(this.data.currentSearch)
   },
 
-  applymaster(event){
+  applymaster(event) {
+    var index = Number(event.currentTarget.dataset.index);
+    var school = this.data.schoolList[index]
+    wx.setStorage({
+      key: 'school',
+      data: school,
+    })
     wx.navigateTo({
       url: '/pages/masterpost/masterpost',
     })
@@ -36,7 +53,34 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
+    this.getPickSchool("")
+  },
 
+  selectItem(event) {
+    var index = Number(event.currentTarget.dataset.index);
+    var school = this.data.schoolList[index]
+    wx.navigateBack({
+      delta: 1
+    })
+
+    wx.setStorage({
+      key: 'school',
+      data: school,
+    })
+  },
+
+  getPickSchool(search) {
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/pick/schools',
+      data: {
+        search: search
+      },
+      success: res => {
+        this.setData({
+          schoolList: res.data.F_data
+        })
+      },
+    })
   },
 
   /**

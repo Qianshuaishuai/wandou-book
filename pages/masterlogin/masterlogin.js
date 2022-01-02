@@ -27,7 +27,10 @@ Page({
   },
 
   forget(event) {
-
+    wx.showToast({
+      title: '请联系客服',
+      icon: 'none'
+    })
   },
 
   login(event) {

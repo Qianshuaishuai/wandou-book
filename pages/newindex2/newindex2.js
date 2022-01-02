@@ -13,10 +13,19 @@ Page({
     autoplay: true,
     interval: 2500,
     duration: 500,
-    tweetList: []
+    tweetList: [],
+    school: "",
+    userInfo: {}
   },
 
   swiperClick(event) {
+    if (this.data.userInfo.phone == "") {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      return
+    }
     var index = Number(event.currentTarget.dataset.index)
     var url = ""
     switch (index) {
@@ -27,6 +36,11 @@ Page({
         url = '/pages/certrider/certrider'
         break
       case 2:
+        wx.showToast({
+          title: '暂未开放',
+          icon: 'none'
+        })
+        return
         url = '/pages/newcoupon/newcoupon'
         break
     }
@@ -62,18 +76,39 @@ Page({
   },
 
   goToSecondIndex(event) {
+    if (this.data.userInfo.phone == "") {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      return
+    }
     wx.navigateTo({
       url: '/pages/secondhandindex/secondhandindex',
     })
   },
 
   goToDiscount(event) {
+    if (this.data.userInfo.phone == "") {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      return
+    }
     wx.navigateTo({
       url: '/pages/discount/discount',
     })
   },
 
   goToSchool(event) {
+    if (this.data.userInfo.phone == "") {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      return
+    }
     wx.navigateTo({
       url: '/pages/pickschool/pickschool',
     })
@@ -86,6 +121,13 @@ Page({
   },
 
   goTolease(event) {
+    if (this.data.userInfo.phone == "") {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      return
+    }
     wx.navigateTo({
       url: '/pages/lease/lease',
     })
@@ -93,6 +135,13 @@ Page({
 
 
   goToErrand(event) {
+    if (this.data.userInfo.phone == "") {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      return
+    }
     wx.navigateTo({
       url: '/pages/errandindex/errandindex',
     })
@@ -104,6 +153,61 @@ Page({
    */
   onLoad: function(options) {
     this.getTweetList()
+
+    // if (options.scene) {
+    //   var rwxid = wx.getStorageSync("userId")
+
+    //   if (rwxid && rwxid != "" && rwxid != options.scene) {
+    //     wx.request({
+    //       url: app.globalData.baseUrl + '/v1/recommend/do',
+    //       data: {
+    //         wx_id: options.scene,
+    //         rwx_id: rwxid,
+    //       },
+    //       method: 'POST',
+    //       header: {
+    //         'content-type': 'application/x-www-form-urlencoded'
+    //       },
+    //       success: res => {
+    //         console.log(res)
+    //       },
+    //     })
+    //   }
+
+
+    // }
+
+    if (options.scene != "") {
+      wx.setStorageSync("isRecommend", 0)
+      wx.setStorageSync("isRecommendId", options.scene)
+    }
+
+    // app.getWxUserInfo().then(res => {
+    //   wx.getUserInfo({
+    //     success: res => {
+    //       var nickName = res.userInfo.nickName
+    //       var wxid = wx.getStorageSync("userId")
+
+    //       wx.request({
+    //         url: app.globalData.baseUrl + '/v1/wx/name',
+    //         data: {
+    //           wx_id: wxid,
+    //           name: nickName,
+    //         },
+    //         method: 'POST',
+    //         header: {
+    //           'content-type': 'application/x-www-form-urlencoded'
+    //         },
+    //         success: res => {
+    //           console.log(res)
+    //         },
+    //       })
+    //     }
+    //   })
+    // }).catch(e => {
+    //   // 打印一下错误
+    //   console.log(JSON.stringify(e) + "+++++++")
+    // })
   },
 
   /**
@@ -117,7 +221,12 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function() {
-
+    var userInfo = wx.getStorageSync('userInfo')
+    var school = wx.getStorageSync('school')
+    this.setData({
+      school: school,
+      userInfo: userInfo
+    })
   },
 
   /**

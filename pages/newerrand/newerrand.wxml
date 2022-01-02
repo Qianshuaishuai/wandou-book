@@ -7,16 +7,16 @@
   </view>
 
   <view class="type-box">
-    <view class="type-block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index" bindtap="changeType" data-index="{{index}}">
+    <view class="type-block" wx:for="{{typeList}}" wx:for-item="item" wx:for-index="index" bindtap="changeType" data-index="{{index}}">
       <image class="bg" src="/assets/image-v2/errands/button2.png" wx:if="{{index === currentTypeindex}}"></image>
       <view class="{{index === currentTypeindex ? 'tip3':'tip2'}}">
-        外卖
+        {{item.name}}
       </view>
     </view>
   </view>
 </view>
 
-<view class="content">
+<!-- <view class="content" wx:if="{{currentTypeindex == 1}}">
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
@@ -50,13 +50,7 @@
       日期
     </view>
   </view>
-
-  <view class="input-box">
-    <input class="input2" placeholder="请选择日期" disabled></input>
-    <picker bindchange="bindPickerDateChange" mode="date" value="{{date}}" start="2021-09-01" end="2023-09-01">
-      <image class="date" src="/assets/image-v2/errands/date.png"></image>
-    </picker>
-  </view>
+  <input class="input" placeholder="请填写日期" bindinput="changeDate"></input>
 
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
@@ -66,9 +60,483 @@
   </view>
 
   <input class="input" bindinput="changeSendAddress" placeholder="请输入送货位置" style="margin-bottom:60rpx;"></input>
+</view> -->
+<!-- 快递 -->
+<view class="content" wx:if="{{currentTypeindex == 0}}">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      跑腿需求
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressAsk" placeholder="请输入跑腿需求"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      代拿地点
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressAddress" placeholder="请输入代拿地点"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      送达时间
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressTime" placeholder="请输入送达时间"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      送货位置
+    </view>
+  </view>
+  <input class="input" placeholder="请填写送货位置" bindinput="changeExpressArrivalAddress"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      金额
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressPrice" placeholder="请输入金额" type="number"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      联系方式
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressContract" placeholder="请输入联系方式"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      备注
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressNote" placeholder="请输入备注"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      支付金额
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
 </view>
 
-<view class="release">
+
+<!-- 美食代购 -->
+<view class="content" wx:if="{{currentTypeindex == 1}}">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      收货地址
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAgentReceiveAddress" placeholder="请输入收货地址"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      商家地址
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAgentStoreAddress" placeholder="请输入商家地址"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      送达时间
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAgentArrivalTime" placeholder="请输入送达时间"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      代购商品
+    </view>
+  </view>
+  <input class="input" placeholder="请填写代购商品" bindinput="changeAgent"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      代购价格
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAgentPrice" placeholder="请输入代购价格" type="number"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      代购费
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAgentCost" placeholder="请输入代购费" type="number"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      联系方式
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAgentContract" placeholder="请输入联系方式"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      备注
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAgentNote" placeholder="请输入备注"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      支付金额
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAgentPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+</view>
+
+<!-- 代课 -->
+<view class="content" wx:if="{{currentTypeindex == 2}}">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      代课日期
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAbsentTime" placeholder="请输入代课日期"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      代课时间
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAbsentDate" placeholder="请输入代课时间"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      代课地点
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAbsentAddress" placeholder="请输入代课地点"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      代课费用
+    </view>
+  </view>
+  <input class="input" placeholder="请填写代课费用" bindinput="changeAbsentPrice" type="number"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      代课要求
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAbsentAsk" placeholder="请输入代课要求"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      联系方式
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAbsentContract" placeholder="请输入联系方式"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      备注
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAbsentNote" placeholder="请输入备注"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      支付金额
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeAbsentPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+</view>
+
+<!-- 其他跑腿 -->
+<view class="content" wx:if="{{currentTypeindex == 3}}">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      收货地址
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeOtherReceiveAddress" placeholder="请输入收货地址"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      跑腿地址
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeOtherErrandAddress" placeholder="请输入跑腿地址"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      送达时间
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeOtherArrivalTime" placeholder="请输入送达时间"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      跑腿要求
+    </view>
+  </view>
+  <input class="input" placeholder="请填写跑腿要求" bindinput="changeOtherErrandAsk"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      跑腿费用
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeOtherErrandPrice" placeholder="请输入跑腿费用" type="number"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      联系方式
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeOtherContract" placeholder="请输入联系方式"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      备注
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeOtherNote" placeholder="请输入备注"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      支付金额
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeOtherPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+</view>
+
+<!-- 租赁 -->
+<view class="content" wx:if="{{currentTypeindex == 4}}">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      物品
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeLeaseThing" placeholder="请输入物品"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      时长
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeLeaseTime" placeholder="请输入时长"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      金额
+    </view>
+  </view>
+  <input class="input" placeholder="请填写金额" bindinput="changeLeasePrice" type="number"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      联系方式
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeLeaseContract" placeholder="请输入联系方式"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      备注
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeLeaseNote" placeholder="请输入备注"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      支付金额
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeLeasePayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+</view>
+
+<!-- 陪玩 -->
+<view class="content" wx:if="{{currentTypeindex == 5}}">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      游戏
+    </view>
+  </view>
+
+  <input class="input" bindinput="changePlayGame" placeholder="请输入游戏"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      目标
+    </view>
+  </view>
+
+  <input class="input" bindinput="changePlayTarget" placeholder="请输入目标"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      金额
+    </view>
+  </view>
+  <input class="input" placeholder="请填写金额" bindinput="changePlayPrice" type="number"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      联系方式
+    </view>
+  </view>
+
+  <input class="input" bindinput="changePlayContract" placeholder="请输入联系方式"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      备注
+    </view>
+  </view>
+
+  <input class="input" bindinput="changePlayNote" placeholder="请输入备注"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      支付金额
+    </view>
+  </view>
+
+  <input class="input" bindinput="changePlayPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+</view>
+
+<!-- 悬赏 -->
+<view class="content" wx:if="{{currentTypeindex == 6}}">
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      任务
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeRewardTask" placeholder="请输入任务"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      任务数量
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeRewardTaskCount" placeholder="请输入任务数量" type="number"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      金额
+    </view>
+  </view>
+  <input class="input" placeholder="请填写金额" bindinput="changeRewardPrice" type="number"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      联系方式
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeRewardContract" placeholder="请输入联系方式"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      备注
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeRewardNote" placeholder="请输入备注"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      支付金额
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeRewardPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+</view>
+
+
+<view class="release" bindtap="release">
   <image class="bg" src="/assets/image-v2/errands/button1.png"></image>
   <view class="button">
     <image class="icon" src="/assets/image-v2/errands/release.png"></image>

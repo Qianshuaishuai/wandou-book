@@ -7,16 +7,25 @@
 <view class="box1">
   <view class="select">
     <image src="../../assets/image-v2/takeerrand/more.png" class="more"></image>
-    <view class="tip2">快递</view>
+    <view class="tip2" bindtap="doSelectDialog">{{typeList[currentTypeIndex].name}}</view>
     <image src="../../assets/image-v2/takeerrand/down.png" class="down"></image>
+    <view class="dialog" wx:if="{{showSelectDialog}}">
+      <view class="item" wx:for="{{typeList}}" wx:for-item="item" wx:for-index="index" bindtap="selectType" data-index="{{index}}">
+        {{item.name}}
+      </view>
+    </view>
   </view>
 
   <view class="sort">
-    <view class="tip3">金额从高到低</view>
+    <view class="tip3" bindtap="doSelectDialog2">{{type2List[currentType2Index].name}}</view>
     <image src="../../assets/image-v2/takeerrand/down_blue.png" class="down2"></image>
+    <view class="dialog" wx:if="{{showSelectDialog2}}">
+      <view class="item" wx:for="{{type2List}}" wx:for-item="item" wx:for-index="index" bindtap="selectType2" data-index="{{index}}">
+        {{item.name}}
+      </view>
+    </view>
   </view>
 </view>
-
 <view class="content">
   <view class="tab-list">
     <view class="tab-box" bindtap="changeSelectStatus" data-index="0">
@@ -45,11 +54,11 @@
   </view>
 
   <view class="list">
-    <view class="block" wx:for="{{testList}}" wx:for-item="item" wx:for-index="index">
+    <view class="block" wx:for="{{showData}}" wx:for-item="item" wx:for-index="index" bindtap="goToDetail" data-index="{{index}}">
       <view class="top1">
-        <view class="type">类别：快递</view>
+        <view class="type">类别：{{item.typeStr}}</view>
         <view class="right">
-          <view class="auto">
+          <view class="auto" style="display:none">
             <view class="time1">还剩</view>
             <view class="time2" style="margin-left: 10rpx;margin-right: 10rpx;">23:59:59</view>
             <view class="time1">自动确认</view>
@@ -59,7 +68,7 @@
               ￥
             </view>
             <view class="price">
-              5.00
+              {{item.showPrice}}
             </view>
           </view>
         </view>
@@ -67,10 +76,13 @@
 
       <view class="address-box">
         <view class="address-block">
-          <image src="../../assets/image-v2/receivedetail/address1.png" class="icon">
-          </image>
+          <!-- <image src="../../assets/image-v2/receivedetail/address1.png" class="icon">
+          </image> -->
+          <view class="tag10" style="background:{{item.tagC1}}">
+            {{item.tag1}}
+          </view>
           <view class="address">
-            男生宿舍13栋606
+            {{item.tag11}}
           </view>
         </view>
 
@@ -78,30 +90,55 @@
         </image>
 
         <view class="address-block" style="margin-bottom:23rpx;">
-          <image src="../../assets/image-v2/receivedetail/address2.png" class="icon">
-          </image>
+          <!-- <image src="../../assets/image-v2/receivedetail/address2.png" class="icon">
+          </image> -->
+          <view class="tag10" style="background:{{item.tagC2}}">
+            {{item.tag2}}
+          </view>
           <view class="address">
-            女生宿舍3栋花园门口
+            {{item.tag22}}
           </view>
         </view>
       </view>
 
 
-      <view class="time-box">
+      <view class="time-box"  style="margin-bottom: {{item.type<=3?'0rpx':'43rpx'}}">
         <image class="tag" src="/assets/image-v2/errandlist/time.png"></image>
         <view class="time">
-          送货时间：2021-10-13 21:00~21:30
+          {{item.tip1}}
         </view>
       </view>
 
-      <view class="time-box" style="margin-bottom: 43rpx">
+      <view class="time-box" style="margin-bottom: 43rpx" wx:if="{{item.type<=3}}">
         <image class="tag" src="/assets/image-v2/errandlist/box.png"></image>
         <view class="time">
-          快递数量：大件1个、中件2个、小件5个
+          {{item.tip2}}
         </view>
       </view>
 
-      <view class="status">进行中</view>
+      <!-- <view class="status" wx:if="{{item.status == 1}}"></view> -->
+      <view class="button" wx:if="{{item.status == 1}}" bindtap="take" data-index="{{index}}">
+        <view class="bt-bg">
+          <image src="../../assets/image-v2/lease/bg.png" class="bg1"></image>
+          <image src="../../assets/image-v2/lease/right.png" class="right"></image>
+          <view class="tip13">
+            接单
+          </view>
+        </view>
+      </view>
+      <view class="status" wx:if="{{item.status == 2}}" style="right:150rpx;">进行中</view>
+      <view class="button" wx:if="{{item.status == 2}}" bindtap="sure" data-index="{{index}}">
+        <view class="bt-bg">
+          <image src="../../assets/image-v2/lease/bg.png" class="bg1"></image>
+          <!-- <image src="../../assets/image-v2/lease/right.png" class="right"></image> -->
+          <view class="tip13" style="width:100rpx">
+            已送达
+          </view>
+        </view>
+      </view>
+
+      <view class="status" wx:if="{{item.status == 3}}" style="color:green">待确认</view>
+      <view class="status" wx:if="{{item.status == 4}}" style="color:#8C8F8D">已完成</view>
     </view>
   </view>
 </view>
