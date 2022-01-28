@@ -29,6 +29,14 @@ page {
   box-sizing: border-box;
 }
 
+.tiptip{
+  font-size: 26rpx;
+  color: #cccccc;
+  margin-top: 24rpx;
+  margin-bottom: 24rpx;
+  margin-left: 32rpx;
+}
+
 .box .top .icon {
   width: 39rpx;
   height: 37rpx;

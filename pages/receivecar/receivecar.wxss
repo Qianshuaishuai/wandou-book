@@ -1,6 +1,6 @@
 page {
   background: #f4f4f9;
-  padding-bottom: 168rpx;
+  padding-bottom: 96rpx;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -64,13 +64,13 @@ page {
   flex-direction: column;
   margin-top: 38rpx;
   position: relative;
-  height: 685rpx;
   z-index: 4;
   padding-left: 42rpx;
   padding-right: 42rpx;
   padding-top: 50rpx;
   margin-left: 25rpx;
   margin-right: 25rpx;
+  min-height: 645rpx;
 }
 
 .content .bg1 {
@@ -123,6 +123,7 @@ page {
   display: flex;
   flex-direction: row;
   align-items: center;
+  z-index: 999999;
 }
 
 .content .top .right .clear {
@@ -139,7 +140,6 @@ page {
 }
 
 .list {
-  height: 420rpx;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -174,6 +174,7 @@ page {
   font-family: PingFang SC;
   font-weight: bold;
   color: #333;
+  width: 450rpx;
 }
 
 .list .block .middle .isbn {
@@ -220,6 +221,52 @@ page {
   padding: 6rpx 30rpx;
 }
 
+.list .block .delete2 {
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+
+/* .list .block .box2 {
+  background: rgba(10, 27, 37, 0);
+  border: 1px solid #b3b3b3;
+  border-radius: 22rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #979696;
+  text-align: center;
+  position: absolute;
+  bottom: 18rpx;
+  right: 0rpx;
+  padding: 6rpx 30rpx;
+} */
+
+.list .block .box2 {
+  position: absolute;
+  bottom: 18rpx;
+  right: 12rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list .block .box2 .do {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.list .block .box2 .count {
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #333;
+}
+
 .util {
   display: flex;
   flex-direction: row;
@@ -260,7 +307,7 @@ page {
 }
 
 .button-box {
-  margin-top: 96rpx;
+  margin-top: 48rpx;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -296,4 +343,34 @@ page {
   font-weight: bold;
   color: #333;
   margin-top: 20rpx;
+}
+
+.dialog-bg {
+  width: 100%;
+  height: 100vh;
+  opacity: 0.5;
+  background: #000;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 9999999;
+}
+
+.dialog-tip {
+  width: 530rpx;
+  height: 280rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 38%;
+  left: 50%;
+  margin-left: -280rpx;
+  z-index: 9999999;
+  justify-content: center;
+  text-align: center;
+  padding-left: 24rpx;
+  padding-right: 24rpx;
 }

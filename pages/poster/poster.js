@@ -38,12 +38,18 @@ Page({
       avatarUrl: "", //用户头像0
       nickName: "", //用户昵称
     },
+    nickName: "",
     imgPath1: "",
     imgPath2: "",
     imgPath3: "",
     loadingStatus: false,
     imageTempPath: '',
     imgSrc: '',
+    windowWidth: 0,
+    windowHeight: 0,
+    officialWidth: 375,
+    officialHeight: 603,
+    radio: 1,
     // 图片上传（从相册）返回对象。上传完成后，此属性被赋值
     imageObject: {},
     // 文件上传（从客户端会话）返回对象。上传完成后，此属性被赋值
@@ -79,8 +85,17 @@ Page({
     initQiniu();
     var userInfo = wx.getStorageSync('userInfo')
     userInfo.avatarUrl = avatarUrl
+    const info = wx.getSystemInfoSync();
+    const windowWidth = info.windowWidth;
+    const windowHeight = info.windowHeight;
+    const officialHeight = this.data.officialHeight
+    var radio = windowHeight / officialHeight
     this.setData({
-      userInfo: userInfo
+      userInfo: userInfo,
+      windowWidth: windowWidth,
+      windowHeight: windowHeight,
+      nickName: options.name,
+      radio: radio
     })
 
     this.uploadCanvas()
@@ -108,17 +123,22 @@ Page({
     const info = wx.getSystemInfoSync();
     const windowWidth = info.windowWidth;
     const windowHeight = info.windowHeight;
+    const officialWidth = this.data.officialWidth;
+    const officialHeight = this.data.officialHeight;
+    console.log("windowWidth:" + windowWidth)
+    console.log("windowHeight:" + windowHeight)
+    console.log("radio:" + that.data.radio)
     wx.getImageInfo({
-      src: "https://ebag-exam.oss-cn-shenzhen.aliyuncs.com/show/share.png",
+      src: "https://resource.qimsj.com/newpost.jpg",
       success: function(res) {
         var path = res.path;
-        context.drawImage(path, 0, 0, windowWidth, windowHeight * 0.9)
+        context.drawImage(path, 0, 0, windowHeight * 0.4775, windowHeight * 0.85)
         var codePath = that.data.userInfo.code.replace("http", "https")
         wx.getImageInfo({
           src: codePath,
           success: function(res1) {
             var path1 = res1.path;
-            context.drawImage(path1, windowWidth * 0.62, windowHeight * 0.68, 110, 110);
+            context.drawImage(path1, windowHeight * 0.4775 * 0.618, windowHeight * 0.631, 70 * that.data.radio, 70 * that.data.radio);
             wx.getImageInfo({
               src: that.data.userInfo.avatarUrl,
               success: function(res2) {
@@ -126,10 +146,10 @@ Page({
 
                 // context.drawImage(path2, windowWidth * 0.70, windowHeight * 0.72, 50, 50);
 
-                var width = 42
-                var height = 42
-                var x = windowWidth * 0.62 + 34
-                var y = windowHeight * 0.68 + 34
+                var width = 30 * that.data.radio
+                var height = 30 * that.data.radio
+                var x = windowHeight * 0.4775 * 0.618 + 20 * that.data.radio
+                var y = windowHeight * 0.631 + 20 * that.data.radio
                 var radio = 1
 
                 context.save();
@@ -152,56 +172,57 @@ Page({
                 context.drawImage(path2, x, y, width, height); // 推进去图片，必须是https图片
 
                 context.restore(); //恢复之前保存的绘图上下文 恢复之前保存的绘图上下午即状态 还可以继续绘制
+                console.log(that.data.userInfo)
+                context.font = 'normal bold 10px sans-serif';
+                context.setFontSize(12 *  that.data.radio);
 
-                context.font = 'normal 11px sans-serif';
-                context.setFontSize(14);
-                context.setFillStyle('#333333');
-                context.fillText('扫描右侧二维码', windowWidth * 0.12, windowHeight * 0.705)
+                context.setFillStyle('#327ED7');
+                context.fillText(that.data.nickName + '邀请了你', windowHeight / 1.8 * 0.26 , windowHeight * 0.675)
 
-                context.font = 'normal 11px sans-serif';
-                context.setFontSize(15);
-                context.setFillStyle('#55ADFF');
-                context.fillText('旧书轻松变现 领大额购书券', windowWidth * 0.12, windowHeight * 0.74);
+                // context.font = 'normal 11px sans-serif';
+                // context.setFontSize(15);
+                // context.setFillStyle('#55ADFF');
+                // context.fillText('旧书轻松变现 领大额购书券', windowWidth * 0.12, windowHeight * 0.74);
 
-                context.font = 'normal 11px sans-serif';
-                context.setFontSize(12);
-                context.setFillStyle('#333333');
-                context.fillText('扫码轻松下单，书本按本回收', windowWidth * 0.12, windowHeight * 0.780);
+                // context.font = 'normal 11px sans-serif';
+                // context.setFontSize(12);
+                // context.setFillStyle('#333333');
+                // context.fillText('扫码轻松下单，书本按本回收', windowWidth * 0.12, windowHeight * 0.780);
 
-                context.font = 'normal 11px sans-serif';
-                context.setFontSize(12);
-                context.setFillStyle('#333333');
-                context.fillText('快递免费上门取件', windowWidth * 0.12, windowHeight * 0.81);
+                // context.font = 'normal 11px sans-serif';
+                // context.setFontSize(12);
+                // context.setFillStyle('#333333');
+                // context.fillText('快递免费上门取件', windowWidth * 0.12, windowHeight * 0.81);
 
-                context.font = 'normal 11px sans-serif';
-                context.setFontSize(12);
-                context.setFillStyle('#333333');
-                context.fillText('审核完成轻松提现', windowWidth * 0.12, windowHeight * 0.84);
+                // context.font = 'normal 11px sans-serif';
+                // context.setFontSize(12);
+                // context.setFillStyle('#333333');
+                // context.fillText('审核完成轻松提现', windowWidth * 0.12, windowHeight * 0.84);
 
 
-                context.save();
-                context.beginPath();
-                context.arc(windowWidth * 0.12 - 8, windowHeight * 0.78 - 6, 2.5, 0, Math.PI * 2, false);
-                context.setFillStyle('#55ADFF')
-                context.fill()
-                context.clip();
-                context.restore()
+                // context.save();
+                // context.beginPath();
+                // context.arc(windowWidth * 0.12 - 8, windowHeight * 0.78 - 6, 2.5, 0, Math.PI * 2, false);
+                // context.setFillStyle('#55ADFF')
+                // context.fill()
+                // context.clip();
+                // context.restore()
 
-                context.save();
-                context.beginPath();
-                context.arc(windowWidth * 0.12 - 8, windowHeight * 0.81 - 6, 2.5, 0, Math.PI * 2, false);
-                context.setFillStyle('#55ADFF')
-                context.fill()
-                context.clip();
-                context.restore()
+                // context.save();
+                // context.beginPath();
+                // context.arc(windowWidth * 0.12 - 8, windowHeight * 0.81 - 6, 2.5, 0, Math.PI * 2, false);
+                // context.setFillStyle('#55ADFF')
+                // context.fill()
+                // context.clip();
+                // context.restore()
 
-                context.save();
-                context.beginPath();
-                context.arc(windowWidth * 0.12 - 8, windowHeight * 0.84 - 6, 2.5, 0, Math.PI * 2, false);
-                context.setFillStyle('#55ADFF')
-                context.fill()
-                context.clip();
-                context.restore()
+                // context.save();
+                // context.beginPath();
+                // context.arc(windowWidth * 0.12 - 8, windowHeight * 0.84 - 6, 2.5, 0, Math.PI * 2, false);
+                // context.setFillStyle('#55ADFF')
+                // context.fill()
+                // context.clip();
+                // context.restore()
 
                 context.draw()
 

@@ -14,6 +14,23 @@ Page({
     tracks: [],
     showTime: [],
     mainHeight: 0,
+    passCount: 0,
+  },
+
+  copy(e){
+    wx.setClipboardData({
+      data: 'yuxiukeji',
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            wx.showToast({
+              title: '客服微信复制成功',
+              icon: 'none'
+            })
+          }
+        })
+      }
+    })
   },
 
   back(e) {
@@ -87,12 +104,15 @@ Page({
       success: res => {
         var order = res.data.F_data
         var totalCount = 0
+        var passCount = 0
         for (var o = 0; o < order.orderBooks.length; o++) {
           totalCount = totalCount + order.orderBooks[o].count
+          passCount = passCount + order.orderBooks[o].realCount
         }
         order.count = totalCount
         this.setData({
-          orderDetail: order
+          orderDetail: order,
+          passCount: passCount
         })
 
         // var currentCity = ""
@@ -164,12 +184,12 @@ Page({
           orderDetail.showCreate = true
 
           var timeSimple = new Object
-          timeSimple.name = "初审通过"
+          timeSimple.name = "待确认"
           timeSimple.time = orderDetail.inquiryTime
           showTime.push(timeSimple)
         } else {
           var timeSimple = new Object
-          timeSimple.name = "初审通过"
+          timeSimple.name = "待确认"
           timeSimple.time = ""
           showTime.push(timeSimple)
         }
@@ -179,12 +199,12 @@ Page({
           orderDetail.showWl = true
 
           var timeSimple = new Object
-          timeSimple.name = "物流收件"
+          timeSimple.name = "待收件"
           timeSimple.time = orderDetail.wlTime
           showTime.push(timeSimple)
         } else {
           var timeSimple = new Object
-          timeSimple.name = "物流收件"
+          timeSimple.name = "待收件"
           timeSimple.time = ""
           showTime.push(timeSimple)
         }
@@ -193,12 +213,12 @@ Page({
           orderDetail.showReceipt = true
 
           var timeSimple = new Object
-          timeSimple.name = "物流签收"
+          timeSimple.name = "待审核"
           timeSimple.time = orderDetail.receiptTime
           showTime.push(timeSimple)
         } else {
           var timeSimple = new Object
-          timeSimple.name = "物流签收"
+          timeSimple.name = "待审核"
           timeSimple.time = ""
           showTime.push(timeSimple)
         }
@@ -219,12 +239,12 @@ Page({
             orderDetail.showComplete = true
 
             var timeSimple = new Object
-            timeSimple.name = "审核完毕"
+            timeSimple.name = "已完成"
             timeSimple.time = orderDetail.completeTime
             showTime.push(timeSimple)
           } else {
             var timeSimple = new Object
-            timeSimple.name = "审核完毕"
+            timeSimple.name = "已完成"
             timeSimple.time = ""
             showTime.push(timeSimple)
           }

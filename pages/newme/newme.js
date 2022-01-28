@@ -46,6 +46,14 @@ Page({
     })
   },
 
+  goToMyContract() {
+    wx.showToast({
+      title: '正在抓紧开发中',
+      icon: 'none'
+    })
+    return
+  },
+
   takeErrand(event) {
     if (this.data.userInfo.phone == "") {
       wx.showToast({

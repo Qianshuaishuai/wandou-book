@@ -127,7 +127,7 @@
       <view class="tip7">客服微信</view>
     </view>
 
-    <view class="util-block">
+    <view class="util-block" bindtap="goToMyContract">
       <image src="../../assets/image-v2/newme/message.png" class="icon4"></image>
       <view class="tip7">我的私信</view>
     </view>

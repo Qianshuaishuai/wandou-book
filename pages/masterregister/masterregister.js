@@ -9,6 +9,7 @@ Page({
     currentPhone: "",
     currentVerify: "",
     showUnbindDialog: false,
+    showUnbindDialog2: false,
     userInfo: {},
     timeCountDown: 0
   },
@@ -169,6 +170,12 @@ Page({
                 },
               })
             }
+
+            setTimeout(function () {
+              wx.navigateBack({
+                delta: 1
+              })
+            }, 1000);
           } else {
             setTimeout(function() {
               wx.navigateBack({
@@ -211,6 +218,35 @@ Page({
     })
   },
 
+  unbind2(event) {
+    if (this.data.userInfo.phone == "") {
+      wx.showToast({
+        title: '你还未绑定手机',
+        icon: 'none'
+      })
+      return
+    } else {
+      this.setData({
+        showUnbindDialog: false,
+        showUnbindDialog2: true
+      })
+
+      wx.setClipboardData({
+        data: 'yuxiukeji',
+        success: function(res) {
+          wx.getClipboardData({
+            success: function(res) {
+              wx.showToast({
+                title: '客服微信复制成功',
+                icon: 'none'
+              })
+            }
+          })
+        }
+      })
+    }
+  },
+
   unbind(event) {
     this.setData({
       showUnbindDialog: true
@@ -219,7 +255,8 @@ Page({
 
   closeDialog(event) {
     this.setData({
-      showUnbindDialog: false
+      showUnbindDialog: false,
+      showUnbindDialog2: false
     })
   },
 

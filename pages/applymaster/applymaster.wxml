@@ -33,7 +33,7 @@
 
   <input class="input" bindinput="changeCount" type="number" placeholder="请输入团队人数" style="margin-bottom: 48rpx;"></input>
 </view>
-<view class="content">
+<view class="content" style="display:none">
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
@@ -52,14 +52,14 @@
 </view>
 
 <view class="content">
-  <view class="tag-box">
+  <!-- <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       微信
     </view>
   </view>
 
-  <input class="input" bindinput="changeWechat" placeholder="请输入微信号"></input>
+  <input class="input" bindinput="changeWechat" placeholder="请输入微信号"></input> -->
 
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>

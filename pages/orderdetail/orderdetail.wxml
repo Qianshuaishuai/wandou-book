@@ -1,14 +1,12 @@
 <wxs module="filters" src="../../utils/filters.wxs"></wxs>
-<image src="../../assets/new-images/buyorderdetail/top.png" class="top-bg"></image>
-
-<image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
-</image>
-<view class="tip" style="top:{{statusBarHeight+8}}px">
-  卖书订单详情
-</view>
-
 <view class="main">
+  <image src="../../assets/new-images/buyorderdetail/top.png" class="top-bg"></image>
 
+  <image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
+  </image>
+  <view class="tip" style="top:{{statusBarHeight+8}}px">
+    卖书订单详情
+  </view>
   <view class="box1">
     <image src="../../assets/new-images/buyorderdetail/icon1.png" class="icon1"></image>
     <view class="box2">
@@ -102,11 +100,11 @@
     </view>
   </view>
 
-  <view class="wl-detail" wx:if="{{orderDetail.status != -1}}" >
+  <view class="wl-detail" wx:if="{{orderDetail.status != -1}}">
     <image src="../../assets/new-images/orderdetail/icon22.png" class="icon13"></image>
     <view class="wl-content">
       <view class="tip13">物流信息</view>
-      <view class="tip14" wx:if="{{orderDetail.wlNumber != ''}}" bindtap="goToTrack" data-orderNo="{{orderDetail.orderNumber}}" data-wlnumber="{{orderDetail.wlNumber}}"  data-wllnumber="{{orderDetail.wllNumber}}">{{tracks[tracks.length-1].opeRemark}}</view>
+      <view class="tip14" wx:if="{{orderDetail.wlNumber != ''}}" bindtap="goToTrack" data-orderNo="{{orderDetail.orderNumber}}" data-wlnumber="{{orderDetail.wlNumber}}" data-wllnumber="{{orderDetail.wllNumber}}">{{tracks[tracks.length-1].opeRemark}}</view>
       <view class="tip14" wx:if="{{orderDetail.wlNumber == ''}}">暂无物流信息</view>
       <view class="tip15" wx:if="{{orderDetail.wlNumber != ''}}">{{tracks[tracks.length-1].opeTime}}</view>
     </view>
@@ -130,7 +128,7 @@
           <view style="color:#ff0000;font-size:28rpx" class="tip4" wx:if="{{book.book.isRefund == 0&&(book.quality!='0'&&book.quality!='')}}">{{book.quality}}
           </view>
         </view>
-        <view class="tip5" wx:if="{{book.isRefund == 0 && orderDetail.status==4}}">¥ {{book.realPrice}}
+        <view class="tip5" wx:if="{{book.isRefund == 0 && orderDetail.status==4}}">¥ {{filters.toFix(book.realPrice * book.realCount)}}
         </view>
         <view class="tip5" wx:if="{{book.isRefund == 1 && orderDetail.status==4}}">被拒收
         </view>
@@ -138,20 +136,24 @@
         </view>
       </view>
 
-      <view class="count">
-        x{{book.count}}
+      <view class="count" wx:if="{{orderDetail.status==4}}">
+        合格{{book.realCount}}本-不合格{{book.count-book.realCount}}本
       </view>
     </view>
   </view>
 
-  <view class="detail">
+  <view class="detail" style="margin-bottom: 96rpx">
     <view class="box3" style="padding-top:28rpx">
-      <view class="tip6">商品数量</view>
+      <view class="tip6">总数量</view>
       <view class="tip7">{{orderDetail.count}}</view>
+    </view>
+    <view class="box3" style="padding-top:28rpx">
+      <view class="tip6">合格数量</view>
+      <view class="tip7">{{passCount}}</view>
     </view>
     <view class="box3" style="margin-top:28rpx">
       <view class="tip6">预估价格</view>
-      <view class="tip7">￥{{orderDetail.price}}</view>
+      <view class="tip7">￥{{filters.toFix(orderDetail.price*0.7)}}~{{orderDetail.price}}</view>
     </view>
     <view class="box3" style="margin-top:36rpx;margin-bottom:24rpx">
       <view class="left">
@@ -164,7 +166,7 @@
     </view>
   </view>
 
-  <view class="tip-box">
+  <!-- <view class="tip-box">
     <view class="tag-box">
       <view class="tag1"></view>
       <view class="tag2"></view>
@@ -178,7 +180,7 @@
       <view class="tip10" wx:if="{{orderDetail.showComplete }}">完成时间：{{orderDetail.completeTime}}</view>
       <view class="tip10" wx:if="{{orderDetail.showCancel}}">取消时间：{{orderDetail.cancelTime}}</view>
     </view>
-  </view>
+  </view> -->
 
-  <image src="../../assets/new-images/buyorderdetail/icon3.png" class="icon4"></image>
+  <image src="../../assets/new-images/buyorderdetail/icon3.png" class="icon4" bindtap="copy"></image>
 </view>

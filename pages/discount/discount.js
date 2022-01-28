@@ -7,9 +7,9 @@ Page({
    */
   data: {
     statusBarHeight: app.globalData.statusBarHeight,
-    currentIndex:0,
-    testList:["","","","","",""],
-    couponList:[]
+    currentIndex: 0,
+    testList: ["", "", "", "", "", ""],
+    couponList: []
   },
 
   changeIndex(event) {
@@ -25,16 +25,33 @@ Page({
     })
   },
 
+  copy(event) {
+    var index = Number(event.currentTarget.dataset.index)
+    var command = this.data.couponList[index].command
+    wx.setClipboardData({
+      data: command,
+      success: function(res) {
+        wx.getClipboardData({
+          success: function(res) {
+            wx.showToast({
+              title: '复制口令成功'
+            })
+          }
+        })
+      }
+    })
+  },
+
   getTaobaoCouponoList() {
     wx.request({
       url: app.globalData.baseUrl + '/v1/taobaocoupon/list',
       success: res => {
         var list = res.data.F_data
-        for (var l = 0;l<list.length;l++){
-          switch(list[l].type){
+        for (var l = 0; l < list.length; l++) {
+          switch (list[l].type) {
             case 1:
-              list[l].typeStr = "Taobao" 
-            break
+              list[l].typeStr = "Taobao"
+              break
 
             case 2:
               list[l].typeStr = "Tianmao"
@@ -55,56 +72,56 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.getTaobaoCouponoList()
   },
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page show
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page hide
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page unload
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * Page event handler function--Called when user drop down
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * Called when page reach bottom
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * Called when user click on the top right corner to share
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

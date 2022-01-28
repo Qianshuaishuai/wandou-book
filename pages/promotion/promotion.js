@@ -95,6 +95,7 @@ Page({
       desc: '用于完善用户资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         var avatarUrl = res.userInfo.avatarUrl
+        var nickName = res.userInfo.nickName
         //生成海报点击事件
         if (this.data.userInfo.code == undefined || this.data.userInfo.code == "") {
           wx.showToast({
@@ -105,7 +106,7 @@ Page({
           return
         }
         wx.navigateTo({
-          url: '/pages/poster/poster?avatarUrl=' + avatarUrl,
+          url: '/pages/poster/poster?avatarUrl=' + avatarUrl + "&name=" + nickName,
         })
       }
     })

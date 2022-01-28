@@ -223,7 +223,7 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '快来豌豆商城买书吧！',
+      title: '快来零跑校园商城买书吧！',
       path: '/pages/newindex/newindex',
     }
   },

@@ -1,8 +1,8 @@
 <!-- <scroll-view>
-  <view style="text-align: center; font-size: 40rpx; font-weight: bold;margin-top: 20rpx">欢迎成为豌豆书单的合伙人</view>
+  <view style="text-align: center; font-size: 40rpx; font-weight: bold;margin-top: 20rpx">欢迎成为零跑校园的合伙人</view>
   <view style="margin-top: 20rpx;margin-left: 40rpx">校园环保大使推广活动推广员开始招募啦！</view>
   <view style="margin-top: 10rpx;line-height: 60rpx;margin-left: 40rpx;margin-right: 40rpx">
-    <text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您可以通过生成朋友圈海报等方式推广小程序，您的朋友在卖书给豌豆书单后您可以得到相应的佣金。</text>
+    <text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您可以通过生成朋友圈海报等方式推广小程序，您的朋友在卖书给零跑校园后您可以得到相应的佣金。</text>
   </view>
   <view style="margin-top: 10rpx;margin-left: 40rpx">一、图片关系图：</view>
   <view class="img-class">

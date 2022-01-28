@@ -2,7 +2,7 @@
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
-      真实姓名
+      姓名
     </view>
   </view>
 
@@ -11,12 +11,12 @@
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
-      学生证号
+      电话
     </view>
   </view>
-  <input class="input" bindinput="changeStudentNo" placeholder="请输入学生证号"></input>
+  <input class="input" bindinput="changeStudentNo" placeholder="请输入电话"></input>
 
-  <view class="tag-box">
+  <view class="tag-box" style="display:none">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       学生证正面
@@ -28,12 +28,12 @@
     <image class="add" src="/assets/image-v2/certrider/photo-add.png"></image>
   </view> -->
 
-  <view class="photo-box" bindtap="addPhoto" wx:if="{{currentPic == ''}}">
+  <view class="photo-box" bindtap="addPhoto" wx:if="{{currentPic == ''}}"  style="display:none">
     <image class="bg" src="/assets/image-v2/certrider/photo-bg.png"></image>
     <image class="add" src="/assets/image-v2/certrider/photo-add.png"></image>
   </view>
 
-  <view class="photo-box" bindtap="addPhoto" wx:if="{{currentPic != ''}}">
+  <view class="photo-box" bindtap="addPhoto" wx:if="{{currentPic != ''}}"  style="display:none">
     <image class="bg" src="{{currentPic}}"></image>
   </view>
 </view>

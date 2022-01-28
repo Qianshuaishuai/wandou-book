@@ -43,12 +43,12 @@
     </view>
   </view>
 
-  <view class="block">
+  <!-- <view class="block" bindtap="goToStudyCar">
     <image src="../../assets/image-v2/newindex2/icon4.png" class="icon1"></image>
     <view class="tip1">
       学驾照
     </view>
-  </view>
+  </view> -->
 </view>
 
 <view class="button">
@@ -97,7 +97,7 @@
 
 <view class="list">
   <view class="block" wx:for="{{tweetList}}" wx:for-item="item" wx:for-index="index">
-    <image src="../../assets/image-v2/newindex2/test1.png" class="pic"></image>
+    <image src="{{item.cover}}" class="pic"></image>
     <view class="box5">
       <view class="content">
         {{item.content}}

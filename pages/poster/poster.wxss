@@ -1,12 +1,13 @@
 /* pages/poster/poster.wxss */
 
 page {
-  overflow: hidden;
+  overflow: auto;
+  background: #eff5fa;
 }
 
 .img {
   width: 100vw;
-  height: 90vh;
+  height: 180vw;
   text-align: center;
   z-index: 1;
   position: fixed;
@@ -110,8 +111,8 @@ page {
 }
 
 .post-cv {
-  width: 100vw;
-  height: 90vh;
+  width: 47.75vh;
+  height: 85vh;
   z-index: 1;
   position: fixed;
   top: 0;

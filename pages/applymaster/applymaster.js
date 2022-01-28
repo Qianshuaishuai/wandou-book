@@ -136,21 +136,21 @@ Page({
       return
     }
 
-    if (this.data.currentWechat == '') {
-      wx.showToast({
-        title: '请填写微信',
-        icon: 'none'
-      })
-      return
-    }
+    // if (this.data.currentWechat == '') {
+    //   wx.showToast({
+    //     title: '请填写微信',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
 
-    if (this.data.currentPic == '') {
-      wx.showToast({
-        title: '请先上传图片',
-        icon: 'none'
-      })
-      return
-    }
+    // if (this.data.currentPic == '') {
+    //   wx.showToast({
+    //     title: '请先上传图片',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
     wx.showLoading({
       title: '申请中...',
     })

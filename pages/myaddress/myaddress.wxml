@@ -27,7 +27,7 @@
 <view class="tip" style="margin-top: 4rpx;">卖书快递上门取件地址</view>
 <view class="none" wx:if="{{sellAddressList.length<=0}}">暂无地址</view>
 <view class="list" wx:if="{{sellAddressList.length>0}}">
-  <view class="block" wx:for="{{sellAddressList}}" wx:for-item="item" wx:for-index="index">
+  <view class="block" wx:for="{{sellAddressList}}" wx:for-item="item" wx:for-index="index" bindtap="goToUse" data-index="{{index}}">
     <view class="content">
       <image class="icon" src="/assets/image-v2/myaddress/icon2.png"></image>
       <view class="box">

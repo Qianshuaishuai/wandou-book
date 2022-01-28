@@ -16,14 +16,15 @@ Page({
     startDate: "",
     endTime: "",
     endDate: "",
-    address: {},
+    address: {id: 0},
     currentAddressId: 1,
-    userInfo: {}
+    userInfo: {},
+    school: {}
   },
 
   goToAddress() {
     wx.navigateTo({
-      url: '/pages/myaddress/myaddress',
+      url: '/pages/myaddress/myaddress?status=1',
     })
   },
 
@@ -46,11 +47,33 @@ Page({
    */
   onLoad: function(options) {
     var currentCarList = wx.getStorageSync('carList')
+    var school = wx.getStorageSync('school')
+    if (school == undefined || school.id == undefined || school.id == 0) {
+      wx.showToast({
+        title: '请先选择学校',
+        icon: 'none'
+      })
+      setTimeout(function () {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 1000);
+      return
+    }
+
     this.setData({
+      school: school,
       carBookList: currentCarList
     })
 
     this.translateAllPrice()
+
+    var object = new Object
+    object.id = 0
+    wx.setStorage({
+      key: 'addressSelect',
+      data: object,
+    })
   },
 
   translateAllPrice() {
@@ -146,8 +169,8 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function() {
-    this.getAddressDefault()
     var userInfo = wx.getStorageSync('userInfo')
+    var address = wx.getStorageSync('addressSelect')
     this.setData({
       userInfo: userInfo
     })
@@ -162,6 +185,16 @@ Page({
          delta: 1
        })
       }, 2000);
+    }
+
+    if (address.id == 0){
+      if(this.data.address.id == 0){
+        this.getAddressDefault()
+      }
+    }else{
+      this.setData({
+        address: address
+      })
     }
   },
 
@@ -181,6 +214,27 @@ Page({
   },
 
   commit() {
+    var currentBookCount = this.data.currentBookCount
+    var allPrice = this.data.allPrice
+
+    if (currentBookCount < 28 && allPrice < 58) {
+      wx.showModal({
+        title: '友情提示',
+        content: '回收书籍最低提交28本或满58元即可回收',
+        showCancel: false
+      })
+      return
+    }
+
+    if (currentBookCount > 200) {
+      wx.showModal({
+        title: '友情提示',
+        content: '回收书籍一单最多200本',
+        showCancel: false
+      })
+      return
+    }
+
     var bookList = this.data.carBookList
     var currentBookCount = 0
     var allPrice = this.data.allPrice
@@ -347,6 +401,7 @@ Page({
       url: app.globalData.baseUrl + '/v1/order/build',
       data: {
         phone: this.data.userInfo.phone,
+        schoolId: this.data.school.id,
         addressId: this.data.currentAddressId,
         bookDatas: bookData,
         price: this.data.allPrice,
@@ -365,11 +420,12 @@ Page({
       header: {
         'content-type': 'application/x-www-form-urlencoded'
       },
+         // content: '你已成功提交,毕业季末高峰期为加快审核速度，请将书籍打包后写上姓名电话订单编号（DY+数字）交给京东快递员',
       success: res => {
         if (res.data.F_responseNo == 10000) {
           wx.showModal({
             title: '提示',
-            content: '你已成功提交,毕业季末高峰期为加快审核速度，请将书籍打包后写上姓名电话订单编号（DY+数字）交给京东快递员',
+            content: '你已成功提交订单，请将书籍打包好交付于京东快递员，并在打包书籍中写一张小纸条您的订编号(LPXXX)以及手机号码姓名',
             showCancel: false,
             success: res => {
               this.setData({

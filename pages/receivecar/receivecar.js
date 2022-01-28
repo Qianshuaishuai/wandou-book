@@ -17,7 +17,9 @@ Page({
     currentBookCount: 0,
     isContinue: false,
     currentFilterStatus: false,
-    filterCarBookList: []
+    filterCarBookList: [],
+    showDialogTip: false,
+    totalCount: 0
   },
 
   bindinput(e) {
@@ -29,6 +31,18 @@ Page({
   goRule(e) {
     wx.navigateTo({
       url: '/pages/rule/rule'
+    })
+  },
+
+  question(event) {
+    this.setData({
+      showDialogTip: !this.data.showDialogTip
+    })
+  },
+
+  closeDialog(event) {
+    this.setData({
+      showDialogTip: false,
     })
   },
 
@@ -78,7 +92,11 @@ Page({
   },
 
   translateAllPrice() {
+    var status = this.data.currentFilterStatus
     var list = this.data.carBookList
+    if (status) {
+      list = this.data.filterCarBookList
+    }
     var allPrice = 0.0
     for (let l = 0; l < list.length; l++) {
       allPrice = allPrice + (list[l].price * list[l].num)
@@ -177,7 +195,7 @@ Page({
           // if (res.data.F_responseMsg == "此书已拒收"){
           //   wx.showModal({
           //     title: '温馨提示',
-          //     content: '抱歉，此书豌豆暂不回收',
+          //     content: '抱歉，此书零跑校园暂不回收',
           //     showCancel: false
           //   })
           // }else{
@@ -190,7 +208,7 @@ Page({
 
           wx.showModal({
             title: '温馨提示',
-            content: '抱歉，此书豌豆暂不回收',
+            content: '抱歉该本书暂不回收，请扫描下一本',
             showCancel: false
           })
 
@@ -249,14 +267,14 @@ Page({
     if (currentIndex !== -1) {
 
       var oldList = this.data.carBookList
-      if (oldList[currentIndex].num >= 1) {
-        wx.showToast({
-          title: '回收车已有此本书',
-          icon: 'none',
-          duration: 2000
-        })
-        return
-      }
+      // if (oldList[currentIndex].num >= 1) {
+      //   wx.showToast({
+      //     title: '回收车已有此本书',
+      //     icon: 'none',
+      //     duration: 2000
+      //   })
+      //   return
+      // }
       oldList[currentIndex].num = oldList[currentIndex].num + 1
       this.setData({
         carBookList: oldList
@@ -275,12 +293,67 @@ Page({
       key: 'carList',
       data: this.data.carBookList,
     })
-    console.log(JSON.stringify(this.data.carBookList))
     this.translateAllPrice()
-
+    var that = this
     if (this.data.isContinue) {
-      this.scanCode()
+      wx.showToast({
+        title: '已成功扫描，请扫描下一本',
+        icon: 'none'
+      })
+      setTimeout(function() {
+        that.scanCode()
+      }, 500)
     }
+  },
+
+
+  translateFilterList() {
+    if (this.data.currentFilterStatus) {
+      var carBookList = this.data.carBookList
+      var filterCarBookList = new Array
+      for (var c = 0; c < carBookList.length; c++) {
+        if (carBookList[c].price >= 0.3) {
+          filterCarBookList.push(carBookList[c])
+        }
+      }
+
+      this.setData({
+        filterCarBookList: filterCarBookList
+      })
+    }
+  },
+
+  initFilterStatus() {
+    this.setData({
+      currentFilterStatus: true
+    })
+
+    if (this.data.currentFilterStatus) {
+      var carBookList = this.data.carBookList
+      var filterCarBookList = new Array
+      for (var c = 0; c < carBookList.length; c++) {
+        if (carBookList[c].price >= 0.3) {
+          filterCarBookList.push(carBookList[c])
+        }
+      }
+
+      this.setData({
+        filterCarBookList: filterCarBookList
+      })
+    }
+  },
+
+  clearList() {
+    this.setData({
+      carBookList: []
+    })
+    wx.setStorage({
+      key: 'carList',
+      data: this.data.carBookList,
+    })
+
+    this.translateFilterList()
+    this.translateAllPrice()
   },
 
   changeFilterStatus() {
@@ -331,7 +404,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var data = [{
+      "id": 2292682500962642,
+      "pic": "http://booklibimg.kfzimg.com/data/book_lib_img_v2/isbn/1/7366/73662b8d8c86734602ded607df62c630_0_1_300_300.jpg",
+      "price": 3.23,
+      "originPrice": 17,
+      "real_price": "88.00",
+      "name": "机器学习",
+      "isbn": "9787302423287",
+      "currentCount": 4,
+      "coverCount": 99,
+      "updateTime": "2022-01-02T04:47:15+08:00",
+      "publishDate": "2016-01",
+      "publish": "清华大学出版社",
+      "author": "周志华",
+      "isRefund": 0,
+      "isDswGet": 1,
+      "isFirstOperated": 0,
+      "num": 4
+    }]
+    wx.setStorage({
+      key: 'carList',
+      data: data,
+    })
   },
 
   /**
@@ -339,6 +434,51 @@ Page({
    */
   onReady: function() {
 
+  },
+
+  reduce(event) {
+    var index = Number(event.currentTarget.dataset.index)
+    var currentCarList = this.data.carBookList
+    if (currentCarList[index].num <= 1) {
+      return
+    }
+
+    currentCarList[index].num = currentCarList[index].num - 1
+
+    this.setData({
+      carBookList: currentCarList
+    })
+
+    wx.setStorage({
+      key: 'carList',
+      data: this.data.carBookList,
+    })
+
+    this.translateFilterList()
+    this.translateAllPrice()
+  },
+
+  add(event) {
+    var index = Number(event.currentTarget.dataset.index)
+    var currentCarList = this.data.carBookList
+
+    // if (currentCarList[index].num <= 1) {
+    //   currentCarList[index].num = currentCarList[index].num - 1
+    // }
+
+    currentCarList[index].num = currentCarList[index].num + 1
+
+    this.setData({
+      carBookList: currentCarList
+    })
+
+    wx.setStorage({
+      key: 'carList',
+      data: this.data.carBookList,
+    })
+
+    this.translateFilterList()
+    this.translateAllPrice()
   },
 
   /**
@@ -356,8 +496,8 @@ Page({
       })
     }
 
+    this.initFilterStatus()
     this.translateAllPrice()
-    console.log(currentCarList)
   },
 
   deleteBook(e) {
@@ -372,6 +512,7 @@ Page({
       data: this.data.carBookList,
     })
 
+    this.translateFilterList()
     this.translateAllPrice()
   },
 

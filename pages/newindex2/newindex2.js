@@ -147,6 +147,14 @@ Page({
     })
   },
 
+  goToStudyCar(){
+    wx.showToast({
+      title: '站长未入驻，暂不开放',
+      icon: 'none'
+    })
+    return
+  },
+
 
   /**
    * Lifecycle function--Called when page load

@@ -53,9 +53,13 @@
     <view class="diviler"></view>
 
     <view class="tip-box">
-      <view class="tip8">仅该两部分收取</view>
+      <view class="tip8">仅跑腿收益部分收取</view>
       <view class="tip9">10%</view>
       <view class="tip8">的技术服务费</view>
+    </view>
+
+     <view class="tip-box2">
+      <view class="tip8">提现优先从卖书推广收益扣除</view>
     </view>
 
     <view class="button" bindtap="commit">

@@ -6,13 +6,14 @@ Page({
    * Page initial data
    */
   data: {
-    testList:["","","","","",""],
-    sellAddressList:[],
-    errandAddressList:[],
-    userInfo:{}
+    testList: ["", "", "", "", "", ""],
+    sellAddressList: [],
+    errandAddressList: [],
+    userInfo: {},
+    status: 0
   },
 
-  build(event){
+  build(event) {
     wx.navigateTo({
       url: '/pages/addaddress/addaddress?id=0',
     })
@@ -23,7 +24,7 @@ Page({
     var index = Number(event.currentTarget.dataset.index)
     var id = sellAddressList[index].id
     wx.navigateTo({
-      url: '/pages/addaddress/addaddress?id='+id,
+      url: '/pages/addaddress/addaddress?id=' + id,
     })
   },
 
@@ -116,11 +117,11 @@ Page({
     })
   },
 
-  setSellDefault(event){
+  setSellDefault(event) {
     var sellAddressList = this.data.sellAddressList
     var index = Number(event.currentTarget.dataset.index)
 
-    if(sellAddressList[index].isDefault == 1){
+    if (sellAddressList[index].isDefault == 1) {
       wx.showToast({
         title: '已是默认地址',
         icon: 'none'
@@ -212,24 +213,48 @@ Page({
     })
   },
 
+  goToUse(event) {
+    var index = Number(event.currentTarget.dataset.index)
+    var status = this.data.status
+    if (status == 1) {
+      wx.navigateBack({
+        delta: 1
+      })
+
+      wx.setStorage({
+        key: 'addressSelect',
+        data: this.data.sellAddressList[index],
+      })
+    }
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function (options) {
-
+  onLoad: function(options) {
+    var status = options.status
+    this.setData({
+      status: status
+    })
+    var object = new Object
+    object.id = 0
+    wx.setStorage({
+      key: 'addressSelect',
+      data: object,
+    })
   },
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page show
    */
-  onShow: function () {
+  onShow: function() {
     var userInfo = wx.getStorageSync('userInfo')
     this.setData({
       userInfo: userInfo
@@ -240,7 +265,7 @@ Page({
         title: '请先绑定手机',
         icon: 'none'
       })
-      setTimeout(function () {
+      setTimeout(function() {
         wx.navigateTo({
           url: '/pages/masterregister/masterregister',
         })
@@ -253,7 +278,7 @@ Page({
   getSellAddressList() {
     wx.request({
       url: app.globalData.baseUrl + '/v1/newaddress/list',
-      data:{
+      data: {
         phone: this.data.userInfo.phone,
         type: 2,
       },
@@ -283,35 +308,35 @@ Page({
   /**
    * Lifecycle function--Called when page hide
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page unload
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * Page event handler function--Called when user drop down
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * Called when page reach bottom
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * Called when user click on the top right corner to share
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

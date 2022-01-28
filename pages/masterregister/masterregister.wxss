@@ -229,7 +229,7 @@ page {
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 128rpx;
+  top: 30%;
   left: 50%;
   margin-left: -265rpx;
   z-index: 9999999;
@@ -280,7 +280,7 @@ page {
   flex-direction: column;
   align-items: center;
   position: fixed;
-  top: 690rpx;
+  top: 35%;
   left: 50%;
   margin-left: -265rpx;
   z-index: 9999999;

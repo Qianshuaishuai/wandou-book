@@ -133,13 +133,13 @@ Page({
       return
     }
 
-    if (this.data.currentWechat == '') {
-      wx.showToast({
-        title: '请上传学生证正面',
-        icon: 'none'
-      })
-      return
-    }
+    // if (this.data.currentWechat == '') {
+    //   wx.showToast({
+    //     title: '请上传学生证正面',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
 
     wx.showLoading({
       title: '申请中...',

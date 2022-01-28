@@ -16,7 +16,7 @@
     </view>
 
     <view class="box2">
-      <view class="tip1">豌豆优质货源</view>
+      <view class="tip1">零跑校园优质货源</view>
       <view class="tip2">已售{{data.sellCount}}</view>
     </view>
   </view>

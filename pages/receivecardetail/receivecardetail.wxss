@@ -186,6 +186,7 @@ page {
   display: flex;
   flex-direction: row;
   margin-top: 16rpx;
+  align-items: flex-end;
 }
 
 .list .block .middle .price-box .tip5 {
@@ -379,7 +380,7 @@ page {
   height: 32rpx;
 }
 
-.box4 .left .picker{
+.box4 .left .picker {
   display: flex;
   flex-direction: column;
 }

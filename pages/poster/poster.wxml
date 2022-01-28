@@ -25,7 +25,7 @@
   </view>
 </view> -->
 
-<canvas class="post-cv" canvas-id="post-cv">
+<canvas class="post-cv" canvas-id="post-cv" style="margin-left:{{(windowWidth-windowHeight*0.4775)/2}}px;margin-top:20px;">
 
 </canvas>
 

@@ -13,26 +13,34 @@
     <view class="{{currentIndex == 3 ? 'tab-select' : 'tab-normal'}}" bindtap="changeIndex" data-index="3">每日神车</view>
   </view>
 
-  <view class="post" wx:if="{{currentIndex != 3}}">
-    <image class="post-pic" src="https://resource.qimsj.com/wandou/poster.png"></image>
+  <view class="post" wx:if="{{currentIndex == 0}}">
+    <image class="post-pic" src="https://resource.qimsj.com/ad1.png"></image>
+  </view>
+
+  <view class="post" wx:if="{{currentIndex == 1}}">
+    <image class="post-pic" src="https://resource.qimsj.com/ad2.png"></image>
+  </view>
+
+  <view class="post" wx:if="{{currentIndex == 2}}" style="height:240vw">
+    <image class="post-pic" src="https://resource.qimsj.com/ad3.jpg"></image>
   </view>
 
   <view class="list" wx:if="{{currentIndex == 3}}">
-    <view class="block"  wx:for="{{couponList}}" wx:for-item="item" wx:for-index="index">
-      <image class="pic" src="/assets/image-v2/newindex2/test1.png"></image>
+    <view class="block" wx:for="{{couponList}}" wx:for-item="item" wx:for-index="index">
+      <image class="pic" src="{{item.pic}}"></image>
       <view class="right">
         <view class="title">
           {{item.title}}
         </view>
         <view class="price">
-           {{item.price}}元
+          {{item.price}}元
         </view>
         <view class="old">
           原价 {{item.oldPrice}}元
         </view>
       </view>
 
-      <view class="copy">
+      <view class="copy" bindtap="copy" data-index="{{index}}">
         复制{{item.typeStr}}口令
       </view>
     </view>

@@ -11,7 +11,8 @@ Page({
         wx.getClipboardData({
           success: function(res) {
             wx.showToast({
-              title: '客服微信复制成功'
+              title: '客服微信复制成功',
+              icon: 'none'
             })
           }
         })
