@@ -53,6 +53,9 @@ Page({
       return
     }
 
+    wx.navigateTo({
+      url: '/pages/drawal/drawal?count=' + this.data.currentAmount,
+    })
     
   },
 
@@ -60,9 +63,27 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    var userInfo = wx.getStorageSync('userInfo')
-    this.setData({
-      userInfo: userInfo,
+    // var userInfo = wx.getStorageSync('userInfo')
+    // this.setData({
+    //   userInfo: userInfo,
+    // })
+
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/wx/login',
+      data: {
+        wx_id: wx.getStorageSync("userId"),
+        user_type: 1
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: res => {
+        this.setData({
+          userInfo: res.data.F_data,
+          currentAmount: 0
+        })
+      },
     })
   },
 

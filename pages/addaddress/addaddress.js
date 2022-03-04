@@ -226,7 +226,7 @@ Page({
     if (this.data.currentErrandOperate == '编辑') {
       sendData = {
         id: this.data.id,
-        phone: "15602335027",
+        phone: this.data.userInfo.phone,
         type: 1,
         address: errandAddress,
         contract: errandPhone,
@@ -235,7 +235,7 @@ Page({
       operaUrl = '/v1/newaddress/update'
     } else {
       sendData = {
-        phone: "15602335027",
+        phone: this.data.userInfo.phone,
         type: 1,
         address: errandAddress,
         contract: errandPhone,
@@ -351,8 +351,8 @@ Page({
         icon: 'none'
       })
       setTimeout(function () {
-        wx.navigateTo({
-          url: '/pages/masterregister/masterregister',
+        wx.navigateBack({
+          delta: 1
         })
       }, 500);
     }

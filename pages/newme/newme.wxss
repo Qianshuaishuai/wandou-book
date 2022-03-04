@@ -56,6 +56,14 @@ page {
   margin-left: 16rpx;
 }
 
+.top .box .left .master {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+  margin-left: 4rpx;
+}
+
 .top .box .login {
   width: 166rpx;
   height: 54rpx;

@@ -43,12 +43,12 @@
     </view>
   </view>
 
-  <!-- <view class="block" bindtap="goToStudyCar">
+  <view class="block" bindtap="goToStudyCar">
     <image src="../../assets/image-v2/newindex2/icon4.png" class="icon1"></image>
     <view class="tip1">
       学驾照
     </view>
-  </view> -->
+  </view>
 </view>
 
 <view class="button">

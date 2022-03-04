@@ -7,24 +7,28 @@ Page({
    */
   data: {
     userInfo: {},
-    countInput:""
+    countInput: "",
+    count: 0,
+    aliAccount: "",
+    aliName: ""
   },
 
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var userInfo = wx.getStorageSync('userInfo')
     this.setData({
-      userInfo: userInfo
+      userInfo: userInfo,
+      count: Number(options.count)
     })
   },
 
-  submit(){
-    var count = this.data.countInput
+  submit() {
+    var count = this.data.count
     var wxid = wx.getStorageSync("userId")
 
-    if (this.data.userInfo == undefined || this.data.userInfo.balance == undefined){
+    if (this.data.userInfo == undefined) {
       wx.showToast({
         title: '你当前未登录，前重新进入小程序!',
         icon: 'none',
@@ -33,7 +37,7 @@ Page({
       return
     }
 
-    if(count <= 0){
+    if (count <= 0) {
       wx.showToast({
         title: '提现金额必须大于0',
         icon: 'none',
@@ -42,11 +46,31 @@ Page({
       return
     }
 
+    if (this.data.aliAccount == "") {
+      wx.showToast({
+        title: '请输入支付宝账户',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
+    if (this.data.aliName == "") {
+      wx.showToast({
+        title: '请输入支付宝真实姓名',
+        icon: 'none',
+        duration: 2000
+      })
+      return
+    }
+
     wx.request({
-      url: app.globalData.baseUrl + '/v1/user/drawal',
+      url: app.globalData.baseUrl + '/v1/user/newdrawal',
       data: {
-        wx_id: wxid,
+        phone: this.data.userInfo.phone,
         count: count,
+        ali_account: this.data.aliAccount,
+        ali_name: this.data.aliName
       },
       method: 'POST',
       header: {
@@ -66,13 +90,13 @@ Page({
           })
 
         } else {
-          if (res.data.F_responseMsg == '余额不足'){
+          if (res.data.F_responseMsg == '余额不足') {
             wx.showToast({
               title: '余额不足提现',
               icon: 'none',
               duration: 2000
             })
-          }else{
+          } else {
             wx.showToast({
               title: '提交失败，请联系管理员',
               icon: 'none',
@@ -84,58 +108,70 @@ Page({
     })
   },
 
-  countInput: function (e) {
+  countInput: function(e) {
     this.setData({
       countInput: e.detail.value
+    })
+  },
+
+  accountInput: function(e) {
+    this.setData({
+      aliAccount: e.detail.value
+    })
+  },
+
+  nameInput: function(e) {
+    this.setData({
+      aliName: e.detail.value
     })
   },
 
   /**
    * Lifecycle function--Called when page is initially rendered
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page show
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page hide
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * Lifecycle function--Called when page unload
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * Page event handler function--Called when user drop down
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * Called when page reach bottom
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * Called when user click on the top right corner to share
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

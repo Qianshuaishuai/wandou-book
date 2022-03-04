@@ -66,6 +66,21 @@
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
+      快递大小
+    </view>
+  </view>
+  <view class="type-box">
+    <view class="type-block" wx:for="{{sizeList}}" wx:for-item="item" wx:for-index="index" bindtap="changeSize" data-index="{{index}}">
+      <image class="bg" src="/assets/image-v2/errands/button2.png" wx:if="{{index === currentSizeIndex}}"></image>
+      <view class="{{index === currentSizeIndex ? 'tip3':'tip2'}}">
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
       跑腿需求
     </view>
   </view>
@@ -130,9 +145,11 @@
     <view class="tip">
       支付金额
     </view>
+
+    <view class="tip-tip" wx:if="{{expressPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeExpressPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+  <input class="input" bindinput="changeExpressPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" disabled="true" value="{{expressPayPrice}}"></input>
 </view>
 
 
@@ -214,9 +231,11 @@
     <view class="tip">
       支付金额
     </view>
+
+    <view class="tip-tip" wx:if="{{agentPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeAgentPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+  <input class="input" bindinput="changeAgentPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" disabled="true" value="{{agentPayPrice}}"></input>
 </view>
 
 <!-- 代课 -->
@@ -288,9 +307,11 @@
     <view class="tip">
       支付金额
     </view>
+
+    <view class="tip-tip" wx:if="{{absentPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeAbsentPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+  <input class="input" bindinput="changeAbsentPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" disabled="true" value="{{absentPayPrice}}"></input>
 </view>
 
 <!-- 其他跑腿 -->
@@ -362,9 +383,11 @@
     <view class="tip">
       支付金额
     </view>
+
+    <view class="tip-tip" wx:if="{{otherPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeOtherPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+  <input class="input" bindinput="changeOtherPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{otherPayPrice}}" disabled="true"></input>
 </view>
 
 <!-- 租赁 -->
@@ -418,9 +441,11 @@
     <view class="tip">
       支付金额
     </view>
+
+    <view class="tip-tip" wx:if="{{leasePayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeLeasePayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+  <input class="input" bindinput="changeLeasePayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{leasePayPrice}}" disabled="true"></input>
 </view>
 
 <!-- 陪玩 -->
@@ -474,9 +499,11 @@
     <view class="tip">
       支付金额
     </view>
+
+    <view class="tip-tip" wx:if="{{playPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changePlayPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+  <input class="input" bindinput="changePlayPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{playPayPrice}}" disabled="true"></input>
 </view>
 
 <!-- 悬赏 -->
@@ -530,9 +557,11 @@
     <view class="tip">
       支付金额
     </view>
+
+    <view class="tip-tip" wx:if="{{rewardPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeRewardPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;"></input>
+  <input class="input" bindinput="changeRewardPayPrice" disabled="true" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{rewardPayPrice}}" disabled="true"></input>
 </view>
 
 

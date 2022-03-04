@@ -17,6 +17,6 @@
       <view class="name" bindtap="selectItem" data-index="{{index}}">{{item.name}}</view>
       <view class="tip">{{item.isBind == 0 ? '未入驻':'已入驻'}}</view>
     </view>
-    <view class="apply" bindtap="applymaster" wx:if="{{item.isBind == 0}}">申请校园站长</view>
+    <view class="apply" bindtap="applymaster" wx:if="{{item.isBind == 0}}" data-index="{{index}}">申请校园站长</view>
   </view>
 </view>

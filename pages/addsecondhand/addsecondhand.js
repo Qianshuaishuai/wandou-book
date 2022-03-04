@@ -36,7 +36,10 @@ Page({
     currentReason: "",
     currentPhotos: [],
     qiniuToken: "",
-    school: ""
+    school: "",
+    userInfo: {
+
+    }
   },
 
   changeType(event) {
@@ -144,11 +147,13 @@ Page({
 
   //发布
   release() {
-    wx.showToast({
-      title: '当前学校没有站长入驻，暂不能发布',
-      icon: 'none'
-    })
-    return
+    if (this.data.school.isBind == 0) {
+      wx.showToast({
+        title: '当前学校没有站长入驻，暂不能发布',
+        icon: 'none'
+      })
+      return
+    }
     if (this.data.currentTitle == '') {
       wx.showToast({
         title: '请填写商品名称',
@@ -227,7 +232,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl + '/v1/secondhand/create',
       data: {
-        phone: "15602335027",
+        phone: this.data.userInfo.phone,
         title: this.data.currentTitle,
         type: this.data.typeList[this.data.currentTypeindex].id,
         pics: JSON.stringify(this.data.currentPhotos),
@@ -247,7 +252,8 @@ Page({
         wx.redirectTo({
           url: '/pages/secondhandmanager/secondhandmanager',
         })
-      },fail: res =>{
+      },
+      fail: res => {
         console.log(res)
         wx.hideLoading()
       }
@@ -269,18 +275,20 @@ Page({
   onLoad: function(options) {
     this.getQiniuToken()
     var school = wx.getStorageSync('school')
-    if (school == undefined || school.id == undefined || school.id == 0){
+    if (school == undefined || school.id == undefined || school.id == 0) {
       wx.showToast({
         title: '请先选择学校',
         icon: 'none'
       })
-      setTimeout(function () {
+      setTimeout(function() {
         wx.navigateBack({
           delta: 1
         })
       }, 1000);
       return
     }
+
+    console.log(school)
 
     this.setData({
       school: school
@@ -298,7 +306,22 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function() {
+    var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo
+    })
 
+    if (userInfo.phone == '') {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function() {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 500);
+    }
   },
 
   /**

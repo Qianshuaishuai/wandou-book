@@ -127,7 +127,7 @@
         </view>
       </view>
       <view class="status" wx:if="{{item.status == 2}}" style="right:150rpx;">进行中</view>
-      <view class="button" wx:if="{{item.status == 2}}" bindtap="sure" data-index="{{index}}">
+      <view class="button" wx:if="{{item.status == 2}}" catchtap="sure" data-index="{{index}}">
         <view class="bt-bg">
           <image src="../../assets/image-v2/lease/bg.png" class="bg1"></image>
           <!-- <image src="../../assets/image-v2/lease/right.png" class="right"></image> -->

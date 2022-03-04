@@ -50,14 +50,19 @@ Page({
       "id": 3,
       "name": "时间优先"
     }],
+    userInfo:{
+      
+    }
   },
 
   take(event) {
-    wx.showToast({
-      title: '当前学校没有站长入驻，暂不能接单',
-      icon: 'none'
-    })
-    return
+    if (this.data.school.isBind == 0) {
+      wx.showToast({
+        title: '当前学校没有站长入驻，暂不能接单',
+        icon: 'none'
+      })
+      return
+    }
     var index = Number(event.currentTarget.dataset.index)
     wx.showModal({
       title: '提示',
@@ -126,7 +131,7 @@ Page({
       url: app.globalData.baseUrl + "/v1/errand/take",
       data: {
         id: id,
-        phone: "15602335027"
+        phone: this.data.userInfo.phone
       },
       method: 'POST',
       header: {
@@ -180,7 +185,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl + '/v1/errand/other/list',
       data: {
-        phone: "15602335027",
+        phone: this.data.userInfo.phone,
         type: this.data.typeList[this.data.currentTypeIndex].id,
         school_id: this.data.school.id,
         sort: this.data.type2List[this.data.currentType2Index].id,
@@ -380,7 +385,22 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function() {
+    var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo
+    })
 
+    if (userInfo.phone == '') {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function () {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 500);
+    }
   },
 
   /**

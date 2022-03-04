@@ -35,7 +35,8 @@ Page({
     }],
     currentTypeIndex: 0,
     secondhandList: [],
-    school: ""
+    school: "",
+    userInfo:{}
   },
 
   /**
@@ -63,18 +64,20 @@ Page({
   },
 
   buy() {
-    wx.showToast({
-      title: '当前学校没有站长入驻，暂不能购买',
-      icon: 'none'
-    })
-    return
+    if (this.data.school.isBind == 0) {
+      wx.showToast({
+        title: '当前学校没有站长入驻，暂不能购买',
+        icon: 'none'
+      })
+      return
+    }
   },
 
   getSecondhandList(type, search) {
     wx.request({
       url: app.globalData.baseUrl + '/v1/secondhand/other/list',
       data: {
-        phone: "15602335027",
+        phone: this.data.userInfo.phone,
         type: type,
         search: search,
         school_id: this.data.school.id
@@ -144,7 +147,22 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function() {
+    var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo
+    })
 
+    if (userInfo.phone == '') {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function () {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 500);
+    }
   },
 
   /**

@@ -45,6 +45,7 @@ Page({
       "name": "其他"
     }],
     secondhandList: [],
+    userInfo:{}
   },
 
   doSelectDialog() {
@@ -215,7 +216,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl + '/v1/secondhand/self/list',
       data: {
-        phone: "15602335027",
+        phone: this.data.userInfo.phone,
         type: type
       },
       success: res => {
@@ -254,7 +255,22 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function() {
+    var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo
+    })
 
+    if (userInfo.phone == '') {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function () {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 500);
+    }
   },
 
   /**

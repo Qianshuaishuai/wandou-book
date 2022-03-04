@@ -31,6 +31,8 @@ Page({
       "id": 6,
       "name": "悬赏"
     }],
+
+    userInfo: {}
   },
 
   back() {
@@ -56,31 +58,31 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
-    var school = wx.getStorageSync('school')
-    if (school == undefined || school.id == undefined || school.id == 0) {
-      wx.showToast({
-        title: '请先选择学校',
-        icon: 'none'
-      })
-      setTimeout(function() {
-        wx.navigateBack({
-          delta: 1
-        })
-      }, 1000);
-      return
-    }
+    // var school = wx.getStorageSync('school')
+    // if (school == undefined || school.id == undefined || school.id == 0) {
+    //   wx.showToast({
+    //     title: '请先选择学校',
+    //     icon: 'none'
+    //   })
+    //   setTimeout(function() {
+    //     wx.navigateBack({
+    //       delta: 1
+    //     })
+    //   }, 1000);
+    //   return
+    // }
 
-    this.setData({
-      school: school
-    })
-    this.getErrandList()
+    // this.setData({
+    //   school: school
+    // })
+    // this.getErrandList()
   },
 
   getErrandList() {
     wx.request({
       url: app.globalData.baseUrl + '/v1/errand/other/list',
       data: {
-        phone: "15602335027",
+        phone: this.data.userInfo.phone,
         type: 0,
         school_id: this.data.school.id,
         sort: 0,
@@ -213,7 +215,7 @@ Page({
       url: app.globalData.baseUrl + "/v1/errand/take",
       data: {
         id: id,
-        phone: "15602335027"
+        phone: this.data.userInfo.phone
       },
       method: 'POST',
       header: {
@@ -244,11 +246,13 @@ Page({
 
 
   doTake(event) {
-    wx.showToast({
-      title: '当前学校没有站长入驻，暂不能接单',
-      icon: 'none'
-    })
-    return
+    if (this.data.school.isBind == 0) {
+      wx.showToast({
+        title: '当前学校没有站长入驻，暂不能接单',
+        icon: 'none'
+      })
+      return
+    }
     var index = Number(event.currentTarget.dataset.index)
     wx.showModal({
       title: '提示',
@@ -273,7 +277,41 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function() {
+    var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo
+    })
 
+    if (userInfo.phone == '') {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function() {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 500);
+    }
+
+    var school = wx.getStorageSync('school')
+    if (school == undefined || school.id == undefined || school.id == 0) {
+      wx.showToast({
+        title: '请先选择学校',
+        icon: 'none'
+      })
+      setTimeout(function() {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 1000);
+      return
+    }
+
+    this.setData({
+      school: school
+    })
+    this.getErrandList()
   },
 
   /**

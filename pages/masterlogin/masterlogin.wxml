@@ -21,7 +21,7 @@
 <view class="input-box" style="margin-top: 68rpx;">
   <image class="icon" src="/assets/image-v2/masterlogin/icon1.png"></image>
   <view class="tip4">密码</view>
-  <input class="input" bindinput="changePassword" placeholder="请输入密码"></input>
+  <input class="input" bindinput="changePassword" placeholder="请输入密码" type="password"></input>
 </view>
 
 <view class="diviler"></view>

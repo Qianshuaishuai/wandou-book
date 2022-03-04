@@ -32,6 +32,7 @@ Page({
       "id": 6,
       "name": "悬赏"
     }],
+    userInfo: {}
   },
 
   changeSelectStatus(event) {
@@ -143,7 +144,7 @@ Page({
     wx.request({
       url: app.globalData.baseUrl + '/v1/errand/self/list',
       data: {
-        phone: "12345678911",
+        phone: this.data.userInfo.phone,
         type: 0,
         school_id: this.data.school.id,
         sort: 0,
@@ -274,24 +275,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
-    var school = wx.getStorageSync('school')
-    if (school == undefined || school.id == undefined || school.id == 0) {
-      wx.showToast({
-        title: '请先选择学校',
-        icon: 'none'
-      })
-      setTimeout(function() {
-        wx.navigateBack({
-          delta: 1
-        })
-      }, 1000);
-      return
-    }
-
-    this.setData({
-      school: school
-    })
-    this.getErrandList()
+   
   },
 
   /**
@@ -305,7 +289,41 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function() {
+    var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo
+    })
 
+    if (userInfo.phone == '') {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function() {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 500);
+    }
+
+    var school = wx.getStorageSync('school')
+    if (school == undefined || school.id == undefined || school.id == 0) {
+      wx.showToast({
+        title: '请先选择学校',
+        icon: 'none'
+      })
+      setTimeout(function () {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 1000);
+      return
+    }
+
+    this.setData({
+      school: school
+    })
+    this.getErrandList()
   },
 
   /**

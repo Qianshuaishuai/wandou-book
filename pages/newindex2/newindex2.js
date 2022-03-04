@@ -147,12 +147,31 @@ Page({
     })
   },
 
-  goToStudyCar(){
-    wx.showToast({
-      title: '站长未入驻，暂不开放',
-      icon: 'none'
-    })
-    return
+  goToStudyCar() {
+    var school = wx.getStorageSync('school')
+    if (school == undefined || school.id == undefined || school.id == 0) {
+      wx.showToast({
+        title: '请先选择学校',
+        icon: 'none'
+      })
+      return
+    }
+
+    if (school.isBind == 1) {
+      wx.showToast({
+        title: '站长未入驻，暂不开放',
+        icon: 'none'
+      })
+      return
+    }
+
+    if (school.posterUrl == "") {
+      wx.showToast({
+        title: '该学校暂无驾照宣传海报，敬请期待',
+        icon: 'none'
+      })
+      return
+    }
   },
 
 
@@ -230,10 +249,24 @@ Page({
    */
   onShow: function() {
     var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo
+    })
+
+    if (userInfo.phone == '') {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function() {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 500);
+    }
     var school = wx.getStorageSync('school')
     this.setData({
-      school: school,
-      userInfo: userInfo
+      school: school
     })
   },
 

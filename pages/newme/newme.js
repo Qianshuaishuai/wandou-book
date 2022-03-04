@@ -9,7 +9,10 @@ Page({
     userInfo: {},
     wxUserInfo: {},
     hasUserInfo: false,
-    school: {}
+    school: {},
+    master:{
+      id: 0
+    }
   },
 
   /**
@@ -251,12 +254,41 @@ Page({
    */
   onShow: function() {
     var school = wx.getStorageSync('school')
-    var userInfo = wx.getStorageSync('userInfo')
     var wxUserInfo = wx.getStorageSync('wxUserInfo')
+    var master = wx.getStorageSync('master')
     this.setData({
-      userInfo: userInfo,
       wxUserInfo: wxUserInfo,
-      school: school
+      school: school,
+    })
+
+    if(master.id != 0 && master.id != undefined){
+      this.setData({
+        master: master
+      })
+    }
+
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/wx/login',
+      data: {
+        wx_id: wx.getStorageSync("userId"),
+        user_type: 1
+      },
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: res => {
+        wx.setStorage({
+          key: 'userInfo',
+          data: res.data.F_data,
+        })
+
+        this.setData({
+          userInfo: res.data.F_data,
+        })
+
+        console.log(this.data.userInfo)
+      },
     })
 
     if (wxUserInfo.nickName != "") {

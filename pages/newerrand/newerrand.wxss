@@ -28,6 +28,12 @@ page {
   height: 36rpx;
 }
 
+.type .tag-box .tip-tip {
+  margin-left: 4rpx;
+  color: red;
+  font-size: 28rpx;
+}
+
 .type .tag-box .tip {
   font-size: 32rpx;
   font-family: PingFang SC;
@@ -135,6 +141,12 @@ page {
   margin-left: 30rpx;
 }
 
+.content .tag-box .tip-tip {
+  margin-left: 4rpx;
+  color: red;
+  font-size: 28rpx;
+}
+
 .content .input {
   margin-top: 40rpx;
   margin-left: 28rpx;
@@ -224,4 +236,74 @@ page {
   color: #fff;
   margin-left: 19rpx;
   margin-top: 23rpx;
+}
+
+
+.content .type-box {
+  margin-top: 20rpx;
+  margin-bottom: 45rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content .type-box .type-block {
+  width: 200rpx;
+  height: 70rpx;
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid #ced2db;
+  border-radius: 12rpx;
+  text-align: center;
+  line-height: 70rpx;
+  position: relative;
+  margin-left: 22rpx;
+  margin-top: 20rpx;
+}
+
+.content .type-box .type-block .bg {
+  width: 200rpx;
+  height: 70rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 1;
+}
+
+.content .type-box .type-block .tip2 {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #69697a;
+  z-index: 2;
+}
+
+.content .type-box .type-block .bg {
+  width: 200rpx;
+  height: 70rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 1;
+}
+
+.content .type-box .type-block .tip2 {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #69697a;
+  z-index: 2;
+}
+
+.content .type-box .type-block .tip3 {
+  width: 200rpx;
+  height: 70rpx;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #fff;
+  z-index: 2;
 }
