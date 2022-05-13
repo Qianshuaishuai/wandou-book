@@ -8,7 +8,7 @@ Page({
   data: {
     statusBarHeight: app.globalData.statusBarHeight,
     currentSearch: "",
-    typeList: ["书籍", "日用品", "电子产品", "电动车/自行车", "服饰鞋包", "美妆", "耳机"],
+    typeList: ["书籍", "日用品", "电子产品", "自行车", "服饰鞋包", "耳机", "其他"],
   },
 
   back() {
@@ -17,6 +17,19 @@ Page({
     })
   },
 
+  goToBuy() {
+    wx.navigateTo({
+      url: '/pages/secondhand/secondhand',
+    })
+  },
+
+  goToType(event) {
+    var index = Number(event.currentTarget.dataset.index)
+    index = index + 1
+    wx.navigateTo({
+      url: '/pages/secondhand/secondhand?index=' + index,
+    })
+  },
 
   changeSearch(event) {
     var value = event.detail.value
@@ -31,7 +44,7 @@ Page({
     })
   },
 
-  release(event){
+  release(event) {
     wx.navigateTo({
       url: '/pages/addsecondhand/addsecondhand',
     })
@@ -42,7 +55,7 @@ Page({
       url: '/pages/secondhand/secondhand',
     })
   },
-  
+
   back() {
     wx.navigateBack({
       delta: 1

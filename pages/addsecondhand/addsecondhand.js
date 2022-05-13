@@ -154,6 +154,20 @@ Page({
       })
       return
     }
+
+    if (this.data.userInfo.phone == "") {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function () {
+        wx.navigateTo({
+          url: '/pages/masterregister/masterregister',
+        })
+      }, 500);
+      return
+    }
+
     if (this.data.currentTitle == '') {
       wx.showToast({
         title: '请填写商品名称',

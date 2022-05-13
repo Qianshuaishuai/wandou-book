@@ -80,7 +80,7 @@ Page({
           this.getErrandList()
         } else {
           wx.showToast({
-            title: '接单失败,联系管理员',
+            title: res.data.F_responseMsg,
             icon: 'none'
           })
         }

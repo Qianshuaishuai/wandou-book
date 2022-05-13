@@ -91,12 +91,11 @@
 
   <view class="more">
     <view class="tip4">更多</view>
-    <image src="../../assets/image-v2/newindex2/right.png" class="right"></image>
   </view>
 </view>
 
 <view class="list">
-  <view class="block" wx:for="{{tweetList}}" wx:for-item="item" wx:for-index="index">
+  <view class="block" wx:for="{{tweetList}}" wx:for-item="item" wx:for-index="index" bindtap="goToDetail" data-index="{{index}}">
     <image src="{{item.cover}}" class="pic"></image>
     <view class="box5">
       <view class="content">

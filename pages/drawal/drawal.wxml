@@ -7,7 +7,7 @@
   <!-- <textarea class="content" bindinput="contentInput" placeholder="请输入提现金额"></textarea> -->
 
   <!-- <view class="phone-tip">联系方式</view> -->
-  <input class="phone" type="number" bindinput="accountInput" placeholder="请输入支付宝账户"></input>
+  <input class="phone" bindinput="accountInput" placeholder="请输入支付宝账户"></input>
 
     <view class="top" style="margin-top: 24rpx;">
     <view class="tip1">*</view>
@@ -17,8 +17,9 @@
   <!-- <textarea class="content" bindinput="contentInput" placeholder="请输入提现金额"></textarea> -->
 
   <!-- <view class="phone-tip">联系方式</view> -->
-  <input class="phone" type="number" bindinput="nameInput" placeholder="请输入支付宝真实姓名"></input>
-  <view class="tip-tip">注：提交申请后，会有工作人员进行审核并自动打款至对应支付宝账户，请留意！</view>
+  <input class="phone" bindinput="nameInput" placeholder="请输入支付宝真实姓名"></input>
+  <!-- <view class="tip-tip">注：提交申请后，会有工作人员进行审核并自动打款至对应支付宝账户，请留意！</view> -->
+  <view class="tip-tip">注: 提现默认12小时内到账，每日财务审核打款时间为9:30 - 16:30.请务必保证填写信息对应准确无误，否则提现无法到账，若提现超12小时未到账，请及时联系客服进行核实信息是否有误</view>
   <view class="submit-view">
     <button class="submit"  bindtap="submit">提交</button>
   </view>

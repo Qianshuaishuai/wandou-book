@@ -9,7 +9,8 @@ Page({
     statusBarHeight: app.globalData.statusBarHeight,
     currentIndex: 0,
     testList: ["", "", "", "", "", ""],
-    couponList: []
+    couponList: [],
+    postHeight: 0,
   },
 
   changeIndex(event) {
@@ -74,6 +75,19 @@ Page({
    */
   onLoad: function(options) {
     this.getTaobaoCouponoList()
+    this.thanslateData()
+  },
+
+  thanslateData() {
+    var clientHeight = wx.getSystemInfoSync().windowHeight
+    var clientWidth = wx.getSystemInfoSync().windowWidth
+    let changeHeight = 750 / clientWidth;
+    let height = clientHeight * changeHeight;
+
+    var postHeight = height - 200 - 41 * changeHeight - 28
+    this.setData({
+      postHeight: postHeight
+    })
   },
 
   /**

@@ -35,3 +35,10 @@
     </view>
   </view>
 </view>
+
+<view class="dialog-bg" wx:if="{{showUnbindDialog2||showPicDialog}}" bindtap="closeDialog"></view>
+<!-- <view class="dialog2" wx:if="{{showUnbindDialog2}}">
+  <image class="pic2" src="/assets/image-v2/masterregister/wechat.png"></image>
+  <view class="tip11">已复制客服微信，请联系 解绑换绑</view>
+</view> -->
+<image src="{{currentShowPic}}" class="show-pic" wx:if="{{showPicDialog}}" style="width:{{windowWidth - 60}}px;left:30px;height:{{showHeight}}px;top:{{(windowHeight - showHeight) / 2}}px"></image>

@@ -78,19 +78,6 @@ Page({
     //退出登录
   },
 
-  chooseAddress: function() {
-    wx.chooseAddress({
-      success: (res) => {
-        this.setData({
-          addressInfo: res
-        })
-      },
-      fail: function(err) {
-        console.log(err)
-      }
-    })
-  },
-
   /**
    * 页面的初始数据
    */

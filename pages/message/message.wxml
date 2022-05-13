@@ -1,0 +1,16 @@
+<view class="list" wx:if="{{messageList.length>0}}">
+  <view class="block" wx:for="{{messageList}}" wx:for-item="item" wx:for-index="index" wx:for-key="key">
+    <view class="left">
+      <image src="{{item.sendIcon}}" class="head"></image>
+      <view class="content">
+        <view class="name">{{item.sendName}}</view>
+        <view class="message">{{item.message}}</view>
+      </view>
+      <view class="time">{{item.showTime}}</view>
+    </view>
+  </view>
+</view>
+
+<view class="no" wx:if="{{messageList.length<=0}}">
+  暂无消息
+</view>

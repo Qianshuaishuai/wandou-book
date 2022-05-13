@@ -151,7 +151,7 @@ Page({
         studentNo: currentStudentNo,
         school_id: currentSchoolID,
         studentPic: currentPic,
-        name: currentName
+        name: this.data.currentName
       },
       method: 'POST',
       header: {

@@ -25,14 +25,14 @@
         <image src="../../assets/image-v2/newme/errand-icon2.png" class="icon3"></image>
       </view>
     </view>
-    <image class="icon-middle" src="https://resource.qimsj.com/wandou/middle.png"></image>
+    <image class="icon-middle" src="https://resource.qimsj.com/wandou/middle.png" bindtap="goToCert"></image>
   </view>
 
   <view class="notice">
     <image class="icon5" src="/assets/image-v2/errandindex/notice.png"></image>
     <view class="diviler"></view>
-    <view class="tip14">
-      关注公众号获取最新跑腿信息
+    <view class="tip14" bindtap="showNotice">
+      点击获取最新跑腿信息
     </view>
   </view>
 
@@ -54,23 +54,48 @@
         <view class="type">
           类别：{{item.typeStr}}
         </view>
+        <view class="reward" wx:if="{{item.expressReward == 1 && item.type == 7}}">急</view>
         <view class="right">
           <view class="tag">
             ￥
           </view>
           <view class="money">
-           {{item.showPrice}}
+            {{item.showPrice}}
           </view>
         </view>
       </view>
       <view class="content">
-        <view class="title">{{item.tag11}}</view>
-        <view class="tip12">{{item.tag22}}</view>
+        <view class="address-block">
+          <!-- <image src="../../assets/image-v2/receivedetail/address1.png" class="icon">
+          </image> -->
+          <view class="tag10" style="background:{{item.tagC1}}">
+            {{item.tag1}}
+          </view>
+          <view class="address">
+            {{item.tag11}}
+          </view>
+        </view>
+
+        <view class="address-block" style="margin-top:26rpx;">
+          <!-- <image src="../../assets/image-v2/receivedetail/address2.png" class="icon">
+          </image> -->
+          <view class="tag10" style="background:{{item.tagC2}}">
+            {{item.tag2}}
+          </view>
+          <view class="address">
+            {{item.tag22}}
+          </view>
+        </view>
+        <!-- <view class="title">{{item.tag11}}</view>
+        <view class="tip12">{{item.tag22}}</view> -->
       </view>
 
       <view class="bottom">
-        <view class="note">
+        <view class="left">
+          <view class="note" style="visibility:{{item.type != 6 ? 'visible':'hidden'}}">
           备注：{{item.showNote}}
+        </view>
+        <view class="tip-txt" wx:if="{{item.type == 4}}">*接单骑手持有所需物品方可接单</view>
         </view>
         <view class="button" bindtap="doTake" data-index="{{index}}">
           <image src="../../assets/image-v2/lease/bg.png" class="bg1"></image>

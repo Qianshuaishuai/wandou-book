@@ -14,15 +14,15 @@
   </view>
 
   <view class="post" wx:if="{{currentIndex == 0}}">
-    <image class="post-pic" src="https://resource.qimsj.com/ad1.png"></image>
+    <image class="post-pic" src="https://resource.qimsj.com/wandou1.jpeg" style="width:100%;height:{{postHeight}}rpx"></image>
   </view>
 
   <view class="post" wx:if="{{currentIndex == 1}}">
-    <image class="post-pic" src="https://resource.qimsj.com/ad2.png"></image>
+    <image class="post-pic" src="https://resource.qimsj.com/wandou2.jpeg" style="width:100%;height:{{postHeight}}rpx"></image>
   </view>
 
-  <view class="post" wx:if="{{currentIndex == 2}}" style="height:240vw">
-    <image class="post-pic" src="https://resource.qimsj.com/ad3.jpg"></image>
+  <view class="post" wx:if="{{currentIndex == 2}}" style="width:100%;height:{{postHeight}}rpx">
+    <image class="post-pic" src="https://resource.qimsj.com/wandou3.jpeg"></image>
   </view>
 
   <view class="list" wx:if="{{currentIndex == 3}}">

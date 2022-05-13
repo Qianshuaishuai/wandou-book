@@ -9,9 +9,9 @@
 </image>
 <view class="tip" style="top:{{statusBarHeight+8}}px">二手</view>
 
-<view class="search-box">
+<view class="search-box" bindtap="goToBuy">
   <image src="../../assets/image-v2/secondhandindex/search.png" class="search"></image>
-  <input class="input" placeholder="输入关键词进行搜索" bindinput="changeSearch" value="{{currentSearch}}">
+  <input class="input" placeholder="输入关键词进行搜索" bindinput="changeSearch" value="{{currentSearch}}" disabled="false">
   </input>
   <image src="../../assets/image-v2/secondhandindex/delete.png" class="delete" bindtap="deleteSearch">
   </image>
@@ -24,7 +24,7 @@
 </view>
 
 <view class="type-list">
-  <view class="type-block" wx:for="{{typeList}}" wx:for-item="item" wx:for-index="index">
+  <view class="type-block" wx:for="{{typeList}}" wx:for-item="item" wx:for-index="index" bindtap="goToType" data-index="{{index}}">
     {{item}}
   </view>
 </view>
@@ -52,13 +52,25 @@
 </view>
 
 <view class="tip7">
-  1、卖家发布个人闲置物品等待买家购买；
+  1、发布闲置：卖家发布个人闲置物品等待买家购买
 </view>
 
 <view class="tip7">
-  2、买家浏览卖家发布物品确认购买获取联系方式交易方式；
+  2、等待购买：买家浏览卖家发布物品确认购买获取联系方式交易方式
 </view>
 
 <view class="tip7">
-  3、闲置交易“校园喵”不收取任何费用，买卖双方自行交易若 途中产生任何问题请私下协商解决。
+  3、交易成功：如卖家已将物品成功出售交易，卖家需要在我的--管理闲置--主动给下架该商品
+</view>
+
+<view class="tip7">
+  注意事项
+</view>
+
+<view class="tip7">
+  1、闲置交易“零跑校园”不收取任何费用，我们仅对闲置商品进行信息公开（为了降低风险，我们建议尽可能当面交易）同学在买卖交易中自行承担风险，如若产生争议请私下协商方式
+</view>
+
+<view class="tip7">
+  2、无法查看自己发布的闲置物品，仅能查看他人发布的商品，禁止发布任何不良信息。违反者将永久封禁并承担相应法律责任
 </view>

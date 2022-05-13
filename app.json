@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/newindex2/newindex2",
+    "pages/receivedetail/receivedetail",
     "pages/newerrand/newerrand",
     "pages/myaddress/myaddress",
     "pages/secondhandmanager/secondhandmanager",
@@ -22,7 +23,6 @@
     "pages/newsellbook/newsellbook",
     "pages/pickschool/pickschool",
     "pages/newincome/newincome",
-    "pages/receivedetail/receivedetail",
     "pages/promotion/promotion",
     "pages/applymaster/applymaster",
     "pages/certrider/certrider",
@@ -35,7 +35,6 @@
     "pages/person/person",
     "pages/book/book",
     "pages/school/school",
-    "pages/goodthings/goodthings",
     "pages/index/index",
     "pages/poster/poster",
     "pages/users/users",
@@ -52,12 +51,15 @@
     "pages/about/about",
     "pages/track/track",
     "pages/common/common",
-    "pages/orderdetail/orderdetail"
+    "pages/orderdetail/orderdetail",
+    "pages/message/message",
+    "pages/car/car",
+    "pages/webview/webview"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "校园喵",
+    "navigationBarTitleText": "零跑校园",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

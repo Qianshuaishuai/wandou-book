@@ -183,4 +183,5 @@
   </view> -->
 
   <image src="../../assets/new-images/buyorderdetail/icon3.png" class="icon4" bindtap="copy"></image>
+  <button class="icon5" open-type="contact"></button>
 </view>

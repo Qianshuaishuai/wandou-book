@@ -209,3 +209,34 @@ page {
   text-align: center;
   margin-left: 20rpx;
 }
+
+.dialog-bg {
+  width: 100%;
+  height: 100vh;
+  opacity: 0.5;
+  background: #000;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 9999999;
+}
+
+.dialog1 {
+  width: 530rpx;
+  height: 450rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  margin-left: -265rpx;
+  z-index: 9999999;
+}
+
+.show-pic {
+  position: fixed;
+  z-index: 9999999;
+}

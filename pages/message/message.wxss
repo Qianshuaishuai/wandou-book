@@ -1,0 +1,74 @@
+/* pages/message/message.wxss */
+
+page {
+  background: #f4f4f9;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 48rpx;
+}
+
+.list .block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #fff;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  position: relative;
+}
+
+.list .block .left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.list .block .left .head {
+  width: 86rpx;
+  height: 86rpx;
+  border-radius: 50%;
+}
+
+.list .block .left .content {
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.list .block .left .content .name {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #333;
+}
+
+.list .block .left .content .message {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #5f5f5f;
+  margin-top: 8rpx;
+  width: 400rpx;
+}
+
+.list .block .time {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #5f5f5f;
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+}
+
+.no{
+  width: 100%;
+  text-align: center;
+  margin-top: 69%;
+  font-size: 32rpx;
+}

@@ -36,34 +36,77 @@ Page({
     currentTypeIndex: 0,
     secondhandList: [],
     school: "",
-    userInfo:{}
+    userInfo: {},
+    showUnbindDialog2: false,
+    showPicDialog: false,
+    currentPhone: "",
+    currentShowPic: "",
+    windowWidth: 0,
+    windowHeight: 0,
+    showHeight: 0
+  },
+
+  closeDialog(event) {
+    this.setData({
+      showUnbindDialog2: false,
+      showPicDialog: false
+    })
+  },
+
+  showPic(event) {
+    var url = event.currentTarget.dataset.url
+    this.setData({
+      showPicDialog: true,
+      currentShowPic: url
+    })
+
+    wx.getImageInfo({
+      src: url,
+      success: res => {
+        var width = res.width
+        var height = res.height
+        var windowWidth = wx.getSystemInfoSync().windowWidth
+        var windowHeight = wx.getSystemInfoSync().windowHeight
+        var range = height / width
+        var showHeight = range * (windowWidth - 60)
+
+        this.setData({
+          windowWidth: windowWidth,
+          showHeight: showHeight,
+          windowHeight: windowHeight,
+        })
+      }
+    })
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
-    var school = wx.getStorageSync('school')
-    if (school == undefined || school.id == undefined || school.id == 0) {
+    var index = options.index
+    if (index != undefined && index != 0) {
+      this.setData({
+        currentTypeIndex: index
+      })
+    }
+  },
+
+  buy(event) {
+
+    if (this.data.userInfo.phone == "") {
       wx.showToast({
-        title: '请先选择学校',
+        title: '请先绑定手机',
         icon: 'none'
       })
       setTimeout(function() {
-        wx.navigateBack({
-          delta: 1
+        wx.navigateTo({
+          url: '/pages/masterregister/masterregister',
         })
-      }, 1000);
+      }, 500);
       return
     }
 
-    this.setData({
-      school: school
-    })
-    this.getSecondhandList(0, this.data.currentSearch)
-  },
-
-  buy() {
+    var index = Number(event.currentTarget.dataset.index)
     if (this.data.school.isBind == 0) {
       wx.showToast({
         title: '当前学校没有站长入驻，暂不能购买',
@@ -71,6 +114,26 @@ Page({
       })
       return
     }
+
+    this.setData({
+      showUnbindDialog2: true,
+      currentPhone: this.data.secondhandList[index].contract
+    })
+  },
+
+  copy() {
+    wx.setClipboardData({
+      data: this.data.currentPhone,
+      success: function(res) {
+        wx.getClipboardData({
+          success: function(res) {
+            wx.showToast({
+              title: '复制联系方式成功'
+            })
+          }
+        })
+      }
+    })
   },
 
   getSecondhandList(type, search) {
@@ -157,11 +220,39 @@ Page({
         title: '请先绑定手机',
         icon: 'none'
       })
-      setTimeout(function () {
+      setTimeout(function() {
         wx.navigateBack({
           delta: 1
         })
       }, 500);
+    }
+
+    var school = wx.getStorageSync('school')
+    if (school == undefined || school.id == undefined || school.id == 0) {
+      wx.showToast({
+        title: '请先选择学校',
+        icon: 'none'
+      })
+      setTimeout(function() {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 1000);
+      return
+    }
+
+    this.setData({
+      school: school
+    })
+
+    var index = this.data.currentTypeIndex
+    if (index != undefined && index != 0) {
+      this.setData({
+        currentTypeIndex: index
+      })
+      this.getSecondhandList(this.data.typeList[this.data.currentTypeIndex].id, this.data.currentSearch)
+    } else {
+      this.getSecondhandList(0, this.data.currentSearch)
     }
   },
 

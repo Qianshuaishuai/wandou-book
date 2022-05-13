@@ -217,10 +217,10 @@ Page({
     var currentBookCount = this.data.currentBookCount
     var allPrice = this.data.allPrice
 
-    if (currentBookCount < 28 && allPrice < 58) {
+    if (currentBookCount < 18 && allPrice < 28) {
       wx.showModal({
         title: '友情提示',
-        content: '回收书籍最低提交28本或满58元即可回收',
+        content: '回收书籍最低提交18本或满28元即可回收',
         showCancel: false
       })
       return

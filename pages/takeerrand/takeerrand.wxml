@@ -52,11 +52,14 @@
       <view class="diviler" wx:if="{{selectStatus == 3}}"></view>
     </view>
   </view>
-
+  <view class='box' wx:if="{{selectStatus == 3}}" style="margin-left:28rpx;margin-top:24rpx;color:#0687f7">
+    已完成{{showData.length}}单
+  </view>
   <view class="list">
     <view class="block" wx:for="{{showData}}" wx:for-item="item" wx:for-index="index" bindtap="goToDetail" data-index="{{index}}">
       <view class="top1">
         <view class="type">类别：{{item.typeStr}}</view>
+        <view class="reward" wx:if="{{item.expressReward == 1 && item.type == 7}}">急</view>
         <view class="right">
           <view class="auto" style="display:none">
             <view class="time1">还剩</view>
@@ -102,19 +105,28 @@
       </view>
 
 
-      <view class="time-box"  style="margin-bottom: {{item.type<=3?'0rpx':'43rpx'}}">
+      <view class="time-box" style="margin-bottom: {{item.type<=3?'0rpx':'43rpx'}}">
         <image class="tag" src="/assets/image-v2/errandlist/time.png"></image>
         <view class="time">
           {{item.tip1}}
         </view>
       </view>
 
-      <view class="time-box" style="margin-bottom: 43rpx" wx:if="{{item.type<=3}}">
+      <view class="time-box" style="margin-bottom: {{(item.type==1||item.type==3)?'0rpx':'42rpx'}}" wx:if="{{item.type<=3||item.type==7}}">
         <image class="tag" src="/assets/image-v2/errandlist/box.png"></image>
         <view class="time">
           {{item.tip2}}
         </view>
       </view>
+
+      <view class="time-box" style="margin-bottom: 43rpx" wx:if="{{item.type==1||item.type==3}}">
+        <image class="tag" src="/assets/image-v2/errandlist/box.png"></image>
+        <view class="time">
+          {{item.tip3}}
+        </view>
+      </view>
+
+      <view class="extra" wx:if="{{item.status == 2}}">点击可查看详情</view>
 
       <!-- <view class="status" wx:if="{{item.status == 1}}"></view> -->
       <view class="button" wx:if="{{item.status == 1}}" bindtap="take" data-index="{{index}}">
@@ -137,7 +149,12 @@
         </view>
       </view>
 
-      <view class="status" wx:if="{{item.status == 3}}" style="color:green">待确认</view>
+      <view class="button-box" wx:if="{{item.status == 3}}">
+        <view class="button2" bindtap="report">投诉</view>
+        <view class="button2" bindtap="call" style="margin-left:12rpx;width:144rpx;" data-index="{{index}}">拨打电话</view>
+        <view class="status2" style="color:green;margin-left:12rpx;">待确认</view>
+      </view>
+
       <view class="status" wx:if="{{item.status == 4}}" style="color:#8C8F8D">已完成</view>
     </view>
   </view>

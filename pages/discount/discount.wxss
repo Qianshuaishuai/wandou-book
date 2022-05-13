@@ -164,7 +164,7 @@ page {
 .post {
   margin-top: 28rpx;
   width: 100%;
-  height: 177vw;
+  height: 138vw;
   z-index: 33;
 }
 

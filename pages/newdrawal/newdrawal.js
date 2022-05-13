@@ -53,6 +53,15 @@ Page({
       return
     }
 
+    if (this.data.currentAmount > this.data.userInfo.sellBalance + this.data.userInfo.errandBalance) {
+      wx.showToast({
+        title: '余额不足提现',
+        icon: 'none'
+      })
+
+      return
+    }
+
     wx.navigateTo({
       url: '/pages/drawal/drawal?count=' + this.data.currentAmount,
     })

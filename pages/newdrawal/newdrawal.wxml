@@ -27,7 +27,7 @@
 
     <view class="tip3-box" style="margin-top:51rpx;">
       <view class="tip3"></view>
-      <view class="tip33">卖书推广收益</view>
+      <view class="tip33">卖书及推广收益</view>
     </view>
 
     <view class="count1-box">
@@ -59,7 +59,7 @@
     </view>
 
      <view class="tip-box2">
-      <view class="tip8">提现优先从卖书推广收益扣除</view>
+      <view class="tip8">提现优先从卖书及推广收益扣除</view>
     </view>
 
     <view class="button" bindtap="commit">

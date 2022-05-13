@@ -169,3 +169,12 @@
     <view class="tip7">客服微信</view>
   </view>
 </view> -->
+
+<view class="dialog-bg" wx:if="{{showUnbindDialog}}" bindtap="closeDialog"></view>
+<view class="dialog1" wx:if="{{showUnbindDialog}}">
+  <image class="pic1" src="https://resource.qimsj.com/wandou5.jpeg"></image>
+  <view class="post" bindtap="savePhoto">
+    <image class="bg3" src="/assets/image-v2/promotion/promotion-bg.png"></image>
+    <view class="tip14">保存到手机相册</view>
+  </view>
+</view>

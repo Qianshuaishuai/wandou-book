@@ -27,7 +27,7 @@
     </view>
 
     <view class="photo-list">
-      <view class="photo-block" wx:for="{{item.picArray}}" wx:for-item="pitem" wx:for-index="pindex">
+      <view class="photo-block" wx:for="{{item.picArray}}" wx:for-item="pitem" wx:for-index="pindex" data-url="{{pitem}}" bindtap="showPic">
         <image src="{{pitem}}" class="photo"></image>
       </view>
     </view>
@@ -43,10 +43,25 @@
           面交地点：{{item.address}}
         </view>
       </view>
-      <view class="button" bindtap="buy">
+      <view class="button" bindtap="buy" data-index="{{index}}">
         <image class="bg" src="/assets/image-v2/secondhand/button.png"></image>
         <view class="tip2">我要了</view>
       </view>
     </view>
   </view>
 </view>
+
+<view class="dialog-bg" wx:if="{{showUnbindDialog2||showPicDialog}}" bindtap="closeDialog"></view>
+<!-- <view class="dialog2" wx:if="{{showUnbindDialog2}}">
+  <image class="pic2" src="/assets/image-v2/masterregister/wechat.png"></image>
+  <view class="tip11">已复制客服微信，请联系 解绑换绑</view>
+</view> -->
+
+<view class="dialog1" wx:if="{{showUnbindDialog2}}">
+  <image class="pic1" src="/assets/image-v2/masterregister/phone.png"></image>
+  <view class="tip10">卖家信息</view>
+  <view class="phone">联系方式：{{currentPhone}}</view>
+  <!-- <view class="phone" wx:if="{{userInfo.phone == ''}}">暂未绑定</view> -->
+  <view class="unbind2" bindtap="copy">复制</view>
+</view>
+<image src="{{currentShowPic}}" class="show-pic" wx:if="{{showPicDialog}}" style="width:{{windowWidth - 60}}px;left:30px;height:{{showHeight}}px;top:{{(windowHeight - showHeight) / 2}}px"></image>

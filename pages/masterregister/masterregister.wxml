@@ -1,10 +1,10 @@
 <view class="top">
   <view class="left">
     <image class="icon4" src="/assets/image-v2/masterregister/icon4.png"></image>
-    <view class="tip1">已绑定手机号</view>
+    <view class="tip1">{{userInfo.phone == '' ? '未绑定手机号':'已绑定手机号'}}</view>
   </view>
 
-  <view class="unbind" bindtap="unbind">解绑</view>
+  <view class="unbind" bindtap="unbind" wx:if="{{userInfo.phone != ''}}">解绑</view>
 </view>
 
 <view class="title">

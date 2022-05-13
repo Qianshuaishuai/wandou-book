@@ -1,10 +1,29 @@
-<view class="main">
+<view class="main" id="page">
   <image src="../../assets/image-v2/discount/bg.png" class="bg"></image>
   <view class="title">回收车</view>
 
   <view class="notice">
     <image src="../../assets/image-v2/receivecar/icon5.png" class="icon5"></image>
-    <view class="tip12">7天快速审核到账，做书我们是认真的</view>
+    <!-- <view class="tip12">7天快速审核到账，做书我们是认真的</view> -->
+    <!--  7天快速审核到账 做书我们是认真的 （本校站长未入住也可以卖书噢～） 最少满28本或58元才可提交订单 -->
+    <view class='wp'>
+      <!-- 纯css实现 -->
+      <view class='box'>
+        <view id='txt1' class='tip12' style='animation: roll linear {{duration}}s infinite;'></view>
+        <view id='txt2' class='tip12' style='left: {{posLeft1}}px'>{{text}}</view>
+      </view>
+      <!-- 显示完后再显示 -->
+      <!-- <view class='box'>
+        <view id='txt2' class='txt' style='left: {{posLeft1}}px'>{{text}}</view>
+      </view> -->
+      <!-- 出现空白后就显示 -->
+      <!-- <view class='box'>
+        <view class='flex-box' style='left: {{posLeft2}}px'>
+          <view id='txt3' class='txt'>{{text}}</view>
+          <view class='txt' style='margin-left: {{marginLeft}}px'>{{text}}</view>
+        </view>
+      </view> -->
+    </view>
   </view>
 
   <view class="content">

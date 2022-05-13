@@ -276,3 +276,83 @@ page {
   color: #333;
   margin-top: 12rpx;
 }
+
+.dialog-bg {
+  width: 100%;
+  height: 100vh;
+  opacity: 0.5;
+  background: #000;
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 9999999;
+}
+
+.dialog1 {
+  width: 700rpx;
+  height: 680rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 28%;
+  left: 50%;
+  margin-left: -350rpx;
+  z-index: 9999999;
+}
+
+.dialog1 .pic1{
+  margin-top: 36rpx;
+  width: 500rpx;
+  height: 500rpx;
+}
+
+.dialog1 .tip14 {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 4;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 20rpx;
+}
+
+.post {
+  height: 110rpx;
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  position: relative;
+  width: 600rpx;
+  margin-top: 24rpx;
+}
+
+.post .bg3 {
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+}
+
+.post .tip14 {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 4;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #fff;
+  margin-top: 20rpx;
+}

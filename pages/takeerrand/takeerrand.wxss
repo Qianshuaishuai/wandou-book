@@ -258,6 +258,7 @@ page {
   align-items: center;
   justify-content: space-between;
   margin-top: 28rpx;
+  position: relative;
 }
 
 .content .list .block .top1 .type {
@@ -265,6 +266,54 @@ page {
   font-family: PingFang SC;
   font-weight: bold;
   color: #333;
+}
+
+.content .list .block .top1 .reward {
+  width: 36rpx;
+  height: 36rpx;
+  font-size: 24rpx;
+  background: #f00;
+  text-align: center;
+  line-height: 36rpx;
+  margin-left: 24rpx;
+  color: #fff;
+  position: absolute;
+  left: 150rpx;
+}
+
+.content .list .block .button-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  right: 25rpx;
+  bottom: 37rpx;
+}
+
+.content .list .block .button-box .status2 {
+  width: 114rpx;
+  height: 44rpx;
+  background: #ffeae9;
+  border-radius: 22rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #f02c2c;
+  text-align: center;
+  line-height: 44rpx;
+}
+
+.content .list .block .button-box .button2 {
+  width: 114rpx;
+  height: 44rpx;
+  background: #ffeae9;
+  border-radius: 22rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 500;
+  color: #f02c2c;
+  text-align: center;
+  line-height: 44rpx;
 }
 
 .content .list .block .status {
@@ -363,6 +412,14 @@ page {
   position: absolute;
   right: 25rpx;
   bottom: 37rpx;
+}
+
+.content .list .block .extra{
+  position: absolute;
+  right: 36rpx;
+  bottom: 96rpx;
+  color: #333333;
+  font-size: 24rpx;
 }
 
 .content .list .block .button .bt-bg {

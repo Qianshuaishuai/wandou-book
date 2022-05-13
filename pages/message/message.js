@@ -1,4 +1,4 @@
-// pages/goodthings/goodthings.js
+// pages/message/message.js
 const app = getApp()
 Page({
 
@@ -6,19 +6,20 @@ Page({
    * Page initial data
    */
   data: {
-   goodDatas:[],
+    messageList: [],
+    userInfo: {}
   },
 
-  getGoodList(){
+  getMessageList() {
     wx.request({
-      url: app.globalData.baseUrl + '/v1/good/list',
+      url: app.globalData.baseUrl + '/v1/message/get',
       data: {
-
+        phone: this.data.userInfo.phone,
       },
       method: 'GET',
       success: res => {
         this.setData({
-          goodDatas: res.data.F_data
+          messageList: res.data.F_data
         })
       },
     })
@@ -28,15 +29,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
-    this.getGoodList()
-  },
 
-  goToDetail(e){
-    var index = e.currentTarget.dataset.index
-    wx.setStorageSync("resource", this.data.goodDatas[index])
-    wx.navigateTo({
-      url: "/pages/book/book?type=2"
-    })
   },
 
   /**
@@ -50,7 +43,24 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function() {
+    var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo
+    })
 
+    if (userInfo.phone == '') {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function() {
+        wx.navigateBack({
+          delta: 1
+        })
+      }, 500);
+    }
+
+    this.getMessageList()
   },
 
   /**

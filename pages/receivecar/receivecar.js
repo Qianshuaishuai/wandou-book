@@ -1,5 +1,5 @@
 const app = getApp()
-
+let interval1, interval2;
 Page({
 
 
@@ -19,7 +19,13 @@ Page({
     currentFilterStatus: false,
     filterCarBookList: [],
     showDialogTip: false,
-    totalCount: 0
+    totalCount: 0,
+    text: '7天快速审核到账 做书我们是认真的 （本校站长未入住也可以卖书噢～） 最少满18本或28元才可提交订单', //滚动文字
+    duration: 0, //水平滚动方法一中文字滚动总时间
+    pace: 1, //滚动速度
+    posLeft1: 0, //水平滚动方法二中left值
+    posLeft2: 0, //水平滚动方法三中left值
+    marginLeft: 60 //水平滚动方法三中两条文本之间的间距
   },
 
   bindinput(e) {
@@ -61,6 +67,7 @@ Page({
 
     this.scanCode()
   },
+
 
   scanCode: function() {
     var that = this;
@@ -295,6 +302,7 @@ Page({
     })
     this.translateAllPrice()
     var that = this
+    this.pageScrollToBottom()
     if (this.data.isContinue) {
       wx.showToast({
         title: '已成功扫描，请扫描下一本',
@@ -302,8 +310,20 @@ Page({
       })
       setTimeout(function() {
         that.scanCode()
-      }, 500)
+      }, 1500)
     }
+  },
+
+  pageScrollToBottom: function () {
+    wx.createSelectorQuery().select('#page').boundingClientRect(function (rect) {
+      if (rect) {
+        // 使页面滚动到底部
+        console.log(rect.height);
+        wx.pageScrollTo({
+          scrollTop: rect.height
+        })
+      }
+    }).exec()
   },
 
 
@@ -404,29 +424,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var data = [{
-      "id": 2292682500962642,
-      "pic": "http://booklibimg.kfzimg.com/data/book_lib_img_v2/isbn/1/7366/73662b8d8c86734602ded607df62c630_0_1_300_300.jpg",
-      "price": 3.23,
-      "originPrice": 17,
-      "real_price": "88.00",
-      "name": "机器学习",
-      "isbn": "9787302423287",
-      "currentCount": 4,
-      "coverCount": 99,
-      "updateTime": "2022-01-02T04:47:15+08:00",
-      "publishDate": "2016-01",
-      "publish": "清华大学出版社",
-      "author": "周志华",
-      "isRefund": 0,
-      "isDswGet": 1,
-      "isFirstOperated": 0,
-      "num": 4
-    }]
-    wx.setStorage({
-      key: 'carList',
-      data: data,
-    })
+    // var data = [{
+    //   "id": 2292682500962642,
+    //   "pic": "http://booklibimg.kfzimg.com/data/book_lib_img_v2/isbn/1/7366/73662b8d8c86734602ded607df62c630_0_1_300_300.jpg",
+    //   "price": 3.23,
+    //   "originPrice": 17,
+    //   "real_price": "88.00",
+    //   "name": "机器学习",
+    //   "isbn": "9787302423287",
+    //   "currentCount": 4,
+    //   "coverCount": 99,
+    //   "updateTime": "2022-01-02T04:47:15+08:00",
+    //   "publishDate": "2016-01",
+    //   "publish": "清华大学出版社",
+    //   "author": "周志华",
+    //   "isRefund": 0,
+    //   "isDswGet": 1,
+    //   "isFirstOperated": 0,
+    //   "num": 4
+    // }]
+    // wx.setStorage({
+    //   key: 'carList',
+    //   data: data,
+    // })
   },
 
   /**
@@ -481,6 +501,35 @@ Page({
     this.translateAllPrice()
   },
 
+  roll1: function(that, txtLength, windowWidth) {
+    interval1 = setInterval(function() {
+      if (-that.data.posLeft1 < txtLength) {
+        that.setData({
+          posLeft1: that.data.posLeft1 - that.data.pace
+        })
+      } else {
+        that.setData({
+          posLeft1: windowWidth
+        })
+      }
+    }, 20)
+  },
+  roll2: function(that, txtLength, windowWidth) {
+    interval2 = setInterval(function() {
+      if (-that.data.posLeft2 < txtLength + that.data.marginLeft) {
+        that.setData({
+          posLeft2: that.data.posLeft2 - that.data.pace
+        })
+      } else { // 第二段文字滚动到左边后重新滚动
+        that.setData({
+          posLeft2: 0
+        })
+        clearInterval(interval2);
+        that.roll2(that, txtLength, windowWidth);
+      }
+    }, 20)
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -498,6 +547,28 @@ Page({
 
     this.initFilterStatus()
     this.translateAllPrice()
+
+    let that = this;
+    let windowWidth = wx.getSystemInfoSync().windowWidth; //屏幕宽度
+    // wx.createSelectorQuery().select('#txt1').boundingClientRect(function (rect) {
+    //   let duration = rect.width * 0.03;//滚动文字时间,滚动速度为0.03s/px
+    //   that.setData({
+    //     duration: duration
+    //   })
+    // }).exec()
+
+    wx.createSelectorQuery().select('#txt2').boundingClientRect(function (rect) {
+      let txtLength = rect.width;//滚动文字长度
+      that.roll1(that, txtLength, windowWidth);
+    }).exec()
+
+    wx.createSelectorQuery().select('#txt3').boundingClientRect(function (rect) {
+      let txtLength = rect.width;//文字+图标长度
+      that.setData({
+        marginLeft: txtLength < windowWidth - that.data.marginLeft ? windowWidth - txtLength : that.data.marginLeft
+      })
+      that.roll2(that, txtLength, windowWidth);
+    }).exec()
   },
 
   deleteBook(e) {
@@ -514,13 +585,15 @@ Page({
 
     this.translateFilterList()
     this.translateAllPrice()
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function() {
-
+    clearInterval(interval1);
+    clearInterval(interval2);
   },
 
   /**

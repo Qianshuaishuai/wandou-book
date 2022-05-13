@@ -71,6 +71,22 @@
     <view class="express">
       {{errand.showNote}}
     </view>
+
+   <view class="title" wx:if="{{errand.type == 7}}">
+      取件信息
+    </view>
+
+    <view class="photo-box" wx:if="{{errand.type == 7}}">
+      <view class="photo-block" wx:for="{{errand.photoList}}" wx:for-item="item" wx:for-index="index" data-url="{{item}}" bindtap="showPic">
+        <view class="show">
+          <image class="pic" src="{{item}}"></image>
+        </view>
+      </view>
+    </view>
+
+    <view class="title" wx:if="{{errand.type == 7}}" style="color:#ff0000;margin-top:0rpx;margin-right:36rpx;">
+      *普通订单接单后90分钟内送达，加急订单30分钟内送达
+    </view>
   </view>
 
   <view class="button-box">
@@ -98,3 +114,17 @@
     </view>
   </view>
 </view>
+
+<view class="dialog-bg" wx:if="{{showUnbindDialog||showPicDialog}}" bindtap="closeDialog"></view>
+
+<view class="dialog2" wx:if="{{showUnbindDialog}}">
+  <view class="tip15">私信</view>
+  <textarea class="input" placeholder="请输入待发送信息" bindinput="changeMessage">
+  </textarea>
+  <view class="button">
+    <view class="cancel" bindtap="cancel">取消</view>
+    <view class="send" bindtap="send">发送</view>
+  </view>
+</view>
+
+<image src="{{currentShowPic}}" class="show-pic" wx:if="{{showPicDialog}}" style="width:{{windowWidth - 60}}px;left:30px;height:{{showHeight}}px;top:{{(windowHeight - showHeight) / 2}}px"></image>

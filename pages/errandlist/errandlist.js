@@ -32,7 +32,8 @@ Page({
       "id": 6,
       "name": "悬赏"
     }],
-    userInfo: {}
+    userInfo: {},
+    showDataSimple:{}
   },
 
   changeSelectStatus(event) {
@@ -43,11 +44,39 @@ Page({
     this.getErrandList()
   },
 
+  report(event){
+    wx.showModal({
+      title: '提示',
+      content: '如在订单中遇到问题，骑手未能完成任务，请在我的-推荐工具-客服微信 中联系客服解决问题',
+      showCancel: false,
+      success: res => {
+        
+      }
+    })
+  },
+
+
+  call(event) {
+    var errand = this.data.showData[event.currentTarget.dataset.index]
+    wx.showModal({
+      title: '提示',
+      content: '确定拨打电话给' + errand.takePhone,
+      showCancel: true,
+      success: res => {
+        if (res.confirm) {
+          wx.makePhoneCall({
+            phoneNumber: errand.takePhone,
+          })
+        }
+      }
+    })
+  },
+
   cancel(event) {
     var index = Number(event.currentTarget.dataset.index)
     wx.showModal({
       title: '提示',
-      content: '你确定取消该跑腿吗?',
+      content: '支付金额将退至零跑校园钱包，可用于平台消费，若需原路退回请联系客服。',
       showCancel: true,
       success: res => {
         if (res.confirm) {
@@ -94,7 +123,7 @@ Page({
     var index = Number(event.currentTarget.dataset.index)
     wx.showModal({
       title: '提示',
-      content: '你确认已完成吗?',
+      content: '你确定要完成订单吗？完成后费用将打给骑手',
       showCancel: true,
       success: res => {
         if (res.confirm) {
@@ -166,21 +195,72 @@ Page({
     })
   },
 
+  add() {
+    wx.navigateTo({
+      url: '/pages/newerrand/newerrand',
+    })
+  },
+
+  /**
+   * Lifecycle function--Called when page load
+   */
+  onLoad: function(options) {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady: function() {
+
+  },
+
+  clickMessage(event) {
+    wx.showToast({
+      title: '开发中,请微信或电话沟通',
+      icon: 'none'
+    })
+    return
+    this.setData({
+      showUnbindDialog: true,
+      message: ''
+    })
+  },
+
+  clickPhone(event) {
+    var errand = this.data.showData[event.currentTarget.dataset.index]
+    wx.showModal({
+      title: '提示',
+      content: '确定拨打电话给' +errand.takePhone,
+      showCancel: true,
+      success: res => {
+        if (res.confirm) {
+          wx.makePhoneCall({
+            phoneNumber: errand.takePhone,
+          })
+        }
+      }
+    })
+
+  },
+
   translateShowData(showData) {
     var newShowData = new Array()
     for (var s = 0; s < showData.length; s++) {
       switch (showData[s].type) {
         case 1:
-          showData[s].showPrice = showData[s].agentPrice
+          showData[s].showPrice = showData[s].realPayCount
           showData[s].tip1 = "送达时间: " + showData[s].agentArrivalTime
-          showData[s].tip2 = "代购商品: " + showData[s].agent
-          showData[s].tag1 = "商"
-          showData[s].tag2 = "收"
-          showData[s].tag11 = showData[s].agentStoreAddress
+          showData[s].tip2 = "备注: " + showData[s].agentNote
+          showData[s].tip3 = "商家地址: " + showData[s].agentStoreAddress
+          showData[s].tag1 = "买"
+          showData[s].tag2 = "送"
+          showData[s].tag11 = showData[s].agent
           showData[s].tag22 = showData[s].agentReceiveAddress
           showData[s].tagC1 = "#FF3F38"
           showData[s].tagC2 = "#F8A028"
           showData[s].showContract = showData[s].agentContract
+          showData[s].showNote = showData[s].agentNote
           newShowData.push(showData[s])
           break
         case 2:
@@ -194,19 +274,22 @@ Page({
           showData[s].tagC1 = "#0881F3"
           showData[s].tagC2 = "#F8A028"
           showData[s].showContract = showData[s].absentContract
+          showData[s].showNote = showData[s].absentNote
           newShowData.push(showData[s])
           break
         case 3:
           showData[s].showPrice = showData[s].otherErrandPrice
           showData[s].tip1 = "送达时间: " + showData[s].otherArrivalTime
-          showData[s].tip2 = "跑腿要求: " + showData[s].otherErrandAsk
+          showData[s].tip2 = "备注: " + showData[s].otherNote
+          showData[s].tip3 = "跑腿要求: " + showData[s].otherErrandAsk
           showData[s].tag1 = "收"
-          showData[s].tag2 = "跑"
+          showData[s].tag2 = "去"
           showData[s].tag11 = showData[s].otherReceiveAddress
           showData[s].tag22 = showData[s].otherErrandAddress
           showData[s].tagC1 = "#0881F3"
           showData[s].tagC2 = "#F8A028"
           showData[s].showContract = showData[s].otherContract
+          showData[s].showNote = showData[s].otherNote
           newShowData.push(showData[s])
           break
         case 4:
@@ -219,42 +302,47 @@ Page({
           showData[s].tagC1 = "#FF3F38"
           showData[s].tagC2 = "#F8A028"
           showData[s].showContract = showData[s].leaseContract
+          showData[s].showNote = showData[s].leaseNote
           newShowData.push(showData[s])
           break
         case 5:
           showData[s].showPrice = showData[s].playPrice
           showData[s].tip1 = "备注: " + showData[s].playNote
-          showData[s].tag1 = "游"
-          showData[s].tag2 = "目"
+          showData[s].tag1 = "游戏"
+          showData[s].tag2 = "目标"
           showData[s].tag11 = showData[s].playGame
           showData[s].tag22 = showData[s].playTarget
           showData[s].tagC1 = "#FF3F38"
           showData[s].tagC2 = "#F8A028"
           showData[s].showContract = showData[s].playContract
+          showData[s].showNote = showData[s].playNote
           newShowData.push(showData[s])
           break
         case 6:
           showData[s].showPrice = showData[s].rewardPrice
           showData[s].tip1 = "备注: " + showData[s].rewardNote
           showData[s].tag1 = "任"
-          showData[s].tag2 = "数"
+          showData[s].tag2 = "备"
           showData[s].tag11 = showData[s].rewardTask
-          showData[s].tag22 = showData[s].rewardTaskCount
+          showData[s].tag22 = showData[s].rewardNote
           showData[s].tagC1 = "#FF3F38"
           showData[s].tagC2 = "#F8A028"
           showData[s].showContract = showData[s].rewardContract
+          showData[s].showNote = showData[s].rewardNote
           newShowData.push(showData[s])
           break
         case 7:
-          showData[s].showPrice = showData[s].expressPrice
+          showData[s].showPrice = showData[s].expressPayPrice
           showData[s].tip1 = "备注: " + showData[s].expressNote
-          showData[s].tag1 = "代"
-          showData[s].tag2 = "送"
-          showData[s].tag11 = showData[s].expressAddress
-          showData[s].tag22 = showData[s].expressArrivalAddress
+          showData[s].tip2 = "快递内物: " + showData[s].expressThing
+          showData[s].tag1 = "送达"
+          showData[s].tag2 = "代拿"
+          showData[s].tag11 = "送达地点:" + showData[s].expressAddress
+          showData[s].tag22 = "代拿地点:" + showData[s].expressArrivalAddress
           showData[s].tagC1 = "#FF3F38"
           showData[s].tagC2 = "#F8A028"
           showData[s].showContract = showData[s].expressContract
+          showData[s].showNote = showData[s].expressNote
           newShowData.push(showData[s])
           break
       }
@@ -263,26 +351,6 @@ Page({
     this.setData({
       showData: newShowData
     })
-  },
-
-  add() {
-    wx.navigateTo({
-      url: '/pages/newerrand/newerrand',
-    })
-  },
-
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad: function(options) {
-   
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function() {
-
   },
 
   /**
@@ -312,7 +380,7 @@ Page({
         title: '请先选择学校',
         icon: 'none'
       })
-      setTimeout(function () {
+      setTimeout(function() {
         wx.navigateBack({
           delta: 1
         })

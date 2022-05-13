@@ -15,7 +15,8 @@ Page({
     duration: 500,
     tweetList: [],
     school: "",
-    userInfo: {}
+    userInfo: {},
+    showUnbindDialog: false,
   },
 
   swiperClick(event) {
@@ -36,11 +37,9 @@ Page({
         url = '/pages/certrider/certrider'
         break
       case 2:
-        wx.showToast({
-          title: '暂未开放',
-          icon: 'none'
-        })
-        return
+        url = '/pages/discount/discount'
+        break
+      default:
         url = '/pages/newcoupon/newcoupon'
         break
     }
@@ -61,6 +60,39 @@ Page({
     })
   },
 
+  goToDetail(event) {
+    var showTime = wx.getStorageSync('showTime')
+    var date2 = new Date();
+    wx.setStorageSync("showTime", date2)
+    var date3 = date2.getTime() - new Date(showTime).getTime();
+
+    var days = Math.floor(date3 / (24 * 3600 * 1000))
+
+    //计算出小时数
+    var leave1 = date3 % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
+    var hours = Math.floor(leave1 / (3600 * 1000))
+    //计算相差分钟数
+    var leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
+    var minutes = Math.floor(leave2 / (60 * 1000))
+    if (minutes > 1 || showTime == '') {
+      wx.requestSubscribeMessage({
+        tmplIds: ['ur-7dxigeVUPmNTzzIOfwfk5SGr4_LVX3R-6TRJehSw'],
+        success(res) {
+     
+        },
+        fail(res) {
+          console.log(res)
+        }
+      })
+    }
+
+    var index = Number(event.currentTarget.dataset.index)
+
+    wx.navigateTo({
+      url: '/pages/webview/webview?index=' + index,
+    })
+  },
+
   readTweetList(id) {
     wx.request({
       url: app.globalData.baseUrl + '/v1/tweet/read',
@@ -76,13 +108,22 @@ Page({
   },
 
   goToSecondIndex(event) {
-    if (this.data.userInfo.phone == "") {
+    // if (this.data.userInfo.phone == "") {
+    //   wx.showToast({
+    //     title: '请先绑定手机',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
+
+    if (this.data.school.isBind == 0) {
       wx.showToast({
-        title: '请先绑定手机',
+        title: '目前此学校暂无站长入驻',
         icon: 'none'
       })
       return
     }
+
     wx.navigateTo({
       url: '/pages/secondhandindex/secondhandindex',
     })
@@ -118,12 +159,71 @@ Page({
     wx.switchTab({
       url: '/pages/newsellbook/newsellbook',
     })
+
+    var showTime = wx.getStorageSync('showTime')
+    var date2 = new Date();
+    wx.setStorageSync("showTime", date2)
+    var date3 = date2.getTime() - new Date(showTime).getTime();
+
+    var days = Math.floor(date3 / (24 * 3600 * 1000))
+
+    //计算出小时数
+    var leave1 = date3 % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
+    var hours = Math.floor(leave1 / (3600 * 1000))
+    //计算相差分钟数
+    var leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
+    var minutes = Math.floor(leave2 / (60 * 1000))
+    if (minutes > 1 || showTime == '') {
+      wx.requestSubscribeMessage({
+        tmplIds: ['ur-7dxigeVUPmNTzzIOfwfk5SGr4_LVX3R-6TRJehSw'],
+        success(res) {
+  
+        },
+        fail(res) {
+          console.log(res)
+        }
+      })
+    }
   },
 
   goTolease(event) {
-    if (this.data.userInfo.phone == "") {
+    // if (this.data.userInfo.phone == "") {
+    //   wx.showToast({
+    //     title: '请先绑定手机',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
+
+
+    var showTime = wx.getStorageSync('showTime')
+    var date2 = new Date();
+    wx.setStorageSync("showTime", date2)
+    var date3 = date2.getTime() - new Date(showTime).getTime();
+
+    var days = Math.floor(date3 / (24 * 3600 * 1000))
+
+    //计算出小时数
+    var leave1 = date3 % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
+    var hours = Math.floor(leave1 / (3600 * 1000))
+    //计算相差分钟数
+    var leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
+    var minutes = Math.floor(leave2 / (60 * 1000))
+    if (minutes > 1 || showTime == '') {
+      wx.requestSubscribeMessage({
+        tmplIds: ['ur-7dxigeVUPmNTzzIOfwfk5SGr4_LVX3R-6TRJehSw'],
+        success(res) {
+   
+        },
+        fail(res) {
+          console.log(res)
+        }
+      })
+    }
+
+    if (this.data.school.isBind == 0) {
       wx.showToast({
-        title: '请先绑定手机',
+        title: '目前此学校暂无站长入驻',
         icon: 'none'
       })
       return
@@ -135,19 +235,89 @@ Page({
 
 
   goToErrand(event) {
-    if (this.data.userInfo.phone == "") {
+    // if (this.data.userInfo.phone == "") {
+    //   wx.showToast({
+    //     title: '请先绑定手机',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
+
+    // wx.requestSubscribeMessage({
+    //   tmplIds: ['ur-7dxigeVUPmNTzzIOfwfk5SGr4_LVX3R-6TRJehSw'],
+    //   success(res) {
+    //     console.log(res)
+    //    }
+    // })
+
+    // return
+
+    var showTime = wx.getStorageSync('showTime')
+    var date2 = new Date();
+    wx.setStorageSync("showTime", date2)
+    var date3 = date2.getTime() - new Date(showTime).getTime();
+
+    var days = Math.floor(date3 / (24 * 3600 * 1000))
+
+    //计算出小时数
+    var leave1 = date3 % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
+    var hours = Math.floor(leave1 / (3600 * 1000))
+    //计算相差分钟数
+    var leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
+    var minutes = Math.floor(leave2 / (60 * 1000))
+    if (minutes > 1 || showTime == '') {
+      wx.requestSubscribeMessage({
+        tmplIds: ['ur-7dxigeVUPmNTzzIOfwfk5SGr4_LVX3R-6TRJehSw'],
+        success(res) {
+     
+        },
+        fail(res) {
+          console.log(res)
+        }
+      })
+    }
+
+    if (this.data.school.isBind == 0) {
       wx.showToast({
-        title: '请先绑定手机',
+        title: '目前此学校暂无站长入驻',
         icon: 'none'
       })
       return
     }
+
     wx.navigateTo({
       url: '/pages/errandindex/errandindex',
     })
   },
 
   goToStudyCar() {
+
+
+    var showTime = wx.getStorageSync('showTime')
+    var date2 = new Date();
+    wx.setStorageSync("showTime", date2)
+    var date3 = date2.getTime() - new Date(showTime).getTime();
+
+    var days = Math.floor(date3 / (24 * 3600 * 1000))
+
+    //计算出小时数
+    var leave1 = date3 % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
+    var hours = Math.floor(leave1 / (3600 * 1000))
+    //计算相差分钟数
+    var leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
+    var minutes = Math.floor(leave2 / (60 * 1000))
+    if (minutes > 1 || showTime == '') {
+      wx.requestSubscribeMessage({
+        tmplIds: ['ur-7dxigeVUPmNTzzIOfwfk5SGr4_LVX3R-6TRJehSw'],
+        success(res) {
+        
+        },
+        fail(res) {
+          console.log(res)
+        }
+      })
+    }
+
     var school = wx.getStorageSync('school')
     if (school == undefined || school.id == undefined || school.id == 0) {
       wx.showToast({
@@ -157,23 +327,25 @@ Page({
       return
     }
 
-    if (school.isBind == 1) {
-      wx.showToast({
-        title: '站长未入驻，暂不开放',
-        icon: 'none'
-      })
-      return
-    }
+    // if (school.isBind == 1) {
+    //   wx.showToast({
+    //     title: '站长未入驻，暂不开放',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
 
-    if (school.posterUrl == "") {
-      wx.showToast({
-        title: '该学校暂无驾照宣传海报，敬请期待',
-        icon: 'none'
-      })
-      return
-    }
+    // if (school.posterUrl == "") {
+    //   wx.showToast({
+    //     title: '该学校暂无驾照宣传海报，敬请期待',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
+    wx.navigateTo({
+      url: '/pages/car/car',
+    })
   },
-
 
   /**
    * Lifecycle function--Called when page load
@@ -253,17 +425,17 @@ Page({
       userInfo: userInfo
     })
 
-    if (userInfo.phone == '') {
-      wx.showToast({
-        title: '请先绑定手机',
-        icon: 'none'
-      })
-      setTimeout(function() {
-        wx.navigateBack({
-          delta: 1
-        })
-      }, 500);
-    }
+    // if (userInfo.phone == '') {
+    //   wx.showToast({
+    //     title: '请先绑定手机',
+    //     icon: 'none'
+    //   })
+    //   setTimeout(function() {
+    //     wx.navigateBack({
+    //       delta: 1
+    //     })
+    //   }, 500);
+    // }
     var school = wx.getStorageSync('school')
     this.setData({
       school: school

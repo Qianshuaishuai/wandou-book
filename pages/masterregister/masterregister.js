@@ -151,7 +151,7 @@ Page({
             var isRecommendId = wx.getStorageSync("isRecommendId")
             if (res.data.F_data.openid != isRecommendId) {
               wx.request({
-                url: this.globalData.baseUrl + '/v1/recommend/newdo',
+                url: app.globalData.baseUrl + '/v1/recommend/newdo',
                 data: {
                   phone: isRecommendId,
                   rphone: this.data.currentPhone,
@@ -171,7 +171,7 @@ Page({
               })
             }
 
-            setTimeout(function () {
+            setTimeout(function() {
               wx.navigateBack({
                 delta: 1
               })
@@ -216,6 +216,12 @@ Page({
     this.setData({
       userInfo: userInfo
     })
+
+    if (this.data.userInfo.phone != "") {
+      this.setData({
+        showUnbindDialog: true
+      })
+    }
   },
 
   unbind2(event) {
@@ -255,7 +261,7 @@ Page({
 
   closeDialog(event) {
     this.setData({
-      showUnbindDialog: false,
+      showUnbindDialog: true,
       showUnbindDialog2: false
     })
   },

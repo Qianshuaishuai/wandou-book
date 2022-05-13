@@ -45,12 +45,52 @@ Page({
       "name": "其他"
     }],
     secondhandList: [],
-    userInfo:{}
+    userInfo:{},
+    showUnbindDialog2: false,
+    showPicDialog: false,
+    currentPhone: "",
+    currentShowPic: "",
+    windowWidth: 0,
+    windowHeight: 0,
+    showHeight: 0 
   },
 
   doSelectDialog() {
     this.setData({
       showSelectDialog: true
+    })
+  },
+
+  closeDialog(event) {
+    this.setData({
+      showUnbindDialog2: false,
+      showPicDialog: false
+    })
+  },
+
+  showPic(event) {
+    var url = event.currentTarget.dataset.url
+    this.setData({
+      showPicDialog: true,
+      currentShowPic: url
+    })
+
+    wx.getImageInfo({
+      src: url,
+      success: res => {
+        var width = res.width
+        var height = res.height
+        var windowWidth = wx.getSystemInfoSync().windowWidth
+        var windowHeight = wx.getSystemInfoSync().windowHeight
+        var range = height / width
+        var showHeight = range * (windowWidth - 60)
+
+        this.setData({
+          windowWidth: windowWidth,
+          showHeight: showHeight,
+          windowHeight: windowHeight,
+        })
+      }
     })
   },
 
@@ -209,7 +249,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
-    this.getSecondhandList(0)
+   
   },
 
   getSecondhandList(type) {
@@ -271,6 +311,8 @@ Page({
         })
       }, 500);
     }
+
+    this.getSecondhandList(0)
   },
 
   /**

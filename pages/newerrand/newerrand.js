@@ -9,6 +9,7 @@ Page({
     testList: ["a", "a", "a", "a", "a"],
     currentTypeindex: 0,
     currentSizeIndex: 0,
+    currentTimeIndex: 0,
     currentCount: 0,
     currentNeed: "",
     currentDate: "",
@@ -24,6 +25,19 @@ Page({
       },
       {
         name: "大件",
+        id: 3
+      }
+    ],
+    timeList: [{
+        name: "今天上午",
+        id: 1
+      },
+      {
+        name: "今天中午",
+        id: 2
+      },
+      {
+        name: "今天下午",
         id: 3
       }
     ],
@@ -103,10 +117,16 @@ Page({
 
     // 快递
     expressAddress: "",
+    expressStore: "",
+    expressOrder: "",
     expressArrivalAddress: "",
+    expressReward: 0,
+    expressCount: 0,
     expressTime: "",
     expressAsk: "",
+    expressThing: "",
     expressContract: "",
+    expressReceiveName: "",
     expressNote: "",
     expressPrice: 0.0,
     expressPayPrice: 0.0,
@@ -114,13 +134,84 @@ Page({
     currentPayPriceTip: "",
 
     school: {},
-    userInfo: {}
+    userInfo: {},
+
+    currentPhotos: [],
+    qiniuToken: "",
+
+    showUnbindDialog: false,
+    rewardSwitch: 0,
+  },
+
+  closeDialog() {
+    this.setData({
+      showUnbindDialog: false
+    })
+  },
+
+  changeSwitch() {
+    this.setData({
+      rewardSwitch: this.data.rewardSwitch == 1 ? 0 : 1
+    })
+
+    var currentSizeIndex = this.data.currentSizeIndex
+    var reward = this.data.expressReward
+
+    var school = this.data.school
+
+    // if (value <= 0) {
+    //   return
+    // }
+    var currentPayPriceTip = "(费用包含小件寄件费用2元)"
+    var addPrice = 0
+    switch (currentSizeIndex) {
+      case 0:
+        addPrice = school.expressSmallCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressSmallCost + "元)"
+        break
+      case 1:
+        addPrice = school.expressMiddleCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressMiddleCost + "元)"
+        break
+      case 2:
+        addPrice = school.expressLargeCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressLargeCost + "元)"
+        break
+      default:
+        addPrice = school.expressSmallCount
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressSmallCount + "元)"
+        break
+    }
+    var newPrice = addPrice
+    if (this.data.rewardSwitch == 1) {
+      newPrice = addPrice + reward
+    } else {
+      newPrice = addPrice
+    }
+
+    this.setData({
+      expressPayPrice: newPrice,
+      currentPayPriceTip: currentPayPriceTip
+    })
+  },
+
+  showDialog() {
+    this.setData({
+      showUnbindDialog: true
+    })
   },
 
   changeType(event) {
     var index = event.currentTarget.dataset.index
     this.setData({
       currentTypeindex: index
+    })
+  },
+
+  changeTime(event) {
+    var index = event.currentTarget.dataset.index
+    this.setData({
+      currentTimeIndex: index
     })
   },
 
@@ -131,32 +222,40 @@ Page({
     })
 
     var currentSizeIndex = this.data.currentSizeIndex
-    var value = this.data.expressPrice
+    var reward = this.data.expressReward
 
-    if (value <= 0) {
-      return
-    }
+    var school = this.data.school
+
+    // if (value <= 0) {
+    //   return
+    // }
     var currentPayPriceTip = "(费用包含小件寄件费用2元)"
     var addPrice = 0
     switch (currentSizeIndex) {
       case 0:
-        addPrice = 2
-        currentPayPriceTip = "(费用包含小件寄件费用2元)"
+        addPrice = school.expressSmallCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressSmallCost + "元)"
         break
       case 1:
-        addPrice = 3
-        currentPayPriceTip = "(费用包含中件寄件费用3元)"
+        addPrice = school.expressMiddleCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressMiddleCost + "元)"
         break
       case 2:
-        addPrice = 5
-        currentPayPriceTip = "(费用包含大件寄件费用5元)"
+        addPrice = school.expressLargeCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressLargeCost + "元)"
         break
       default:
-        addPrice = 2
-        currentPayPriceTip = "(费用包含小件寄件费用2元)"
+        addPrice = school.expressSmallCount
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressSmallCount + "元)"
         break
     }
-    var newPrice = value + addPrice
+    var newPrice = addPrice
+    if (this.data.rewardSwitch == 1) {
+      newPrice = addPrice + reward
+    } else {
+      newPrice = addPrice
+    }
+
     this.setData({
       expressPayPrice: newPrice,
       currentPayPriceTip: currentPayPriceTip
@@ -210,53 +309,67 @@ Page({
       })
       return
     }
+
+    if (this.data.userInfo.phone == "") {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function() {
+        wx.navigateTo({
+          url: '/pages/masterregister/masterregister',
+        })
+      }, 500);
+      return
+    }
+
     var typeIndex = this.data.currentTypeindex
     var payCount = -1
     switch (typeIndex) {
       case 0:
-        if (this.data.expressAsk == '') {
-          wx.showToast({
-            title: '请输入跑腿需求',
-            icon: 'none'
-          })
-          return
-        }
+        // if (this.data.expressAsk == '') {
+        //   wx.showToast({
+        //     title: '请输入跑腿需求',
+        //     icon: 'none'
+        //   })
+        //   return
+        // }
+
+
 
         if (this.data.expressAddress == '') {
           wx.showToast({
-            title: '请输入代拿地点',
+            title: '请输入收件地址',
             icon: 'none'
           })
           return
         }
 
-
-        if (this.data.expressTime == '') {
+        if (this.data.expressThing == '') {
           wx.showToast({
-            title: '请输入送达时间',
+            title: '请输入快递内务物',
             icon: 'none'
           })
           return
         }
+
+
+        // if (this.data.expressTime == '') {
+        //   wx.showToast({
+        //     title: '请输入送达时间',
+        //     icon: 'none'
+        //   })
+        //   return
+        // }
 
 
         if (this.data.expressArrivalAddress == '') {
           wx.showToast({
-            title: '请填写送货位置',
+            title: '请填写代拿地点',
             icon: 'none'
           })
           return
         }
-
-
-        if (this.data.expressPrice <= 0) {
-          wx.showToast({
-            title: '请输入金额',
-            icon: 'none'
-          })
-          return
-        }
-
 
         if (this.data.expressContract == '') {
           wx.showToast({
@@ -269,6 +382,54 @@ Page({
         if (this.data.expressNote == '') {
           wx.showToast({
             title: '请输入备注',
+            icon: 'none'
+          })
+          return
+        }
+
+        // if (this.data.expressCount == 0) {
+        //   wx.showToast({
+        //     title: '请输入快递数量',
+        //     icon: 'none'
+        //   })
+        //   return
+        // }
+
+        if (this.data.expressStore == '') {
+          wx.showToast({
+            title: '请输入快递商家',
+            icon: 'none'
+          })
+          return
+        }
+
+        if (this.data.expressOrder == '') {
+          wx.showToast({
+            title: '请输入快递单号',
+            icon: 'none'
+          })
+          return
+        }
+
+        if (this.data.currentPhotos.length <= 0) {
+          wx.showToast({
+            title: '请上传取件信息',
+            icon: 'none'
+          })
+          return
+        }
+
+        if (this.data.expressReceiveName == '') {
+          wx.showToast({
+            title: '请输入快递收件人姓名',
+            icon: 'none'
+          })
+          return
+        }
+
+        if (this.data.rewardSwitch == 1 && this.data.expressReward <= 0) {
+          wx.showToast({
+            title: '请输入加急悬赏金额',
             icon: 'none'
           })
           return
@@ -328,13 +489,13 @@ Page({
         }
 
 
-        if (this.data.agentPrice <= 0) {
-          wx.showToast({
-            title: '请填写代购价格',
-            icon: 'none'
-          })
-          return
-        }
+        // if (this.data.agentPrice <= 0) {
+        //   wx.showToast({
+        //     title: '请填写代购价格',
+        //     icon: 'none'
+        //   })
+        //   return
+        // }
 
         if (this.data.agentCost <= 0) {
           wx.showToast({
@@ -428,6 +589,7 @@ Page({
           })
           return
         }
+        payCount = this.data.absentPayPrice
         break
       case 3:
         if (this.data.otherReceiveAddress == '') {
@@ -597,13 +759,13 @@ Page({
           return
         }
 
-        if (this.data.rewardTaskCount == '') {
-          wx.showToast({
-            title: '请输入任务数量',
-            icon: 'none'
-          })
-          return
-        }
+        // if (this.data.rewardTaskCount == '') {
+        //   wx.showToast({
+        //     title: '请输入任务数量',
+        //     icon: 'none'
+        //   })
+        //   return
+        // }
 
         if (this.data.rewardPrice <= 0.0) {
           wx.showToast({
@@ -640,124 +802,345 @@ Page({
         break
     }
 
-    wx.request({
-      url: app.globalData.baseUrl + '/v1/errand/before/pay',
-      data: {
-        wx_id: wx.getStorageSync("userId"),
-        count: 1,
-      },
-      success: res => {
-        if (res.data.F_responseNo != 10000) {
-          wx.showToast({
-            title: '支付失败,请联系管理员',
-            icon: 'none'
-          })
-          return
-        }
-        var orderId = res.data.F_data.orderID
-        wx.requestPayment({
-          timeStamp: res.data.F_data.timestamp,
-          nonceStr: res.data.F_data.nonceStr,
-          package: res.data.F_data.package,
-          signType: res.data.F_data.signType,
-          paySign: res.data.F_data.paySign,
-          success: res => {
-            wx.showLoading({
-              title: '正在发布中...',
-            })
-            var createData = {
-              "id": orderId,
-              "realPayCount": payCount,
-              "phone": this.data.userInfo.phone,
-              "school_id": this.data.school.id,
-              "type": this.data.typeList[this.data.currentTypeindex].id,
-              "agentReceiveAddress": this.data.agentReceiveAddress,
-              "agentStoreAddress": this.data.agentStoreAddress,
-              "agentArrivalTime": this.data.agentArrivalTime,
-              "agent": this.data.agent,
-              "agentPrice": this.data.agentPrice,
-              "agentCost": this.data.agentCost,
-              "agentContract": this.data.agentContract,
-              "agentNote": this.data.agentNote,
-              "agentPayPrice": this.data.agentPayPrice,
-              "absentTime": this.data.absentTime,
-              "absentDate": this.data.absentDate,
-              "absentAddress": this.data.absentAddress,
-              "absentAsk": this.data.absentAsk,
-              "absentContract": this.data.absentContract,
-              "absentNote": this.data.absentNote,
-              "absentPrice": this.data.absentPrice,
-              "absentPayPrice": this.data.absentPayPrice,
-              "otherReceiveAddress": this.data.otherReceiveAddress,
-              "otherErrandAddress": this.data.otherErrandAddress,
-              "otherArrivalTime": this.data.otherArrivalTime,
-              "otherAsk": this.data.otherAsk,
-              "otherErrandPrice": this.data.otherErrandPrice,
-              "otherContract": this.data.otherContract,
-              "otherNote": this.data.otherNote,
-              "otherPayPrice": this.data.otherPayPrice,
-              "leaseThing": this.data.leaseThing,
-              "leaseTime": this.data.leaseTime,
-              "leasePrice": this.data.leasePrice,
-              "leaseContract": this.data.leaseContract,
-              "leaseNote": this.data.leaseNote,
-              "leasePayPrice": this.data.leasePayPrice,
-              "playGame": this.data.playGame,
-              "playTarget": this.data.playTarget,
-              "playPrice": this.data.playPrice,
-              "playContract": this.data.playContract,
-              "playNote": this.data.playNote,
-              "playPayPrice": this.data.playPayPrice,
-              "rewardTask": this.data.rewardTask,
-              "rewardTaskCount": this.data.rewardTaskCount,
-              "rewardPrice": this.data.rewardPrice,
-              "rewardContract": this.data.rewardContract,
-              "rewardNote": this.data.rewardNote,
-              "rewardPayPrice": this.data.rewardPayPrice,
-              "expressAddress": this.data.expressAddress,
-              "expressArrivalAddress": this.data.expressArrivalAddress,
-              "expressTime": this.data.expressTime,
-              "expressAsk": this.data.expressAsk,
-              "expressContract": this.data.expressContract,
-              "expressNote": this.data.expressNote,
-              "expressPrice": this.data.expressPrice,
-              "expressPayPrice": this.data.expressPayPrice,
-              "expressSize": this.data.sizeList[this.data.currentSizeIndex].id,
-            }
+    if (payCount <= 1) {
+      wx.showToast({
+        title: '支付金额最低1元',
+        icon: 'none'
+      })
+      return
+    }
 
-            wx.request({
-              url: app.globalData.baseUrl + '/v1/errand/create',
-              data: createData,
-              method: 'POST',
-              header: {
-                'content-type': 'application/x-www-form-urlencoded'
-              },
-              success: res => {
-                console.log(res)
-                wx.hideLoading()
-                wx.showToast({
-                  title: '创建成功',
-                  icon: 'none'
-                })
-                setTimeout(function() {
-                  wx.navigateBack({
-                    delta: 1
-                  })
-                }, 500);
-              },
-              fail: res => {
-                console.log(res)
-                wx.hideLoading()
-              }
-            })
-          },
-          fail: res => {
+    var balance = this.data.userInfo.errandBalance
+
+    if (payCount <= balance) {
+      wx.request({
+        url: app.globalData.baseUrl + '/v1/errand/balance/pay',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: {
+          phone: this.data.userInfo.phone,
+          count: payCount,
+        },
+        success: res => {
+          if (res.data.F_responseNo != 10000) {
             wx.showToast({
-              title: '您已取消支付',
+              title: '账户余额不足以支付',
               icon: 'none'
             })
             return
           }
+
+          var orderId = res.data.F_data
+          wx.showLoading({
+            title: '正在发布中...',
+          })
+          var createData = {
+            "id": orderId,
+            "realPayCount": payCount,
+            "phone": this.data.userInfo.phone,
+            "school_id": this.data.school.id,
+            "type": this.data.typeList[this.data.currentTypeindex].id,
+            "agentReceiveAddress": this.data.agentReceiveAddress,
+            "agentStoreAddress": this.data.agentStoreAddress,
+            "agentArrivalTime": this.data.agentArrivalTime,
+            "agent": this.data.agent,
+            "agentPrice": this.data.agentPrice,
+            "agentCost": this.data.agentCost,
+            "agentContract": this.data.agentContract,
+            "agentNote": this.data.agentNote,
+            "agentPayPrice": this.data.agentPayPrice,
+            "absentTime": this.data.absentTime,
+            "absentDate": this.data.absentDate,
+            "absentAddress": this.data.absentAddress,
+            "absentAsk": this.data.absentAsk,
+            "absentContract": this.data.absentContract,
+            "absentNote": this.data.absentNote,
+            "absentPrice": this.data.absentPrice,
+            "absentPayPrice": this.data.absentPayPrice,
+            "otherReceiveAddress": this.data.otherReceiveAddress,
+            "otherErrandAddress": this.data.otherErrandAddress,
+            "otherArrivalTime": this.data.otherArrivalTime,
+            "otherAsk": this.data.otherAsk,
+            "otherErrandPrice": this.data.otherErrandPrice,
+            "otherContract": this.data.otherContract,
+            "otherNote": this.data.otherNote,
+            "otherPayPrice": this.data.otherPayPrice,
+            "leaseThing": this.data.leaseThing,
+            "leaseTime": this.data.leaseTime,
+            "leasePrice": this.data.leasePrice,
+            "leaseContract": this.data.leaseContract,
+            "leaseNote": this.data.leaseNote,
+            "leasePayPrice": this.data.leasePayPrice,
+            "playGame": this.data.playGame,
+            "playTarget": this.data.playTarget,
+            "playPrice": this.data.playPrice,
+            "playContract": this.data.playContract,
+            "playNote": this.data.playNote,
+            "playPayPrice": this.data.playPayPrice,
+            "rewardTask": this.data.rewardTask,
+            "rewardTaskCount": this.data.rewardTaskCount,
+            "rewardPrice": this.data.rewardPrice,
+            "rewardContract": this.data.rewardContract,
+            "rewardNote": this.data.rewardNote,
+            "rewardPayPrice": this.data.rewardPayPrice,
+            "expressAddress": this.data.expressAddress,
+            "expressStore": this.data.expressStore,
+            "expressOrder": this.data.expressOrder,
+            "expressPhotos": JSON.stringify(this.data.currentPhotos),
+            "expressContract": this.data.expressContract,
+            "expressNote": this.data.expressNote,
+            "expressReceiveName": this.data.expressReceiveName,
+            "expressPayPrice": this.data.expressPayPrice,
+            "expressSize": this.data.sizeList[this.data.currentSizeIndex].id,
+            "expressTime": this.data.timeList[this.data.currentTimeIndex].id,
+            "expressArrivalAddress": this.data.expressArrivalAddress,
+            "expressThing": this.data.expressThing,
+            "rewardSwitch": this.data.rewardSwitch
+          }
+
+          wx.request({
+            url: app.globalData.baseUrl + '/v1/errand/create',
+            data: createData,
+            method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            success: res => {
+              console.log(res)
+              wx.hideLoading()
+              wx.showToast({
+                title: '创建成功',
+                icon: 'none'
+              })
+              setTimeout(function() {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }, 500);
+            },
+            fail: res => {
+              console.log(res)
+              wx.hideLoading()
+            }
+          })
+
+        },
+        fail: res => {
+          wx.showToast({
+            title: '支付失败，请联系管理员',
+            icon: 'none'
+          })
+        },
+      })
+    } else {
+      wx.request({
+        url: app.globalData.baseUrl + '/v1/errand/before/pay',
+        data: {
+          wx_id: wx.getStorageSync("userId"),
+          count: payCount * 100,
+        },
+        success: res => {
+          if (res.data.F_responseNo != 10000) {
+            wx.showToast({
+              title: '支付失败,请联系管理员',
+              icon: 'none'
+            })
+            return
+          }
+          var orderId = res.data.F_data.orderID
+          wx.requestPayment({
+            timeStamp: res.data.F_data.timestamp,
+            nonceStr: res.data.F_data.nonceStr,
+            package: res.data.F_data.package,
+            signType: res.data.F_data.signType,
+            paySign: res.data.F_data.paySign,
+            success: res => {
+              wx.showLoading({
+                title: '正在发布中...',
+              })
+              var createData = {
+                "id": orderId,
+                "realPayCount": payCount,
+                "phone": this.data.userInfo.phone,
+                "school_id": this.data.school.id,
+                "type": this.data.typeList[this.data.currentTypeindex].id,
+                "agentReceiveAddress": this.data.agentReceiveAddress,
+                "agentStoreAddress": this.data.agentStoreAddress,
+                "agentArrivalTime": this.data.agentArrivalTime,
+                "agent": this.data.agent,
+                "agentPrice": this.data.agentPrice,
+                "agentCost": this.data.agentCost,
+                "agentContract": this.data.agentContract,
+                "agentNote": this.data.agentNote,
+                "agentPayPrice": this.data.agentPayPrice,
+                "absentTime": this.data.absentTime,
+                "absentDate": this.data.absentDate,
+                "absentAddress": this.data.absentAddress,
+                "absentAsk": this.data.absentAsk,
+                "absentContract": this.data.absentContract,
+                "absentNote": this.data.absentNote,
+                "absentPrice": this.data.absentPrice,
+                "absentPayPrice": this.data.absentPayPrice,
+                "otherReceiveAddress": this.data.otherReceiveAddress,
+                "otherErrandAddress": this.data.otherErrandAddress,
+                "otherArrivalTime": this.data.otherArrivalTime,
+                "otherAsk": this.data.otherAsk,
+                "otherErrandPrice": this.data.otherErrandPrice,
+                "otherContract": this.data.otherContract,
+                "otherNote": this.data.otherNote,
+                "otherPayPrice": this.data.otherPayPrice,
+                "leaseThing": this.data.leaseThing,
+                "leaseTime": this.data.leaseTime,
+                "leasePrice": this.data.leasePrice,
+                "leaseContract": this.data.leaseContract,
+                "leaseNote": this.data.leaseNote,
+                "leasePayPrice": this.data.leasePayPrice,
+                "playGame": this.data.playGame,
+                "playTarget": this.data.playTarget,
+                "playPrice": this.data.playPrice,
+                "playContract": this.data.playContract,
+                "playNote": this.data.playNote,
+                "playPayPrice": this.data.playPayPrice,
+                "rewardTask": this.data.rewardTask,
+                "rewardTaskCount": this.data.rewardTaskCount,
+                "rewardPrice": this.data.rewardPrice,
+                "rewardContract": this.data.rewardContract,
+                "rewardNote": this.data.rewardNote,
+                "rewardPayPrice": this.data.rewardPayPrice,
+                "expressAddress": this.data.expressAddress,
+                "expressStore": this.data.expressStore,
+                "expressOrder": this.data.expressOrder,
+                "expressPhotos": JSON.stringify(this.data.currentPhotos),
+                "expressContract": this.data.expressContract,
+                "expressNote": this.data.expressNote,
+                "expressReceiveName": this.data.expressReceiveName,
+                "expressPayPrice": this.data.expressPayPrice,
+                "expressSize": this.data.sizeList[this.data.currentSizeIndex].id,
+                "expressTime": this.data.timeList[this.data.currentTimeIndex].id,
+                "expressArrivalAddress": this.data.expressArrivalAddress,
+                "expressThing": this.data.expressThing,
+                "rewardSwitch": this.data.rewardSwitch
+              }
+
+              wx.request({
+                url: app.globalData.baseUrl + '/v1/errand/create',
+                data: createData,
+                method: 'POST',
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded'
+                },
+                success: res => {
+                  console.log(res)
+                  wx.hideLoading()
+                  wx.showToast({
+                    title: '创建成功',
+                    icon: 'none'
+                  })
+                  setTimeout(function() {
+                    wx.navigateBack({
+                      delta: 1
+                    })
+                  }, 500);
+                },
+                fail: res => {
+                  console.log(res)
+                  wx.hideLoading()
+                }
+              })
+            },
+            fail: res => {
+              wx.showToast({
+                title: '您已取消支付',
+                icon: 'none'
+              })
+              return
+            }
+          })
+        },
+      })
+    }
+
+
+
+  },
+
+  addPhoto() {
+    var token = this.data.qiniuToken
+    if (token == "") {
+      wx.showToast({
+        title: '获取上传图片资格失败，请联系管理员',
+        icon: 'none'
+      })
+      return
+    }
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: res => {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        var currentPhotos = this.data.currentPhotos
+        if (tempFilePaths.length > 0) {
+          // currentPhotos.push(tempFilePaths[0])
+          // this.setData({
+          //   currentPhotos: currentPhotos
+          // })
+          this.uploadPhoto(tempFilePaths[0], token)
+        }
+      }
+    })
+  },
+
+  uploadPhoto(img, token) {
+    var newFileName = "secondhand-photo-" + Date.parse(new Date()) + ".png"
+    wx.uploadFile({
+      url: 'https://up-z2.qiniup.com', //分华北区，华东区之类的，大家自己注意下
+      name: 'file',
+      filePath: img,
+      header: {
+        "Content-Type": "multipart/form-data"
+      },
+      formData: {
+        token: token,
+        key: newFileName
+      },
+      success: res => {
+        let data = JSON.parse(res.data);
+        var url = "https://resource.qimsj.com/" + data.key
+        var currentPhotos = this.data.currentPhotos
+        currentPhotos.push(url)
+        this.setData({
+          currentPhotos: currentPhotos
+        })
+      },
+
+      fail: res => {
+        wx.showToast({
+          title: '上传图片失败，联系管理员',
+          icon: 'none'
+        })
+      }
+    });
+  },
+
+  deletePhoto(event) {
+    var index = Number(event.currentTarget.dataset.index)
+    var photoList = this.data.currentPhotos
+    photoList.splice(index, 1)
+    this.setData({
+      currentPhotos: photoList
+    })
+  },
+
+  getQiniuToken() {
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/qiniu/token',
+      success: res => {
+        this.setData({
+          qiniuToken: res.data.F_data
         })
       },
     })
@@ -767,6 +1150,7 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
+    this.getQiniuToken()
     var school = wx.getStorageSync('school')
     if (school == undefined || school.id == undefined || school.id == 0) {
       wx.showToast({
@@ -783,6 +1167,79 @@ Page({
 
     this.setData({
       school: school
+    })
+
+    var school = this.data.school
+    this.getPickSchool()
+    // if (value <= 0) {
+    //   return
+    // }
+  },
+
+  getPickSchool() {
+    wx.request({
+      url: app.globalData.baseUrl + '/v1/pick/show',
+      data: {
+        id: this.data.school.id
+      },
+      method: 'GET',
+      success: res => {
+        this.setData({
+          school: res.data.F_data
+        })
+
+        var currentSizeIndex = this.data.currentSizeIndex
+        var addPrice = 0
+        var school = this.data.school
+        switch (currentSizeIndex) {
+          case 0:
+            addPrice = school.expressSmallCost
+            break
+          case 1:
+            addPrice = school.expressMiddleCost
+            break
+          case 2:
+            addPrice = school.expressLargeCost
+            break
+          default:
+            addPrice = school.expressSmallCount
+            break
+        }
+        var newPrice = addPrice
+        if (this.data.rewardSwitch == 1) {
+          newPrice = addPrice + reward
+        } else {
+          newPrice = addPrice
+        }
+        this.setData({
+          expressPayPrice: newPrice,
+        })
+
+        if (this.data.school.id == 0) {
+          wx.showToast({
+            title: '获取当前学校快递费用失败',
+            icon: 'none'
+          })
+
+          setTimeout(function() {
+            wx.navigateBack({
+              delta: 1
+            })
+          }, 1000);
+        }
+      },
+      failed: res => {
+        wx.showToast({
+          title: '获取当前学校快递费用失败',
+          icon: 'none'
+        })
+
+        setTimeout(function() {
+          wx.navigateBack({
+            delta: 1
+          })
+        }, 1000);
+      }
     })
   },
 
@@ -892,9 +1349,10 @@ Page({
       return
     }
 
-    var cost = this.data.school.errandCost
+    var cost = this.data.agentCost
     var currentPayPriceTip = "费用包含跑腿费用" + cost + "元"
     var newPrice = value + cost
+    console.log(newPrice)
     this.setData({
       agentPayPrice: newPrice,
       currentPayPriceTip: currentPayPriceTip
@@ -905,6 +1363,21 @@ Page({
     var value = Number(event.detail.value)
     this.setData({
       agentCost: value
+    })
+
+    if (value <= 0) {
+      this.setData({
+        agentPayPrice: 0
+      })
+      return
+    }
+
+    var cost = this.data.agentPrice
+    var currentPayPriceTip = "费用包含跑腿费用" + cost + "元"
+    var newPrice = value
+    this.setData({
+      agentPayPrice: newPrice,
+      currentPayPriceTip: currentPayPriceTip
     })
   },
 
@@ -965,7 +1438,7 @@ Page({
     var currentPayPriceTip = "费用包含跑腿费用" + cost + "元"
     var newPrice = value + cost
     this.setData({
-      absentPayPrice: newPrice,
+      absentPayPrice: value,
       currentPayPriceTip: currentPayPriceTip
     })
   },
@@ -1040,7 +1513,7 @@ Page({
     var currentPayPriceTip = "费用包含跑腿费用" + cost + "元"
     var newPrice = value + cost
     this.setData({
-      otherPayPrice: newPrice,
+      otherPayPrice: value,
       currentPayPriceTip: currentPayPriceTip
     })
   },
@@ -1098,7 +1571,7 @@ Page({
     var currentPayPriceTip = "费用包含跑腿费用" + cost + "元"
     var newPrice = value + cost
     this.setData({
-      leasePayPrice: newPrice,
+      leasePayPrice: value,
       currentPayPriceTip: currentPayPriceTip
     })
   },
@@ -1156,7 +1629,7 @@ Page({
     var currentPayPriceTip = "费用包含跑腿费用" + cost + "元"
     var newPrice = value + cost
     this.setData({
-      playPayPrice: newPrice,
+      playPayPrice: value,
       currentPayPriceTip: currentPayPriceTip
     })
   },
@@ -1214,7 +1687,7 @@ Page({
     var currentPayPriceTip = "费用包含跑腿费用" + cost + "元"
     var newPrice = value + cost
     this.setData({
-      rewardPayPrice: newPrice,
+      rewardPayPrice: value,
       currentPayPriceTip: currentPayPriceTip
     })
   },
@@ -1248,6 +1721,13 @@ Page({
     })
   },
 
+  changeExpressThing(event) {
+    var value = event.detail.value
+    this.setData({
+      expressThing: value
+    })
+  },
+
   changeExpressAddress(event) {
     var value = event.detail.value
     this.setData({
@@ -1269,6 +1749,12 @@ Page({
     })
   },
 
+  changeExpressReceiveName(event) {
+    var value = event.detail.value
+    this.setData({
+      expressReceiveName: value
+    })
+  },
 
   changeExpressNote(event) {
     var value = event.detail.value
@@ -1281,6 +1767,74 @@ Page({
     var value = event.detail.value
     this.setData({
       expressArrivalAddress: value
+    })
+  },
+
+  changeExpressCount(event) {
+    var value = Number(event.detail.value)
+    this.setData({
+      expressCount: value
+    })
+  },
+
+  changeExpressReward(event) {
+    var value = Number(event.detail.value)
+    this.setData({
+      expressReward: value
+    })
+
+    var currentSizeIndex = this.data.currentSizeIndex
+    var reward = this.data.expressReward
+
+    var school = this.data.school
+
+    // if (value <= 0) {
+    //   return
+    // }
+    var currentPayPriceTip = "(费用包含小件寄件费用2元)"
+    var addPrice = 0
+    switch (currentSizeIndex) {
+      case 0:
+        addPrice = school.expressSmallCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressSmallCost + "元)"
+        break
+      case 1:
+        addPrice = school.expressMiddleCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressMiddleCost + "元)"
+        break
+      case 2:
+        addPrice = school.expressLargeCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressLargeCost + "元)"
+        break
+      default:
+        addPrice = school.expressSmallCount
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressSmallCount + "元)"
+        break
+    }
+    var newPrice = addPrice
+    if (this.data.rewardSwitch == 1) {
+      newPrice = addPrice + reward
+    } else {
+      newPrice = addPrice
+    }
+
+    this.setData({
+      expressPayPrice: newPrice,
+      currentPayPriceTip: currentPayPriceTip
+    })
+  },
+
+  changeExpressOrder(event) {
+    var value = event.detail.value
+    this.setData({
+      expressOrder: value
+    })
+  },
+
+  changeExpressStore(event) {
+    var value = event.detail.value
+    this.setData({
+      expressStore: value
     })
   },
 
@@ -1298,24 +1852,31 @@ Page({
     }
 
     var currentSizeIndex = this.data.currentSizeIndex
+    var value = this.data.expressPrice
+
+    var school = this.data.school
+
+    if (value <= 0) {
+      return
+    }
+    var currentPayPriceTip = "(费用包含小件寄件费用X元)"
     var addPrice = 0
-    var currentPayPriceTip = "(费用包含小件寄件费用2元)"
     switch (currentSizeIndex) {
       case 0:
-        addPrice = 2
-        currentPayPriceTip = "(费用包含小件寄件费用2元)"
+        addPrice = school.expressSmallCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressSmallCost + "元)"
         break
       case 1:
-        addPrice = 3
-        currentPayPriceTip = "(费用包含中件寄件费用3元)"
+        addPrice = school.expressMiddleCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressMiddleCost + "元)"
         break
       case 2:
-        addPrice = 5
-        currentPayPriceTip = "(费用包含大件寄件费用5元)"
+        addPrice = school.expressLargeCost
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressLargeCost + "元)"
         break
       default:
-        addPrice = 2
-        currentPayPriceTip = "(费用包含小件寄件费用2元)"
+        addPrice = school.expressSmallCount
+        currentPayPriceTip = "(费用包含小件寄件费用" + school.expressSmallCount + "元)"
         break
     }
     var newPrice = value + addPrice

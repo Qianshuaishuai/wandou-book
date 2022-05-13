@@ -563,3 +563,38 @@ page {
   background: #77beff;
   width: 122rpx;
 }
+
+button {
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+
+button::after {
+  border: none;
+}
+
+.button-hover {
+  width: 1rpx;
+  height: 1rpx;
+  background-color: transparent;
+}
+
+.icon5 {
+  background: none;
+  border: none;
+  width: 135rpx;
+  height: 135rpx;
+  position: fixed;
+  right: 21rpx;
+  bottom: 100rpx;
+  z-index: 999;
+}
+
+.icon5 {
+  border: none;
+}
+
+.icon5::after {
+  border: none;
+}

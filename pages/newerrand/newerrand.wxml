@@ -68,6 +68,7 @@
     <view class="tip">
       快递大小
     </view>
+    <image class="question" src="/assets/image-v2/errands/question.png" bindtap="showDialog"></image>
   </view>
   <view class="type-box">
     <view class="type-block" wx:for="{{sizeList}}" wx:for-item="item" wx:for-index="index" bindtap="changeSize" data-index="{{index}}">
@@ -78,14 +79,43 @@
     </view>
   </view>
 
-  <view class="tag-box">
+  <!-- <view class="tip" style="color:#9b9b9b;margin-left:36rpx;font-size:28rpx;">快递內物:手机壳/鞋子/纸巾......</view> -->
+
+   <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      快递內物
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressThing" placeholder="手机壳/鞋子/纸巾......"></input>
+
+  <!-- <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       跑腿需求
     </view>
   </view>
 
-  <input class="input" bindinput="changeExpressAsk" placeholder="请输入跑腿需求"></input>
+  <input class="input" bindinput="changeExpressAsk" placeholder="请输入跑腿需求"></input> -->
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      送达地址
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressAddress" placeholder="请输入收件地址"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      快递商家
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressStore" placeholder="中通/申通/韵达/极兔/顺丰/德邦/圆通"></input>
 
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
@@ -93,43 +123,25 @@
       代拿地点
     </view>
   </view>
-
-  <input class="input" bindinput="changeExpressAddress" placeholder="请输入代拿地点"></input>
-
-  <view class="tag-box">
-    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
-    <view class="tip">
-      送达时间
-    </view>
-  </view>
-
-  <input class="input" bindinput="changeExpressTime" placeholder="请输入送达时间"></input>
+  <input class="input" placeholder="请输入需要代拿快递所在地点" bindinput="changeExpressArrivalAddress"></input>
 
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
-      送货位置
+      快递单号
     </view>
   </view>
-  <input class="input" placeholder="请填写送货位置" bindinput="changeExpressArrivalAddress"></input>
 
-  <view class="tag-box">
+  <input class="input" bindinput="changeExpressOrder" placeholder="请输入快递单号"></input>
+
+  <!-- <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       金额
     </view>
   </view>
 
-  <input class="input" bindinput="changeExpressPrice" placeholder="请输入金额" type="number"></input>
-
-  <view class="tag-box">
-    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
-    <view class="tip">
-      联系方式
-    </view>
-  </view>
-
-  <input class="input" bindinput="changeExpressContract" placeholder="请输入联系方式"></input>
+  <input class="input" bindinput="changeExpressPrice" placeholder="请输入金额" type="number"></input>  -->
 
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
@@ -143,13 +155,97 @@
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
+      取件信息
+    </view>
+  </view>
+
+  <view class="photo-box">
+    <view class="photo-block" wx:for="{{currentPhotos}}" wx:for-item="item" wx:for-index="index">
+      <view class="show">
+        <image class="pic" src="{{item}}"></image>
+        <image class="delete" src="/assets/image-v2/express/delete.png" bindtap="deletePhoto" data-index="{{index}}"></image>
+      </view>
+    </view>
+    <view class="photo-block">
+      <view class="add" bindtap="addPhoto">
+        <image class="icon" src="/assets/image-v2/express/add.png"></image>
+        <view class="tip5">
+          取件信息截图
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      快递收件人姓名
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressReceiveName" placeholder="请输入快递收件人姓名"></input>
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      预留联系方式
+    </view>
+  </view>
+
+  <input class="input" bindinput="changeExpressContract" placeholder="请输入预留联系方式"></input>
+  <!-- <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
       支付金额
     </view>
 
     <view class="tip-tip" wx:if="{{expressPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeExpressPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" disabled="true" value="{{expressPayPrice}}"></input>
+  <input class="input" bindinput="changeExpressPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" disabled="true" value="{{expressPayPrice}}"></input> -->
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      送达时间
+    </view>
+  </view>
+
+  <view class="type-box">
+    <view class="type-block" wx:for="{{timeList}}" wx:for-item="item" wx:for-index="index" bindtap="changeTime" data-index="{{index}}">
+      <image class="bg" src="/assets/image-v2/errands/button2.png" wx:if="{{index === currentTimeIndex}}"></image>
+      <view class="{{index === currentTimeIndex ? 'tip3':'tip2'}}">
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+  <view class="tip" style="color:#9b9b9b;margin-left:36rpx;font-size:28rpx;">*接单90分钟内送达 加急件30分钟内到达 不可抗力特殊情况稍作延迟</view>
+  <!-- 
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      快递数量
+    </view>
+  </view>
+  <input class="input" type="number" placeholder="请填写快递数量" bindinput="changeExpressCount"></input> -->
+
+  <view class="tag-box">
+    <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
+    <view class="tip">
+      加急打赏
+    </view>
+
+    <image src="{{rewardSwitch==1?'/assets/image-v2/errands/switch_on.png':'/assets/image-v2/errands/switch_off.png'}}" class="switch" bindtap="changeSwitch"></image>
+  </view>
+
+  <input class="input" bindinput="changeExpressReward" placeholder="请输入加急打赏金额"></input>
+</view>
+
+<view class="tip-now" wx:if="{{currentTypeindex == 0}}">
+  如需代拿超大件请备注并适当打赏，感谢支持。
+</view>
+<view class="tip-now2" wx:if="{{currentTypeindex == 0}}">
+  取件信息、手机号仅接单骑手可见，安全放心！
 </view>
 
 
@@ -193,11 +289,11 @@
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
-      代购价格
+      代购价格（无需输入金额）
     </view>
   </view>
 
-  <input class="input" bindinput="changeAgentPrice" placeholder="请输入代购价格" type="number"></input>
+  <input class="input" bindinput="changeAgentPrice" value="*请发布者联系骑手自行支付购买商品所需费用" type="number" disabled="true"></input>
 
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
@@ -226,7 +322,7 @@
 
   <input class="input" bindinput="changeAgentNote" placeholder="请输入备注"></input>
 
-  <view class="tag-box">
+  <!-- <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       支付金额
@@ -235,7 +331,7 @@
     <view class="tip-tip" wx:if="{{agentPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeAgentPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" disabled="true" value="{{agentPayPrice}}"></input>
+  <input class="input" bindinput="changeAgentPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" disabled="true" value="{{agentPayPrice}}"></input> -->
 </view>
 
 <!-- 代课 -->
@@ -282,7 +378,7 @@
     </view>
   </view>
 
-  <input class="input" bindinput="changeAbsentAsk" placeholder="请输入代课要求"></input>
+  <input class="input" bindinput="changeAbsentAsk" placeholder="请输入对代课人的要求"></input>
 
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
@@ -300,9 +396,9 @@
     </view>
   </view>
 
-  <input class="input" bindinput="changeAbsentNote" placeholder="请输入备注"></input>
+  <input class="input" bindinput="changeAbsentNote" placeholder="请输入请注明课程或其他事项"></input>
 
-  <view class="tag-box">
+  <!-- <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       支付金额
@@ -311,7 +407,7 @@
     <view class="tip-tip" wx:if="{{absentPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeAbsentPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" disabled="true" value="{{absentPayPrice}}"></input>
+  <input class="input" bindinput="changeAbsentPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" disabled="true" value="{{absentPayPrice}}"></input> -->
 </view>
 
 <!-- 其他跑腿 -->
@@ -378,7 +474,7 @@
 
   <input class="input" bindinput="changeOtherNote" placeholder="请输入备注"></input>
 
-  <view class="tag-box">
+  <!-- <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       支付金额
@@ -387,7 +483,7 @@
     <view class="tip-tip" wx:if="{{otherPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeOtherPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{otherPayPrice}}" disabled="true"></input>
+  <input class="input" bindinput="changeOtherPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{otherPayPrice}}" disabled="true"></input> -->
 </view>
 
 <!-- 租赁 -->
@@ -436,7 +532,7 @@
 
   <input class="input" bindinput="changeLeaseNote" placeholder="请输入备注"></input>
 
-  <view class="tag-box">
+  <!-- <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       支付金额
@@ -445,7 +541,7 @@
     <view class="tip-tip" wx:if="{{leasePayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeLeasePayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{leasePayPrice}}" disabled="true"></input>
+  <input class="input" bindinput="changeLeasePayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{leasePayPrice}}" disabled="true"></input> -->
 </view>
 
 <!-- 陪玩 -->
@@ -494,7 +590,7 @@
 
   <input class="input" bindinput="changePlayNote" placeholder="请输入备注"></input>
 
-  <view class="tag-box">
+  <!-- <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       支付金额
@@ -503,7 +599,7 @@
     <view class="tip-tip" wx:if="{{playPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changePlayPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{playPayPrice}}" disabled="true"></input>
+  <input class="input" bindinput="changePlayPayPrice" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{playPayPrice}}" disabled="true"></input> -->
 </view>
 
 <!-- 悬赏 -->
@@ -517,14 +613,14 @@
 
   <input class="input" bindinput="changeRewardTask" placeholder="请输入任务"></input>
 
-  <view class="tag-box">
+  <!-- <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       任务数量
     </view>
   </view>
 
-  <input class="input" bindinput="changeRewardTaskCount" placeholder="请输入任务数量" type="number"></input>
+  <input class="input" bindinput="changeRewardTaskCount" placeholder="请输入任务数量" type="number"></input> -->
 
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
@@ -532,7 +628,7 @@
       金额
     </view>
   </view>
-  <input class="input" placeholder="请填写金额" bindinput="changeRewardPrice" type="number"></input>
+  <input class="input" placeholder="请填写奖励金额" bindinput="changeRewardPrice" type="number"></input>
 
   <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
@@ -552,7 +648,7 @@
 
   <input class="input" bindinput="changeRewardNote" placeholder="请输入备注"></input>
 
-  <view class="tag-box">
+  <!-- <view class="tag-box">
     <image class="tag" src="/assets/image-v2/errands/tag.png"></image>
     <view class="tip">
       支付金额
@@ -561,11 +657,11 @@
     <view class="tip-tip" wx:if="{{rewardPayPrice>0}}">{{currentPayPriceTip}}</view>
   </view>
 
-  <input class="input" bindinput="changeRewardPayPrice" disabled="true" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{rewardPayPrice}}" disabled="true"></input>
+  <input class="input" bindinput="changeRewardPayPrice" disabled="true" type="number" placeholder="请输入支付金额" style="margin-bottom:60rpx;" value="{{rewardPayPrice}}" disabled="true"></input> -->
 </view>
 
 
-<view class="release" bindtap="release">
+<!-- <view class="release" bindtap="release">
   <image class="bg" src="/assets/image-v2/errands/button1.png"></image>
   <view class="button">
     <image class="icon" src="/assets/image-v2/errands/release.png"></image>
@@ -573,4 +669,26 @@
       发布
     </view>
   </view>
+</view> -->
+
+<view class="bottom">
+  <view class="left">
+    <view class="tip14">需支付：</view>
+    <view class="price2" wx:if="{{currentTypeindex == 0}}">￥{{expressPayPrice}}</view>
+    <view class="price2" wx:if="{{currentTypeindex == 1}}">￥{{agentPayPrice}}</view>
+    <view class="price2" wx:if="{{currentTypeindex == 2}}">￥{{absentPayPrice}}</view>
+    <view class="price2" wx:if="{{currentTypeindex == 3}}">￥{{otherPayPrice}}</view>
+    <view class="price2" wx:if="{{currentTypeindex == 4}}">￥{{leasePayPrice}}</view>
+    <view class="price2" wx:if="{{currentTypeindex == 5}}">￥{{playPayPrice}}</view>
+    <view class="price2" wx:if="{{currentTypeindex == 6}}">￥{{rewardPayPrice}}</view>
+  </view>
+  <view class="button" bindtap="release">发布</view>
+</view>
+
+<view class="dialog-bg" wx:if="{{showUnbindDialog}}" bindtap="closeDialog"></view>
+<view class="dialog1" wx:if="{{showUnbindDialog}}">
+  <view class="tip13">快递大小说明:</view>
+  <view class="tip14">小件:巴掌大</view>
+  <view class="tip14">中件:鞋盒大</view>
+  <view class="tip14">大件:主机大</view>
 </view>

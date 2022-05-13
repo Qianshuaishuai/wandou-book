@@ -199,12 +199,12 @@ Page({
           orderDetail.showWl = true
 
           var timeSimple = new Object
-          timeSimple.name = "待收件"
+          timeSimple.name = "待取件"
           timeSimple.time = orderDetail.wlTime
           showTime.push(timeSimple)
         } else {
           var timeSimple = new Object
-          timeSimple.name = "待收件"
+          timeSimple.name = "待取件"
           timeSimple.time = ""
           showTime.push(timeSimple)
         }
