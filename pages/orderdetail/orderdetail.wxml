@@ -71,7 +71,7 @@
   <view class="note-content" wx:if="{{orderDetail.note == ''}}">暂无备注</view>
   <view class="note-content" wx:if="{{orderDetail.note != ''}}">{{orderDetail.note}}</view>
 </view> -->
-  <view class="wl-box">
+  <!-- <view class="wl-box">
     <view class="wl-box-content">
       <image src="../../assets/new-images/orderdetail/icon11.png" class="icon11">
 
@@ -98,7 +98,7 @@
       <view class="tip12" wx:if="{{orderDetail.wlNumber != ''}}">{{orderDetail.wlNumber}}</view>
       <view class="tip12" wx:if="{{orderDetail.wlNumber == ''}}">暂无信息</view>
     </view>
-  </view>
+  </view> -->
 
   <view class="wl-detail" wx:if="{{orderDetail.status != -1}}">
     <image src="../../assets/new-images/orderdetail/icon22.png" class="icon13"></image>

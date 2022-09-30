@@ -301,6 +301,17 @@ Page({
     console.log(event)
   },
 
+  goRelease() {
+    wx.showModal({
+      title: '提示',
+      content: '是否确定发布新跑腿订单',
+      showCancel: true,
+      success: res => {
+        this.release()
+      }
+    })
+  },
+
   release() {
     if (this.data.school.isBind == 0) {
       wx.showToast({
@@ -312,7 +323,7 @@ Page({
 
     if (this.data.userInfo.phone == "") {
       wx.showToast({
-        title: '请先绑定手机',
+        title: '请到我的-绑定手机',
         icon: 'none'
       })
       setTimeout(function() {
@@ -1261,7 +1272,7 @@ Page({
 
     if (userInfo.phone == '') {
       wx.showToast({
-        title: '请先绑定手机',
+        title: '请到我的-绑定手机',
         icon: 'none'
       })
       setTimeout(function() {

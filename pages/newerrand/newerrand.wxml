@@ -682,7 +682,7 @@
     <view class="price2" wx:if="{{currentTypeindex == 5}}">￥{{playPayPrice}}</view>
     <view class="price2" wx:if="{{currentTypeindex == 6}}">￥{{rewardPayPrice}}</view>
   </view>
-  <view class="button" bindtap="release">发布</view>
+  <view class="button" bindtap="goRelease">发布</view>
 </view>
 
 <view class="dialog-bg" wx:if="{{showUnbindDialog}}" bindtap="closeDialog"></view>

@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/newindex2/newindex2",
+    "pages/person/person",
     "pages/receivedetail/receivedetail",
     "pages/newerrand/newerrand",
     "pages/myaddress/myaddress",
@@ -32,7 +33,7 @@
     "pages/lcoupon/lcoupon",
     "pages/income/income",
     "pages/coupon/coupon",
-    "pages/person/person",
+
     "pages/book/book",
     "pages/school/school",
     "pages/index/index",

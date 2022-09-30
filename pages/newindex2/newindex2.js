@@ -22,7 +22,7 @@ Page({
   swiperClick(event) {
     if (this.data.userInfo.phone == "") {
       wx.showToast({
-        title: '请先绑定手机',
+        title: '请到我的-绑定手机',
         icon: 'none'
       })
       return
@@ -110,7 +110,7 @@ Page({
   goToSecondIndex(event) {
     // if (this.data.userInfo.phone == "") {
     //   wx.showToast({
-    //     title: '请先绑定手机',
+    //     title: '请到我的-绑定手机',
     //     icon: 'none'
     //   })
     //   return
@@ -132,7 +132,7 @@ Page({
   goToDiscount(event) {
     if (this.data.userInfo.phone == "") {
       wx.showToast({
-        title: '请先绑定手机',
+        title: '请到我的-绑定手机',
         icon: 'none'
       })
       return
@@ -145,7 +145,7 @@ Page({
   goToSchool(event) {
     if (this.data.userInfo.phone == "") {
       wx.showToast({
-        title: '请先绑定手机',
+        title: '请到我的-绑定手机',
         icon: 'none'
       })
       return
@@ -189,7 +189,7 @@ Page({
   goTolease(event) {
     // if (this.data.userInfo.phone == "") {
     //   wx.showToast({
-    //     title: '请先绑定手机',
+    //     title: '请到我的-绑定手机',
     //     icon: 'none'
     //   })
     //   return
@@ -237,7 +237,7 @@ Page({
   goToErrand(event) {
     // if (this.data.userInfo.phone == "") {
     //   wx.showToast({
-    //     title: '请先绑定手机',
+    //     title: '请到我的-绑定手机',
     //     icon: 'none'
     //   })
     //   return
@@ -427,7 +427,7 @@ Page({
 
     // if (userInfo.phone == '') {
     //   wx.showToast({
-    //     title: '请先绑定手机',
+    //     title: '请到我的-绑定手机',
     //     icon: 'none'
     //   })
     //   setTimeout(function() {

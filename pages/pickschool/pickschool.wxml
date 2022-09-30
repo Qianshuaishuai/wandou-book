@@ -1,6 +1,6 @@
 <view class="search-box">
   <image src="../../assets/image-v2/pickschool/search.png" class="search"></image>
-  <input class="input" bindinput="changeSearch" placeholder="请输入学校名称" value="{{currentSearch}}"></input>
+  <input class="input" bindinput="changeSearch" placeholder="输入学校全称搜索点击选择" value="{{currentSearch}}"></input>
   <image src="../../assets/image-v2/pickschool/clear.png" class="clear" bindtap="clear"></image>
 
 
@@ -15,8 +15,8 @@
     <view class="left">
       <image src="../../assets/image-v2/pickschool/icon_selected.png" class="icon"></image>
       <view class="name" bindtap="selectItem" data-index="{{index}}">{{item.name}}</view>
-      <view class="tip">{{item.isBind == 0 ? '未入驻':'已入驻'}}</view>
+      <!-- <view class="tip">{{item.isBind == 0 ? '未入驻':'已入驻'}}</view> -->
     </view>
-    <view class="apply" bindtap="applymaster" wx:if="{{item.isBind == 0}}" data-index="{{index}}">申请校园站长</view>
+    <view class="apply" bindtap="selectItem" wx:if="{{item.isBind == 0}}" data-index="{{index}}">点击使用</view>
   </view>
 </view>

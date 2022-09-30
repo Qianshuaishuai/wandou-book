@@ -161,7 +161,7 @@ Page({
 
     if (userInfo.phone == '') {
       wx.showToast({
-        title: '请先绑定手机',
+        title: '请到我的-绑定手机',
         icon: 'none'
       })
       setTimeout(function () {

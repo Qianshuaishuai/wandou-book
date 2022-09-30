@@ -5,6 +5,12 @@
   top: 48%;
 }
 
+.title{
+  margin-left: 32rpx;
+  margin-right: 32rpx;
+  margin-top: 24rpx;
+}
+
 .list {
   display: flex;
   flex-direction: column;

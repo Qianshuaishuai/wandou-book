@@ -242,6 +242,29 @@ Page({
   },
 
   next() {
+
+    var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo
+    })
+
+    if (userInfo.phone == '') {
+      wx.showToast({
+        title: '请到我的-绑定手机',
+        icon: 'none'
+      })
+      return
+    }
+
+    var school = wx.getStorageSync('school')
+    if (school == undefined || school.id == undefined || school.id == 0) {
+      wx.showToast({
+        title: '请先选择学校',
+        icon: 'none'
+      })
+      return
+    }
+
     if (this.data.carBookList.length <= 0) {
       wx.showToast({
         title: '请先扫描书本',

@@ -7,6 +7,7 @@ Page({
    */
   data: {
     tracks: [],
+    wlNumber:""
   },
 
   /**
@@ -18,7 +19,11 @@ Page({
     var wllnumber = options.wllnumber;
     var wlnumber = options.wlnumber;
 
-    if (wlnumber.indexOf("JDV") != -1) {
+    this.setData({
+      wlNumber: options.wlnumber
+    })
+
+    if (wlnumber.indexOf("JDV") != -1 || wlnumber.indexOf("QWD") != -1) {
       this.getTrackDatail2(wlnumber)
     }else{
       if (options.orderNo) {
