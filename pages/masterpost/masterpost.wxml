@@ -1,14 +1,15 @@
 <view class="main">
-  <image src="https://resource.qimsj.com/wandou/bg-new.png" class="bg"></image>
+  <!-- <image src="https://resource.qimsj.com/wandou/bg-new.png" class="bg"></image> -->
+  <image src="https://resource.qimsj.com/master_post.png" class="bg"></image>
 
   <image src="../../assets/new-images/buyorder/back.png" class="back" style="top:{{statusBarHeight+12}}px" bindtap="back">
   </image>
-  <view class="tip" style="top:{{statusBarHeight+8}}px">
+  <!-- <view class="tip" style="top:{{statusBarHeight+8}}px">
     申请校园站长
-  </view>
+  </view> -->
 </view>
 
-<image src="/assets/image-v2/masterpost/bg4.png" class="bg4"></image>
+<!-- <image src="/assets/image-v2/masterpost/bg4.png" class="bg4"></image>
 <view class="box">
   <view class="tip2">平台费用</view>
   <view class="price">998元/年</view>
@@ -61,4 +62,4 @@
 <view class="apply" bindtap="apply">点击申请校园站长</view>
 
 <image src="/assets/image-v2/masterpost/icon1.png" class="icon1"></image>
-<image src="/assets/image-v2/masterpost/icon1.png" class="icon2"></image>
+<image src="/assets/image-v2/masterpost/icon1.png" class="icon2"></image> -->

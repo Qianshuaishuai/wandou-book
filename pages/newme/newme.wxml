@@ -57,7 +57,7 @@
   </view>
 </view>
 
-<view class="title">跑腿/租赁/陪玩/悬赏</view>
+<!-- <view class="title">跑腿/租赁/陪玩/悬赏</view>
 
 <view class="errand-box">
   <view class="errand-block" style="background: linear-gradient(90deg, #1A91FF, #2CB7FF);border-radius: 20rpx;" bindtap="releaseErrand">
@@ -93,7 +93,7 @@
     <image src="../../assets/image-v2/newme/manager.png" class="icon4"></image>
     <view class="tip7">管理闲置</view>
   </view>
-</view>
+</view> -->
 
 <view class="title">推荐工具</view>
 
@@ -111,10 +111,10 @@
       <image src="../../assets/image-v2/newme/util3.png" class="icon4"></image>
       <view class="tip7">常见问题</view>
     </view>
-    <view class="util-block" bindtap="goToNewIncome">
+    <!-- <view class="util-block" bindtap="goToNewIncome">
       <image src="../../assets/image-v2/newme/util4.png" class="icon4"></image>
       <view class="tip7">目前收益</view>
-    </view>
+    </view> -->
   </view>
 
   <view class="util-box">
@@ -127,11 +127,11 @@
       <image src="../../assets/image-v2/newme/util6.png" class="icon4"></image>
       <view class="tip7">客服微信</view>
     </view>
-
+<!-- 
     <view class="util-block" bindtap="goToMyContract">
       <image src="../../assets/image-v2/newme/message.png" class="icon4"></image>
       <view class="tip7">我的私信</view>
-    </view>
+    </view> -->
 
     <view class="util-block" bindtap="applyMaster">
       <image src="../../assets/image-v2/newme/apply.png" class="icon4"></image>

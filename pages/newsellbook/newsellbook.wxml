@@ -1,7 +1,7 @@
 <view class="main">
   <image src="../../assets/image-v2/discount/bg.png" class="bg"></image>
   <view class="title">卖书</view>
-  <image src="../../assets/image-v2/newsellbook/bg1.png" class="bg1" bindtap="goToReceivecar"></image>
+  <image src="https://resource.qimsj.com/wandou_ad.png" class="bg1" bindtap="goToReceivecar"></image>
 
   <view class="comment-box">
     <image src="../../assets/image-v2/newsellbook/comment.png" class="comment"></image>

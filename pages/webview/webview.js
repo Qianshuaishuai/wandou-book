@@ -6,7 +6,7 @@ Page({
    */
   data: {
     webURL:"",
-    webURLs: ["https://mp.weixin.qq.com/s/XDyyK5r9BiTEknaMJZT5Cg", "https://mp.weixin.qq.com/s/dblY_0jxHUQDvuqcT90Ncw","https://mp.weixin.qq.com/s/Jftl63y6nS7R-aTPWJD9dg"]
+    webURLs: ["https://mp.weixin.qq.com/s/XDyyK5r9BiTEknaMJZT5Cg", "https://mp.weixin.qq.com/s/XCC2yRnixjAbT8ZuF7lwiw","https://mp.weixin.qq.com/s/Jftl63y6nS7R-aTPWJD9dg"]
   },
 
   /**

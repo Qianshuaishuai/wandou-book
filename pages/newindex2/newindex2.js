@@ -7,7 +7,8 @@ Page({
    */
   data: {
     testList: ["", "", "", "", ""],
-    background: ['https://resource.qimsj.com/wandou/banner1.png', 'https://resource.qimsj.com/wandou/banner2.png', 'https://resource.qimsj.com/wandou/banner3.png'],
+    background: ['https://resource.qimsj.com/wandou_ad.png', 'http://resource.qimsj.com/3.png', 'http://resource.qimsj.com/1.png'],
+    // background: ['https://resource.qimsj.com/wandou_ad.png'],
     indicatorDots: true,
     vertical: false,
     autoplay: true,
@@ -34,7 +35,8 @@ Page({
         url = '/pages/errandindex/errandindex'
         break
       case 1:
-        url = '/pages/certrider/certrider'
+        // url = '/pages/certrider/certrider'
+        url= '/pages/webview/webview?index=' + 1
         break
       case 2:
         url = '/pages/discount/discount'

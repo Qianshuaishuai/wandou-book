@@ -21,7 +21,7 @@
   <!-- <image src="../../assets/image-v2/newindex2/ad1.png" class="ad"></image> -->
 </view>
 
-<view class="box">
+<!-- <view class="box">
   <view class="block" bindtap="goToSecondIndex">
     <image src="../../assets/image-v2/newindex2/icon1.png" class="icon1"></image>
     <view class="tip1">
@@ -49,7 +49,7 @@
       学驾照
     </view>
   </view>
-</view>
+</view> -->
 
 <view class="button">
   <view class="button-box" bindtap="goToSellbook">
