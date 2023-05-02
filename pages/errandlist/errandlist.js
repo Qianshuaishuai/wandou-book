@@ -76,7 +76,7 @@ Page({
     var index = Number(event.currentTarget.dataset.index)
     wx.showModal({
       title: '提示',
-      content: '支付金额将退至零跑校园钱包，可用于平台消费，若需原路退回请联系客服。',
+      content: '支付金额将退至口袋收书钱包，可用于平台消费，若需原路退回请联系客服。',
       showCancel: true,
       success: res => {
         if (res.confirm) {

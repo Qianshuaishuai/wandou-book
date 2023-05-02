@@ -68,10 +68,10 @@
   <view class="button-box" bindtap="goToErrand">
     <view class="box2">
       <view class="tip2" style="color:#ED9F10">
-        跑腿
+        回收专员
       </view>
       <view class="tip3" style="width:156rpx;">
-        拿快递、取外卖 一应俱全
+        校园回收专员
       </view>
     </view>
 

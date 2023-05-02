@@ -5,7 +5,7 @@
 
   <view class="comment-box">
     <image src="../../assets/image-v2/newsellbook/comment.png" class="comment"></image>
-    <view class="tip1">零跑校园收书问答</view>
+    <view class="tip1">口袋收书收书问答</view>
   </view>
 
   <view class="list">

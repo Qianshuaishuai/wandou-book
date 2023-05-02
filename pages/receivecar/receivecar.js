@@ -202,7 +202,7 @@ Page({
           // if (res.data.F_responseMsg == "此书已拒收"){
           //   wx.showModal({
           //     title: '温馨提示',
-          //     content: '抱歉，此书零跑校园暂不回收',
+          //     content: '抱歉，此书口袋收书暂不回收',
           //     showCancel: false
           //   })
           // }else{

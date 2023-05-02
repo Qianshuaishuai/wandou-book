@@ -254,41 +254,41 @@ Page({
 
     // return
 
-    var showTime = wx.getStorageSync('showTime')
-    var date2 = new Date();
-    wx.setStorageSync("showTime", date2)
-    var date3 = date2.getTime() - new Date(showTime).getTime();
+    // var showTime = wx.getStorageSync('showTime')
+    // var date2 = new Date();
+    // wx.setStorageSync("showTime", date2)
+    // var date3 = date2.getTime() - new Date(showTime).getTime();
 
-    var days = Math.floor(date3 / (24 * 3600 * 1000))
+    // var days = Math.floor(date3 / (24 * 3600 * 1000))
 
-    //计算出小时数
-    var leave1 = date3 % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
-    var hours = Math.floor(leave1 / (3600 * 1000))
-    //计算相差分钟数
-    var leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
-    var minutes = Math.floor(leave2 / (60 * 1000))
-    if (minutes > 1 || showTime == '') {
-      wx.requestSubscribeMessage({
-        tmplIds: ['ur-7dxigeVUPmNTzzIOfwfk5SGr4_LVX3R-6TRJehSw'],
-        success(res) {
+    // //计算出小时数
+    // var leave1 = date3 % (24 * 3600 * 1000) //计算天数后剩余的毫秒数
+    // var hours = Math.floor(leave1 / (3600 * 1000))
+    // //计算相差分钟数
+    // var leave2 = leave1 % (3600 * 1000) //计算小时数后剩余的毫秒数
+    // var minutes = Math.floor(leave2 / (60 * 1000))
+    // if (minutes > 1 || showTime == '') {
+    //   wx.requestSubscribeMessage({
+    //     tmplIds: ['ur-7dxigeVUPmNTzzIOfwfk5SGr4_LVX3R-6TRJehSw'],
+    //     success(res) {
      
-        },
-        fail(res) {
-          console.log(res)
-        }
-      })
-    }
+    //     },
+    //     fail(res) {
+    //       console.log(res)
+    //     }
+    //   })
+    // }
 
-    if (this.data.school.isBind == 0) {
-      wx.showToast({
-        title: '目前此学校暂无站长入驻',
-        icon: 'none'
-      })
-      return
-    }
+    // if (this.data.school.isBind == 0) {
+    //   wx.showToast({
+    //     title: '目前此学校暂无站长入驻',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
 
     wx.navigateTo({
-      url: '/pages/errandindex/errandindex',
+      url: '/pages/webview/webview?index=2',
     })
   },
 
