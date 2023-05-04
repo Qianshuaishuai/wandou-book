@@ -48,18 +48,18 @@ Page({
   onLoad: function(options) {
     var currentCarList = wx.getStorageSync('carList')
     var school = wx.getStorageSync('school')
-    if (school == undefined || school.id == undefined || school.id == 0) {
-      wx.showToast({
-        title: '请先选择学校',
-        icon: 'none'
-      })
-      setTimeout(function () {
-        wx.navigateBack({
-          delta: 1
-        })
-      }, 1000);
-      return
-    }
+    // if (school == undefined || school.id == undefined || school.id == 0) {
+    //   wx.showToast({
+    //     title: '请先选择学校',
+    //     icon: 'none'
+    //   })
+    //   setTimeout(function () {
+    //     wx.navigateBack({
+    //       delta: 1
+    //     })
+    //   }, 1000);
+    //   return
+    // }
 
     this.setData({
       school: school,
@@ -401,7 +401,7 @@ Page({
       url: app.globalData.baseUrl + '/v1/order/build',
       data: {
         phone: this.data.userInfo.phone,
-        schoolId: this.data.school.id,
+        schoolId: 99999,
         addressId: this.data.currentAddressId,
         bookDatas: bookData,
         price: this.data.allPrice,

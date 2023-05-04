@@ -15,17 +15,17 @@
   </view>
 
   <view class="content1">
-    <view class="tip3-box">
+    <!-- <view class="tip3-box">
       <view class="tip3"></view>
       <view class="tip33">骑手/跑腿/租赁/陪玩/悬赏收益</view>
-    </view>
+    </view> -->
 
-    <view class="count1-box">
+    <!-- <view class="count1-box">
       <view class="count1">{{filters.toFix(userInfo.errandBalance)}}</view>
       <view class="count11">元</view>
-    </view>
+    </view> -->
 
-    <view class="tip3-box" style="margin-top:51rpx;">
+    <view class="tip3-box" style="margin-top:24rpx;">
       <view class="tip3"></view>
       <view class="tip33">卖书及推广收益</view>
     </view>
@@ -53,14 +53,14 @@
     <view class="diviler"></view>
 
     <view class="tip-box">
-      <view class="tip8">仅跑腿收益部分收取</view>
-      <view class="tip9">10%</view>
-      <view class="tip8">的技术服务费</view>
+      <view class="tip8">发起提现后预估提现打款时间为60分钟，财务工作时间为9:00-22:00</view>
+      <!-- <view class="tip9">10%</view>
+      <view class="tip8">的技术服务费</view> -->
     </view>
 
-     <view class="tip-box2">
-      <view class="tip8">提现优先从卖书及推广收益扣除</view>
-    </view>
+     <!-- <view class="tip-box2">
+      <view class="tip8">发起提现后预估提现打款时间为60分钟，财务工作时间为9:00-22:00</view>
+    </view> -->
 
     <view class="button" bindtap="commit">
        <image class="bg3" src="/assets/image-v2/newdrawal/bg1.png"></image>

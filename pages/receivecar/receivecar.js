@@ -20,7 +20,7 @@ Page({
     filterCarBookList: [],
     showDialogTip: false,
     totalCount: 0,
-    text: '7天快速审核到账 做书我们是认真的 （本校站长未入住也可以卖书噢～） 最少满18本或28元才可提交订单', //滚动文字
+    text: '为防止书籍搞丢弄错，请确保包裹打包完再交给快递员', //滚动文字
     duration: 0, //水平滚动方法一中文字滚动总时间
     pace: 1, //滚动速度
     posLeft1: 0, //水平滚动方法二中left值

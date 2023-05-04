@@ -13,7 +13,7 @@
       <view class="name" wx:if="{{wxUserInfo.nickName != ''}}">{{wxUserInfo.nickName}}</view>
       <view class="master" wx:if="{{wxUserInfo.nickName != '' && master.id != 0}}">({{master.name}}的站长)</view>
     </view>
-    <view class="login" bindtap="masterlogin" wx:if="{{master=='' || master.id == 0}}">站长登录</view>
+    <!-- <view class="login" bindtap="masterlogin" wx:if="{{master=='' || master.id == 0}}">站长登录</view> -->
   </view>
 
   <image src="../../assets/image-v2/newme/bg3.png" class="bg3">

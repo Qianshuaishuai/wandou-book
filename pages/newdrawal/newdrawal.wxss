@@ -99,7 +99,7 @@ page {
 .main .content1 {
   margin-left: 30rpx;
   margin-right: 30rpx;
-  height: 313rpx;
+  height: 240rpx;
   background: #fff;
   border-radius: 10rpx;
   margin-top: 68rpx;

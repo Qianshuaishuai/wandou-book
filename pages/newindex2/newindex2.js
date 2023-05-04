@@ -6,8 +6,9 @@ Page({
    * Page initial data
    */
   data: {
+    statusBarHeight: app.globalData.statusBarHeight,
     testList: ["", "", "", "", ""],
-    background: ['https://resource.qimsj.com/wandou_ad.png', 'http://resource.qimsj.com/3.png', 'http://resource.qimsj.com/1.png'],
+    background: ['https://resource.qimsj.com/wandou_ad_pe.jpg', 'http://resource.qimsj.com/3.png', 'http://resource.qimsj.com/1.png'],
     // background: ['https://resource.qimsj.com/wandou_ad.png'],
     indicatorDots: true,
     vertical: false,

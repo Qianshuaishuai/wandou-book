@@ -1,6 +1,6 @@
 <view class="top">
   <image src="../../assets/image-v2/discount/bg.png" class="bg"></image>
-  <view class="school-box" bindtap="goToSchool">
+  <!-- <view class="school-box" bindtap="goToSchool">
     <image src="../../assets/image-v2/newindex2/school.png" class="school"></image>
     <view class="tip" wx:if="{{school.id == 0 || school == ''}}">
       未选择学校
@@ -9,8 +9,11 @@
       {{school.name}}
     </view>
     <image src="../../assets/image-v2/newindex2/down.png" class="down"></image>
+  </view> -->
+  <!-- <view class="title">口袋收书</view> -->
+  <view class="tip" style="top:{{statusBarHeight+16}}px">
+    口袋收书
   </view>
-
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="ad-bg" indicator-color="rgba(29, 162, 252, 0.3)" indicator-active-color="rgba(20, 150, 249, 1)">
     <block wx:for="{{background}}" wx:key="*this" wx:for-index="index">
       <swiper-item>

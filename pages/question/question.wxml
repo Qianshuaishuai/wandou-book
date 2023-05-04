@@ -1,11 +1,11 @@
 <view class="list">
-  <view class="item" wx:for-index="idx" wx:for="{{helpdatas}}" >
+  <view class="item" wx:for-index="idx" wx:for="{{questionList}}" >
     <view class="content" bindtap="select" data-index="{{idx}}">
-      <view class="tip">{{item.tip}}</view>
+      <view class="tip">{{item.question}}</view>
       <image class="icon" src="/assets/images/next.png" wx:if="{{idx !== isSelect}}"></image>
       <image class="icon1" src="/assets/images/pull.png" wx:if="{{idx === isSelect}}"></image>
     </view>
-    <view class="detail" wx:if="{{idx === isSelect}}">{{item.detail}}</view>
+    <view class="detail" wx:if="{{idx === isSelect}}">{{item.answer}}</view>
     <view class="diviler"></view>
   </view>
 </view>
