@@ -25,7 +25,8 @@ Page({
     pace: 1, //滚动速度
     posLeft1: 0, //水平滚动方法二中left值
     posLeft2: 0, //水平滚动方法三中left值
-    marginLeft: 60 //水平滚动方法三中两条文本之间的间距
+    marginLeft: 60, //水平滚动方法三中两条文本之间的间距
+    userInfo:{}
   },
 
   bindinput(e) {
@@ -250,6 +251,19 @@ Page({
       return
     }
 
+    if (this.data.userInfo.phone == '') {
+      wx.showToast({
+        title: '请先绑定手机',
+        icon: 'none'
+      })
+      setTimeout(function () {
+        wx.navigateTo({
+          url: '/pages/masterregister/masterregister',
+        })
+      }, 500);
+    }
+
+
     wx.navigateTo({
       url: '/pages/receivecardetail/receivecardetail',
     })
@@ -345,7 +359,7 @@ Page({
 
   initFilterStatus() {
     this.setData({
-      currentFilterStatus: true
+      currentFilterStatus: false
     })
 
     if (this.data.currentFilterStatus) {
@@ -544,6 +558,11 @@ Page({
         carBookList: []
       })
     }
+
+    var userInfo = wx.getStorageSync('userInfo')
+    this.setData({
+      userInfo: userInfo
+    })
 
     this.initFilterStatus()
     this.translateAllPrice()

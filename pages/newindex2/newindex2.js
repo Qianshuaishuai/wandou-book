@@ -22,25 +22,25 @@ Page({
   },
 
   swiperClick(event) {
-    if (this.data.userInfo.phone == "") {
-      wx.showToast({
-        title: '请先绑定手机',
-        icon: 'none'
-      })
-      return
-    }
+    // if (this.data.userInfo.phone == "") {
+    //   wx.showToast({
+    //     title: '请先绑定手机',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
     var index = Number(event.currentTarget.dataset.index)
     var url = ""
     switch (index) {
       case 0:
-        url = '/pages/errandindex/errandindex'
+        url = '/pages/webview/webview?index=' +0
         break
       case 1:
         // url = '/pages/certrider/certrider'
         url= '/pages/webview/webview?index=' + 1
         break
       case 2:
-        url = '/pages/discount/discount'
+        url = '/pages/webview/webview?index=' + 2
         break
       default:
         url = '/pages/newcoupon/newcoupon'

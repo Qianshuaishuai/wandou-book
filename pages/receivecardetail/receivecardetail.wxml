@@ -148,13 +148,13 @@
         总价：{{allPrice}}元
       </view>
       <view class="income">
-        收入：{{filters.toFix(allPrice*0.7)}}~{{allPrice}}元
+        收入：{{allPrice}}元
       </view>
     </view>
   </view>
 
   <view class="box5">
-    说明：回收人员会在1~2个工作日上门收件，请保持 手机畅通确保联系您。
+    说明：请将书籍打包完成交给快递员。（快递员自己打包容易搞丢弄混）快递小哥将在您的预约时间内与您取得联系上门收件，请保持手机通畅。如书籍无发霉，缺页，盗版，上下册缺失的问题，您将获得全部预估回收价。
   </view>
 </view>
 

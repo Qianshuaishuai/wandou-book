@@ -96,7 +96,7 @@
     </view>
   </view>
 
-  <view class="util">
+  <!-- <view class="util">
     <view class="left">
       <view class="tip6">
         过滤低价书
@@ -105,7 +105,7 @@
     </view>
 
     <image src="{{currentFilterStatus?'../../assets/image-v2/receivecar/filter_pressed.png':'../../assets/image-v2/receivecar/filter_normal.png'}}" class="filter" bindtap="changeFilterStatus"></image>
-  </view>
+  </view> -->
 
   <view class="button-box">
     <view class="button" bindtap="singleScanCode">

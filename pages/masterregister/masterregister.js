@@ -238,7 +238,7 @@ Page({
       })
 
       wx.setClipboardData({
-        data: 'yuxiukeji',
+        data: 'koudaibook01',
         success: function(res) {
           wx.getClipboardData({
             success: function(res) {
